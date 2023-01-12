@@ -1,2 +1,5 @@
+Debug parse process (start at str_merge)
+
+
 make a parse function (using check_args, create_list, ... (=> function in list_functions_2))
 do checker

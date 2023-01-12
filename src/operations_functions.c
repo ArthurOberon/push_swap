@@ -6,11 +6,11 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 19:17:56 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/11 19:50:57 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/12 17:17:30 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 static void	ft_push(t_list **lst_from, t_list **lst_to)
 {

@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/11 19:53:09 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/12 17:19:04 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ t_list	*ft_lstdelone(t_list **lst);
 // |======= LIST_FUNCTIONS_2 =======|
 // |================================|
 
-void	ft_create_list(t_list **list, int argc, char **argv);
+// void	ft_create_list(t_list **list, int argc, char **argv);
 
 // |==========================|
 // |======= OPERATIONS =======|
@@ -89,6 +89,10 @@ void	ft_do_operation(char *str, t_list **lst_a, t_list **lst_b);
 // |======================|
 // |======= OTHERS =======|
 // |======================|
+
+int		ft_parse(char *str, t_list **lst);
+
+char	*ft_str_merge(char **str, int space, int size);
 
 //==========================================
 

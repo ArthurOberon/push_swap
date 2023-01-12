@@ -6,11 +6,11 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:34:24 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/11 18:40:56 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/12 17:03:06 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 t_list	*ft_lstdelone(t_list **lst)
 {
@@ -23,20 +23,6 @@ t_list	*ft_lstdelone(t_list **lst)
 	tmp_next = tmp_prev->next;
 	(*lst) = tmp_next;
 	return (*lst);
-}
-
-t_list	*ft_lstnew(int content)
-{
-	t_list	*newlist;
-
-	newlist = malloc(sizeof(t_list));
-	if (newlist)
-	{
-		newlist->value = content;
-		newlist->next = NULL;
-		newlist->prev = NULL;
-	}
-	return (newlist);
 }
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
@@ -56,6 +42,10 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	}
 	*lst = NULL;
 }
+
+//	|==========================|
+//	|===== USELESS...??? ===== |
+//	|==========================|
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
@@ -77,8 +67,8 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	tmp->next = new;
 }
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
-{
-	ft_lstadd_back(lst, new);
-	(*lst) = (*lst)->prev;
-}
+// void	ft_lstadd_front(t_list **lst, t_list *new)
+// {
+// 	ft_lstadd_back(lst, new);
+// 	(*lst) = (*lst)->prev;
+// }

@@ -6,11 +6,11 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:59:39 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/11 19:52:05 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/12 17:13:20 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 // void	ft_push_swap(t_list	lst_a, t_list lst_b)
 // {
@@ -20,6 +20,7 @@ int	main(int argc, char **argv)
 {
 	t_list	*lst_a;
 	t_list	*lst_b;
+	char	*str;
 
 	lst_a = NULL;
 	lst_b = NULL;
@@ -33,9 +34,11 @@ int	main(int argc, char **argv)
 	}
 	printf("ARGC = %d AND ARGV = \n", argc);
 	ft_print_tab(argv);
-	printf("=====create lst_a=====\n");
-	ft_create_list(&lst_a, argc, argv);
-	printf("=====print lst_a=====\n");
+	// printf("=====create lst_a=====\n");
+	// ft_create_list(&lst_a, argc, argv);
+	// printf("=====print lst_a=====\n");
+	str = ft_str_merge(argv + 1, 1, argc - 1);
+	ft_parse(str, &lst_a);
 	ft_print_list(&lst_a);
 	return (EXIT_SUCCESS);
 }

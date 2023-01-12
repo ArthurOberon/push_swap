@@ -6,11 +6,11 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 15:37:31 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/11 17:48:21 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/12 12:04:46 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"../include/push_swap.h"
+#include"push_swap.h"
 
 static size_t	ft_word_length(char *s, char c)
 {
