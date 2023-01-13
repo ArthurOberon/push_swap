@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:43:31 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/12 12:04:35 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/13 22:00:39 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	ft_print_list(t_list **lst)
 	t_list	*first;
 	t_list	*tmp;
 
+	if ((*lst) == NULL)
+		return ;
 	first = (*lst);
 	ft_putstr("START : \n");
 	printf("[prev]<-[tmp]->[next]\n");

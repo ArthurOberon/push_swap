@@ -6,24 +6,24 @@ CFLAGS = -Wall -Wextra -Werror
 SRC_DIR = src/
 OBJ_DIR = obj/
 
-PS_SRC =	ft_split.c \
-			push_swap.c \
+PS_SRC =	push_swap.c \
 			list_functions.c \
 			print_functions.c \
+			parse_functions.c \
 			useful_functions.c \
-			list_functions_2.c \
 			operations_functions.c \
+			\
 			temporary_functions.c \
 
 ## BECAREFUL -> TEMPORARY_FUNCITONS.C
 
 CHECKER_SRC =	checker.c \
-				ft_split.c \
 				list_functions.c \
+				parse_functions.c \
 				print_functions.c \
 				useful_functions.c \
-				list_functions_2.c \
 				operations_functions.c \
+				\
 				temporary_functions.c \
 
 PS_OBJ = ${PS_SRC:.c=.o}
@@ -34,26 +34,26 @@ $(addprefix $(OBJ_DIR), %.o) : $(SRC_DIR)%.c
 	@$(CC) $(CFLAGS) -I include/ -c -o $@ $^
 
 $(CHECKER): $(addprefix $(OBJ_DIR), $(CHECKER_OBJ))
-	@echo "Making checker..."
+	@echo "\e[36mMaking checker...\e[0m"
 	@$(CC) $(addprefix $(OBJ_DIR), $(CHECKER_OBJ)) -I include/ -o $(CHECKER)
-	@echo "Done !"
+	@echo "\e[32mDone !\e[0m"
 
 $(PUSH_SWAP): $(addprefix $(OBJ_DIR), $(PS_OBJ))
-	@echo "Making push_swap..."
+	@echo "\e[36mMaking push_swap...\e[0m"
 	@$(CC) $(addprefix $(OBJ_DIR), $(PS_OBJ)) -I include/ -o $(PUSH_SWAP)
-	@echo "Done !"
+	@echo "\e[32mDone !\e[0m"
 
 all: $(PUSH_SWAP) $(CHECKER)
 
 clean:
 	@rm -rf $(OBJ_DIR)
-	@echo "Object files removed."
+	@echo "\e[31mObject files removed.\e[0m"
 
 fclean:	clean
 	@rm -f $(PUSH_SWAP)
-	@echo "$(PUSH_SWAP) removed."
+	@echo "\e[31m$(PUSH_SWAP) removed.\e[0m"
 	@rm -f $(CHECKER)
-	@echo "$(CHECKER) removed."
+	@echo "\e[31m$(CHECKER) removed.\e[0m"
 
 re:		fclean all
 

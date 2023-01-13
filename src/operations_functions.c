@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 19:17:56 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/12 17:17:30 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/13 21:43:23 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	ft_push(t_list **lst_from, t_list **lst_to)
 {
 	t_list	*tmp;
 
-	tmp = ft_lstdelone(lst_from);
+	tmp = ft_lstmoveout(lst_from);
 	ft_lstadd_back(lst_to, tmp);
 }
 

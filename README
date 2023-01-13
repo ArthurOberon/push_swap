@@ -1,5 +1,3 @@
-Debug parse process (start at str_merge)
-
-
-make a parse function (using check_args, create_list, ... (=> function in list_functions_2))
-do checker
+do checker (start by reading stdin  with get_next_line -> then do operation (maybe print each action of operation and their result)).
+	
+Find out how to not use norminette on ont part of code with /**/ etc... (Do on temporary_functions)

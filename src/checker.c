@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:55:15 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/12 17:18:53 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/13 22:09:12 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int argc, char **argv)
 {
 	t_list	*lst_a;
 	t_list	*lst_b;
+	char	*str;
 
 	(void)argv;
 	lst_a = NULL;
@@ -29,5 +30,7 @@ int	main(int argc, char **argv)
 		ft_putstr("Error\n");
 		exit(EXIT_FAILURE);
 	}
-	// ft_create_list(&lst_a, argc, argv);
+	str = ft_str_merge(argv + 1, 1, argc - 1);
+	ft_parse(str, &lst_a);
+	return (0);
 }

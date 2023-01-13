@@ -6,13 +6,13 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:34:24 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/12 17:03:06 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/13 21:44:19 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstdelone(t_list **lst)
+t_list	*ft_lstmoveout(t_list **lst)
 {
 	t_list	*tmp_next;
 	t_list	*tmp_prev;
@@ -37,7 +37,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	while (tmp)
 	{
 		tmp2 = tmp2->next;
-		// ft_lstdelone(tmp);
+		free(tmp);
 		tmp = tmp2;
 	}
 	*lst = NULL;

@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:59:39 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/12 17:13:20 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/13 22:07:59 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ int	main(int argc, char **argv)
 		ft_putstr("./push_swap \"0 1 2\" or ./push_swap 0 1 2\n");
 		return (EXIT_FAILURE);
 	}
-	printf("ARGC = %d AND ARGV = \n", argc);
+	printf("ARGC = %d AND ARGV => \n", argc);
 	ft_print_tab(argv);
-	// printf("=====create lst_a=====\n");
-	// ft_create_list(&lst_a, argc, argv);
-	// printf("=====print lst_a=====\n");
-	str = ft_str_merge(argv + 1, 1, argc - 1);
+	printf("=====CREATE STR WITH ARGV=====\n");
+	str = ft_str_merge(argv, 1, argc - 1);
+	printf("=====PRINT STR=====\n");
+	printf("\"%s\"\n", str);
 	ft_parse(str, &lst_a);
 	ft_print_list(&lst_a);
 	return (EXIT_SUCCESS);
