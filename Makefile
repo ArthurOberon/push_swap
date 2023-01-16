@@ -26,24 +26,30 @@ CHECKER_SRC =	checker.c \
 				\
 				temporary_functions.c \
 
+GNL_SRC =		get_next_line.c \
+				get_next_line_utils.c \
+
 PS_OBJ = ${PS_SRC:.c=.o}
 CHECKER_OBJ = ${CHECKER_SRC:.c=.o}
+GNL_OBJ = ${GNL_SRC:.c=.o}
 
-$(addprefix $(OBJ_DIR), %.o) : $(SRC_DIR)%.c
+all: $(PUSH_SWAP)
+
+$(addprefix $(OBJ_DIR), %.o): $(SRC_DIR)%.c
 	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -I include/ -c -o $@ $^
-
-$(CHECKER): $(addprefix $(OBJ_DIR), $(CHECKER_OBJ))
-	@echo "\e[36mMaking checker...\e[0m"
-	@$(CC) $(addprefix $(OBJ_DIR), $(CHECKER_OBJ)) -I include/ -o $(CHECKER)
-	@echo "\e[32mDone !\e[0m"
 
 $(PUSH_SWAP): $(addprefix $(OBJ_DIR), $(PS_OBJ))
 	@echo "\e[36mMaking push_swap...\e[0m"
 	@$(CC) $(addprefix $(OBJ_DIR), $(PS_OBJ)) -I include/ -o $(PUSH_SWAP)
 	@echo "\e[32mDone !\e[0m"
 
-all: $(PUSH_SWAP) $(CHECKER)
+$(CHECKER): $(addprefix $(OBJ_DIR), $(CHECKER_OBJ)) $(addprefix $(OBJ_DIR), $(GNL_OBJ))
+	@echo "\e[36mMaking checker...\e[0m"
+	@$(CC) $(addprefix $(OBJ_DIR), $(CHECKER_OBJ)) $(addprefix $(OBJ_DIR), $(GNL_OBJ)) -I include/ -o $(CHECKER)
+	@echo "\e[32mDone !\e[0m"
+
+bonus: $(CHECKER)
 
 clean:
 	@rm -rf $(OBJ_DIR)
@@ -57,4 +63,4 @@ fclean:	clean
 
 re:		fclean all
 
-.PHONY = all clean fclean re
+.PHONY = all bonus clean fclean re
