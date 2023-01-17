@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:34:24 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/16 17:44:44 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/17 16:12:12 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,23 @@ t_list	*ft_lstmoveout(t_list **lst)
 
 void	ft_lstclear(t_list **lst)
 {
+	t_list	*first;
 	t_list	*tmp;
 	t_list	*tmp2;
 
 	if (!lst)
 		return ;
-	tmp = *lst;
-	tmp2 = *lst;
-	while (tmp)
+	first = (*lst);
+	tmp = first->next;
+	tmp2 = (*lst);
+	while (tmp != first)
 	{
+		printf("tmp = [%d] & tmp2 = [%d]\n", tmp->value, tmp2->value);
 		tmp2 = tmp2->next;
 		free(tmp);
 		tmp = tmp2;
 	}
+	free(tmp);
 	*lst = NULL;
 }
 
@@ -55,6 +59,7 @@ void	ft_lstclear_instruction(t_instruction **lst)
 	while (tmp)
 	{
 		tmp2 = tmp2->next;
+		free(tmp->operation);
 		free(tmp);
 		tmp = tmp2;
 	}

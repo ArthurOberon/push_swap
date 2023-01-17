@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:55:15 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/16 17:48:27 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/17 16:06:24 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,29 +24,37 @@ int	ft_is_equal(char *str_checking, char *str_checker)
 	while (str_checking[i] && str_checker[i])
 	{
 		if (str_checking[i] != str_checker[i])
-			return (1);
+			return (0);
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
 int	ft_check_instruction(t_instruction *lst)
 {
-	int	check;
-
-	check = 0;
-	check = ft_is_equal(lst->operation, "sa");
-	check = ft_is_equal(lst->operation, "sb");
-	check = ft_is_equal(lst->operation, "ss");
-	check = ft_is_equal(lst->operation, "pa");
-	check = ft_is_equal(lst->operation, "pb");
-	check = ft_is_equal(lst->operation, "ra");
-	check = ft_is_equal(lst->operation, "rb");
-	check = ft_is_equal(lst->operation, "rr");
-	check = ft_is_equal(lst->operation, "rra");
-	check = ft_is_equal(lst->operation, "rrb");
-	check = ft_is_equal(lst->operation, "rrr");
-	return (check);
+	if (ft_is_equal(lst->operation, "sa"))
+		return (1);
+	else if (ft_is_equal(lst->operation, "sb"))
+		return (1);
+	else if (ft_is_equal(lst->operation, "ss"))
+		return (1);
+	else if (ft_is_equal(lst->operation, "pa"))
+		return (1);
+	else if (ft_is_equal(lst->operation, "pb"))
+		return (1);
+	else if (ft_is_equal(lst->operation, "ra"))
+		return (1);
+	else if (ft_is_equal(lst->operation, "rb"))
+		return (1);
+	else if (ft_is_equal(lst->operation, "rr"))
+		return (1);
+	else if (ft_is_equal(lst->operation, "rra"))
+		return (1);
+	else if (ft_is_equal(lst->operation, "rrb"))
+		return (1);
+	else if (ft_is_equal(lst->operation, "rrr"))
+		return (1);
+	return (0);
 }
 
 t_instruction	*ft_create_list_instruction(void)
@@ -62,14 +70,15 @@ t_instruction	*ft_create_list_instruction(void)
 		tmp = ft_lstnew_instruction(line);
 		ft_print_new_element_instruction(tmp);
 		ft_lstadd_back_instruction(&lst_instruction, tmp);
-		free(line);
-		if (ft_check_instruction(tmp) == 1)
+		if (!ft_check_instruction(tmp))
 		{
+			printf("ERROR\n");
 			ft_lstclear_instruction(&lst_instruction);
 			return (NULL);
 		}
 		line = get_next_line(0);
 	}
+	free(line);
 	return (lst_instruction);
 }
 

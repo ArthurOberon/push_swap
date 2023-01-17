@@ -1,1 +1,2 @@
 do checker (fix error free on create list instruction part -> then do operation (maybe print each action of operation and their result)).
+(free error -> list circulaire)

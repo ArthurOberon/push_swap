@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:43:31 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/16 16:50:06 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/17 15:37:24 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,9 @@ void	ft_print_new_element(t_list *tmp)
 void	ft_print_new_element_instruction(t_instruction *tmp)
 {
 	printf("\n	===New element===\n	");
-	printf("	operation's tmp = \"%s\"\n	", tmp->operation);
-	printf("	address' tmp = [%p]\n	", tmp);
-	printf("	next's tmp = [%p]\n	", tmp->next);
+	printf("	operation's new = \"%s\"\n	", tmp->operation);
+	printf("	address' new = [%p]\n	", tmp);
+	printf("	next's new = [%p]\n	", tmp->next);
 	printf("	===New element END===\n\n");
 }
 /**/
