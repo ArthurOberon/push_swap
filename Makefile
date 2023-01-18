@@ -2,27 +2,29 @@ PUSH_SWAP = push_swap
 CHECKER = checker
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 SRC_DIR = src/
 OBJ_DIR = obj/
 
 PS_SRC =	push_swap.c \
-			list_functions.c \
 			print_functions.c \
 			parse_functions.c \
 			useful_functions.c \
 			operations_functions.c \
+			list_functions_piles.c \
 			\
 			temporary_functions.c \
 
 ## BECAREFUL -> TEMPORARY_FUNCITONS.C
 
 CHECKER_SRC =	checker.c \
-				list_functions.c \
 				parse_functions.c \
 				print_functions.c \
 				useful_functions.c \
+				list_functions_piles.c \
 				operations_functions.c \
+				list_functions_instructions.c \
+				list_create_functions_instructions.c \
 				\
 				temporary_functions.c \
 

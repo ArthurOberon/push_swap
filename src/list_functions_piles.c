@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_functions.c                                   :+:      :+:    :+:   */
+/*   list_functions_piles.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:34:24 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/17 16:12:12 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/18 16:40:58 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,56 +14,20 @@
 
 t_list	*ft_lstmoveout(t_list **lst)
 {
-	t_list	*tmp_next;
-	t_list	*tmp_prev;
-
-	tmp_next = (*lst)->next;
-	tmp_prev = (*lst)->prev;
-	tmp_prev = tmp_next->prev;
-	tmp_next = tmp_prev->next;
-	(*lst) = tmp_next;
-	return (*lst);
-}
-
-void	ft_lstclear(t_list **lst)
-{
-	t_list	*first;
 	t_list	*tmp;
-	t_list	*tmp2;
 
-	if (!lst)
-		return ;
-	first = (*lst);
-	tmp = first->next;
-	tmp2 = (*lst);
-	while (tmp != first)
-	{
-		printf("tmp = [%d] & tmp2 = [%d]\n", tmp->value, tmp2->value);
-		tmp2 = tmp2->next;
-		free(tmp);
-		tmp = tmp2;
-	}
-	free(tmp);
-	*lst = NULL;
-}
-
-void	ft_lstclear_instruction(t_instruction **lst)
-{
-	t_instruction	*tmp;
-	t_instruction	*tmp2;
-
-	if (!lst)
-		return ;
 	tmp = *lst;
-	tmp2 = *lst;
-	while (tmp)
+	if (tmp->next == tmp)
 	{
-		tmp2 = tmp2->next;
-		free(tmp->operation);
-		free(tmp);
-		tmp = tmp2;
+		*lst = NULL;
+		return (tmp);
 	}
-	*lst = NULL;
+	tmp->prev->next = tmp->next;
+	tmp->next->prev = tmp->prev;
+	*lst = tmp->next;
+	tmp->prev = tmp;
+	tmp->next = tmp;
+	return (tmp);
 }
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
@@ -86,35 +50,25 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	tmp->next = new;
 }
 
-t_instruction	*ft_lstnew_instruction(char *operation)
+void	ft_lstclear(t_list **lst)
 {
-	t_instruction	*newlist;
+	t_list	*first;
+	t_list	*tmp;
+	t_list	*tmp2;
 
-	newlist = malloc(sizeof(t_instruction));
-	if (newlist)
-	{
-		operation[ft_strlen(operation) - 1] = '\0';
-		newlist->operation = operation;
-		newlist->next = NULL;
-	}
-	return (newlist);
-}
-
-void	ft_lstadd_back_instruction(t_instruction **lst, t_instruction *new)
-{
-	t_instruction	*tmp;
-
-	if (!lst || !new)
+	if (!lst || !*lst)
 		return ;
-	if (!*lst)
+	first = (*lst);
+	tmp = first->next;
+	tmp2 = first->next;
+	while (tmp != first)
 	{
-		*lst = new;
-		return ;
+		tmp2 = tmp2->next;
+		free(tmp);
+		tmp = tmp2;
 	}
-	tmp = *lst;
-	while (tmp && tmp->next)
-		tmp = tmp->next;
-	tmp->next = new;
+	free(tmp);
+	*lst = NULL;
 }
 
 //	|==========================|
@@ -133,5 +87,5 @@ void	ft_lstadd_back_instruction(t_instruction **lst, t_instruction *new)
 // void	ft_lstadd_front(t_list **lst, t_list *new)
 // {
 // 	ft_lstadd_back(lst, new);
-// 	(*lst) = (*lst)->prev;
+// 	(*lst) = (*lst)->prev;	
 // }

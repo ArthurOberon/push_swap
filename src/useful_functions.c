@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:37:41 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/13 22:09:01 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/18 16:39:22 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,3 @@ char	*ft_str_merge(char **str, int space, int size)
 	}
 	return (result);
 }
-
-// void	ft_free_double_tab(char **tab)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (tab[i])
-// 		free(tab[i++]);
-// 	free(tab);
-// }

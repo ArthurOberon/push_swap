@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:43:31 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/17 15:37:24 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/18 15:03:05 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,46 @@ void	ft_print_tab(char **tab)
 	while (tab[++i])
 		printf("tab[%d] = \"%s\"\n", i, tab[i]);
 	printf("=====PRINT TAB FINISHED=====\n");
+}
+
+void	ft_print_list_one_line(t_list **lst)
+{
+	t_list	*first;
+	t_list	*tmp;
+		
+	if ((*lst) == NULL)
+		return ;
+	first = (*lst);
+	ft_putstr("=====PRINT_LIST ON ONE LINE=====\n");
+	printf("first : [%d]-->", first->value);
+	tmp = first->next;
+	while (tmp != first)
+	{
+		// printf("------ FIRST = [%d]\n ------", first->value);
+		printf("[%d]-->", tmp->value);
+		tmp = tmp->next;
+	}
+	printf(": last\n");
+	ft_putstr("======= END =======\n");
+}
+
+void	ft_print_list_instruction_one_line(t_instruction **lst)
+{
+	t_instruction	*tmp;
+		
+	if ((*lst) == NULL)
+		return ;
+	ft_putstr("=====PRINT_LIST_INSTRUCTION ON ONE LINE=====\n");
+	tmp = *lst;
+	printf("first :");
+	while (tmp)
+	{
+		// printf("------ FIRST = [%d]\n ------", first->operation);
+		printf("[%s]-->", tmp->operation);
+		tmp = tmp->next;
+	}
+	printf(": last\n");
+	ft_putstr("======= END =======\n");
 }
 
 void	ft_print_list(t_list **lst)
@@ -44,6 +84,7 @@ void	ft_print_list(t_list **lst)
 	while (tmp != first)
 	{
 		ft_putstr("\nNext : \n");
+		// printf("------ FIRST = [%d]\n ------", first->value);
 		printf("[prev]<-[tmp]->[next]\n");
 		printf("[%d]<---[%d]--->[%d]\n", tmp->prev->value, tmp->value, 
 			tmp->next->value);
@@ -97,4 +138,82 @@ void	ft_print_new_element_instruction(t_instruction *tmp)
 	printf("	next's new = [%p]\n	", tmp->next);
 	printf("	===New element END===\n\n");
 }
+
+int	ft_lstsize(t_list **lst)
+{
+	t_list	*first;
+	t_list	*tmp;
+	int		size;
+
+	if (!*lst)
+		return (0);
+	size = 1;
+	first = (*lst);
+	tmp = first->next;
+	while (tmp != first)
+	{
+		tmp = tmp->next;
+		size++;
+	}
+	// printf("------ SIZE = [%d] ------\n\n", size);
+	return (size);
+}
+
+void	ft_print_piles(char *str, t_list **lst_a, t_list **lst_b)
+{
+	t_list	*tmp_a;
+	int		size_a;
+	t_list	*tmp_b;
+	int		size_b;
+	int		i;
+	int		width;
+
+	i = 0;
+	width = 22;
+	size_a = ft_lstsize(lst_a);
+	size_b = ft_lstsize(lst_b);
+	tmp_a = *lst_a;
+	tmp_b = *lst_b;
+	printf("OPERATION : \"%s\"\n", str);
+	if (size_a >= size_b)
+	{
+		while (size_a != size_b)
+		{
+			printf("%*d\n", (width / 2), tmp_a->value);
+			tmp_a = tmp_a->next;
+			size_a--;
+		}
+		while (size_a && size_b)
+		{
+			printf("%*d%*d\n", (width / 2), tmp_a->value, width, tmp_b->value);
+			tmp_a = tmp_a->next;
+			tmp_b = tmp_b->next;
+			size_a--;
+			size_b--;
+		}
+	}
+	else
+	{
+		while (size_b != size_a)
+		{
+			printf("%*d\n", width + (width / 2), tmp_b->value);
+			tmp_b = tmp_b->next;
+			size_b--;
+		}
+		while (size_a && size_b)
+		{
+			printf("%*d%*d\n", (width / 2), tmp_a->value, width, tmp_b->value);
+			tmp_a = tmp_a->next;
+			tmp_b = tmp_b->next;
+			size_a--;
+			size_b--;
+		}
+	}
+	while (i++ < width * 2)
+		printf("_");
+	printf("\n");
+	printf("%*s%*s", (width / 2) + (width / 6), "STACK A", width + 1, "STACK B");
+	printf("\n\n");
+}
+
 /**/

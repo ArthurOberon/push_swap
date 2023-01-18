@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/17 15:17:58 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/18 15:48:21 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,19 +83,30 @@ void			ft_putstr(char	*s);
 
 size_t			ft_strlen(const char *s);
 
-// |==============================|
-// |======= LIST_FUNCTIONS =======|
-// |==============================|
+// |====================================|
+// |======= LIST_FUNCTIONS_PILES =======|
+// |====================================|
 
 void			ft_lstclear(t_list **lst);
 void			ft_lstadd_back(t_list **lst, t_list *new);
+
+t_list			*ft_lstmoveout(t_list **lst);
+
+// |===========================================|
+// |======= LIST_FUNCTIONS_INSTRUCTIONS =======|
+// |===========================================|
+
 void			ft_lstclear_instruction(t_instruction **lst);
 void			ft_lstadd_back_instruction(t_instruction **lst,
 					t_instruction *new);
 
-t_list			*ft_lstmoveout(t_list **lst);
-
 t_instruction	*ft_lstnew_instruction(char *operation);
+
+// |==================================================|
+// |======= LIST_CREATE_FUNCTIONS_INSTRUCTIONS =======|
+// |==================================================|
+
+t_instruction	*ft_create_list_instruction(void);
 
 // |================================|
 // |======= PARSE_FUNCTIONS ========|
@@ -114,7 +125,6 @@ void			ft_do_operation(char *str, t_list **lst_a, t_list **lst_b);
 // |======================|
 
 char			*get_next_line(int fd);
-// void	ft_free_double_tab(char **tab);
 
 //==========================================
 
@@ -125,7 +135,10 @@ char			*get_next_line(int fd);
 void			ft_print_tab(char **tab);
 void			ft_print_list(t_list **lst);
 void			ft_print_new_element(t_list *tmp);
+void			ft_print_list_one_line(t_list **lst);
 void			ft_print_list_instruction(t_instruction **lst);
 void			ft_print_new_element_instruction(t_instruction *tmp);
+void			ft_print_list_instruction_one_line(t_instruction **lst);
+void			ft_print_piles(char *str, t_list **lst_a, t_list **lst_b);
 
 #endif

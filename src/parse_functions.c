@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:40:36 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/13 22:01:11 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/18 16:47:44 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,14 +97,22 @@ int	ft_parse(char *str, t_list **lst)
 	i = 0;
 	while (ft_isspace(str[i]))
 		i++;
+	if (str[0] == ' ' || str[ft_strlen(str) - 1] == ' ')
+		return (-1);
 	while (str[i])
 	{
+		if (str[i] == ' ' && str[i + 1] == ' ')
+			return (-1);
 		if (!ft_isdigit(str[i]) && !ft_isspace(str[i])
 			&& str[i] != '+' && str[i] != '-')
 			return (-1);
 		i++;
 	}
 	if (!ft_split_atoi(str, lst, 1))
+	{
+		free(str);
 		return (-1);
+	}
+	free(str);
 	return (0);
 }
