@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:59:39 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/18 16:56:37 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/19 14:20:27 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 static void	ft_push_swap(t_list	**lst_a, t_list **lst_b,
 	t_instruction **lst_instruction)
 {
+	(void)lst_a;
+	(void)lst_b;
+	(void)lst_instruction;
 	return ;
 }
 
@@ -40,6 +43,6 @@ int	main(int argc, char **argv)
 		ft_putstr("Error\n");
 		return (1);
 	}
-	ft_push_swap(lst_a, lst_b, lst_instruction);
+	ft_push_swap(&lst_a, &lst_b, &lst_instruction);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:37:41 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/18 16:39:22 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/19 14:05:57 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_isdigit(int c)
 	return (0);
 }
 
-char	*ft_malloc_zero(size_t size)
+static char	*ft_malloc_zero(size_t size)
 {
 	size_t	i;
 	char	*ptr;
@@ -42,7 +42,7 @@ char	*ft_malloc_zero(size_t size)
 	return (ptr);
 }
 
-char	*ft_strcat(char *dst, char *src)
+static char	*ft_strcat(char *dst, char *src)
 {
 	size_t	i;
 	size_t	dst_length;

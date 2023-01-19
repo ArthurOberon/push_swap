@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/18 15:48:21 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/19 14:11:08 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,10 @@ char			**ft_split(char const *s, char c);
 int				ft_isdigit(int c);
 int				ft_isspace(char c);
 
-char			*ft_malloc_zero(size_t size);
-char			*ft_strcat(char *dst, char *src);
 char			*ft_str_merge(char **str, int space, int size);
+
+// char			*ft_malloc_zero(size_t size); --> static
+// char			*ft_strcat(char *dst, char *src); --> static
 
 // |===============================|
 // |======= PRINT_FUNCTIONS =======|
