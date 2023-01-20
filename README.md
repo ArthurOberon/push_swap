@@ -1,4 +1,4 @@
-[![Norminette](https://github.com/ArthurOberon/Push_swap/actions/workflows/norminette.yml/badge.svg)](https://github.com/ArthurOberon/Push_swap/actions/workflows/norminette.yml)	[![Makefile](https://github.com/ArthurOberon/Push_swap/actions/workflows/makefile.yml/badge.svg)](https://github.com/ArthurOberon/Push_swap/actions/workflows/makefile.yml)
+[![Norminette](https://github.com/ArthurOberon/Push_swap/actions/workflows/norminette.yml/badge.svg)](https://github.com/ArthurOberon/Push_swap/actions/workflows/norminette.yml) [![Makefile](https://github.com/ArthurOberon/Push_swap/actions/workflows/makefile.yml/badge.svg)](https://github.com/ArthurOberon/Push_swap/actions/workflows/makefile.yml)
 
 ---
 
