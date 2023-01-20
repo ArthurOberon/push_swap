@@ -1,7 +1,20 @@
 name: GitHub Actions Test
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
+
+
+
 jobs:
+
+  norminette:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: hanshazairi/42-norminette-action@v1.1.0
+        # optional #
+        with:
+          exclude-dir: './<directory-to-exclude>'
+        # optional #
 
   norminette_v3_job:
     runs-on: ubuntu-latest
@@ -9,7 +22,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: alexandregv/norminette-action@v3
-
+  
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
