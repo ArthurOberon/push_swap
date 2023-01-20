@@ -2,6 +2,50 @@
 
 [![Makefile](https://github.com/ArthurOberon/Push_swap/actions/workflows/makefile.yml/badge.svg)](https://github.com/ArthurOberon/Push_swap/actions/workflows/makefile.yml)
 
+---
+
+# Push\_swap
+
+Test : 
+* `patate` : pomme de terre
+* `coucou` : salut !
+
+## Smaller title
+
+### More Smaller title
+blablabla :
+```
+little piece of text... You can copy me ?
+```
+
+blobloblo
+```
+little but longer piece of text...................... And me ?
+```
+
+#### Smallest title for now
+...
+
+#### Same size as the previous one
+* point
+* another point
+* .
+
+### Compiling
+To compile push_swap
+```
+make all
+```
+
+To compile the checker
+```
+make bonus
+```
+
+
+## Author
+* **[Moi](https://github.com/ArthurOberon)**
+
 Start algo -> first find own way to do a algo -> then try maybe quicksort ->  then maybe trifusion -> etc...
 
 functions to :
