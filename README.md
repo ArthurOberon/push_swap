@@ -1,5 +1,7 @@
 [![Norminette](https://github.com/ArthurOberon/Push_swap/actions/workflows/norminette.yml/badge.svg)](https://github.com/ArthurOberon/Push_swap/actions/workflows/norminette.yml)
 
+[![Makefile](https://github.com/ArthurOberon/Push_swap/actions/workflows/makefile.yml/badge.svg)](https://github.com/ArthurOberon/Push_swap/actions/workflows/makefile.yml)
+
 Start algo -> first find own way to do a algo -> then try maybe quicksort ->  then maybe trifusion -> etc...
 
 functions to :
