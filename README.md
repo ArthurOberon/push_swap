@@ -13,4 +13,3 @@ functions to :
 -to move lst to push in the right place
 
 Do summary of all malloc variable to do a function to exit and free all in case of error ?
-
