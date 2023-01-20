@@ -10,5 +10,4 @@ functions to :
 
 Do summary of all malloc variable to do a function to exit and free all in case of error ?
 
-
-![](https://github.com/ArthurOberon/Push_swap/workflows/main.yml/badge.svg)
+[![Norminette](https://github.com/ArthurOberon/Push_swap/actions/workflows/norminette.yml/badge.svg)](https://github.com/ArthurOberon/Push_swap/actions/workflows/norminette.yml)
