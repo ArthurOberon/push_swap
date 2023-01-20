@@ -1,3 +1,5 @@
+[![Norminette](https://github.com/ArthurOberon/Push_swap/actions/workflows/norminette.yml/badge.svg)](https://github.com/ArthurOberon/Push_swap/actions/workflows/norminette.yml)
+
 Start algo -> first find own way to do a algo -> then try maybe quicksort ->  then maybe trifusion -> etc...
 
 functions to :
@@ -10,4 +12,3 @@ functions to :
 
 Do summary of all malloc variable to do a function to exit and free all in case of error ?
 
-[![Norminette](https://github.com/ArthurOberon/Push_swap/actions/workflows/norminette.yml/badge.svg)](https://github.com/ArthurOberon/Push_swap/actions/workflows/norminette.yml)
