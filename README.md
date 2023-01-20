@@ -4,45 +4,64 @@
 
 # Push\_swap
 
-Test : 
-* `patate` : pomme de terre
-* `coucou` : salut !
+This project is about sorting numbers with 2 stacks and only the following operations :
+* `sa`	: Swap A -> Swap the 2 first element at the top of stack A. Do nothing if there is only one or no elements.
+* `sb`	: Swap B -> Swap the 2 first element at the top of stack B. Do nothing if there is only one or no elements.
+* `ss`	: Swap A and B at the same time.
+* `pa`	: Push A -> Take the first element at the top of B and put it at the top of A. Do nothing if B is empty.
+* `pb`	: Push B -> Take the first element at the top of A and put it at the top of B. Do nothing if A is empty.
+* `ra`	: Rotate A -> Shift up all elements of stack A by 1. The first element becomes the last one.
+* `rb`	: Rotate B -> Shift up all elements of stack B by 1. The first element becomes the last one.
+* `rr`	: Rotate A and B at the same time.
+* `rra` : Reverse Rotate A -> Shift down all elements of stack A by 1. The last element becomes the first one
+* `rrb` : Reverse Rotate B -> Shift down all elements of stack B by 1. The last element becomes the first one
+* `rrr` : Reverse Rotate A and B at the same time.
 
-## Smaller title
+## Usage
 
-### More Smaller title
-blablabla :
+To generate a set of instructions for a set of number :
 ```
-little piece of text... You can copy me ?
+./push_swap 1 2 3
+```
+or
+```
+./push_swap "1 2 3"
 ```
 
-blobloblo
+To check if the set of instructions sort correctly :
 ```
-little but longer piece of text...................... And me ?
+./push_swap 1 2 3 | ./checker 1 2 3
 ```
 
-#### Smallest title for now
-...
-
-#### Same size as the previous one
-* point
-* another point
-* .
+To create a set of random numbers :
+```
+ruby -e "puts (-50..50).to_a.shuffle.join(' ')"`
+```
+### Example :
+```
+ARG=`ruby -e "puts (-50..50).to_a.shuffle.join(' ')"` ; ./push_swap $ARG | ./checker -v $ARG
+```
+On fish :
+```
+set ARG (ruby -e "puts (-50..50).to_a.shuffle.join(' ')") ; ./push_swap $ARG | ./checker $ARG
+```
 
 ### Compiling
-To compile push_swap
+To compile push_swap :
 ```
 make all
 ```
 
-To compile the checker
+To compile the checker :
 ```
 make bonus
 ```
 
 
 ## Author
-* **[Moi](https://github.com/ArthurOberon)**
+* **[Arthur Obéron](https://github.com/ArthurOberon)**
+
+---
 
 Start algo -> first find own way to do a algo -> then try maybe quicksort ->  then maybe trifusion -> etc...
 
