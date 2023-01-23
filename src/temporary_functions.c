@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:43:31 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/18 15:03:05 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/23 16:43:05 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,25 +139,7 @@ void	ft_print_new_element_instruction(t_instruction *tmp)
 	printf("	===New element END===\n\n");
 }
 
-int	ft_lstsize(t_list **lst)
-{
-	t_list	*first;
-	t_list	*tmp;
-	int		size;
 
-	if (!*lst)
-		return (0);
-	size = 1;
-	first = (*lst);
-	tmp = first->next;
-	while (tmp != first)
-	{
-		tmp = tmp->next;
-		size++;
-	}
-	// printf("------ SIZE = [%d] ------\n\n", size);
-	return (size);
-}
 
 void	ft_print_piles(char *str, t_list **lst_a, t_list **lst_b)
 {

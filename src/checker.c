@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:55:15 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/23 12:51:34 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/23 15:17:46 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int	main(int argc, char **argv)
 	t_instruction	*lst_instruction;
 	char			*str;
 
+	lst_a = NULL;
 	if (argc == 1)
 	{
 		ft_putstr("Error\n");

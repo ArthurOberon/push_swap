@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:34:24 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/18 16:40:58 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/23 16:43:15 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,25 @@ void	ft_lstclear(t_list **lst)
 	}
 	free(tmp);
 	*lst = NULL;
+}
+
+int	ft_lstsize(t_list **lst)
+{
+	t_list	*first;
+	t_list	*tmp;
+	int		size;
+
+	if (!*lst)
+		return (0);
+	size = 1;
+	first = (*lst);
+	tmp = first->next;
+	while (tmp != first)
+	{
+		tmp = tmp->next;
+		size++;
+	}
+	return (size);
 }
 
 //	|==========================|

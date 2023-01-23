@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/23 13:16:54 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/23 16:48:55 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ size_t			ft_strlen(const char *s);
 // |====================================|
 // |======= LIST_FUNCTIONS_PILES =======|
 // |====================================|
+
+int				ft_lstsize(t_list **lst);
 
 void			ft_lstclear(t_list **lst);
 void			ft_lstadd_back(t_list **lst, t_list *new);
