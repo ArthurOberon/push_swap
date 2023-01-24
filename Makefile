@@ -12,6 +12,8 @@ PS_SRC =	push_swap.c \
 			useful_functions.c \
 			operations_functions.c \
 			list_functions_piles.c \
+			list_order_functions.c \
+			list_sorting_functions.c \
 			list_functions_instructions.c \
 			\
 			temporary_functions.c \
