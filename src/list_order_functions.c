@@ -6,14 +6,13 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 14:06:43 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/24 14:15:51 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/24 19:21:07 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-static int	ft_found_value_max(t_list **lst, int lst_length)
+int	ft_found_value_max(t_list **lst, int lst_length)
 {
 	int		i;
 	int		value_max;
@@ -34,7 +33,7 @@ static int	ft_found_value_max(t_list **lst, int lst_length)
 	return (value_max);
 }
 
-static int	ft_found_value_min(t_list **lst, int lst_length)
+int	ft_found_value_min(t_list **lst, int lst_length)
 {
 	int		i;
 	int		value_min;
@@ -55,7 +54,7 @@ static int	ft_found_value_min(t_list **lst, int lst_length)
 	return (value_min);
 }
 
-static int	ft_is_ordering_ascending(t_list **tmp, int value_max, int value_min)
+static int	ft_is_in_order_ascending(t_list **tmp, int value_max, int value_min)
 {
 	if ((*tmp)->value == value_max && (*tmp)->next->value != value_min)
 	{
@@ -64,7 +63,6 @@ static int	ft_is_ordering_ascending(t_list **tmp, int value_max, int value_min)
 	}
 	else if ((*tmp)->value > (*tmp)->next->value && (*tmp)->value != value_max)
 	{
-		printf("TEST\n");
 		(*tmp) = (*tmp)->next;
 		return (0);
 	}
@@ -72,7 +70,7 @@ static int	ft_is_ordering_ascending(t_list **tmp, int value_max, int value_min)
 	return (1);
 }
 
-static int	ft_is_ordering_descending(t_list **tmp, int value_max,
+static int	ft_is_in_order_descending(t_list **tmp, int value_max,
 	int value_min)
 {
 	if ((*tmp)->value == value_min && (*tmp)->next->value != value_max)
@@ -89,7 +87,7 @@ static int	ft_is_ordering_descending(t_list **tmp, int value_max,
 	return (1);
 }
 
-int	ft_is_ordering(t_list **lst)
+int	ft_is_in_order(t_list **lst)
 {
 	int		value_min;
 	int		value_max;
@@ -104,7 +102,7 @@ int	ft_is_ordering(t_list **lst)
 	tmp = *lst;
 	while (++i < lst_length)
 	{
-		if (ft_is_ordering_ascending(&tmp, value_max, value_min) == 0)
+		if (ft_is_in_order_ascending(&tmp, value_max, value_min) == 0)
 			break ;
 	}
 	if (i == lst_length)
@@ -112,7 +110,7 @@ int	ft_is_ordering(t_list **lst)
 	i = 0;
 	while (++i < lst_length)
 	{
-		if (ft_is_ordering_descending(&tmp, value_max, value_min) == 0)
+		if (ft_is_in_order_descending(&tmp, value_max, value_min) == 0)
 			break ;
 	}
 	if (i == lst_length)

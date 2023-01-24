@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:55:15 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/23 15:17:46 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/24 18:37:27 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,9 @@ static int	ft_checker(t_list **lst_a, t_list **lst_b,
 	t_instruction	*tmp_instruction;
 
 	tmp_instruction = *lst_instruction;
-	ft_print_piles("START", lst_a, lst_b);
 	while (tmp_instruction)
 	{
 		ft_do_operation(tmp_instruction->operation, lst_a, lst_b);
-		ft_print_piles(tmp_instruction->operation, lst_a, lst_b);
 		tmp_instruction = tmp_instruction->next;
 	}
 	ft_lstclear_instruction(lst_instruction);
@@ -63,11 +61,9 @@ int	main(int argc, char **argv)
 	char			*str;
 
 	lst_a = NULL;
+	lst_b = NULL;
 	if (argc == 1)
-	{
-		ft_putstr("Error\n");
-		exit(EXIT_FAILURE);
-	}
+		return (ft_putstr("Error\n"), 1);
 	str = ft_str_merge(argv + 1, 1, argc - 1);
 	if (ft_parse(str, &lst_a) == -1)
 	{

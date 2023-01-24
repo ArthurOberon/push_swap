@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/24 14:07:55 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/24 17:02:29 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,14 +117,16 @@ t_instruction	*ft_create_list_instruction(void);
 // |======= LIST_SORTING_FUNCTIONS =======|
 // |======================================|
 
-void			ft_keep_ascending_number(t_list **lst_a, t_list **lst_b,
+void			ft_get_order(t_list **lst_a, t_list **lst_b,
 					t_instruction **lst_instruction, char lst_keeping);
 
 // |====================================|
 // |======= LIST_ORDER_FUNCTIONS =======|
 // |====================================|
 
-int				ft_is_ordering(t_list **lst);
+int				ft_is_in_order(t_list **lst);
+int				ft_found_value_max(t_list **lst, int lst_length);
+int				ft_found_value_min(t_list **lst, int lst_length);
 
 // |================================|
 // |======= PARSE_FUNCTIONS ========|

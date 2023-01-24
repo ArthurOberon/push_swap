@@ -63,7 +63,9 @@ make bonus
 
 ---
 
-Start algo -> first find own way to do a algo -> then try maybe quicksort ->  then maybe trifusion -> etc...
+*!!!! CHECK THE BOLD FIRST !!!!*
+
+Start algo -> first find own way to do a algo -> then try maybe quicksort -> etc...
 
 functions to :
 * read list ?
@@ -73,3 +75,47 @@ functions to :
 * to move lst to push in the right place
 
 Do summary of all malloc variable to do a function to exit and free all in case of error ?
+
+5 7 14 10 9 13 15 12 4 0 6 11 3 8 1 2
+
+
+6 8 11 4 12 10 14 3
+
+Ascending :
+* if next = max => push
+* if tmp < next => push
+* if tmp = min => go next
+
+Descending :
+* if next = min => push
+* if tmp > next => push
+* if tmp = max => go next
+
+=> Problems -> pushing tmp and not tmp next...
+? change next = X to prev = X ? :
+	Ascending :
+		* if tmp = max => go next
+		* if tmp = min => go next
+		* if prev = max => go next ---> without that it seems to work...
+		* if tmp = max and prev = min => push
+		* if prev > tmp => push
+	Descending :
+		* if tmp = max => go next
+		* if tmp = min => go next
+		* if prev = min => go next
+		* if tmp = min and prev = max => push
+		* if prev < tmp => push
+
+For now => Not working with some cases -> maybe when 3 or 4 numbers almost in
+ascending order -> sorting with sa 
+	=> after the sort -> if not in order -> sorting with sa/ra
+OR => do one more verification after check all the piles
+OR => **create function to find if prev is < and next > => push if not**
+**=> can try to do all the mouvement with this system**
+**push this number and then check the one which take the place pushed one**
+
+Problematics Numbers :
+1 2 6 4 0 5 7 3
+4 1 2 0 5 6 7 3
+3 2 5 7 0 6 4 1
+3 4 5 7 0 1 6 2

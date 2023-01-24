@@ -6,25 +6,69 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:59:39 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/24 14:21:56 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/24 19:39:45 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static void	ft_rotate_to_ascending(t_list **lst_a, t_list **lst_b,
+	t_instruction **lst_instruction, int order)
+{
+	t_list	*tmp;
+	int		lst_length;
+	int		value_min;
+
+	tmp = *lst_a;
+	lst_length = ft_lstsize(lst_a);
+	value_min = ft_found_value_min(lst_a, lst_length);
+	printf("ORDER = [%d]\n", order);
+	if (order == ASCENDING)
+	{
+		while (tmp->value != value_min)
+		{
+			ft_do_operation("ra", lst_a, lst_b);
+			ft_print_piles("ra", lst_a, lst_b);
+			tmp = *lst_a;
+		}
+	}
+	else if (order == DESCENDING)
+	{
+		while (tmp->value != value_min)
+		{
+			ft_do_operation("ra", lst_a, lst_b);
+			ft_print_piles("ra", lst_a, lst_b);
+			tmp = *lst_a;
+		}
+		printf("Do function to invert the all stack\n");
+	}
+}
+
 static void	ft_push_swap(t_list	**lst_a, t_list **lst_b,
 	t_instruction **lst_instruction)
 {
-	int	ordering;
+	int	order;
 
 	ft_print_piles("START", lst_a, lst_b);
-	ordering = ft_is_ordering(lst_a);
-	if (ordering != 0)
-		ft_rotate_to_ascending(ordering);
+	// FIRST PART -> GET ASCENDING STACK A
+	order = ft_is_in_order(lst_a);
+	if (order != 0)
+	{
+		ft_rotate_to_ascending(lst_a, lst_b, lst_instruction, order);
+	}
 	else
 	{
-		ft_keep_ascending_number(lst_a, lst_b, lst_instruction, 'A'); //add avoid => move when min->max | max->min
+		ft_get_order(lst_a, lst_b, lst_instruction, 'A');
+		printf("\n\n\nORDER FINISHED -> ROTATE IN ASCENDING\n\n\n");
+		ft_rotate_to_ascending(lst_a, lst_b, lst_instruction,
+			ft_is_in_order(lst_a));
 	}
+	// SECOND PART -> GET DESCENDING STACK B IN MULTIPLE PARTS
+	// order = ft_is_in_order(lst_b);
+	// if (order == DESCENDING)
+	// {
+		// printf("Do function to push all the b to a\n");
+	// }
 	return ;
 }
 
@@ -53,6 +97,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	printf("Let's go !\n");
+	printf("ORDER = [%d]\n", ft_is_in_order(&lst_a));
 	ft_push_swap(&lst_a, &lst_b, &lst_instruction);
 	return (0);
 }
