@@ -109,3 +109,4 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 
 
 **Maybe try to get B Ascendent and not Descendent... And try to create a function to push min B between max A and min A...**
+**!!!!! GET A ASCENDENT NOT WORKING AT ALL => RESET IT AND MAYBE AFTER EXECUTE THE FUNCTION CHECK IF IS ASCENDENT AND DO THE FUNCTION AGAIN IF NOT**
