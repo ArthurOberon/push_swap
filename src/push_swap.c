@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:59:39 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/24 19:39:45 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/25 11:50:26 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,15 @@ static void	ft_push_swap(t_list	**lst_a, t_list **lst_b,
 		ft_rotate_to_ascending(lst_a, lst_b, lst_instruction,
 			ft_is_in_order(lst_a));
 	}
+	printf("\n\n\nSTEP 2 !\n\n\n");
 	// SECOND PART -> GET DESCENDING STACK B IN MULTIPLE PARTS
-	// order = ft_is_in_order(lst_b);
-	// if (order == DESCENDING)
-	// {
-		// printf("Do function to push all the b to a\n");
-	// }
+	order = ft_is_in_order(lst_b);
+	if (order == DESCENDING)
+	{
+		printf("Do function to push all the b to a\n");
+	}
+	printf("\n\nSTEP 2 => B !\n\n");
+	ft_get_order(lst_a, lst_b, lst_instruction, 'B');
 	return ;
 }
 

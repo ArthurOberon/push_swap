@@ -82,29 +82,30 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 6 8 11 4 12 10 14 3
 
 Ascending :
-* if next = max => push
-* if tmp < next => push
-* if tmp = min => go next
+* next = max => push
+* tmp < next => push
+* tmp = min => go next
 
 Descending :
-* if next = min => push
-* if tmp > next => push
-* if tmp = max => go next
+* next = min => push
+* tmp > next => push
+* tmp = max => go next
 
 => Problems -> pushing tmp and not tmp next...
 ? change next = X to prev = X ? :
 	Ascending :
-* if tmp = max => go next
-* if tmp = min => go next
-* if prev = max => go next ---> without that it seems to work...
-* if tmp = max and prev = min => push
-* if prev > tmp => push
-	Descending :
-* if tmp = max => go next
-* if tmp = min => go next
-* if prev = min => go next
-* if tmp = min and prev = max => push
-* if prev < tmp => push
+* tmp = max => go next
+* tmp = min => go next
+* prev = max => go next ---> without that it seems to work...
+* tmp = max and prev = min => push
+* prev > tmp => push
+
+Descending :
+* tmp = max => go next
+* tmp = min => go next
+* prev = min => go next
+* tmp = min and prev = max => push
+* prev < tmp => push
 
 For now => Not working with some cases
 IDEAS for patch :
@@ -112,7 +113,7 @@ IDEAS for patch :
 * do one more verification after check all the piles
 * **create function to find if prev is < and next > => push if not**
 **=> can try to do all the mouvement with this system**
-**push this number and then check the one which take the place pushed one**
+**push this number and then check the one which take the place of the pushed one**
 
 Problematics Numbers :
 ```
