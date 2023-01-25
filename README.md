@@ -63,59 +63,17 @@ make bonus
 
 ---
 
-*!!!! CHECK THE BOLD FIRST !!!!*
-
-Start algo -> first find own way to do a algo -> then try maybe quicksort -> etc...
-
-functions to :
-* read list ?
-* compare element value and next (if > or <)
-* push if element > next
-* to push b->a in ascending order in a, ascending part to ascending part
-* to move lst to push in the right place
+*!!!! IF THERE, CHECK THE BOLD FIRST !!!!*
 
 Do summary of all malloc variable to do a function to exit and free all in case of error ?
 
+#### Problematics/Reference Numbers :
+```
 5 7 14 10 9 13 15 12 4 0 6 11 3 8 1 2
-
-
+```
+```
 6 8 11 4 12 10 14 3
-
-Ascending :
-* next = max => push
-* tmp < next => push
-* tmp = min => go next
-
-Descending :
-* next = min => push
-* tmp > next => push
-* tmp = max => go next
-
-=> Problems -> pushing tmp and not tmp next...
-? change next = X to prev = X ? :
-	Ascending :
-* tmp = max => go next
-* tmp = min => go next
-* prev = max => go next ---> without that it seems to work...
-* tmp = max and prev = min => push
-* prev > tmp => push
-
-Descending :
-* tmp = max => go next
-* tmp = min => go next
-* prev = min => go next
-* tmp = min and prev = max => push
-* prev < tmp => push
-
-For now => Not working with some cases
-IDEAS for patch :
-* after the sort -> if not in order -> sorting with sa/ra
-* do one more verification after check all the piles
-* **create function to find if prev is < and next > => push if not**
-**=> can try to do all the mouvement with this system**
-**push this number and then check the one which take the place of the pushed one**
-
-Problematics Numbers :
+```
 ```
 1 2 6 4 0 5 7 3
 ```
@@ -128,3 +86,26 @@ Problematics Numbers :
 ```
 3 4 5 7 0 1 6 2
 ```
+```
+4 0 5 2 7 6 1 3
+```
+```
+4 2 0 7 6 5 3 1
+```
+#### Problems with get A ascendent :
+```
+6 5 2 1 4 3 0 7
+```
+```
+4 7 6 3 5 1 2 0
+```
+
+#### If A : 7 4 5 AND B : 1 6 3 0 2 => Infinity loop because 1 is not > 7 or 4 or 5...
+
+
+## Ideas :
+* Create ft_check_evidence -> at the start, check for evident mouv (ex : 2 1 => sa : 1 2)
+* Create ft_found_place -> to get where is a precise number in the list and found if is better to do rra or ra to go to this one
+
+
+**Maybe try to get B Ascendent and not Descendent... And try to create a function to push min B between max A and min A...**

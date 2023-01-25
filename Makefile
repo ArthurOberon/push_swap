@@ -10,6 +10,8 @@ PS_SRC =	push_swap.c \
 			print_functions.c \
 			parse_functions.c \
 			useful_functions.c \
+			ascending_functions.c \
+			descending_functions.c \
 			operations_functions.c \
 			list_functions_piles.c \
 			list_order_functions.c \

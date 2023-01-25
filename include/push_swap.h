@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/24 17:02:29 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/25 17:30:06 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,23 @@ void			ft_get_order(t_list **lst_a, t_list **lst_b,
 int				ft_is_in_order(t_list **lst);
 int				ft_found_value_max(t_list **lst, int lst_length);
 int				ft_found_value_min(t_list **lst, int lst_length);
+
+// |===================================|
+// |======= ASCENDING_FUNCTIONS =======|
+// |===================================|
+
+void			ft_rotate_to_ascending(t_list **lst_a, t_list **lst_b,
+					t_instruction **lst_instruction, int order);
+
+void			ft_get_ascending_stack_a(t_list **lst_a, t_list **lst_b,
+					t_instruction **lst_instruction);
+
+// |====================================|
+// |======= DESCENDING_FUNCTIONS =======|
+// |====================================|
+
+void			ft_get_descending_stack_b(t_list **lst_a, t_list **lst_b,
+					t_instruction **lst_instruction);
 
 // |================================|
 // |======= PARSE_FUNCTIONS ========|
