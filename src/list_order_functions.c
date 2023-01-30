@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 11:48:12 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/30 14:56:28 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/30 17:05:42 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	*ft_get_ascendent_sequence(t_list **lst)
 		}
 		tmp = tmp->next;
 	}
-	return (coordonate);
+	return (*coordonate);
 }
 
 int	ft_get_stack_info(t_list **lst)

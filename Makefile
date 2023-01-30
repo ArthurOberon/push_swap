@@ -6,37 +6,36 @@ CFLAGS = -g
 SRC_DIR = src/
 OBJ_DIR = obj/
 
-PS_SRC =	push_swap.c \
-			print_functions.c \
-			parse_functions.c \
-			useful_functions.c \
-			operations_functions.c \
-			list_functions_piles.c \
-			preset_move_functions.c \
-			list_sorting_functions.c \
-			list_functions_instructions.c \
-			\
-			temporary_functions.c \
 
-## BECAREFUL -> TEMPORARY_FUNCITONS.C
-
-CHECKER_SRC =	checker.c \
+COMMON_SRC = 	print_functions.c \
 				parse_functions.c \
-				print_functions.c \
 				useful_functions.c \
-				list_functions_piles.c \
 				operations_functions.c \
+				list_functions_piles.c \
+				operations_functions_2.c \
 				list_functions_instructions.c \
-				list_create_functions_instructions.c \
 				\
 				temporary_functions.c \
+
+## BECAREFUL -> TEMPORARY_FUNCTIONS.C
+
+PS_SRC =	push_swap.c \
+			list_order_functions.c \
+
+#preset_move_functions.c \
+
+CHECKER_SRC =	checker.c \
+				list_create_functions_instructions.c \
 
 GNL_SRC =		get_next_line.c \
 				get_next_line_utils.c \
 
-PS_OBJ = ${PS_SRC:.c=.o}
-CHECKER_OBJ = ${CHECKER_SRC:.c=.o}
-GNL_OBJ = ${GNL_SRC:.c=.o}
+PS_SRCS = ${COMMON_SRC} ${PS_SRC}
+CHECKER_SRCS = ${COMMON_SRC} ${CHECKER_SRC} ${GNL_SRC}
+
+PS_OBJ = ${PS_SRCS:.c=.o}
+CHECKER_OBJ = ${CHECKER_SRCS:.c=.o}
+OBJ = ${SRCS:.c=.o}
 
 
 
@@ -51,9 +50,9 @@ $(PUSH_SWAP): $(addprefix $(OBJ_DIR), $(PS_OBJ))
 	@$(CC) $(addprefix $(OBJ_DIR), $(PS_OBJ)) -I include/ -o $(PUSH_SWAP)
 	@echo "\e[32mDone !\e[0m"
 
-$(CHECKER): $(addprefix $(OBJ_DIR), $(CHECKER_OBJ)) $(addprefix $(OBJ_DIR), $(GNL_OBJ))
+$(CHECKER): $(addprefix $(OBJ_DIR), $(CHECKER_OBJ))
 	@echo "\e[36mMaking checker...\e[0m"
-	@$(CC) $(addprefix $(OBJ_DIR), $(CHECKER_OBJ)) $(addprefix $(OBJ_DIR), $(GNL_OBJ)) -I include/ -o $(CHECKER)
+	@$(CC) $(addprefix $(OBJ_DIR), $(CHECKER_OBJ)) -I include/ -o $(CHECKER)
 	@echo "\e[32mDone !\e[0m"
 
 bonus: $(CHECKER)
