@@ -7,25 +7,25 @@ SRC_DIR = src/
 OBJ_DIR = obj/
 
 
-COMMON_SRC = 	print_functions.c \
-				parse_functions.c \
-				useful_functions.c \
-				operations_functions.c \
-				list_functions_piles.c \
-				operations_functions_2.c \
-				list_functions_instructions.c \
+COMMON_SRC = 	utils.c \
+				operations.c \
+				operations_2.c \
+				print_functions.c \
+				parse.c \
+				list_piles.c \
+				list_instructions.c \
 				\
-				temporary_functions.c \
+				temporary.c \
 
-## BECAREFUL -> TEMPORARY_FUNCTIONS.C
+## BECAREFUL -> TEMPORARY.C
 
 PS_SRC =	push_swap.c \
-			list_order_functions.c \
+			list_order.c \
 
 #preset_move_functions.c \
 
 CHECKER_SRC =	checker.c \
-				list_create_functions_instructions.c \
+				list_create_instructions.c \
 
 GNL_SRC =		get_next_line.c \
 				get_next_line_utils.c \
