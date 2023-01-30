@@ -6,12 +6,13 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 11:48:12 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/30 12:45:09 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/30 14:56:28 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// pas fini
 int	*ft_get_ascendent_sequence(t_list **lst)
 {
 	int		*coordonate[2];

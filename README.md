@@ -92,7 +92,6 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 ```
 4 2 0 7 6 5 3 1
 ```
-#### Problems with get A ascendent :
 ```
 6 5 2 1 4 3 0 7
 ```
@@ -100,21 +99,27 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 4 7 6 3 5 1 2 0
 ```
 
-#### If A : 7 4 5 AND B : 1 6 3 0 2 => Infinity loop because 1 is not > 7 or 4 or 5...
-
 # ERROR !
 RESTART :
-* Do all move for 3 elements
+* Create Index by copy the list in a tab and use sort_int_tab
 * Check the list to find the biggest ascendant sequence's coordonate
-*	Push all the top part
+*	Push all the top part but keep the min
 *	Move to the bottom part
-*	Push all the bottom part
-* Then...?
-=> **Not Even Good...**
-* Then do the same thing on B by little parts ???
-* Push part by part on A
+*	Push all the bottom part but keep the max
+* 	Calcul the number of mouv and do the min one -> non stop to the end
 
 ## Ideas :
-* Create ft_check -> check if 3 or less element, if swappable numbers, if ... OR do a function for each check.
+* Create ft_check -> check if 3 or less element, if swappable numbers, if ... OR do a function for each check. Yes for A, Not for B
 * Create ft_check_evidence -> at the start, check for evident mouv (ex : 2 1 => sa : 1 2)
 * Create ft_found_place -> to get where is a precise number in the list and found if is better to do rra or ra to go to this one
+* Create ft_no_lo_se -> calcul number of mouv to place on X first number
+*	Calcul mouv and write in tmp list_instruction
+*	Reverse the list to get back at the start
+*	if smaller write in tmp_smaller list_instruction
+*	else delete list
+*	restart while i != X
+
+#### FT_NO_LO_SE
+* if index between first and second => pa sa
+* if index bigger than last => pa ra
+* else find if rra or ra to rotate the list
