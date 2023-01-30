@@ -10,11 +10,9 @@ PS_SRC =	push_swap.c \
 			print_functions.c \
 			parse_functions.c \
 			useful_functions.c \
-			ascending_functions.c \
-			descending_functions.c \
 			operations_functions.c \
 			list_functions_piles.c \
-			list_order_functions.c \
+			preset_move_functions.c \
 			list_sorting_functions.c \
 			list_functions_instructions.c \
 			\
@@ -39,6 +37,8 @@ GNL_SRC =		get_next_line.c \
 PS_OBJ = ${PS_SRC:.c=.o}
 CHECKER_OBJ = ${CHECKER_SRC:.c=.o}
 GNL_OBJ = ${GNL_SRC:.c=.o}
+
+
 
 all: $(PUSH_SWAP)
 

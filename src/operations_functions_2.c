@@ -1,42 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_order_functions.c                             :+:      :+:    :+:   */
+/*   operations_functions_2.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/30 11:48:12 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/30 12:45:09 by aoberon          ###   ########.fr       */
+/*   Created: 2023/01/30 10:45:19 by aoberon           #+#    #+#             */
+/*   Updated: 2023/01/30 10:55:59 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*ft_get_ascendent_sequence(t_list **lst)
+void	ft_move(char *operation, t_list **lst_a, t_list **lst_b,
+	t_instruction **lst_instruction)
 {
-	int		*coordonate[2];
-	t_list	*last;
-	t_list	*tmp;
-
-	coordonate[0] = 0;
-	coordonate[1] = 0;
-	last = (*lst)->prev;
-	tmp = last->next;
-	while (tmp != last)
-	{
-		if (tmp->value > tmp->next->value)
-			coordonate[1]++;
-		else
-		{
-			coordonate[0] = coordonate[1];
-			coordonate[1] = 0;
-		}
-		tmp = tmp->next;
-	}
-	return (coordonate);
-}
-
-int	ft_get_stack_info(t_list **lst)
-{
-	return (0);
+	ft_do_operation(operation, lst_a, lst_b);
+	ft_print_piles(operation, lst_a, lst_b);
+	// ft_add_instruction(operation, lst_instruction);
 }

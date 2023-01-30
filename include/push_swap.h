@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/25 17:30:06 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/30 11:00:09 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,21 @@ typedef struct s_piles
 // 	rrr
 // };
 
-// |==================================|
-// |======= ONE FILE FUNCTIONS =======|
-// |==================================|
+// |======================|
+// |======= OTHERS =======|
+// |======================|
 
-char			**ft_split(char const *s, char c);
+char			*get_next_line(int fd);
+
+// |===============================|
+// |======= PRINT_FUNCTIONS =======|
+// |===============================|
+
+void			ft_putnbr(int nb);
+void			ft_putchar(char c);
+void			ft_putstr(char	*s);
+
+size_t			ft_strlen(const char *s);
 
 // |================================|
 // |======= USEFUL_FUNCTIONS =======|
@@ -76,15 +86,11 @@ char			*ft_str_merge(char **str, int space, int size);
 // char			*ft_malloc_zero(size_t size); --> static
 // char			*ft_strcat(char *dst, char *src); --> static
 
-// |===============================|
-// |======= PRINT_FUNCTIONS =======|
-// |===============================|
+// |================================|
+// |======= PARSE_FUNCTIONS ========|
+// |================================|
 
-void			ft_putnbr(int nb);
-void			ft_putchar(char c);
-void			ft_putstr(char	*s);
-
-size_t			ft_strlen(const char *s);
+int				ft_parse(char *str, t_list **lst);
 
 // |====================================|
 // |======= LIST_FUNCTIONS_PILES =======|
@@ -97,29 +103,6 @@ void			ft_lstadd_back(t_list **lst, t_list *new);
 
 t_list			*ft_lstmoveout(t_list **lst);
 
-// |===========================================|
-// |======= LIST_FUNCTIONS_INSTRUCTIONS =======|
-// |===========================================|
-
-void			ft_lstclear_instruction(t_instruction **lst);
-void			ft_lstadd_back_instruction(t_instruction **lst,
-					t_instruction *new);
-
-t_instruction	*ft_lstnew_instruction(char *operation);
-
-// |==================================================|
-// |======= LIST_CREATE_FUNCTIONS_INSTRUCTIONS =======|
-// |==================================================|
-
-t_instruction	*ft_create_list_instruction(void);
-
-// |======================================|
-// |======= LIST_SORTING_FUNCTIONS =======|
-// |======================================|
-
-void			ft_get_order(t_list **lst_a, t_list **lst_b,
-					t_instruction **lst_instruction, char lst_keeping);
-
 // |====================================|
 // |======= LIST_ORDER_FUNCTIONS =======|
 // |====================================|
@@ -128,40 +111,43 @@ int				ft_is_in_order(t_list **lst);
 int				ft_found_value_max(t_list **lst, int lst_length);
 int				ft_found_value_min(t_list **lst, int lst_length);
 
-// |===================================|
-// |======= ASCENDING_FUNCTIONS =======|
-// |===================================|
-
-void			ft_rotate_to_ascending(t_list **lst_a, t_list **lst_b,
-					t_instruction **lst_instruction, int order);
-
-void			ft_get_ascending_stack_a(t_list **lst_a, t_list **lst_b,
-					t_instruction **lst_instruction);
-
 // |====================================|
-// |======= DESCENDING_FUNCTIONS =======|
+// |======= OPERATIONS_FUNCTIONS =======|
 // |====================================|
-
-void			ft_get_descending_stack_b(t_list **lst_a, t_list **lst_b,
-					t_instruction **lst_instruction);
-
-// |================================|
-// |======= PARSE_FUNCTIONS ========|
-// |================================|
-
-int				ft_parse(char *str, t_list **lst);
-
-// |==========================|
-// |======= OPERATIONS =======|
-// |==========================|
 
 void			ft_do_operation(char *str, t_list **lst_a, t_list **lst_b);
 
-// |======================|
-// |======= OTHERS =======|
-// |======================|
+// |======================================|
+// |======= OPERATIONS_FUNCTIONS_2 =======|
+// |======================================|
 
-char			*get_next_line(int fd);
+void			ft_move(char *operation, t_list **lst_a, t_list **lst_b,
+					t_instruction **lst_instruction);
+
+// |======================================|
+// |======= LIST_SORTING_FUNCTIONS =======|
+// |======================================|
+
+void			ft_get_order(t_list **lst_a, t_list **lst_b,
+					t_instruction **lst_instruction, char lst_keeping);
+
+// |===========================================|
+// |======= LIST_FUNCTIONS_INSTRUCTIONS =======|
+// |===========================================|
+
+void			ft_lstclear_instruction(t_instruction **lst);
+void			ft_lstadd_back_instruction(t_instruction **lst,
+					t_instruction *new);
+void			ft_add_instruction(char *operation,
+					t_instruction **lst_instruction);
+
+t_instruction	*ft_lstnew_instruction(char *operation);
+
+// |==================================================|
+// |======= LIST_CREATE_FUNCTIONS_INSTRUCTIONS =======|
+// |==================================================|
+
+t_instruction	*ft_create_list_instruction(void);
 
 //==========================================
 
