@@ -101,7 +101,7 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 
 # ERROR !
 RESTART :
-* Create Index by copy the list in a tab and use sort_int_tab	:heavy_check_mark:
+* Create Index by copy the list in a tab and use sort_int_tab	|	:heavy_check_mark:
 * Check the list to find the biggest ascendant sequence's coordonate
 *	Push all the top part but keep the min
 *	Move to the bottom part
