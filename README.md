@@ -131,3 +131,6 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 - [ ] Create ft_check_evidence -> at the start, check for evident mouv (ex : 2 1 => sa : 1 2)
 - [ ] Create ft_found_place -> to get where is a precise number in the list and found if is better to do rra or ra to go to this one
 
+# Currents Problems
+- can't return tab [2] of t_list pointer... Maybe not give the right type to the function or the tab
+- ft_get_ascendent_sequence has 1 extra line

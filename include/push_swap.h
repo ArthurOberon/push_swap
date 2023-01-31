@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/31 12:17:43 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/31 16:05:08 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,12 +106,22 @@ void			ft_do_operation(char *str, t_list **lst_a, t_list **lst_b);
 void			ft_move(char *operation, t_list **lst_a, t_list **lst_b,
 					t_instruction **lst_instruction);
 
+
 // |==========================|
 // |======= LIST_ORDER =======|
 // |==========================|
 
 void			ft_get_order(t_list **lst_a, t_list **lst_b,
 					t_instruction **lst_instruction);
+
+// |===========================|
+// |======= ORDER_UTILS =======|
+// |===========================|
+
+int				ft_calcul_gap(t_list *start_a, t_list *end_a,
+					t_list *start_b, t_list *end_b);
+
+void			ft_go_to_element(t_list **start, t_list *end);
 
 // |=================================|
 // |======= LIST_INSTRUCTIONS =======|

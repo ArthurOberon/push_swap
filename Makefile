@@ -8,21 +8,22 @@ OBJ_DIR = obj/
 
 
 COMMON_SRC = 	utils.c \
-				index.c \
+				parse.c \
 				merge_str.c \
 				operations.c \
+				list_piles.c \
 				print_functions.c \
 				operations_utils.c \
-				parse.c \
-				list_piles.c \
 				list_instructions.c \
 				\
 				temporary.c \
 
 ## BECAREFUL -> TEMPORARY.C
 
-PS_SRC =	push_swap.c \
+PS_SRC =	index.c \
+			push_swap.c \
 			list_order.c \
+			order_utils.c \
 
 #preset_move_functions.c \
 
