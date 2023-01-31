@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 14:06:43 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/24 19:21:07 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/31 10:31:29 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ int	ft_is_in_order(t_list **lst)
 			break ;
 	}
 	if (i == lst_length)
-		return (ASCENDING);
+		return (2);
 	i = 0;
 	while (++i < lst_length)
 	{
@@ -114,6 +114,6 @@ int	ft_is_in_order(t_list **lst)
 			break ;
 	}
 	if (i == lst_length)
-		return (DESCENDING);
+		return (3);
 	return (0);
 }

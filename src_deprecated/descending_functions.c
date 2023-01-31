@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 17:26:25 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/25 21:06:45 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/31 10:31:26 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_rotate_to_descending(t_list **lst_a, t_list **lst_b,
 	tmp = *lst_b;
 	lst_length = ft_lstsize(lst_b);
 	value_max = ft_found_value_max(lst_b, lst_length);
-	if (order == ASCENDING)
+	if (order == 2)
 	{
 		while (tmp->value != value_max)
 		{
@@ -31,7 +31,7 @@ void	ft_rotate_to_descending(t_list **lst_a, t_list **lst_b,
 			tmp = *lst_b;
 		}
 	}
-	else if (order == DESCENDING)
+	else if (order == 3)
 	{
 		while (tmp->value != value_max)
 		{

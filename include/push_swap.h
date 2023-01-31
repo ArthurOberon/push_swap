@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/30 11:00:09 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/31 11:32:46 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
-# define ASCENDING 2
-# define DESCENDING 3
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -28,6 +26,7 @@ typedef struct s_list
 	struct s_list	*next;
 	struct s_list	*prev;
 	int				value;
+	int				index;
 }	t_list;
 
 typedef struct s_instruction
@@ -42,27 +41,30 @@ typedef struct s_piles
 	t_list	**pile_b;
 }	t_piles;
 
-// USELESS ?
-// enum e_operation
-// {
-// 	pa,
-// 	pb,
-// 	sa,
-// 	sb,
-// 	ss,
-// 	ra,
-// 	rb,
-// 	rr,
-// 	rra,
-// 	rrb,
-// 	rrr
-// };
+// |=====================|
+// |======= UTILS =======|
+// |=====================|
+
+int				ft_isdigit(int c);
+int				ft_isspace(char c);
+
+// |=====================|
+// |======= INDEX =======|
+// |=====================|
+
+void			ft_init_index(t_list **lst);
 
 // |======================|
 // |======= OTHERS =======|
 // |======================|
 
 char			*get_next_line(int fd);
+
+// |=========================|
+// |======= MERGE_STR =======|
+// |=========================|
+
+char			*ft_str_merge(char **str, int space, int size);
 
 // |===============================|
 // |======= PRINT_FUNCTIONS =======|
@@ -73,18 +75,6 @@ void			ft_putchar(char c);
 void			ft_putstr(char	*s);
 
 size_t			ft_strlen(const char *s);
-
-// |================================|
-// |======= USEFUL_FUNCTIONS =======|
-// |================================|
-
-int				ft_isdigit(int c);
-int				ft_isspace(char c);
-
-char			*ft_str_merge(char **str, int space, int size);
-
-// char			*ft_malloc_zero(size_t size); --> static
-// char			*ft_strcat(char *dst, char *src); --> static
 
 // |================================|
 // |======= PARSE_FUNCTIONS ========|
@@ -158,6 +148,7 @@ t_instruction	*ft_create_list_instruction(void);
 void			ft_print_tab(char **tab);
 void			ft_print_list(t_list **lst);
 void			ft_print_new_element(t_list *tmp);
+void			ft_print_tab_int(int *tab, int size);
 void			ft_print_list_one_line(t_list **lst);
 void			ft_print_list_instruction(t_instruction **lst);
 void			ft_print_new_element_instruction(t_instruction *tmp);

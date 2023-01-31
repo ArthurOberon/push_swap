@@ -8,9 +8,11 @@ OBJ_DIR = obj/
 
 
 COMMON_SRC = 	utils.c \
+				index.c \
+				merge_str.c \
 				operations.c \
-				operations_2.c \
 				print_functions.c \
+				operations_utils.c \
 				parse.c \
 				list_piles.c \
 				list_instructions.c \

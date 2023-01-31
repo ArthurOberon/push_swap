@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   temporary_functions.c                              :+:      :+:    :+:   */
+/*   temporary.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:43:31 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/23 16:43:05 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/31 11:30:22 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*\*/
 
 #include "push_swap.h"
+
+void	ft_print_tab_int(int *tab, int size)
+{
+	int	i;
+
+	i = -1;
+	printf("=====PRINT TAB INT=====\n");
+	while (++i < size)
+		printf("tab[%d] = [%d]\n", i, tab[i]);
+	printf("=====PRINT TAB INT FINISHED=====\n");
+}
 
 void	ft_print_tab(char **tab)
 {
@@ -161,13 +172,14 @@ void	ft_print_piles(char *str, t_list **lst_a, t_list **lst_b)
 	{
 		while (size_a != size_b)
 		{
-			printf("%*d\n", (width / 2), tmp_a->value);
+			printf("%*d [%d]\n", (width / 2), tmp_a->value,tmp_a->index);
 			tmp_a = tmp_a->next;
 			size_a--;
 		}
 		while (size_a && size_b)
 		{
-			printf("%*d%*d\n", (width / 2), tmp_a->value, width, tmp_b->value);
+			printf("%*d [%d]%*d [%d]\n", (width / 2), tmp_a->value,
+				tmp_a->index, width - (width / 6), tmp_b->value, tmp_b->index);
 			tmp_a = tmp_a->next;
 			tmp_b = tmp_b->next;
 			size_a--;
@@ -178,13 +190,14 @@ void	ft_print_piles(char *str, t_list **lst_a, t_list **lst_b)
 	{
 		while (size_b != size_a)
 		{
-			printf("%*d\n", width + (width / 2), tmp_b->value);
+			printf("%*d [%d]\n", (width / 2), tmp_b->value,tmp_b->index);
 			tmp_b = tmp_b->next;
 			size_b--;
 		}
 		while (size_a && size_b)
 		{
-			printf("%*d%*d\n", (width / 2), tmp_a->value, width, tmp_b->value);
+			printf("%*d [%d]%*d [%d]\n", (width / 2), tmp_a->value,
+				tmp_a->index, width - (width / 6), tmp_b->value, tmp_b->index);
 			tmp_a = tmp_a->next;
 			tmp_b = tmp_b->next;
 			size_a--;

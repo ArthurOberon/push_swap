@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:59:39 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/25 21:19:00 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/31 10:31:32 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ static void	ft_push_swap(t_list	**lst_a, t_list **lst_b,
 	}
 	printf("\n\n\nSTEP 2 !\n\n\n");
 	order = ft_is_in_order(lst_b);
-	if (order == DESCENDING)
+	if (order == 3)
 	{
 		printf("Do function to push all the b to a\n");
 	}

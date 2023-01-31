@@ -6,11 +6,18 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 09:46:18 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/30 09:46:50 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/31 10:46:49 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_push_swap(t_list **lst_a, t_list **lst_b,
+	t_instruction **lst_instruction)
+{
+	ft_init_index(lst_a);
+	ft_print_piles("Index", lst_a, lst_b);
+}
 
 int	main(int argc, char **argv)
 {
@@ -37,5 +44,6 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	printf("Let's go !\n");
+	ft_push_swap(&lst_a, &lst_b, &lst_instruction);
 	return (0);
 }

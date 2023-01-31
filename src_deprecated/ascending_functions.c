@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 17:23:06 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/25 17:27:31 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/31 10:31:23 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_rotate_to_ascending(t_list **lst_a, t_list **lst_b,
 	lst_length = ft_lstsize(lst_a);
 	value_min = ft_found_value_min(lst_a, lst_length);
 	printf("ORDER = [%d]\n", order);
-	if (order == ASCENDING)
+	if (order == 2)
 	{
 		while (tmp->value != value_min)
 		{
@@ -32,7 +32,7 @@ void	ft_rotate_to_ascending(t_list **lst_a, t_list **lst_b,
 			tmp = *lst_a;
 		}
 	}
-	else if (order == DESCENDING)
+	else if (order == 3)
 	{
 		while (tmp->value != value_min)
 		{
