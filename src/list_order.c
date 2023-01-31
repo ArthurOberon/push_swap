@@ -6,13 +6,13 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 11:48:12 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/31 10:28:00 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/31 12:07:57 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*ft_get_ascendent_sequence(t_list **lst)
+static int	*ft_get_ascendent_sequence(t_list **lst)
 {
 	int		*coordonate[2];
 	int		*coordonate_tmp[2];
@@ -38,7 +38,11 @@ int	*ft_get_ascendent_sequence(t_list **lst)
 	return (*coordonate);
 }
 
-int	ft_get_stack_info(t_list **lst)
+void	ft_get_order(t_list **lst_a, t_list **lst_b,
+	t_instruction **lst_instruction)
 {
-	return (0);
+	int	*coordonate[2];
+
+	*coordonate = ft_get_ascendent_sequence(lst_a);
+	
 }

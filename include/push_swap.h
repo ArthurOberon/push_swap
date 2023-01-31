@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/31 11:32:46 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/31 12:17:43 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +76,15 @@ void			ft_putstr(char	*s);
 
 size_t			ft_strlen(const char *s);
 
-// |================================|
-// |======= PARSE_FUNCTIONS ========|
-// |================================|
+// |======================|
+// |======= PARSE ========|
+// |======================|
 
 int				ft_parse(char *str, t_list **lst);
 
-// |====================================|
-// |======= LIST_FUNCTIONS_PILES =======|
-// |====================================|
+// |==========================|
+// |======= LIST_PILES =======|
+// |==========================|
 
 int				ft_lstsize(t_list **lst);
 
@@ -93,37 +93,29 @@ void			ft_lstadd_back(t_list **lst, t_list *new);
 
 t_list			*ft_lstmoveout(t_list **lst);
 
-// |====================================|
-// |======= LIST_ORDER_FUNCTIONS =======|
-// |====================================|
-
-int				ft_is_in_order(t_list **lst);
-int				ft_found_value_max(t_list **lst, int lst_length);
-int				ft_found_value_min(t_list **lst, int lst_length);
-
-// |====================================|
-// |======= OPERATIONS_FUNCTIONS =======|
-// |====================================|
+// |==========================|
+// |======= OPERATIONS =======|
+// |==========================|
 
 void			ft_do_operation(char *str, t_list **lst_a, t_list **lst_b);
 
-// |======================================|
-// |======= OPERATIONS_FUNCTIONS_2 =======|
-// |======================================|
+// |============================|
+// |======= OPERATIONS_2 =======|
+// |============================|
 
 void			ft_move(char *operation, t_list **lst_a, t_list **lst_b,
 					t_instruction **lst_instruction);
 
-// |======================================|
-// |======= LIST_SORTING_FUNCTIONS =======|
-// |======================================|
+// |==========================|
+// |======= LIST_ORDER =======|
+// |==========================|
 
 void			ft_get_order(t_list **lst_a, t_list **lst_b,
-					t_instruction **lst_instruction, char lst_keeping);
+					t_instruction **lst_instruction);
 
-// |===========================================|
-// |======= LIST_FUNCTIONS_INSTRUCTIONS =======|
-// |===========================================|
+// |=================================|
+// |======= LIST_INSTRUCTIONS =======|
+// |=================================|
 
 void			ft_lstclear_instruction(t_instruction **lst);
 void			ft_lstadd_back_instruction(t_instruction **lst,
@@ -133,17 +125,17 @@ void			ft_add_instruction(char *operation,
 
 t_instruction	*ft_lstnew_instruction(char *operation);
 
-// |==================================================|
-// |======= LIST_CREATE_FUNCTIONS_INSTRUCTIONS =======|
-// |==================================================|
+// |========================================|
+// |======= LIST_CREATE_INSTRUCTIONS =======|
+// |========================================|
 
 t_instruction	*ft_create_list_instruction(void);
 
 //==========================================
 
-// |===================================|
-// |======= TEMPORARY_FUNCTIONS =======|
-// |===================================|
+// |=========================|
+// |======= TEMPORARY =======|
+// |=========================|
 
 void			ft_print_tab(char **tab);
 void			ft_print_list(t_list **lst);
