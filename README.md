@@ -102,10 +102,10 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 # RESTART !
 |Restart		|Description	|Done		|
 |---------------|---------------|-----------|
-|Index			| Using a tab and sort_int_tab	| <ul><li>[x]</li>	|
-|Find ascendant	| Find biggest sequence, push all the top expect min of start, push all bottom expect max of end	| <ul><li>[ ]</li>	|
-|Calcul move	| For the X first, and apply the smaller, till the end	| <ul><li>[ ]</li>	|
-|Others Ideas	| See # Ideas	| <ul><li>[ ]</li>	|
+|Index			| Using a tab and sort_int_tab	| <ul><li>[x]</li></ul>	|
+|Find ascendant	| Find biggest sequence, push all the top expect min of start, push all bottom expect max of end	| <ul><li>[ ]</li></ul>	|
+|Calcul move	| For the X first, and apply the smaller, till the end	| <ul><li>[ ]</li></ul>	|
+|Others Ideas	| See # Ideas	| <ul><li>[ ]</li></ul>	|
 
 ## Find Ascendant
 - [ ] Check the list to find the biggest ascendant sequence's coordonate
