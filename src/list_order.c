@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 11:48:12 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/31 16:14:48 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/01/31 16:29:02 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static t_list	*ft_get_ascendent_sequence(t_list **lst)
 	}
 	printf("RESULT = value : [%d] | index : [%d]\n", coordonate_tmp[0]->value, coordonate_tmp[0]->index);
 	printf("RESULT = value : [%d] | index : [%d]\n", coordonate_tmp[1]->value, coordonate_tmp[1]->index);
-	return (coordonate);
+	return (*coordonate_tmp);
 }
 
 static void	ft_push_top(t_list **lst_a, t_list **lst_b,
