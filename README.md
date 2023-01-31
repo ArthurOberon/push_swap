@@ -99,34 +99,35 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 4 7 6 3 5 1 2 0
 ```
 
-# ERROR !
-RESTART :
-* Create Index by copy the list in a tab and use sort_int_tab	|	:heavy_check_mark:
-* Check the list to find the biggest ascendant sequence's coordonate
-*	Push all the top part but keep the min
-*	Move to the bottom part
-*	Push all the bottom part but keep the max
-* 	Calcul the number of mouv and do the min one -> non stop to the end
-
+# RESTART !
 |Restart		|Description	|Done		|
 |---------------|---------------|-----------|
-|Index			| Using a tab and sort_int_tab	| <ul><li>[x]		|
-|Find ascendant	| Find biggest sequence, push all the top expect min of start, push all bottom expect max of end	| <ul><li>[ ]		|
-|Calcul move	| For the X first, and apply the smaller, till the end	| <ul><li>[ ]		|
-|Others Ideas	| See # Ideas	| <ul><li>[ ]		|
+|Index			| Using a tab and sort_int_tab	| <ul><li>[x]</li>	|
+|Find ascendant	| Find biggest sequence, push all the top expect min of start, push all bottom expect max of end	| <ul><li>[ ]</li>	|
+|Calcul move	| For the X first, and apply the smaller, till the end	| <ul><li>[ ]</li>	|
+|Others Ideas	| See # Ideas	| <ul><li>[ ]</li>	|
 
-## Ideas :
-* Create ft_check -> check if 3 or less element, if swappable numbers, if ... OR do a function for each check. Yes for A, Not for B
-* Create ft_check_evidence -> at the start, check for evident mouv (ex : 2 1 => sa : 1 2)
-* Create ft_found_place -> to get where is a precise number in the list and found if is better to do rra or ra to go to this one
-* Create ft_no_lo_se -> calcul number of mouv to place on X first number
-*	Calcul mouv and write in tmp list_instruction
-*	Reverse the list to get back at the start
-*	if smaller write in tmp_smaller list_instruction
-*	else delete list
-*	restart while i != X
+## Find Ascendant
+- [ ] Check the list to find the biggest ascendant sequence's coordonate
+- [ ] Push all the top part but keep the min
+- [ ] Move to the bottom part
+- [ ] Push all the bottom part but keep the max
 
-#### FT_NO_LO_SE
+## Calcul Move
+- [ ] Create ft_no_lo_se -> calcul number of mouv to place on X first number
+- [ ] Calcul mouv and write in tmp list_instruction
+- [ ] Reverse the list to get back at the start
+- [ ] if smaller write in tmp_smaller list_instruction
+- [ ] else delete list
+- [ ] restart while i != X
+
+## FT_NO_LO_SE
 * if index between first and second => pa sa
 * if index bigger than last => pa ra
 * else find if rra or ra to rotate the list
+
+## Ideas :
+- [ ] Create ft_check -> check if 3 or less element, if swappable numbers, if ... OR do a function for each check. Yes for A, Not for B
+- [ ] Create ft_check_evidence -> at the start, check for evident mouv (ex : 2 1 => sa : 1 2)
+- [ ] Create ft_found_place -> to get where is a precise number in the list and found if is better to do rra or ra to go to this one
+
