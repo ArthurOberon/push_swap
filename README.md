@@ -105,7 +105,7 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 |Index			| Using a tab and sort_int_tab	| <ul><li>- [x] Done</li></ul>	|
 |Find ascendant	| Find biggest sequence, push all the top expect min of start, push all bottom expect max of end	| <ul><li>- [ ] Done</li></ul>	|
 |Calcul move	| For the X first, and apply the smaller, till the end	| <ul><li>- [ ] Done</li></ul>	|
-|Others Ideas	| See # Ideas	| <ul><li>- [ ] Done</li></ul>	|
+|Others Ideas	| See Ideas	| <ul><li>- [ ] Done</li></ul>	|
 
 ## Find Ascendant
 - [ ] Check the list to find the biggest ascendant sequence's coordonate
