@@ -108,6 +108,13 @@ RESTART :
 *	Push all the bottom part but keep the max
 * 	Calcul the number of mouv and do the min one -> non stop to the end
 
+|Restart		|Description	|Done		|
+|---------------|---------------|-----------|
+|Index			| Using a tab and sort_int_tab	|- [X]		|
+|Find ascendant	| Find biggest sequence, push all the top expect min of start, push all bottom expect max of end	| - [ ]		|
+|Calcul move	| For the X first, and apply the smaller, till the end	| - [ ]		|
+|Others Ideas	| See # Ideas	|	- [ ]		|
+
 ## Ideas :
 * Create ft_check -> check if 3 or less element, if swappable numbers, if ... OR do a function for each check. Yes for A, Not for B
 * Create ft_check_evidence -> at the start, check for evident mouv (ex : 2 1 => sa : 1 2)
