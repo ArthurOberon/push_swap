@@ -117,17 +117,17 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 - [ ] Create ft_no_lo_se -> calcul number of mouv to place on X first number
 - [ ] Calcul mouv and write in tmp list_instruction
 - [ ] Reverse the list to get back at the start
-- [ ] if smaller write in tmp_smaller list_instruction
-- [ ] else delete list
-- [ ] restart while i != X
+- [ ] If smaller write in tmp_smaller list_instruction
+- [ ] Else delete list
+- [ ] Restart while i != X
 
 ## FT_NO_LO_SE
-* if index between first and second => pa sa
-* if index bigger than last => pa ra
-* else find if rra or ra to rotate the list
+- [ ] If index between first and second => pa sa
+- [ ] If index bigger than last => pa ra
+- [ ] Else find if rra or ra to rotate the list
 
 ## Ideas :
-- [ ] Create ft_check -> check if 3 or less element, if swappable numbers, if ... OR do a function for each check. Yes for A, Not for B
+- [ ] Create ft_check -> check if 3 or less element, or others checkable things
 - [ ] Create ft_check_evidence -> at the start, check for evident mouv (ex : 2 1 => sa : 1 2)
 - [ ] Create ft_found_place -> to get where is a precise number in the list and found if is better to do rra or ra to go to this one
 
