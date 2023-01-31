@@ -110,10 +110,10 @@ RESTART :
 
 |Restart		|Description	|Done		|
 |---------------|---------------|-----------|
-|Index			| Using a tab and sort_int_tab	|- [X]		|
-|Find ascendant	| Find biggest sequence, push all the top expect min of start, push all bottom expect max of end	| - [ ]		|
-|Calcul move	| For the X first, and apply the smaller, till the end	| - [ ]		|
-|Others Ideas	| See # Ideas	|	- [ ]		|
+|Index			| Using a tab and sort_int_tab	| <ul><li>[x]		|
+|Find ascendant	| Find biggest sequence, push all the top expect min of start, push all bottom expect max of end	| <ul><li>[ ]		|
+|Calcul move	| For the X first, and apply the smaller, till the end	| <ul><li>[ ]		|
+|Others Ideas	| See # Ideas	| <ul><li>[ ]		|
 
 ## Ideas :
 * Create ft_check -> check if 3 or less element, if swappable numbers, if ... OR do a function for each check. Yes for A, Not for B
