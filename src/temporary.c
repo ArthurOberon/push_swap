@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:43:31 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/01 16:12:29 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/01 19:07:12 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 #include "push_swap.h"
 
+// printf("Coordonate = [%d] (%d) | [%d] (%d)\n", (coordonate[0])->value,
+	// (coordonate[0])->index, (coordonate[1])->value, (coordonate[1])->index);
+
+//####################################################################
 void	ft_print_tab_int(int *tab, int size)
 {
 	int	i;
@@ -24,7 +28,6 @@ void	ft_print_tab_int(int *tab, int size)
 		printf("tab[%d] = [%d]\n", i, tab[i]);
 	printf("=====PRINT TAB INT FINISHED=====\n");
 }
-
 void	ft_print_tab(char **tab)
 {
 	int	i;
@@ -34,6 +37,76 @@ void	ft_print_tab(char **tab)
 	while (tab[++i])
 		printf("tab[%d] = \"%s\"\n", i, tab[i]);
 	printf("=====PRINT TAB FINISHED=====\n");
+}
+
+//####################################################################
+
+void	ft_print_new_element_instruction(t_instruction *tmp)
+{
+	printf("\n	===New element===\n	");
+	printf("	operation's new = \"%s\"\n	", tmp->operation);
+	printf("	address' new = [%p]\n	", tmp);
+	printf("	next's new = [%p]\n	", tmp->next);
+	printf("	===New element END===\n\n");
+}
+
+void	ft_print_list_instruction_one_line(t_instruction **lst)
+{
+	t_instruction	*tmp;
+		
+	if ((*lst) == NULL)
+		return ;
+	ft_putstr("=====PRINT_LIST_INSTRUCTION ON ONE LINE=====\n");
+	tmp = *lst;
+	printf("[instruction] (opposed instruction) -->\n");
+	printf("first :");
+	while (tmp)
+	{
+		// printf("------ FIRST = [%d]\n ------", first->operation);
+		printf("[%s] (%s)-->", tmp->operation, tmp->invert_operation);
+		tmp = tmp->next;
+	}
+	printf(": last\n");
+	ft_putstr("======= END =======\n");
+}
+
+void	ft_print_list_instruction(t_instruction **lst)
+{
+	t_instruction	*tmp;
+	int				i;
+
+	i = 0;
+	if ((*lst) == NULL)
+		return ;
+	tmp = (*lst);
+	ft_putstr("=====PRINT_LIST_INSTRUCTION=====\n");
+	ft_putstr("==START==\n");
+	ft_putstr("\n====================\n");
+	while (tmp != NULL)
+	{
+		ft_putstr("\nNext : \n");
+		printf("operation = [%s] (%d)eme element | inverted = [%s]\n", tmp->operation,
+			i, tmp->invert_operation);
+		ft_putstr("\n====================\n");
+		tmp = tmp->next;
+		i++;
+	}
+	ft_putstr("==END==\n");
+}
+
+//####################################################################
+
+void	ft_print_new_element(t_list *tmp)
+{
+	printf("\n	===New element===\n	");
+	printf("	value's tmp = [%d]\n	", tmp->value);
+	printf("	address' tmp = [%p]\n	", tmp);
+	printf("	next's tmp = [%p]\n	", tmp->next);
+	printf("	prev's tmp = [%p]\n	", tmp->prev);
+	printf("resume :\n		[prev]<-[tmp]->[next]\n	");
+	printf("	  [%d]<---[%d]--->[%d]\n", tmp->prev->value,
+		tmp->value, tmp->next->value);
+	printf("	===New element END===\n\n");
 }
 
 void	ft_print_list_one_line(t_list **lst)
@@ -55,25 +128,6 @@ void	ft_print_list_one_line(t_list **lst)
 	}
 	printf(": last\n");
 	// ft_putstr("======= END =======\n");
-}
-
-void	ft_print_list_instruction_one_line(t_instruction **lst)
-{
-	t_instruction	*tmp;
-		
-	if ((*lst) == NULL)
-		return ;
-	ft_putstr("=====PRINT_LIST_INSTRUCTION ON ONE LINE=====\n");
-	tmp = *lst;
-	printf("first :");
-	while (tmp)
-	{
-		// printf("------ FIRST = [%d]\n ------", first->operation);
-		printf("[%s]-->", tmp->operation);
-		tmp = tmp->next;
-	}
-	printf(": last\n");
-	ft_putstr("======= END =======\n");
 }
 
 void	ft_print_list(t_list **lst)
@@ -104,53 +158,6 @@ void	ft_print_list(t_list **lst)
 	}
 	ft_putstr("==END==\n");
 }
-
-void	ft_print_list_instruction(t_instruction **lst)
-{
-	t_instruction	*tmp;
-	int				i;
-
-	i = 0;
-	if ((*lst) == NULL)
-		return ;
-	tmp = (*lst);
-	ft_putstr("=====PRINT_LIST_INSTRUCTION=====\n");
-	ft_putstr("==START==\n");
-	ft_putstr("\n====================\n");
-	while (tmp != NULL)
-	{
-		ft_putstr("\nNext : \n");
-		printf("operation = [%s] (%d)eme element\n", tmp->operation, i);
-		ft_putstr("\n====================\n");
-		tmp = tmp->next;
-		i++;
-	}
-	ft_putstr("==END==\n");
-}
-
-void	ft_print_new_element(t_list *tmp)
-{
-	printf("\n	===New element===\n	");
-	printf("	value's tmp = [%d]\n	", tmp->value);
-	printf("	address' tmp = [%p]\n	", tmp);
-	printf("	next's tmp = [%p]\n	", tmp->next);
-	printf("	prev's tmp = [%p]\n	", tmp->prev);
-	printf("resume :\n		[prev]<-[tmp]->[next]\n	");
-	printf("	  [%d]<---[%d]--->[%d]\n", tmp->prev->value,
-		tmp->value, tmp->next->value);
-	printf("	===New element END===\n\n");
-}
-
-void	ft_print_new_element_instruction(t_instruction *tmp)
-{
-	printf("\n	===New element===\n	");
-	printf("	operation's new = \"%s\"\n	", tmp->operation);
-	printf("	address' new = [%p]\n	", tmp);
-	printf("	next's new = [%p]\n	", tmp->next);
-	printf("	===New element END===\n\n");
-}
-
-
 
 void	ft_print_piles(char *str, t_push_swap p)
 {
@@ -210,42 +217,5 @@ void	ft_print_piles(char *str, t_push_swap p)
 	printf("%*s%*s", (width / 2) + (width / 6), "STACK A", width + 1, "STACK B");
 	printf("\n\n");
 }
-
-	// if (size_a >= size_b)
-	// {
-	// 	while (size_a != size_b)
-	// 	{
-	// 		printf("%*d [%d]\n", (width / 2), tmp_a->value,tmp_a->index);
-	// 		tmp_a = tmp_a->next;
-	// 		size_a--;
-	// 	}
-	// 	while (size_a && size_b)
-	// 	{
-	// 		printf("%*d [%d]%*d [%d]\n", (width / 2), tmp_a->value,
-	// 			tmp_a->index, width, tmp_b->value, tmp_b->index);
-	// 		tmp_a = tmp_a->next;
-	// 		tmp_b = tmp_b->next;
-	// 		size_a--;
-	// 		size_b--;
-	// 	}
-	// }
-	// else
-	// {
-	// 	while (size_b != size_a)
-	// 	{
-	// 		printf("%*d [%d]\n", (width / 2), tmp_b->value,tmp_b->index);
-	// 		tmp_b = tmp_b->next;
-	// 		size_b--;
-	// 	}
-	// 	while (size_a && size_b)
-	// 	{
-	// 		printf("%*d [%d]%*d [%d]\n", (width / 2), tmp_a->value,
-	// 			tmp_a->index, width, tmp_b->value, tmp_b->index);
-	// 		tmp_a = tmp_a->next;
-	// 		tmp_b = tmp_b->next;
-	// 		size_a--;
-	// 		size_b--;
-	// 	}
-	// }
 
 /**/

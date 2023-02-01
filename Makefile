@@ -24,6 +24,7 @@ PS_SRC =	index.c \
 			push_swap.c \
 			list_order.c \
 			order_utils.c \
+			calcul_move.c \
 
 #preset_move_functions.c \
 

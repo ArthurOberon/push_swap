@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/01 13:44:18 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/01 19:39:22 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
+# define OPTIMIZE_R 90
+# define OPTIMIZE_RR 91
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -32,7 +34,9 @@ typedef struct s_list
 typedef struct s_instruction
 {
 	struct s_instruction	*next;
+	struct s_instruction	*prev;
 	char					*operation;
+	char					*invert_operation;
 }	t_instruction;
 
 typedef struct s_push_swap

@@ -98,6 +98,9 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 ```
 4 7 6 3 5 1 2 0
 ```
+```
+1 2 3 -1 4 5 0 7 8 9 -10
+```
 #### Current test
 ```
 1 2 3 -1 4 5 0 7 8 9 10
@@ -117,8 +120,12 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 - [x] Move to the bottom part
 - [x] Push all the bottom part but keep the max
 - [ ] Norminette
+ ## Find Ascending Not Effecient Enough
+ Try to :
+ - Calcul the biggest ascending sequence's with numbers in between, using the index : if < push else keep
 
 ## Calcul Move
+- [x] Create a variable in list_instrcution which the opposite of his operation
 - [ ] Create ft_no_lo_se -> calcul number of mouv to place on X first number
 - [ ] Calcul mouv and write in tmp list_instruction
 - [ ] Reverse the list to get back at the start
@@ -130,7 +137,7 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 ## FT_NO_LO_SE
 - [ ] If index between first and second => pa sa
 - [ ] If index bigger than last => pa ra
-- [ ] Else find if rra or ra to rotate the list
+- [-] Else find if rra or ra to rotate the list
 - [ ] Norminette
 
 ## Ideas :
@@ -139,5 +146,3 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 - [ ] Create ft_found_place -> to get where is a precise number in the list and found if is better to do rra or ra to go to this one
 
 # Currents Problems
-- can't return tab [2] of t_list pointer... Maybe not give the right type to the function or the tab
-- ft_get_ascendent_sequence has 1 extra line
