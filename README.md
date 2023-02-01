@@ -125,7 +125,7 @@ Do summary of all malloc variable to do a function to exit and free all in case 
  - Calcul the biggest ascending sequence's with numbers in between, using the index : if < push else keep
 
 ## Calcul Move
-- [x] Create a variable in list_instrcution which the opposite of his operation
+- [x] Create a variable in list_instruction which the opposite of his operation
 - [ ] Create ft_no_lo_se -> calcul number of mouv to place on X first number
 - [ ] Calcul mouv and write in tmp list_instruction
 - [ ] Reverse the list to get back at the start
