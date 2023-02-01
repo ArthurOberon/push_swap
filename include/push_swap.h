@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/31 16:05:08 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/01 13:44:18 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,13 @@ typedef struct s_instruction
 	struct s_instruction	*next;
 	char					*operation;
 }	t_instruction;
+
+typedef struct s_push_swap
+{
+	t_list			**pile_a;
+	t_list			**pile_b;
+	t_instruction	**instructions;
+}	t_push_swap;
 
 typedef struct s_piles
 {
@@ -99,20 +106,11 @@ t_list			*ft_lstmoveout(t_list **lst);
 
 void			ft_do_operation(char *str, t_list **lst_a, t_list **lst_b);
 
-// |============================|
-// |======= OPERATIONS_2 =======|
-// |============================|
-
-void			ft_move(char *operation, t_list **lst_a, t_list **lst_b,
-					t_instruction **lst_instruction);
-
-
 // |==========================|
 // |======= LIST_ORDER =======|
 // |==========================|
 
-void			ft_get_order(t_list **lst_a, t_list **lst_b,
-					t_instruction **lst_instruction);
+void			ft_get_order(t_push_swap list_pack);
 
 // |===========================|
 // |======= ORDER_UTILS =======|
@@ -122,6 +120,12 @@ int				ft_calcul_gap(t_list *start_a, t_list *end_a,
 					t_list *start_b, t_list *end_b);
 
 void			ft_go_to_element(t_list **start, t_list *end);
+
+// |============================|
+// |======= OPERATIONS_2 =======|
+// |============================|
+
+void			ft_move(char *operation, t_push_swap list_pack);
 
 // |=================================|
 // |======= LIST_INSTRUCTIONS =======|
@@ -152,9 +156,9 @@ void			ft_print_list(t_list **lst);
 void			ft_print_new_element(t_list *tmp);
 void			ft_print_tab_int(int *tab, int size);
 void			ft_print_list_one_line(t_list **lst);
+void			ft_print_piles(char *str, t_push_swap p);
 void			ft_print_list_instruction(t_instruction **lst);
 void			ft_print_new_element_instruction(t_instruction *tmp);
 void			ft_print_list_instruction_one_line(t_instruction **lst);
-void			ft_print_piles(char *str, t_list **lst_a, t_list **lst_b);
 
 #endif

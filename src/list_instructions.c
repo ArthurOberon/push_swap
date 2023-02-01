@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_functions_instructions.c                      :+:      :+:    :+:   */
+/*   list_instructions.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:12:24 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/30 17:05:22 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/01 13:51:53 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ t_instruction	*ft_lstnew_instruction(char *operation)
 	newlist = malloc(sizeof(t_instruction));
 	if (newlist)
 	{
-		operation[ft_strlen(operation) - 1] = '\0';
+		if (operation[ft_strlen(operation) - 1] == '\n')
+			operation[ft_strlen(operation) - 1] = '\0';
 		newlist->operation = operation;
 		newlist->next = NULL;
 	}

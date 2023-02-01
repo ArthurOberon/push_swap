@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 10:45:36 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/31 11:33:06 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/01 15:22:40 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ static void	ft_index_from_tab(t_list **lst, int	*tab, int size)
 	t_list	*tmp;
 
 	i = 0;
-	printf("size = %d\n", size);
 	tmp = *lst;
 	while (i < size)
 	{

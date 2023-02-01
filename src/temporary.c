@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:43:31 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/31 11:30:22 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/01 16:12:29 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_print_list_one_line(t_list **lst)
 	if ((*lst) == NULL)
 		return ;
 	first = (*lst);
-	ft_putstr("=====PRINT_LIST ON ONE LINE=====\n");
+	// ft_putstr("=====PRINT_LIST ON ONE LINE=====\n");
 	printf("first : [%d]-->", first->value);
 	tmp = first->next;
 	while (tmp != first)
@@ -54,7 +54,7 @@ void	ft_print_list_one_line(t_list **lst)
 		tmp = tmp->next;
 	}
 	printf(": last\n");
-	ft_putstr("======= END =======\n");
+	// ft_putstr("======= END =======\n");
 }
 
 void	ft_print_list_instruction_one_line(t_instruction **lst)
@@ -152,7 +152,7 @@ void	ft_print_new_element_instruction(t_instruction *tmp)
 
 
 
-void	ft_print_piles(char *str, t_list **lst_a, t_list **lst_b)
+void	ft_print_piles(char *str, t_push_swap p)
 {
 	t_list	*tmp_a;
 	int		size_a;
@@ -163,10 +163,10 @@ void	ft_print_piles(char *str, t_list **lst_a, t_list **lst_b)
 
 	i = 0;
 	width = 22;
-	size_a = ft_lstsize(lst_a);
-	size_b = ft_lstsize(lst_b);
-	tmp_a = *lst_a;
-	tmp_b = *lst_b;
+	size_a = ft_lstsize(p.pile_a);
+	size_b = ft_lstsize(p.pile_b);
+	tmp_a = *p.pile_a;
+	tmp_b = *p.pile_b;
 	printf("OPERATION : \"%s\"\n", str);
 	if (size_a >= size_b)
 	{
@@ -179,7 +179,7 @@ void	ft_print_piles(char *str, t_list **lst_a, t_list **lst_b)
 		while (size_a && size_b)
 		{
 			printf("%*d [%d]%*d [%d]\n", (width / 2), tmp_a->value,
-				tmp_a->index, width - (width / 6), tmp_b->value, tmp_b->index);
+				tmp_a->index, width, tmp_b->value, tmp_b->index);
 			tmp_a = tmp_a->next;
 			tmp_b = tmp_b->next;
 			size_a--;
@@ -190,14 +190,14 @@ void	ft_print_piles(char *str, t_list **lst_a, t_list **lst_b)
 	{
 		while (size_b != size_a)
 		{
-			printf("%*d [%d]\n", (width / 2), tmp_b->value,tmp_b->index);
+			printf("%*d [%d]\n", width + (width / 2) + 1, tmp_b->value, tmp_b->index);
 			tmp_b = tmp_b->next;
 			size_b--;
 		}
 		while (size_a && size_b)
 		{
 			printf("%*d [%d]%*d [%d]\n", (width / 2), tmp_a->value,
-				tmp_a->index, width - (width / 6), tmp_b->value, tmp_b->index);
+				tmp_a->index, width - (width / 5), tmp_b->value, tmp_b->index);
 			tmp_a = tmp_a->next;
 			tmp_b = tmp_b->next;
 			size_a--;
@@ -210,5 +210,42 @@ void	ft_print_piles(char *str, t_list **lst_a, t_list **lst_b)
 	printf("%*s%*s", (width / 2) + (width / 6), "STACK A", width + 1, "STACK B");
 	printf("\n\n");
 }
+
+	// if (size_a >= size_b)
+	// {
+	// 	while (size_a != size_b)
+	// 	{
+	// 		printf("%*d [%d]\n", (width / 2), tmp_a->value,tmp_a->index);
+	// 		tmp_a = tmp_a->next;
+	// 		size_a--;
+	// 	}
+	// 	while (size_a && size_b)
+	// 	{
+	// 		printf("%*d [%d]%*d [%d]\n", (width / 2), tmp_a->value,
+	// 			tmp_a->index, width, tmp_b->value, tmp_b->index);
+	// 		tmp_a = tmp_a->next;
+	// 		tmp_b = tmp_b->next;
+	// 		size_a--;
+	// 		size_b--;
+	// 	}
+	// }
+	// else
+	// {
+	// 	while (size_b != size_a)
+	// 	{
+	// 		printf("%*d [%d]\n", (width / 2), tmp_b->value,tmp_b->index);
+	// 		tmp_b = tmp_b->next;
+	// 		size_b--;
+	// 	}
+	// 	while (size_a && size_b)
+	// 	{
+	// 		printf("%*d [%d]%*d [%d]\n", (width / 2), tmp_a->value,
+	// 			tmp_a->index, width, tmp_b->value, tmp_b->index);
+	// 		tmp_a = tmp_a->next;
+	// 		tmp_b = tmp_b->next;
+	// 		size_a--;
+	// 		size_b--;
+	// 	}
+	// }
 
 /**/

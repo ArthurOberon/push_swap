@@ -6,16 +6,16 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 10:45:19 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/31 14:44:50 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/01 16:17:35 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_move(char *operation, t_list **lst_a, t_list **lst_b,
-	t_instruction **lst_instruction)
+void	ft_move(char *operation, t_push_swap list_pack)
 {
-	ft_do_operation(operation, lst_a, lst_b);
-	ft_print_piles(operation, lst_a, lst_b);
-	ft_add_instruction(operation, lst_instruction);
+	ft_do_operation(operation, list_pack.pile_a, list_pack.pile_b);
+	ft_print_piles(operation, list_pack);
+	// printf("%s\n", operation);
+	ft_add_instruction(operation, list_pack.instructions);
 }

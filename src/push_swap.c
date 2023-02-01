@@ -6,29 +6,33 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 09:46:18 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/31 14:18:23 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/01 15:59:21 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push_swap(t_list **lst_a, t_list **lst_b,
-	t_instruction **lst_instruction)
+void	ft_push_swap(t_list **lst_a)
 {
+	t_list			*lst_b;
+	t_instruction	*lst_instruction;
+	t_push_swap		list_pack;
+
+	lst_b = NULL;
+	lst_instruction = NULL;
+	list_pack.pile_a = lst_a;
+	list_pack.pile_b = &lst_b;
+	list_pack.instructions = &lst_instruction;
 	ft_init_index(lst_a);
-	ft_get_order(lst_a, lst_b, lst_instruction);
+	ft_get_order(list_pack);
 }
 
 int	main(int argc, char **argv)
 {
 	t_list			*lst_a;
-	t_list			*lst_b;
-	t_instruction	*lst_instruction;
 	char			*str;
 
 	lst_a = NULL;
-	lst_b = NULL;
-	lst_instruction = NULL;
 	if (argc == 1)
 	{
 		ft_putstr("Too few arguments.\n");
@@ -43,7 +47,6 @@ int	main(int argc, char **argv)
 		ft_putstr("Error\n");
 		return (1);
 	}
-	printf("Let's go !\n");
-	ft_push_swap(&lst_a, &lst_b, &lst_instruction);
+	ft_push_swap(&lst_a);
 	return (0);
 }

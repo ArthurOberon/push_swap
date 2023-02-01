@@ -98,20 +98,25 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 ```
 4 7 6 3 5 1 2 0
 ```
+#### Current test
+```
+1 2 3 -1 4 5 0 7 8 9 10
+```
 
 # RESTART !
 |Restart		|Description	|Current Status		|
 |---------------|---------------|-----------|
 |Index			| Using a tab and sort_int_tab	| <ul><li>- [x] Done</li></ul>	|
-|Find ascendant	| Find biggest sequence, push all the top expect min of start, push all bottom expect max of end	| <ul><li>- [ ] Done</li></ul>	|
+|Find ascending	| Find biggest sequence, push all the top expect min of start, push all bottom expect max of end	| <ul><li>- [ ] Done</li></ul>	|
 |Calcul move	| For the X first, and apply the smaller, till the end	| <ul><li>- [ ] Done</li></ul>	|
 |Others Ideas	| See Ideas	| <ul><li>- [ ] Done</li></ul>	|
 
-## Find Ascendant
-- [ ] Check the list to find the biggest ascendant sequence's coordonate
-- [ ] Push all the top part but keep the min
-- [ ] Move to the bottom part
-- [ ] Push all the bottom part but keep the max
+## Find Ascending
+- [x] Check the list to find the biggest ascendant sequence's coordonate
+- [x] Push all the top part but keep the min
+- [x] Move to the bottom part
+- [x] Push all the bottom part but keep the max
+- [ ] Norminette
 
 ## Calcul Move
 - [ ] Create ft_no_lo_se -> calcul number of mouv to place on X first number
@@ -120,11 +125,13 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 - [ ] If smaller write in tmp_smaller list_instruction
 - [ ] Else delete list
 - [ ] Restart while i != X
+- [ ] Norminette
 
 ## FT_NO_LO_SE
 - [ ] If index between first and second => pa sa
 - [ ] If index bigger than last => pa ra
 - [ ] Else find if rra or ra to rotate the list
+- [ ] Norminette
 
 ## Ideas :
 - [ ] Create ft_check -> check if 3 or less element, or others checkable things
