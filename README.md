@@ -137,7 +137,7 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 ## FT_NO_LO_SE
 - [ ] If index between first and second => pa sa
 - [ ] If index bigger than last => pa ra
-- [-] Else find if rra or ra to rotate the list
+- [ ] Else find if rra or ra to rotate the list
 - [ ] Norminette
 
 ## Ideas :
