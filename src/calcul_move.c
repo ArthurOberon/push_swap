@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:12:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/01 20:31:00 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/02 14:43:20 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ static int	ft_find_optimize_rotation(t_list **lst, t_list *lst_destination)
 	return (OPTIMIZE_RR);
 }
 
-static int	ft_optimize_rotation(t_push_swap list_pack)
+static t_instruction	**ft_optimize_rotation(t_push_swap list_pack)
 {
-	t_list	**tmp_a;
-	t_list	*tmp;
-	int		i;
+	t_list			**tmp_a;
+	t_list			*tmp;
+	t_instruction	*instruction_tmp;
 
-	i = 0;
+	instruction_tmp = NULL;
 	tmp_a = list_pack.pile_a;
 	tmp = *list_pack.pile_a;
 	while ((*tmp_a)->index < tmp->index && tmp->index < (*tmp_a)->index)
@@ -54,25 +54,27 @@ static int	ft_optimize_rotation(t_push_swap list_pack)
 		while ((*tmp_a) != tmp)
 		{
 			ft_move("ra", list_pack);
-			i++;
+			ft_add_instruction("ra", &instruction_tmp);
 		}
-		return (i);
+		return (&instruction_tmp);
 	}
 	while ((*tmp_a) != tmp)
 	{
 		ft_move("rra", list_pack);
-		i++;
+		ft_add_instruction("rra", &instruction_tmp);
 	}
-	return (i);
+	return (&instruction_tmp);
 }
 
-static int	ft_optimize_move(t_push_swap list_pack)
+static t_instruction	**ft_optimize_move(t_push_swap list_pack)
 {
-	t_list	*pile_a;
-	t_list	*pile_b;
+	t_list			*pile_a;
+	t_list			*pile_b;
+	t_instruction	*instruction_tmp;
 
 	pile_a = *list_pack.pile_a;
 	pile_b = *list_pack.pile_b;
+	inl
 	if (pile_a->index < pile_b->index && pile_b->index < pile_a->next->index)
 	{
 		ft_move("pa", list_pack);
