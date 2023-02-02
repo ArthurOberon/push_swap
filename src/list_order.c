@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 11:48:12 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/01 19:10:58 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/02 17:14:11 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static t_list	**ft_get_ascending_sequence(t_list **lst)
 	int		size;
 
 	i = -1;
-	size = ft_lstsize(lst);
+	size = ft_lstsize(*lst);
 	coordonate[0] = *lst;
 	coordonate[1] = *lst;
 	coordonate_tmp = malloc(sizeof(t_list *) * 2);
@@ -38,7 +38,7 @@ static t_list	**ft_get_ascending_sequence(t_list **lst)
 				coordonate_tmp[0] = coordonate[0];
 				coordonate_tmp[1] = coordonate[1];
 			}
-			ft_go_to_element(&coordonate[0], coordonate[1]->next);
+			ft_go_to_element_pile(&coordonate[0], coordonate[1]->next);
 		}
 		coordonate[1] = coordonate[1]->next;
 	}
@@ -62,15 +62,6 @@ static void	ft_push_top(t_push_swap list_pack, t_list **coordonate)
 		else
 			ft_move("pb", list_pack);
 	}
-}
-
-static void	ft_move_to(t_push_swap list_pack, t_list *coordonate)
-{
-	t_list	**tmp;
-
-	tmp = list_pack.pile_a;
-	while (*tmp != coordonate->next)
-		ft_move("ra", list_pack);
 }
 
 static void	ft_push_bottom(t_push_swap list_pack, t_list **coordonate)
@@ -102,7 +93,7 @@ void	ft_get_order(t_push_swap list_pack)
 	ft_push_top(list_pack, &coordonate[0]);
 	if ((coordonate[1])->next != coordonate[0])
 	{
-		ft_move_to(list_pack, coordonate[1]);
+		ft_move_to_top_pile_a(list_pack, coordonate[1]->next);
 		ft_push_bottom(list_pack, coordonate);
 	}
 	free(coordonate);

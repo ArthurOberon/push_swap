@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:12:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/02 14:43:20 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/02 17:46:50 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,74 +37,123 @@ static int	ft_find_optimize_rotation(t_list **lst, t_list *lst_destination)
 	return (OPTIMIZE_RR);
 }
 
-static t_instruction	**ft_optimize_rotation(t_push_swap list_pack)
+static t_instruction	*ft_optimize_rotation(t_push_swap list_pack,
+	t_instruction **tmp_instruction)
 {
 	t_list			**tmp_a;
 	t_list			*tmp;
-	t_instruction	*instruction_tmp;
 
-	instruction_tmp = NULL;
 	tmp_a = list_pack.pile_a;
 	tmp = *list_pack.pile_a;
 	while ((*tmp_a)->index < tmp->index && tmp->index < (*tmp_a)->index)
 		tmp = tmp->next;
-	ft_move("pa", list_pack);
+	ft_move_temporary("pa", list_pack, tmp_instruction);
 	if (ft_find_optimize_rotation(list_pack.pile_a, tmp) == OPTIMIZE_R)
 	{
 		while ((*tmp_a) != tmp)
-		{
-			ft_move("ra", list_pack);
-			ft_add_instruction("ra", &instruction_tmp);
-		}
-		return (&instruction_tmp);
+			ft_move_temporary("ra", list_pack, tmp_instruction);
+		return (*tmp_instruction);
 	}
 	while ((*tmp_a) != tmp)
-	{
-		ft_move("rra", list_pack);
-		ft_add_instruction("rra", &instruction_tmp);
-	}
-	return (&instruction_tmp);
+		ft_move_temporary("rra", list_pack, tmp_instruction);
+	return (*tmp_instruction);
 }
 
-static t_instruction	**ft_optimize_move(t_push_swap list_pack)
+static t_instruction	*ft_optimize_move(t_push_swap list_pack,
+	t_list *element_to_go)
 {
 	t_list			*pile_a;
 	t_list			*pile_b;
-	t_instruction	*instruction_tmp;
+	t_instruction	*tmp_instruction;
 
 	pile_a = *list_pack.pile_a;
 	pile_b = *list_pack.pile_b;
-	inl
+	tmp_instruction = malloc(sizeof(t_instruction));
+	if (!tmp_instruction)
+		printf("Panic ! Do a function to exit and free\n");
+	tmp_instruction = NULL;
+	// printf("Element to go : [%d]\n", element_to_go->value);
+	// printf("\n\n#########TEMPORARY MOVE#########\n\n");
+	ft_move_to_top_pile_b(list_pack, element_to_go, &tmp_instruction);
 	if (pile_a->index < pile_b->index && pile_b->index < pile_a->next->index)
 	{
-		ft_move("pa", list_pack);
-		ft_move("sa", list_pack);
-		return (2);
+		ft_move_temporary("pa", list_pack, &tmp_instruction);
+		ft_move_temporary("sa", list_pack, &tmp_instruction);
+		return (tmp_instruction);
 	}
 	else if (pile_b->index > pile_a->prev->index)
 	{
-		ft_move("pa", list_pack);
-		ft_move("ra", list_pack);
-		return (2);
+		ft_move_temporary("pa", list_pack, &tmp_instruction);
+		ft_move_temporary("ra", list_pack, &tmp_instruction);
+		return (tmp_instruction);
 	}
 	else
-		return (ft_optimize_rotation(list_pack));
+		return (ft_optimize_rotation(list_pack, &tmp_instruction));
 }
 
-// Where is the t_instruction to save the faster move sequence ?
+static void	ft_go_back_to(t_push_swap list_pack, t_instruction *lst_instruction,
+	int move_number, int n)
+{
+	int				i;
+	int				j;
+	char			*move;
+	t_instruction	*tmp_instruction;
+
+	j = 0;
+	while (move_number > 0)
+	{
+		tmp_instruction = lst_instruction;
+		i = 1;
+		while (i < move_number)
+		{
+			tmp_instruction = tmp_instruction->next;
+			i++;
+		}
+		move = tmp_instruction->invert_operation;
+		ft_do_operation(move, list_pack.pile_a, list_pack.pile_b);
+		// printf("\n\n#########INVERTED MOVE#########\n\n");
+		// ft_print_piles(move, list_pack);
+		move_number--;
+	}
+}
+
 void	ft_calcul_move(t_push_swap list_pack)
 {
-	int	quickest_move;
-	int	tmp_move;
-	int	i;
+	int				fastest_size;
+	int				tmp_size;
+	int				i;
+	t_instruction	*fastest_instruction;
+	t_instruction	*tmp_instruction;
 
 	i = 0;
-	tmp_move = 0;
-	quickest_move = 0;
+	fastest_size = 0;
+	fastest_instruction = NULL;
 	while (i < 5)
 	{
-		tmp_move = ft_optimize_move(list_pack);
-		if (tmp_move > quickest_move)
-			quickest_move = tmp_move;
+		tmp_instruction = ft_optimize_move(list_pack,
+				ft_get_the_n_element_pile(*list_pack.pile_b, i));
+		// ft_print_list_instruction_one_line(&tmp_instruction);
+		tmp_size = ft_lstsize_instruction(tmp_instruction);
+		if (tmp_size > fastest_size)
+		{
+			ft_lstclear_instruction(&fastest_instruction);
+			fastest_instruction = tmp_instruction;
+			fastest_size = tmp_size;
+			ft_go_back_to(list_pack, tmp_instruction, tmp_size, i);
+		}
+		else
+		{
+			ft_go_back_to(list_pack, tmp_instruction, tmp_size, i);
+			ft_lstclear_instruction(&tmp_instruction);
+		}
+		tmp_instruction = NULL;
+		i++;
+	}
+	ft_lstadd_back_instruction(list_pack.instructions, fastest_instruction);
+	while (fastest_instruction != NULL)
+	{
+		ft_do_operation(fastest_instruction->operation, list_pack.pile_a,
+			list_pack.pile_b);
+		fastest_instruction = fastest_instruction->next;
 	}
 }

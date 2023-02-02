@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:59:39 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/31 10:31:32 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/02 15:57:21 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ static void	ft_transfert_b_to_a(t_list	**lst_a, t_list **lst_b,
 	int		max_value;
 	int		min_value;
 
-	max_value = ft_found_value_max(lst_a, ft_lstsize(lst_a));
-	min_value = ft_found_value_min(lst_b, ft_lstsize(lst_b));
+	max_value = ft_found_value_max(lst_a, ft_lstsize(*lst_a));
+	min_value = ft_found_value_min(lst_b, ft_lstsize(*lst_b));
 	tmp_a = *lst_a;
 	tmp_b = *lst_b;
 	while ("not ascending")

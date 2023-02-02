@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:43:31 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/01 19:07:12 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/02 15:56:44 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,8 +170,8 @@ void	ft_print_piles(char *str, t_push_swap p)
 
 	i = 0;
 	width = 22;
-	size_a = ft_lstsize(p.pile_a);
-	size_b = ft_lstsize(p.pile_b);
+	size_a = ft_lstsize(*p.pile_a);
+	size_b = ft_lstsize(*p.pile_b);
 	tmp_a = *p.pile_a;
 	tmp_b = *p.pile_b;
 	printf("OPERATION : \"%s\"\n", str);

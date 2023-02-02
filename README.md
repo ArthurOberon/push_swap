@@ -146,3 +146,4 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 - [ ] Create ft_found_place -> to get where is a precise number in the list and found if is better to do rra or ra to go to this one
 
 # Currents Problems
+- ft_move_to_top_pile_b Not using ft_find_optimize_rotation

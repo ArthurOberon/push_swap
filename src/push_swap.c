@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 09:46:18 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/01 19:02:50 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/02 17:27:28 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ void	ft_push_swap(t_list **lst_a)
 	list_pack.instructions = &lst_instruction;
 	ft_init_index(lst_a);
 	ft_get_order(list_pack);
-	ft_print_list_instruction_one_line(&lst_instruction);
+	// ft_print_list_instruction_one_line(&lst_instruction);
+	ft_calcul_move(list_pack);
+	// printf("CALCUL MOVE END\n\n");
+	// ft_print_piles("CALCUL MOVE END", list_pack);
 }
 
 int	main(int argc, char **argv)

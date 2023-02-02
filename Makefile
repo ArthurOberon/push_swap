@@ -7,13 +7,13 @@ SRC_DIR = src/
 OBJ_DIR = obj/
 
 
-COMMON_SRC = 	utils.c \
+COMMON_SRC = 	move.c \
+				utils.c \
 				parse.c \
 				merge_str.c \
 				operations.c \
 				list_piles.c \
 				print_functions.c \
-				operations_utils.c \
 				list_instructions.c \
 				\
 				temporary.c \
@@ -23,7 +23,7 @@ COMMON_SRC = 	utils.c \
 PS_SRC =	index.c \
 			push_swap.c \
 			list_order.c \
-			order_utils.c \
+			piles_utils.c \
 			calcul_move.c \
 
 #preset_move_functions.c \

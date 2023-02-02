@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 19:17:56 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/01 15:22:24 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/02 17:47:05 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,26 @@ static void	ft_push(t_list **lst_from, t_list **lst_to)
 static void	ft_swap(char *str, t_list **lst_a, t_list **lst_b)
 {
 	int	swap;
+	int	swap_index;
 
 	if ((*str == 'a' || *str == 's') && *lst_a)
 	{
 		swap = (*lst_a)->value;
 		(*lst_a)->value = (*lst_a)->next->value;
 		(*lst_a)->next->value = swap;
+		swap_index = (*lst_a)->index;
+		(*lst_a)->index = (*lst_a)->next->index;
+		(*lst_a)->next->index = swap_index;
 	}
 	if ((*str == 'b' || *str == 's') && *lst_b)
 	{
 		swap = (*lst_b)->value;
 		(*lst_b)->value = (*lst_b)->next->value;
 		(*lst_b)->next->value = swap;
+		(*lst_b)->next->value = swap;
+		swap_index = (*lst_b)->index;
+		(*lst_b)->index = (*lst_b)->next->index;
+		(*lst_b)->next->index = swap_index;
 	}
 }
 
@@ -64,6 +72,7 @@ static void	ft_rotate(char *str, t_list **lst_a, t_list **lst_b)
 
 void	ft_do_operation(char *str, t_list **lst_a, t_list **lst_b)
 {
+	printf("%s\n", str);
 	if (*str == 'p')
 	{
 		str++;

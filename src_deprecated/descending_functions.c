@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 17:26:25 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/31 10:31:26 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/02 15:57:12 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_rotate_to_descending(t_list **lst_a, t_list **lst_b,
 	int		value_max;
 
 	tmp = *lst_b;
-	lst_length = ft_lstsize(lst_b);
+	lst_length = ft_lstsize(*lst_b);
 	value_max = ft_found_value_max(lst_b, lst_length);
 	if (order == 2)
 	{
@@ -53,8 +53,8 @@ static int	ft_get_descending_one_part(t_list **lst_a, t_list **lst_b,
 
 	pushed_number = 0;
 	i = 1;
-	max_value = ft_found_value_max(lst_b, ft_lstsize(lst_b));
-	min_value = ft_found_value_min(lst_b, ft_lstsize(lst_b));
+	max_value = ft_found_value_max(lst_b, ft_lstsize(*lst_b));
+	min_value = ft_found_value_min(lst_b, ft_lstsize(*lst_b));
 	tmp = *lst_b;
 	if (stop_check == 2 || stop_check == 3)
 	{
@@ -163,7 +163,7 @@ static int	ft_is_descending_by_parts(t_list **lst, int number_of_block)
 	t_list	*tmp;
 
 	i = 0;
-	stop_check = ft_lstsize(lst);
+	stop_check = ft_lstsize(*lst);
 	first = *lst;
 	tmp = first->prev;
 	while (tmp != first)
@@ -185,7 +185,7 @@ void	ft_get_descending_stack_b(t_list **lst_a, t_list **lst_b,
 	int	i;
 
 	i = 0;
-	stop_check = ft_lstsize(lst_b) - 2;
+	stop_check = ft_lstsize(*lst_b) - 2;
 	printf("FIRST STOP CHECK = [%d] = LST_SIZE\n", stop_check);
 	while (stop_check != 0 && stop_check != 1)
 	{

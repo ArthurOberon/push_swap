@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/01 19:42:34 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/02 17:23:09 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,14 @@ typedef struct s_piles
 	t_list	**pile_b;
 }	t_piles;
 
+// |====================|
+// |======= MOVE =======|
+// |====================|
+
+void			ft_move(char *operation, t_push_swap list_pack);
+void			ft_move_temporary(char *operation, t_push_swap list_pack,
+					t_instruction **lst_instruction);
+
 // |=====================|
 // |======= UTILS =======|
 // |=====================|
@@ -71,33 +79,24 @@ void			ft_init_index(t_list **lst);
 
 char			*get_next_line(int fd);
 
-// |=========================|
-// |======= MERGE_STR =======|
-// |=========================|
-
-char			*ft_str_merge(char **str, int space, int size);
-
-// |===============================|
-// |======= PRINT_FUNCTIONS =======|
-// |===============================|
-
-void			ft_putnbr(int nb);
-void			ft_putchar(char c);
-void			ft_putstr(char	*s);
-
-size_t			ft_strlen(const char *s);
-
 // |======================|
 // |======= PARSE ========|
 // |======================|
 
 int				ft_parse(char *str, t_list **lst);
 
+// |=========================|
+// |======= MERGE_STR =======|
+// |=========================|
+
+char			*ft_str_merge(char **str, int space, int size);
+
 // |==========================|
 // |======= LIST_PILES =======|
 // |==========================|
 
-int				ft_lstsize(t_list **lst);
+int				ft_lstsize(t_list *lst);
+int				ft_lstsize_instruction(t_instruction *lst);
 
 void			ft_lstclear(t_list **lst);
 void			ft_lstadd_back(t_list **lst, t_list *new);
@@ -117,19 +116,34 @@ void			ft_do_operation(char *str, t_list **lst_a, t_list **lst_b);
 void			ft_get_order(t_push_swap list_pack);
 
 // |===========================|
-// |======= ORDER_UTILS =======|
+// |======= PILES_UTILS =======|
 // |===========================|
 
 int				ft_calcul_gap(t_list *start_a, t_list *end_a,
 					t_list *start_b, t_list *end_b);
 
-void			ft_go_to_element(t_list **start, t_list *end);
+void			ft_go_to_element_pile(t_list **start, t_list *dst);
+void			ft_move_to_top_pile_a(t_push_swap list_pack, t_list *element);
+void			ft_move_to_top_pile_b(t_push_swap list_pack, t_list *element,
+					t_instruction **lst_instruction);
+
+t_list			*ft_get_the_n_element_pile(t_list *start, int n);
 
 // |============================|
-// |======= OPERATIONS_2 =======|
+// |======= CALCUL_MOVE ========|
 // |============================|
 
-void			ft_move(char *operation, t_push_swap list_pack);
+void			ft_calcul_move(t_push_swap list_pack);
+
+// |===============================|
+// |======= PRINT_FUNCTIONS =======|
+// |===============================|
+
+void			ft_putnbr(int nb);
+void			ft_putchar(char c);
+void			ft_putstr(char	*s);
+
+size_t			ft_strlen(const char *s);
 
 // |=================================|
 // |======= LIST_INSTRUCTIONS =======|

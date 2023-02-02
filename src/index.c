@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 10:45:36 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/01 15:22:40 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/02 15:56:27 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	ft_init_index(t_list **lst)
 	int	*tab;
 	int	size;
 
-	size = ft_lstsize(lst);
+	size = ft_lstsize(*lst);
 	tab = ft_tab_from_list(lst, size);
 	ft_sort_int_tab(tab, size);
 	ft_index_from_tab(lst, tab, size);

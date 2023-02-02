@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 14:06:43 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/31 10:31:29 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/02 15:57:16 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int	ft_is_in_order(t_list **lst)
 	t_list	*tmp;
 
 	i = 0;
-	lst_length = ft_lstsize(lst);
+	lst_length = ft_lstsize(*lst);
 	value_min = ft_found_value_min(lst, lst_length);
 	value_max = ft_found_value_max(lst, lst_length);
 	tmp = *lst;
