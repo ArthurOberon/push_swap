@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:02:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/03 12:27:46 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/03 17:49:32 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,18 @@ void	ft_move_to_top_pile_a(t_push_swap list_pack, t_list *element)
 	t_list	**tmp;
 
 	tmp = list_pack.pile_a;
-	while (*tmp != element)
-		ft_move("ra", list_pack);
+	if (ft_find_optimize_rotation(list_pack.pile_a, element) == OPTIMIZE_R)
+	{
+		while (*tmp != element)
+			ft_move("ra", list_pack);
+	}
+	else
+	{
+		while (*tmp != element)
+		{
+			ft_move("rra", list_pack);
+		}
+	}
 }
 
 void	ft_move_to_top_pile_b(t_push_swap list_pack, t_list *element,

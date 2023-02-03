@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:12:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/03 13:44:53 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/03 17:49:46 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,27 +42,25 @@ static t_instruction	*ft_optimize_rotation(t_push_swap list_pack,
 {
 	t_list			**tmp_a;
 	t_list			*tmp;
+	int				index_tmp;
 
-	ft_move_temporary("pa", list_pack, tmp_instruction);
 	tmp_a = list_pack.pile_a;
-	tmp = (*tmp_a)->next;
-	ft_print_piles("OSKOUR", list_pack);
-	while (!(tmp->prev->index < tmp->index && tmp->index < tmp->next->index))
+	tmp = (*tmp_a);
+	index_tmp = (*list_pack.pile_b)->index;
+	while (!(tmp->prev->index < index_tmp && index_tmp < tmp->index))
 	{
-		printf("ROTATE ? :\n[%d] < [%d] < [%d]\n", (*tmp_a)->index, tmp->index,
-			(*tmp_a)->next->index);
 		tmp = tmp->next;
 	}
-	printf("Rotate GOOD :\n[%d] < [%d] < [%d]\n", tmp->prev->index, tmp->index,
-		tmp->next->index);
 	if (ft_find_optimize_rotation(list_pack.pile_a, tmp) == OPTIMIZE_R)
 	{
 		while ((*tmp_a) != tmp)
 			ft_move_temporary("ra", list_pack, tmp_instruction);
+		ft_move_temporary("pa", list_pack, tmp_instruction);
 		return (*tmp_instruction);
 	}
 	while ((*tmp_a) != tmp)
 		ft_move_temporary("rra", list_pack, tmp_instruction);
+	ft_move_temporary("pa", list_pack, tmp_instruction);
 	return (*tmp_instruction);
 }
 
@@ -81,23 +79,24 @@ static t_instruction	*ft_optimize_move(t_push_swap list_pack,
 	tmp_instruction = NULL;
 	ft_move_to_top_pile_b(list_pack, element_to_go, &tmp_instruction);
 	pile_b = *list_pack.pile_b;
-	// ft_print_piles("MOVED TO THE TOP", list_pack);
+	if (pile_b->index == 0)
+		ft_push_after_max(list_pack, &tmp_instruction);
+	if (pile_b->is_max == 1)
+		ft_push_after_min(list_pack, &tmp_instruction);
 	if (pile_a->index < pile_b->index && pile_b->index < pile_a->next->index)
 	{
-		// printf("[%d] < [%d] < [%d]\n", pile_a->index, pile_b->index, pile_a->next->index);
 		ft_move_temporary("pa", list_pack, &tmp_instruction);
 		ft_move_temporary("sa", list_pack, &tmp_instruction);
 		return (tmp_instruction);
 	}
-	else if (pile_b->index > pile_a->prev->index)
+	else if (pile_b->index > pile_a->prev->index
+		&& pile_a->index > pile_b->index)
 	{
-		printf("[%d] > [%d]\nsCompare even if index of prev is [0] -> Good ? \n Don't compare with is future next to see if it is ascending -> Good ?", pile_b->index, pile_a->prev->index);
 		ft_move_temporary("pa", list_pack, &tmp_instruction);
-		ft_move_temporary("ra", list_pack, &tmp_instruction);
+		// ft_move_temporary("ra", list_pack, &tmp_instruction);
 		return (tmp_instruction);
 	}
-	else
-		return (ft_optimize_rotation(list_pack, &tmp_instruction));
+	return (ft_optimize_rotation(list_pack, &tmp_instruction));
 }
 
 static void	ft_go_back_to(t_push_swap list_pack, t_instruction *lst_instruction,
@@ -137,6 +136,7 @@ void	ft_calcul_move(t_push_swap list_pack)
 	fastest_instruction = NULL;
 	while (i < 5)
 	{
+		printf("I = [%d]\n", i);
 		tmp_instruction = ft_optimize_move(list_pack,
 				ft_get_the_n_element_pile(*list_pack.pile_b, i));
 		tmp_size = ft_lstsize_instruction(tmp_instruction);

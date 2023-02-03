@@ -105,7 +105,19 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 ```
 1 2 3 -1 4 5 0 7 8 9 10
 ```
-
+```
+1 15 0 3 10 6 13 4 8 9 5 12 2 7 11 14
+```
+#### Test Error, Get all sort in A but with error
+```
+5 4 14 12 10 15 3 6 2 11 0 8 1 13 9 7
+```
+```
+8 10 2 9 14 15 12 1 5 4 3 13 0 11 7 6
+```
+```
+8 12 13 3 15 4 7 2 1 6 9 11 10 5 14 0
+```
 # RESTART !
 |Restart		|Description	|Current Status		|
 |---------------|---------------|-----------|
@@ -146,4 +158,4 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 - [ ] Create ft_found_place -> to get where is a precise number in the list and found if is better to do rra or ra to go to this one
 
 # Currents Problems
--  If index bigger than last => pa ra seem to missing some condition to be good
+Error with some test see above

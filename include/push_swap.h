@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/03 12:12:57 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/03 17:44:10 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_list
 	struct s_list	*prev;
 	int				value;
 	int				index;
+	int				is_max;
 }	t_list;
 
 typedef struct s_instruction
@@ -137,6 +138,18 @@ int				ft_find_optimize_rotation(t_list **lst,
 					t_list *lst_destination);
 
 void			ft_calcul_move(t_push_swap list_pack);
+
+// |=============================|
+// |======= PILES_UTILS_2 =======|
+// |=============================|
+
+int				ft_is_ascending(t_list *lst);
+int				ft_find_index_min(t_list *lst);
+
+t_instruction	*ft_push_after_min(t_push_swap list_pack,
+					t_instruction **tmp_instruction);
+t_instruction	*ft_push_after_max(t_push_swap list_pack,
+					t_instruction **tmp_instruction);
 
 // |===============================|
 // |======= PRINT_FUNCTIONS =======|

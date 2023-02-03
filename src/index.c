@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 10:45:36 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/02 15:56:27 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/03 17:20:39 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,21 +58,38 @@ static void	ft_sort_int_tab(int *tab, int size)
 	}
 }
 
-static void	ft_index_from_tab(t_list **lst, int	*tab, int size)
+static void	ft_index_from_tab(t_list *lst, int	*tab, int size)
 {
 	int		i;
 	t_list	*tmp;
 
 	i = 0;
-	tmp = *lst;
+	tmp = lst;
 	while (i < size)
 	{
 		while (tmp->value != tab[i])
 			tmp = tmp->next;
 		tmp->index = i;
-		tmp = *lst;
+		tmp->is_max = 0;
+		tmp = lst;
 		i++;
 	}
+}
+
+static void	ft_get_index_max(t_list *lst)
+{
+	t_list	*last;
+	t_list	*max;
+
+	last = lst->prev;
+	max = last;
+	while (lst != last)
+	{
+		if (lst->index > max->index)
+			max = lst;
+		lst = lst->next;
+	}
+	max->is_max = 1;
 }
 
 void	ft_init_index(t_list **lst)
@@ -83,6 +100,7 @@ void	ft_init_index(t_list **lst)
 	size = ft_lstsize(*lst);
 	tab = ft_tab_from_list(lst, size);
 	ft_sort_int_tab(tab, size);
-	ft_index_from_tab(lst, tab, size);
+	ft_index_from_tab(*lst, tab, size);
 	free(tab);
+	ft_get_index_max(*lst);
 }
