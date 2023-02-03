@@ -126,18 +126,18 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 
 ## Calcul Move
 - [x] Create a variable in list_instruction which the opposite of his operation
-- [ ] Create ft_no_lo_se -> calcul number of mouv to place on X first number
-- [ ] Calcul mouv and write in tmp list_instruction
-- [ ] Reverse the list to get back at the start
-- [ ] If smaller write in tmp_smaller list_instruction
-- [ ] Else delete list
-- [ ] Restart while i != X
+- [x] Create ft_no_lo_se -> calcul number of mouv to place on X first number
+- [x] Calcul mouv and write in tmp list_instruction
+- [x] Reverse the list to get back at the start
+- [x] If smaller write in tmp_smaller list_instruction
+- [x] Else delete list
+- [x] Restart while i != X
 - [ ] Norminette
 
 ## FT_NO_LO_SE
-- [ ] If index between first and second => pa sa
+- [x] If index between first and second => pa sa
 - [ ] If index bigger than last => pa ra
-- [ ] Else find if rra or ra to rotate the list
+- [x] Else find if rra or ra to rotate the list
 - [ ] Norminette
 
 ## Ideas :
@@ -146,4 +146,4 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 - [ ] Create ft_found_place -> to get where is a precise number in the list and found if is better to do rra or ra to go to this one
 
 # Currents Problems
-- ft_move_to_top_pile_b Not using ft_find_optimize_rotation
+-  If index bigger than last => pa ra seem to missing some condition to be good

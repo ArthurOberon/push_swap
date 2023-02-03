@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/02 17:23:09 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/03 12:12:57 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,9 @@ t_list			*ft_get_the_n_element_pile(t_list *start, int n);
 // |============================|
 // |======= CALCUL_MOVE ========|
 // |============================|
+
+int				ft_find_optimize_rotation(t_list **lst,
+					t_list *lst_destination);
 
 void			ft_calcul_move(t_push_swap list_pack);
 
