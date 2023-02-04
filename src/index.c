@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 10:45:36 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/03 17:20:39 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/04 10:12:54 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ static void	ft_index_from_tab(t_list *lst, int	*tab, int size)
 		while (tmp->value != tab[i])
 			tmp = tmp->next;
 		tmp->index = i;
-		tmp->is_max = 0;
 		tmp = lst;
 		i++;
 	}
@@ -89,7 +88,6 @@ static void	ft_get_index_max(t_list *lst)
 			max = lst;
 		lst = lst->next;
 	}
-	max->is_max = 1;
 }
 
 void	ft_init_index(t_list **lst)
@@ -102,5 +100,4 @@ void	ft_init_index(t_list **lst)
 	ft_sort_int_tab(tab, size);
 	ft_index_from_tab(*lst, tab, size);
 	free(tab);
-	ft_get_index_max(*lst);
 }

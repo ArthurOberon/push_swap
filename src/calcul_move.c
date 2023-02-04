@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:12:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/03 17:49:46 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/04 10:38:16 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,11 @@ static t_instruction	*ft_optimize_move(t_push_swap list_pack,
 	tmp_instruction = NULL;
 	ft_move_to_top_pile_b(list_pack, element_to_go, &tmp_instruction);
 	pile_b = *list_pack.pile_b;
-	if (pile_b->index == 0)
-		ft_push_after_max(list_pack, &tmp_instruction);
-	if (pile_b->is_max == 1)
-		ft_push_after_min(list_pack, &tmp_instruction);
-	if (pile_a->index < pile_b->index && pile_b->index < pile_a->next->index)
+	if (pile_b->index < ft_find_element_min(pile_a)->index)
+		return (ft_push_after_max(list_pack, &tmp_instruction));
+	else if (pile_b->index > ft_find_element_max(pile_a)->index)
+		return (ft_push_after_min(list_pack, &tmp_instruction));
+	else if (pile_a->index < pile_b->index && pile_b->index < pile_a->next->index)
 	{
 		ft_move_temporary("pa", list_pack, &tmp_instruction);
 		ft_move_temporary("sa", list_pack, &tmp_instruction);
@@ -136,7 +136,7 @@ void	ft_calcul_move(t_push_swap list_pack)
 	fastest_instruction = NULL;
 	while (i < 5)
 	{
-		printf("I = [%d]\n", i);
+		// printf("I = [%d]\n", i);
 		tmp_instruction = ft_optimize_move(list_pack,
 				ft_get_the_n_element_pile(*list_pack.pile_b, i));
 		tmp_size = ft_lstsize_instruction(tmp_instruction);

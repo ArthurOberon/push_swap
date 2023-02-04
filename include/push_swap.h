@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/03 17:44:10 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/04 10:15:31 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ typedef struct s_list
 	struct s_list	*prev;
 	int				value;
 	int				index;
-	int				is_max;
 }	t_list;
 
 typedef struct s_instruction
@@ -145,6 +144,10 @@ void			ft_calcul_move(t_push_swap list_pack);
 
 int				ft_is_ascending(t_list *lst);
 int				ft_find_index_min(t_list *lst);
+
+t_list			*ft_find_element_min(t_list *lst);
+t_list			*ft_find_element_max(t_list *lst);
+
 
 t_instruction	*ft_push_after_min(t_push_swap list_pack,
 					t_instruction **tmp_instruction);

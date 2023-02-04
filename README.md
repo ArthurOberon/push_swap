@@ -60,7 +60,7 @@ make bonus
 
 ## Author
 * **[Arthur Obéron](https://github.com/ArthurOberon)**
-
+* **Thanks to Johanne Vigny for the help**
 ---
 
 *!!!! IF THERE, CHECK THE BOLD FIRST !!!!*
@@ -71,53 +71,80 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 ```
 5 7 14 10 9 13 15 12 4 0 6 11 3 8 1 2
 ```
+- [x]
 ```
 6 8 11 4 12 10 14 3
 ```
+- [x]
 ```
 1 2 6 4 0 5 7 3
 ```
+- [x]
 ```
 4 1 2 0 5 6 7 3
 ```
+- [x]
 ```
 3 2 5 7 0 6 4 1
 ```
+- [x]
 ```
 3 4 5 7 0 1 6 2
 ```
+- [x]
 ```
 4 0 5 2 7 6 1 3
 ```
+- [x]
 ```
 4 2 0 7 6 5 3 1
 ```
+- [x]
 ```
 6 5 2 1 4 3 0 7
 ```
+- [x]
 ```
 4 7 6 3 5 1 2 0
 ```
+- [x]
 ```
 1 2 3 -1 4 5 0 7 8 9 -10
 ```
+- [x]
 #### Current test
 ```
 1 2 3 -1 4 5 0 7 8 9 10
 ```
+- [x]
 ```
 1 15 0 3 10 6 13 4 8 9 5 12 2 7 11 14
 ```
+- [x]
 #### Test Error, Get all sort in A but with error
+INFINITY LOOP :
 ```
 5 4 14 12 10 15 3 6 2 11 0 8 1 13 9 7
 ```
+- [x]
+```
+11 6 2 13 8 12 15 10 5 7 4 14 1 9 0 3
+```
+- [x]
+NOT SORTED :
 ```
 8 10 2 9 14 15 12 1 5 4 3 13 0 11 7 6
 ```
+- [x]
+```
+5 4 14 12 10 15 3 6 2 11 0 8 1 13 9 7
+```
+- [x]
 ```
 8 12 13 3 15 4 7 2 1 6 9 11 10 5 14 0
 ```
+- [x]
+
 # RESTART !
 |Restart		|Description	|Current Status		|
 |---------------|---------------|-----------|
@@ -132,6 +159,7 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 - [x] Move to the bottom part
 - [x] Push all the bottom part but keep the max
 - [ ] Norminette
+ 
  ## Find Ascending Not Effecient Enough
  Try to :
  - Calcul the biggest ascending sequence's with numbers in between, using the index : if < push else keep
@@ -148,14 +176,21 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 
 ## FT_NO_LO_SE
 - [x] If index between first and second => pa sa
-- [ ] If index bigger than last => pa ra
+- [x] If index bigger than last => pa
 - [x] Else find if rra or ra to rotate the list
 - [ ] Norminette
 
 ## Ideas :
 - [ ] Create ft_check -> check if 3 or less element, or others checkable things
 - [ ] Create ft_check_evidence -> at the start, check for evident mouv (ex : 2 1 => sa : 1 2)
-- [ ] Create ft_found_place -> to get where is a precise number in the list and found if is better to do rra or ra to go to this one
+- [x] Create ft_optimize_rotation -> find if it is better to do ra/b or rra/b
+
+## Have to :
+- [ ] Find the good X for test for X first number of b the best mouvement
+- [ ] Get the right parsing with all the subtleties
+- [ ] Manage malloc and their protections
+- [ ] Free all without leaks (maybe with a function to free and exit)
+- [ ] Check instruction list to find mouvements that can be combinated (ex : ra, rb => rr)
 
 # Currents Problems
-Error with some test see above
+- [ ] Do not use sb at all -> bad ?
