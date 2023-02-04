@@ -149,9 +149,9 @@ NOT SORTED :
 |Restart		|Description	|Current Status		|
 |---------------|---------------|-----------|
 |Index			| Using a tab and sort_int_tab	| <ul><li>- [x] Done</li><li>- [ ] Norminette</li></ul>	|
-|Find ascending	| Find biggest sequence, push all the top expect min of start, push all bottom expect max of end	| <ul><li>- [ ] Done</li></ul>	|
-|Calcul move	| For the X first, and apply the smaller, till the end	| <ul><li>- [ ] Done</li></ul>	|
-|Others Ideas	| See Ideas	| <ul><li>- [ ] Done</li></ul>	|
+|Find ascending	| Find biggest sequence, push all the top expect min of start, push all bottom expect max of end	| <ul><li>- [x] Done</li><li>- [ ] Norminette</li></ul>	|
+|Calcul move	| For the X first, and apply the smaller, till the end	| <ul><li>- [x] Done</li><li>- [ ] Norminette</li></ul>	|
+|Others Ideas	| See Ideas	| <ul><li>- [ ] Done</li><li>- [ ] Norminette</li></ul>	|
 
 ## Find Ascending
 - [x] Check the list to find the biggest ascendant sequence's coordonate
