@@ -71,83 +71,79 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 ```
 5 7 14 10 9 13 15 12 4 0 6 11 3 8 1 2
 ```
-- [x]
+- [x] Working
 ```
 6 8 11 4 12 10 14 3
 ```
-- [x]
+- [x] Working
 ```
 1 2 6 4 0 5 7 3
 ```
-- [x]
+- [x] Working
 ```
 4 1 2 0 5 6 7 3
 ```
-- [x]
+- [x] Working
 ```
 3 2 5 7 0 6 4 1
 ```
-- [x]
+- [x] Working
 ```
 3 4 5 7 0 1 6 2
 ```
-- [x]
+- [x] Working
 ```
 4 0 5 2 7 6 1 3
 ```
-- [x]
+- [x] Working
 ```
 4 2 0 7 6 5 3 1
 ```
-- [x]
+- [x] Working
 ```
 6 5 2 1 4 3 0 7
 ```
-- [x]
+- [x] Working
 ```
 4 7 6 3 5 1 2 0
 ```
-- [x]
+- [x] Working
 ```
 1 2 3 -1 4 5 0 7 8 9 -10
 ```
-- [x]
+- [x] Working
 #### Current test
 ```
 1 2 3 -1 4 5 0 7 8 9 10
 ```
-- [x]
+- [x] Working
 ```
 1 15 0 3 10 6 13 4 8 9 5 12 2 7 11 14
 ```
-- [x]
+- [x] Working
 #### Test Error, Get all sort in A but with error
 INFINITY LOOP :
 ```
 5 4 14 12 10 15 3 6 2 11 0 8 1 13 9 7
 ```
-- [x]
+- [x] Working
 ```
 11 6 2 13 8 12 15 10 5 7 4 14 1 9 0 3
 ```
-
-- [x]
-
+- [x] Working
 NOT SORTED :
 ```
 8 10 2 9 14 15 12 1 5 4 3 13 0 11 7 6
 ```
-
 - [x] Working
-
 ```
 5 4 14 12 10 15 3 6 2 11 0 8 1 13 9 7
 ```
-- [x]
+- [x] Working
 ```
 8 12 13 3 15 4 7 2 1 6 9 11 10 5 14 0
 ```
-- [x]
+- [x] Working
 
 # RESTART !
 |Restart		|Description	|Current Status		|
