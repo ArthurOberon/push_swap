@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/04 11:21:47 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/04 11:26:18 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,6 @@ typedef struct s_push_swap
 	t_list			**pile_b;
 	t_instruction	**instructions;
 }	t_push_swap;
-
-typedef struct s_piles
-{
-	t_list	**pile_a;
-	t_list	**pile_b;
-}	t_piles;
 
 // |====================|
 // |======= MOVE =======|
