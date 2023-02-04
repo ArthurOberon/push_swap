@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/04 11:26:18 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/04 11:58:33 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,7 +167,7 @@ t_instruction	*ft_lstnew_instruction(char *operation);
 t_list			*ft_find_element_min(t_list *lst);
 t_list			*ft_find_element_max(t_list *lst);
 
-t_instruction	*ft_push_after_min(t_push_swap list_pack,
+t_instruction	*ft_push_before_min(t_push_swap list_pack,
 					t_instruction **tmp_instruction);
 t_instruction	*ft_push_after_max(t_push_swap list_pack,
 					t_instruction **tmp_instruction);

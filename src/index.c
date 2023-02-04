@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 10:45:36 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/04 10:12:54 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/04 11:55:42 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static int	*ft_tab_from_list(t_list **lst, int size)
 
 	i = 0;
 	tab = malloc(sizeof(int) * size);
+	if (!tab)
+		return (NULL);
 	last = (*lst)->prev;
 	tmp = last->next;
 	while (tmp != last)
@@ -97,6 +99,11 @@ void	ft_init_index(t_list **lst)
 
 	size = ft_lstsize(*lst);
 	tab = ft_tab_from_list(lst, size);
+	if (!tab)
+	{
+		ft_lstclear(lst);
+		exit(EXIT_FAILURE);
+	}
 	ft_sort_int_tab(tab, size);
 	ft_index_from_tab(*lst, tab, size);
 	free(tab);

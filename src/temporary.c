@@ -6,13 +6,14 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:43:31 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/02 15:56:44 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/04 11:38:37 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*\*/
 
 #include "push_swap.h"
+// #include <stdio.h>
 
 // printf("Coordonate = [%d] (%d) | [%d] (%d)\n", (coordonate[0])->value,
 	// (coordonate[0])->index, (coordonate[1])->value, (coordonate[1])->index);

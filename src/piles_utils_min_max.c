@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:47:31 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/04 11:21:53 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/04 11:58:33 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_list	*ft_find_element_max(t_list *lst)
 	return (max);
 }
 
-t_instruction	*ft_push_after_min(t_push_swap list_pack,
+t_instruction	*ft_push_before_min(t_push_swap list_pack,
 	t_instruction **tmp_instruction)
 {
 	t_list	**tmp_a;

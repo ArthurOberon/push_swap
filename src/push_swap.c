@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 09:46:18 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/04 11:09:07 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/04 12:15:07 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ void	ft_push_swap(t_list **lst_a)
 	while (tmp_a->index != 0)
 		tmp_a = tmp_a->next;
 	ft_move_to_top_pile_a(list_pack, tmp_a);
+	printf("Check if instructions can be reduce\n");
+	printf("Print instructions\n");
+	ft_lstclear(lst_a);
+	ft_lstclear_instruction(&lst_instruction);
 }
 	// ft_print_piles("END", list_pack);
 

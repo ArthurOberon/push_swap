@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:12:24 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/02 16:28:25 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/04 12:12:54 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 void	ft_lstclear_instruction(t_instruction **lst)
 {
 	t_instruction	*tmp;
-	t_instruction	*tmp2;
+	t_instruction	*tmp_next;
 
 	if (!lst)
 		return ;
 	tmp = *lst;
-	tmp2 = *lst;
+	tmp_next = *lst;
 	while (tmp)
 	{
-		tmp2 = tmp2->next;
+		tmp_next = tmp_next->next;
 		free(tmp);
-		tmp = tmp2;
+		tmp = tmp_next;
 	}
 	*lst = NULL;
 }

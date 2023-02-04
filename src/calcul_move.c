@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:12:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/04 11:10:08 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/04 12:18:18 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ static t_instruction	*ft_optimize_move(t_push_swap list_pack,
 	if (pile_b->index < ft_find_element_min(pile_a)->index)
 		return (ft_push_after_max(list_pack, &tmp_instruction));
 	else if (pile_b->index > ft_find_element_max(pile_a)->index)
-		return (ft_push_after_min(list_pack, &tmp_instruction));
+		return (ft_push_before_min(list_pack, &tmp_instruction));
 	else if (pile_a->index < pile_b->index
 		&& pile_b->index < pile_a->next->index)
 	{
@@ -162,4 +162,5 @@ void	ft_calcul_move(t_push_swap list_pack)
 			list_pack.pile_b);
 		fastest_instruction = fastest_instruction->next;
 	}
+	ft_lstclear_instruction(&fastest_instruction);
 }
