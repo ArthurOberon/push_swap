@@ -148,7 +148,8 @@ NOT SORTED :
 # RESTART !
 |Restart		|Description	|Current Status		|
 |---------------|---------------|-----------|
-|Index			| Using a tab and sort_int_tab	| <ul><li>- [x] Done</li></ul>	|
+|Index			| Using a tab and sort_int_tab	| <ul><li>- [x] Done</li></ul>
+<ul><li>- [ ] Norminette</li></ul>	|
 |Find ascending	| Find biggest sequence, push all the top expect min of start, push all bottom expect max of end	| <ul><li>- [ ] Done</li></ul>	|
 |Calcul move	| For the X first, and apply the smaller, till the end	| <ul><li>- [ ] Done</li></ul>	|
 |Others Ideas	| See Ideas	| <ul><li>- [ ] Done</li></ul>	|
