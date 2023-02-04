@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:12:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/04 12:18:18 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/04 13:01:38 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,12 +155,13 @@ void	ft_calcul_move(t_push_swap list_pack)
 		tmp_instruction = NULL;
 		i++;
 	}
+	ft_lstclear_instruction(&tmp_instruction);
 	ft_lstadd_back_instruction(list_pack.instructions, fastest_instruction);
+	ft_print_list_instruction_one_line(&fastest_instruction);
 	while (fastest_instruction != NULL)
 	{
 		ft_do_operation(fastest_instruction->operation, list_pack.pile_a,
 			list_pack.pile_b);
 		fastest_instruction = fastest_instruction->next;
 	}
-	ft_lstclear_instruction(&fastest_instruction);
 }
