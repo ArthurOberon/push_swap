@@ -186,7 +186,7 @@ NOT SORTED :
 - [x] Create ft_optimize_rotation -> find if it is better to do ra/b or rra/b
 
 ## Have to :
-- [ ] Find the good X for test for X first number of b the best mouvement
+- [ ] Find the best X for "Test mouvement for the X first element of B and take the fastest one"
 - [ ] Get the right parsing with all the subtleties
 - [ ] Manage malloc and their protections
 - [ ] Free all without leaks (maybe with a function to free and exit)
