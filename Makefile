@@ -25,7 +25,8 @@ PS_SRC =	index.c \
 			list_order.c \
 			piles_utils.c \
 			calcul_move.c \
-			piles_utils_2.c \
+			piles_utils_move.c \
+			piles_utils_min_max.c \
 
 #preset_move_functions.c \
 

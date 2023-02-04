@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/04 10:15:31 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/04 11:21:47 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,13 +119,11 @@ void			ft_get_order(t_push_swap list_pack);
 // |======= PILES_UTILS =======|
 // |===========================|
 
+int				ft_is_ascending(t_list *lst);
 int				ft_calcul_gap(t_list *start_a, t_list *end_a,
 					t_list *start_b, t_list *end_b);
 
 void			ft_go_to_element_pile(t_list **start, t_list *dst);
-void			ft_move_to_top_pile_a(t_push_swap list_pack, t_list *element);
-void			ft_move_to_top_pile_b(t_push_swap list_pack, t_list *element,
-					t_instruction **lst_instruction);
 
 t_list			*ft_get_the_n_element_pile(t_list *start, int n);
 
@@ -138,22 +136,6 @@ int				ft_find_optimize_rotation(t_list **lst,
 
 void			ft_calcul_move(t_push_swap list_pack);
 
-// |=============================|
-// |======= PILES_UTILS_2 =======|
-// |=============================|
-
-int				ft_is_ascending(t_list *lst);
-int				ft_find_index_min(t_list *lst);
-
-t_list			*ft_find_element_min(t_list *lst);
-t_list			*ft_find_element_max(t_list *lst);
-
-
-t_instruction	*ft_push_after_min(t_push_swap list_pack,
-					t_instruction **tmp_instruction);
-t_instruction	*ft_push_after_max(t_push_swap list_pack,
-					t_instruction **tmp_instruction);
-
 // |===============================|
 // |======= PRINT_FUNCTIONS =======|
 // |===============================|
@@ -163,6 +145,14 @@ void			ft_putchar(char c);
 void			ft_putstr(char	*s);
 
 size_t			ft_strlen(const char *s);
+
+// |================================|
+// |======= PILES_UTILS_MOVE =======|
+// |================================|
+
+void			ft_move_to_top_pile_a(t_push_swap list_pack, t_list *element);
+void			ft_move_to_top_pile_b(t_push_swap list_pack, t_list *element,
+					t_instruction **lst_instruction);
 
 // |=================================|
 // |======= LIST_INSTRUCTIONS =======|
@@ -175,6 +165,18 @@ void			ft_add_instruction(char *operation,
 					t_instruction **lst_instruction);
 
 t_instruction	*ft_lstnew_instruction(char *operation);
+
+// |===================================|
+// |======= PILES_UTILS_MIN_MAX =======|
+// |===================================|
+
+t_list			*ft_find_element_min(t_list *lst);
+t_list			*ft_find_element_max(t_list *lst);
+
+t_instruction	*ft_push_after_min(t_push_swap list_pack,
+					t_instruction **tmp_instruction);
+t_instruction	*ft_push_after_max(t_push_swap list_pack,
+					t_instruction **tmp_instruction);
 
 // |========================================|
 // |======= LIST_CREATE_INSTRUCTIONS =======|

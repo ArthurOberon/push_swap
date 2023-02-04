@@ -1,32 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   piles_utils_2.c                                    :+:      :+:    :+:   */
+/*   piles_utils_min_max.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:47:31 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/04 10:34:19 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/04 11:21:53 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_find_index_min(t_list *lst)
-{
-	int		min;
-	t_list	*last;
-
-	last = lst->prev;
-	min = last->index;
-	while (lst != last)
-	{
-		if (lst->index < min)
-			min = lst->index;
-		lst = lst->next;
-	}
-	return (min);
-}
 
 t_list	*ft_find_element_min(t_list *lst)
 {
@@ -58,24 +42,6 @@ t_list	*ft_find_element_max(t_list *lst)
 		lst = lst->next;
 	}
 	return (max);
-}
-
-int	ft_is_ascending(t_list *lst)
-{
-	t_list	*last;
-	t_list	*min;
-
-	min = ft_find_element_min(lst);
-	if (min->index != 0)
-		return (0);
-	last = min->prev;
-	while (min != last)
-	{
-		if (min->next->index != min->index + 1)
-			return (0);
-		min = min->next;
-	}
-	return (1);
 }
 
 t_instruction	*ft_push_after_min(t_push_swap list_pack,
