@@ -191,6 +191,7 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 - [ ] Manage malloc and their protections
 - [ ] Free all without leaks (maybe with a function to free and exit)
 - [ ] Check instruction list to find mouvements that can be combinated (ex : ra, rb => rr)
+- [ ] Find optimizations
 
 # Currents Problems
 - [ ] Do not use sb at all -> bad ?
