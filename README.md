@@ -60,7 +60,7 @@ make bonus
 
 ## Author
 * **[Arthur Obéron](https://github.com/ArthurOberon)**
-* **Thanks to Johanne Vigny for the help**
+* **Thanks to Johanne Vigny for the big help**
 ---
 
 *!!!! IF THERE, CHECK THE BOLD FIRST !!!!*
@@ -130,12 +130,16 @@ INFINITY LOOP :
 ```
 11 6 2 13 8 12 15 10 5 7 4 14 1 9 0 3
 ```
+
 - [x]
+
 NOT SORTED :
 ```
 8 10 2 9 14 15 12 1 5 4 3 13 0 11 7 6
 ```
+
 - [x]
+
 ```
 5 4 14 12 10 15 3 6 2 11 0 8 1 13 9 7
 ```
