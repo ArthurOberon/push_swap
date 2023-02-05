@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/04 11:58:33 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/05 10:36:20 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,18 @@ int				ft_isspace(char c);
 
 void			ft_init_index(t_list **lst);
 
+// |=====================|
+// |======= PILES =======|
+// |=====================|
+
+int				ft_is_ascending(t_list *lst);
+int				ft_calcul_gap(t_list *start_a, t_list *end_a,
+					t_list *start_b, t_list *end_b);
+
+void			ft_go_to_element_pile(t_list **start, t_list *dst);
+
+t_list			*ft_get_the_n_element_pile(t_list *start, int n);
+
 // |======================|
 // |======= OTHERS =======|
 // |======================|
@@ -85,9 +97,9 @@ int				ft_parse(char *str, t_list **lst);
 
 char			*ft_str_merge(char **str, int space, int size);
 
-// |==========================|
-// |======= LIST_PILES =======|
-// |==========================|
+// |===========================|
+// |======= PILES_UTILS =======|
+// |===========================|
 
 int				ft_lstsize(t_list *lst);
 int				ft_lstsize_instruction(t_instruction *lst);
@@ -104,22 +116,12 @@ t_list			*ft_lstmoveout(t_list **lst);
 void			ft_do_operation(char *str, t_list **lst_a, t_list **lst_b);
 
 // |==========================|
-// |======= LIST_ORDER =======|
+// |======= PILES_MOVE =======|
 // |==========================|
 
-void			ft_get_order(t_push_swap list_pack);
-
-// |===========================|
-// |======= PILES_UTILS =======|
-// |===========================|
-
-int				ft_is_ascending(t_list *lst);
-int				ft_calcul_gap(t_list *start_a, t_list *end_a,
-					t_list *start_b, t_list *end_b);
-
-void			ft_go_to_element_pile(t_list **start, t_list *dst);
-
-t_list			*ft_get_the_n_element_pile(t_list *start, int n);
+void			ft_move_to_top_pile_a(t_push_swap list_pack, t_list *element);
+void			ft_move_to_top_pile_b(t_push_swap list_pack, t_list *element,
+					t_instruction **lst_instruction);
 
 // |============================|
 // |======= CALCUL_MOVE ========|
@@ -130,39 +132,9 @@ int				ft_find_optimize_rotation(t_list **lst,
 
 void			ft_calcul_move(t_push_swap list_pack);
 
-// |===============================|
-// |======= PRINT_FUNCTIONS =======|
-// |===============================|
-
-void			ft_putnbr(int nb);
-void			ft_putchar(char c);
-void			ft_putstr(char	*s);
-
-size_t			ft_strlen(const char *s);
-
-// |================================|
-// |======= PILES_UTILS_MOVE =======|
-// |================================|
-
-void			ft_move_to_top_pile_a(t_push_swap list_pack, t_list *element);
-void			ft_move_to_top_pile_b(t_push_swap list_pack, t_list *element,
-					t_instruction **lst_instruction);
-
-// |=================================|
-// |======= LIST_INSTRUCTIONS =======|
-// |=================================|
-
-void			ft_lstclear_instruction(t_instruction **lst);
-void			ft_lstadd_back_instruction(t_instruction **lst,
-					t_instruction *new);
-void			ft_add_instruction(char *operation,
-					t_instruction **lst_instruction);
-
-t_instruction	*ft_lstnew_instruction(char *operation);
-
-// |===================================|
-// |======= PILES_UTILS_MIN_MAX =======|
-// |===================================|
+// |=============================|
+// |======= PILES_MIN_MAX =======|
+// |=============================|
 
 t_list			*ft_find_element_min(t_list *lst);
 t_list			*ft_find_element_max(t_list *lst);
@@ -172,8 +144,45 @@ t_instruction	*ft_push_before_min(t_push_swap list_pack,
 t_instruction	*ft_push_after_max(t_push_swap list_pack,
 					t_instruction **tmp_instruction);
 
+// |==============================|
+// |======= PILES_ORDERING =======|
+// |==============================|
+
+void			ft_get_order(t_push_swap list_pack);
+
+// |===============================|
+// |======= PRINT_FUNCTIONS =======|
+// |===============================|
+
+void			ft_putnbr(int nb);
+void			ft_putchar(char c);
+void			ft_putstr(char	*s);
+void			ft_print_instruction(t_instruction *lst);
+
+size_t			ft_strlen(const char *s);
+
+// |=================================|
+// |======= LIST_INSTRUCTIONS =======|
+// |=================================|
+
+void			ft_find_combination_move(t_instruction **lst);
+
+// |=======================================|
+// |======= LIST_INSTRUCTIONS_UTILS =======|
+// |=======================================|
+
+void			ft_lstclear_instruction(t_instruction **lst);
+void			ft_lstadd_back_instruction(t_instruction **lst,
+					t_instruction *new);
+void			ft_add_instruction(char *operation,
+					t_instruction **lst_instruction);
+
+char			*ft_invert_operation(char *operation);
+
+t_instruction	*ft_lstnew_instruction(char *operation);
+
 // |========================================|
-// |======= LIST_CREATE_INSTRUCTIONS =======|
+// |======= CREATE_LIST_INSTRUCTIONS =======|
 // |========================================|
 
 t_instruction	*ft_create_list_instruction(void);

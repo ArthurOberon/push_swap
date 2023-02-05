@@ -12,26 +12,27 @@ COMMON_SRC = 	move.c \
 				parse.c \
 				merge_str.c \
 				operations.c \
-				list_piles.c \
+				piles_utils.c \
 				print_functions.c \
-				list_instructions.c \
+				list_instructions_utils.c \
 				\
 				temporary.c \
 
 ## BECAREFUL -> TEMPORARY.C
 
 PS_SRC =	index.c \
+			piles.c \
 			push_swap.c \
-			list_order.c \
-			piles_utils.c \
+			piles_move.c \
 			calcul_move.c \
-			piles_utils_move.c \
-			piles_utils_min_max.c \
+			piles_min_max.c \
+			piles_ordering.c \
+			list_instructions.c \
 
 #preset_move_functions.c \
 
 CHECKER_SRC =	checker.c \
-				list_create_instructions.c \
+				create_list_instructions.c \
 
 GNL_SRC =		get_next_line.c \
 				get_next_line_utils.c \

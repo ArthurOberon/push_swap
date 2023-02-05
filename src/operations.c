@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 19:17:56 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/04 11:39:29 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/05 10:03:18 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static void	ft_rotate(char *str, t_list **lst_a, t_list **lst_b)
 
 void	ft_do_operation(char *str, t_list **lst_a, t_list **lst_b)
 {
-	printf("%s\n", str);
+	// printf("%s\n", str);
 	if (*str == 'p')
 	{
 		str++;

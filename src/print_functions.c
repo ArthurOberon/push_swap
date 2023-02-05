@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:30:33 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/01 12:55:14 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/05 10:02:39 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,15 @@ void	ft_putnbr(int nb)
 	{
 		ft_putnbr(nb / 10);
 		ft_putnbr(nb % 10);
+	}
+}
+
+void	ft_print_instruction(t_instruction *lst)
+{
+	while (lst)
+	{
+		ft_putstr(lst->operation);
+		ft_putchar('\n');
+		lst = lst->next;
 	}
 }

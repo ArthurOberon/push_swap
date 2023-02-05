@@ -1,79 +1,106 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   piles_utils.c                                      :+:      :+:    :+:   */
+/*   list_piles.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/04 11:12:51 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/04 11:14:35 by aoberon          ###   ########.fr       */
+/*   Created: 2023/01/11 18:34:24 by aoberon           #+#    #+#             */
+/*   Updated: 2023/02/02 16:12:45 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_go_to_element_pile(t_list **start, t_list *dst)
+t_list	*ft_lstmoveout(t_list **lst)
 {
-	while (*start != dst)
+	t_list	*tmp;
+
+	tmp = *lst;
+	if (tmp->next == tmp)
 	{
-		*start = (*start)->next;
+		*lst = NULL;
+		return (tmp);
 	}
+	tmp->prev->next = tmp->next;
+	tmp->next->prev = tmp->prev;
+	*lst = tmp->next;
+	tmp->prev = tmp;
+	tmp->next = tmp;
+	return (tmp);
 }
 
-t_list	*ft_get_the_n_element_pile(t_list *start, int n)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int		i;
-	t_list	*last;
+	t_list	*tmp;
 
-	i = 0;
-	last = start->prev;
-	while (i < n && start != last)
+	if (!lst || !new)
+		return ;
+	if (!*lst)
 	{
-		start = start->next;
-		i++;
+		*lst = new;
+		new->next = new;
+		new->prev = new;
+		return ;
 	}
-	return (start);
+	tmp = (*lst)->prev;
+	(*lst)->prev = new;
+	new->next = (*lst);
+	new->prev = tmp;
+	tmp->next = new;
 }
 
-int	ft_calcul_gap(t_list *start_a, t_list *end_a,
-	t_list *start_b, t_list *end_b)
+void	ft_lstclear(t_list **lst)
 {
-	int		a;
-	int		b;
-	t_list	*tmp_a;
-	t_list	*tmp_b;
+	t_list	*first;
+	t_list	*tmp;
+	t_list	*tmp2;
 
-	a = 0;
-	b = 0;
-	tmp_a = start_a;
-	tmp_b = start_b;
-	while (tmp_a != end_a)
+	if (!lst || !*lst)
+		return ;
+	first = (*lst);
+	tmp = first->next;
+	tmp2 = first->next;
+	while (tmp != first)
 	{
-		tmp_a = tmp_a->next;
-		a++;
+		tmp2 = tmp2->next;
+		free(tmp);
+		tmp = tmp2;
 	}
-	while (tmp_b != end_b)
-	{
-		tmp_b = tmp_b->next;
-		b++;
-	}
-	return (a > b);
+	free(tmp);
+	*lst = NULL;
 }
 
-int	ft_is_ascending(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
-	t_list	*last;
-	t_list	*min;
+	t_list	*first;
+	t_list	*tmp;
+	int		size;
 
-	min = ft_find_element_min(lst);
-	if (min->index != 0)
+	if (!lst)
 		return (0);
-	last = min->prev;
-	while (min != last)
+	size = 1;
+	first = lst;
+	tmp = first->next;
+	while (tmp != first)
 	{
-		if (min->next->index != min->index + 1)
-			return (0);
-		min = min->next;
+		tmp = tmp->next;
+		size++;
 	}
-	return (1);
+	return (size);
+}
+
+int	ft_lstsize_instruction(t_instruction *lst)
+{
+	int	size;
+
+	if (!lst)
+		return (0);
+	size = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		size++;
+	}
+	return (size);
 }
