@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 11:48:12 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/05 10:16:05 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/06 17:00:51 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,22 @@ static void	ft_push_bottom(t_push_swap list_pack, t_list **coordonate)
 	}
 }
 
+void	ft_check_obvious(t_push_swap list_pack)
+{
+	t_list	*tmp;
+
+	if (ft_lstsize(*list_pack.pile_a) == 3)
+		ft_3_elements(list_pack);
+	tmp = *(list_pack.pile_a);
+	if (tmp->index > tmp->next->index)
+		ft_move("sa", list_pack);
+}
+
 void	ft_get_order(t_push_swap list_pack)
 {
 	t_list	**coordonate;
 
+	ft_check_obvious(list_pack);
 	coordonate = ft_get_ascending_sequence(list_pack.pile_a);
 	if (!coordonate)
 		printf("Panic ! Do a function to exit and free\n");

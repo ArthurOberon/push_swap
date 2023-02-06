@@ -71,12 +71,12 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 ```
 19 94 65 0 93 71 18 64 33 50 10 85 30 26 97 55 52 42 35 72 96 70 78 36 86 88 21 5 59 67 84 68 20 57 43 34 54 73 29 99 48 95 40 51 9 98 81 25 22 56 80 100 66 12 63 4 60 92 91 15 13 3 44 69 89 16 77 58 17 14 87 46 83 6 75 74 32 49 7 1 38 37 28 90 62 31 76 79 8 82 27 24 39 45 47 23 41 61 11 53 2
 ```
-- [x] Working with 2292 moves (way to much) ! New record ! -> 573
+- [x] Working with 2292 moves (way to much) ! New record ! -> 601
 
 ```
 20 3 13 42 34 49 19 28 1 4 47 40 16 22 15 33 14 21 37 17 5 27 48 44 39 38 23 46 29 24 12 9 7 45 6 2 25 11 32 43 30 8 26 41 18 10 36 0 31 50 35
 ```
-- [x] Working with 635 moves (way to much) ! New record ! -> 274
+- [x] Working with 635 moves (way to much) ! New record ! -> 282
 
 ```
 23 16 25 24 19 14 20 9 0 8 17 12 1 15 3 4 22 6 18 11 21 10 5 7 13 2
@@ -201,12 +201,12 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 - [ ] Norminette
 
 ## Ideas :
-- [ ] Create ft_check -> check if 3 or less element, or others checkable things
-- [ ] Create ft_check_evidence -> at the start, check for evident mouv (ex : 2 1 => sa : 1 2)
+- [x] Create ft_check -> check if 3 or less element, or others checkable things
+- [x] Create ft_check_evidence -> at the start, check for evident mouv (ex : 2 1 => sa : 1 2)
 - [x] Create ft_optimize_rotation -> find if it is better to do ra/b or rra/b
 
 ## Have to :
-- [ ] Find the best X for "Test mouvement for the X first element of B and take the fastest one"
+- [x] Find the best X for "Test mouvement for the X first element of B and take the fastest one"
 - [ ] Get the right parsing with all the subtleties
 - [ ] Manage malloc and their protections
 - [ ] Free all without leaks (maybe with a function to free and exit)
@@ -216,3 +216,4 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 # Currents Problems
 - [ ] Do not use sb at all -> bad ?
 - [ ] Do not free list instruction of calcul_move (fastest_instruction)
+**BIG PROBLEMS WITH FREE AND MALLOC VALGRIND ./PUSH_SWAP AND CHECKER TO SEE IT**

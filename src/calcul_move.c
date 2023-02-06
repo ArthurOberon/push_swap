@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:12:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/06 10:22:45 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/06 17:14:52 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ void	ft_calcul_move(t_push_swap list_pack)
 	i = 0;
 	fastest_size = 0;
 	fastest_instruction = NULL;
-	while (i < 1000)
+	while (i < ft_lstsize(*list_pack.pile_b))
 	{
 		tmp_instruction = ft_optimize_move(list_pack,
 				ft_get_the_n_element_pile(*list_pack.pile_b, i));
@@ -153,15 +153,14 @@ void	ft_calcul_move(t_push_swap list_pack)
 			ft_go_back_to(list_pack, tmp_instruction, tmp_size, i);
 			ft_lstclear_instruction(&tmp_instruction);
 		}
-		tmp_instruction = NULL;
 		i++;
 	}
-	ft_lstclear_instruction(&tmp_instruction);
 	ft_lstadd_back_instruction(list_pack.instructions, fastest_instruction);
 	while (fastest_instruction != NULL)
 	{
 		ft_do_operation(fastest_instruction->operation, list_pack.pile_a,
 			list_pack.pile_b);
 		fastest_instruction = fastest_instruction->next;
+	// ft_lstclear_instruction(&tmp_instruction);
 	}
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_instructions.c                                :+:      :+:    :+:   */
+/*   list_instructions_combination.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:12:24 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/06 10:44:06 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/06 16:42:59 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ void	ft_find_combination_move(t_instruction **lst)
 	int				rrb_number;
 
 	tmp = *lst;
+	if (!tmp)
+		return ;
 	while (tmp->next)
 	{
 		if (tmp->operation[0] == 'p')

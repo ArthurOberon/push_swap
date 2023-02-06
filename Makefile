@@ -24,11 +24,11 @@ PS_SRC =	index.c \
 			piles.c \
 			push_swap.c \
 			piles_move.c \
+			preset_move.c \
 			calcul_move.c \
 			piles_min_max.c \
 			piles_ordering.c \
 			list_instructions_combination.c \
-
 #preset_move_functions.c \
 
 CHECKER_SRC =	checker.c \

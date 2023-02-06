@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/06 09:44:55 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/06 16:19:53 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ typedef struct s_push_swap
 	t_instruction	**instructions;
 }	t_push_swap;
 
+
+void			ft_3_elements(t_push_swap list_pack);
+
 // |====================|
 // |======= MOVE =======|
 // |====================|
@@ -60,6 +63,8 @@ void			ft_move_temporary(char *operation, t_push_swap list_pack,
 
 int				ft_isdigit(int c);
 int				ft_isspace(char c);
+
+char			*ft_strdup(const char *s);
 
 // |=====================|
 // |======= INDEX =======|

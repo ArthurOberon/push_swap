@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_create_functions_instructions.c               :+:      :+:    :+:   */
+/*   create_list_instructions.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:47:12 by aoberon           #+#    #+#             */
-/*   Updated: 2023/01/18 16:22:17 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/06 16:13:08 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ t_instruction	*ft_create_list_instruction(void)
 			ft_lstclear_instruction(&lst_instruction);
 			return (NULL);
 		}
+		free(line);
 		line = get_next_line(0);
 	}
 	free(line);
