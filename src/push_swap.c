@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 09:46:18 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/05 12:46:17 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/06 10:44:36 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,11 @@ void	ft_push_swap(t_list **lst_a)
 	while (tmp_a->index != 0)
 		tmp_a = tmp_a->next;
 	ft_move_to_top_pile_a(list_pack, tmp_a);
-	// ft_print_instruction(lst_instruction);
-	// printf("Check if instructions can be reduce\n");
 	ft_find_combination_move(&lst_instruction);
-	// printf("Print instructions\n");
 	ft_print_instruction(lst_instruction);
 	ft_lstclear(lst_a);
 	ft_lstclear_instruction(&lst_instruction);
 }
-	// ft_print_piles("END", list_pack);
 
 int	main(int argc, char **argv)
 {
