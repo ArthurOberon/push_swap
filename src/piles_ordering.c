@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 11:48:12 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/07 17:06:08 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/07 17:09:58 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void	ft_get_order(t_push_swap list_pack)
 	ft_check_obvious(list_pack);
 	coordonate = ft_get_ascending_sequence(list_pack.pile_a);
 	if (!coordonate)
-		printf("Panic ! Do a function to exit and free\n");
+		printf("PANIC ! Do a function to exit and free\n");
 	ft_push_top(list_pack, &coordonate[0]);
 	if ((coordonate[1])->next != coordonate[0])
 	{

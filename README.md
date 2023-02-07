@@ -219,7 +219,7 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 ## Have to :
 - [x] Find the best X for "Test mouvement for the X first element of B and take the fastest one"
 - [x] Get the right parsing with all the subtleties
-- [ ] Manage malloc and their protections
+- [ ] Manage malloc and their protections, search "panic"
 - [x] Free all without leaks (maybe with a function to free and exit)
 - [x] Check instruction list to find mouvements that can be combinated (ex : ra, rb => rr)
 - [ ] Find optimizations
