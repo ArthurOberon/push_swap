@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 11:48:12 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/07 16:53:35 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/07 17:06:08 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static t_list	**ft_get_ascending_sequence(t_list **lst)
 	coordonate[1] = *lst;
 	coordonate_tmp = malloc(sizeof(t_list *) * 2);
 	if (!coordonate_tmp)
-		return (NULL);
+		return (printf("PANIC AFTER THIS RETURN"), NULL);
 	coordonate_tmp[0] = *lst;
 	coordonate_tmp[1] = *lst;
 	while (++i < size)

@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 11:02:50 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/01 12:55:19 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/07 17:06:30 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ char	*ft_str_merge(char **str, int space, int size)
 		length += ft_strlen(str[i++]) + space;
 	length -= space;
 	result = ft_malloc_zero(length + 1);
+	if (!result)
+		printf("PANIC\n");
 	i = 0;
 	j = 0;
 	while (i < size)
