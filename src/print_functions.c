@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:30:33 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/05 10:02:39 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/07 16:45:29 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ size_t	ft_strlen(const char *s)
 	return (length);
 }
 
-void	ft_putstr(char	*s)
+void	ft_putstr_fd(char *s, int fd)
 {
-	write(1, s, ft_strlen(s));
+	write(fd, s, ft_strlen(s));
 }
 
 void	ft_putnbr(int nb)
@@ -54,7 +54,7 @@ void	ft_print_instruction(t_instruction *lst)
 {
 	while (lst)
 	{
-		ft_putstr(lst->operation);
+		ft_putstr_fd(lst->operation, 1);
 		ft_putchar('\n');
 		lst = lst->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:55:15 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/06 16:01:26 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/07 16:45:10 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ static int	ft_checker(t_list **lst_a, t_list **lst_b,
 	if (!ft_check_is_sort(lst_a))
 	{
 		ft_lstclear(lst_a);
-		ft_putstr("KO\n");
+		ft_putstr_fd("KO\n", 1);
 		return (0);
 	}
 	ft_lstclear(lst_a);
-	ft_putstr("OK\n");
+	ft_putstr_fd("OK\n", 1);
 	return (1);
 }
 
@@ -63,12 +63,12 @@ int	main(int argc, char **argv)
 	lst_a = NULL;
 	lst_b = NULL;
 	if (argc == 1)
-		return (ft_putstr("Error\n"), 1);
+		return (ft_putstr_fd("Error\n", 2), 1);
 	str = ft_str_merge(argv + 1, 1, argc - 1);
 	if (ft_parse(str, &lst_a) == -1)
 	{
 		ft_lstclear(&lst_a);
-		ft_putstr("Error\n");
+		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
 	lst_instruction = ft_create_list_instruction();

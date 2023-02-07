@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_piles.c                                       :+:      :+:    :+:   */
+/*   piles_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:34:24 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/02 16:12:45 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/07 13:01:20 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,17 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
 void	ft_lstclear(t_list **lst)
 {
-	t_list	*first;
+	t_list	*last;
 	t_list	*tmp;
 	t_list	*tmp2;
 
 	if (!lst || !*lst)
 		return ;
-	first = (*lst);
-	tmp = first->next;
-	tmp2 = first->next;
-	while (tmp != first)
+	tmp = (*lst);
+	last = tmp->prev;
+	while (tmp != last)
 	{
-		tmp2 = tmp2->next;
+		tmp2 = tmp->next;
 		free(tmp);
 		tmp = tmp2;
 	}

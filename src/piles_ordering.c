@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 11:48:12 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/06 17:00:51 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/07 16:53:35 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static void	ft_push_bottom(t_push_swap list_pack, t_list **coordonate)
 	stop = coordonate[0];
 	while (*tmp != stop)
 	{
-		if ((*tmp)->index > (coordonate[1])->index)
+		if (((*tmp)->index > coordonate[1]->index))
 		{
 			coordonate[1] = *tmp;
 			ft_move("ra", list_pack);
@@ -82,6 +82,15 @@ static void	ft_push_bottom(t_push_swap list_pack, t_list **coordonate)
 			ft_move("pb", list_pack);
 	}
 }
+
+		// else if ((*tmp)->index < coordonate[0]->index)
+		// {
+		// 	coordonate[0] = *tmp;
+		// 	ft_move("ra", list_pack);
+		// 	printf("NEW C[0] = %d[%d]\n", coordonate[0]->value,
+			// coordonate[0]->index);
+			// ft_print_piles("", list_pack);
+		// }
 
 void	ft_check_obvious(t_push_swap list_pack)
 {
@@ -105,7 +114,11 @@ void	ft_get_order(t_push_swap list_pack)
 	ft_push_top(list_pack, &coordonate[0]);
 	if ((coordonate[1])->next != coordonate[0])
 	{
-		ft_move_to_top_pile_a(list_pack, coordonate[1]->next);
+		if (coordonate[1]->next->index < coordonate[0]->index
+			&& coordonate[1]->next->next == coordonate[0])
+			ft_move_to_top_pile_a(list_pack, coordonate[1]->next->next);
+		else
+			ft_move_to_top_pile_a(list_pack, coordonate[1]->next);
 		ft_push_bottom(list_pack, coordonate);
 	}
 	free(coordonate);

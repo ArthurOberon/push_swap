@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   piles_utils_min_max.c                              :+:      :+:    :+:   */
+/*   piles_min_max.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:47:31 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/04 11:58:33 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/07 12:02:11 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_list	*ft_find_element_max(t_list *lst)
 	return (max);
 }
 
-t_instruction	*ft_push_before_min(t_push_swap list_pack,
+void	ft_push_before_min(t_push_swap list_pack,
 	t_instruction **tmp_instruction)
 {
 	t_list	**tmp_a;
@@ -57,15 +57,16 @@ t_instruction	*ft_push_before_min(t_push_swap list_pack,
 		while ((*tmp_a) != min)
 			ft_move_temporary("ra", list_pack, tmp_instruction);
 		ft_move_temporary("pa", list_pack, tmp_instruction);
-		return (*tmp_instruction);
 	}
-	while ((*tmp_a) != min)
-		ft_move_temporary("rra", list_pack, tmp_instruction);
-	ft_move_temporary("pa", list_pack, tmp_instruction);
-	return (*tmp_instruction);
+	else
+	{
+		while ((*tmp_a) != min)
+			ft_move_temporary("rra", list_pack, tmp_instruction);
+		ft_move_temporary("pa", list_pack, tmp_instruction);
+	}
 }
 
-t_instruction	*ft_push_after_max(t_push_swap list_pack,
+void	ft_push_after_max(t_push_swap list_pack,
 	t_instruction **tmp_instruction)
 {
 	t_list	**tmp_a;
@@ -78,10 +79,11 @@ t_instruction	*ft_push_after_max(t_push_swap list_pack,
 		while ((*tmp_a) != max->next)
 			ft_move_temporary("ra", list_pack, tmp_instruction);
 		ft_move_temporary("pa", list_pack, tmp_instruction);
-		return (*tmp_instruction);
 	}
-	while ((*tmp_a) != max->next)
-		ft_move_temporary("rra", list_pack, tmp_instruction);
-	ft_move_temporary("pa", list_pack, tmp_instruction);
-	return (*tmp_instruction);
+	else
+	{
+		while ((*tmp_a) != max->next)
+			ft_move_temporary("rra", list_pack, tmp_instruction);
+		ft_move_temporary("pa", list_pack, tmp_instruction);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:40:36 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/03 17:08:28 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/07 16:52:20 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,10 @@ static int	ft_protect_atoi(char *str, int *nbr)
 	i = 0;
 	sign = 1;
 	result = 0;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
+	if (str[0] == '-')
+		sign *= -1;
+	i += (str[0] == '-' || str[0] == '+');
+	while (ft_isdigit(str[i]))
 		result = result * 10 + sign * (str[i++] - '0');
 	if (result > INT_MAX || result < INT_MIN)
 		return (0);
@@ -71,14 +68,14 @@ static int	ft_split_atoi(char *str, t_list **lst, int security)
 	i = 0;
 	while (security && str[i])
 	{
-		if ((str[i] >= '0' && str[i] <= '9') || str[i] == '-' || str[i] == '+')
+		if (ft_isdigit(str[i]) || str[i] == '-' || str[i] == '+')
 		{
-			security = ft_protect_atoi(str + i, &nbr);
-			security = ft_lst_add(lst, nbr);
+			security = security & ft_protect_atoi(str + i, &nbr);
+			security = security & ft_lst_add(lst, nbr);
 			tmp = *lst;
 			while (security && tmp != (*lst)->prev)
 			{
-				security = !(tmp->value == (*lst)->prev->value);
+				security = security & !(tmp->value == (*lst)->prev->value);
 				tmp = tmp->next;
 			}
 			i += (str[i] == '-' || str[i] == '+');
@@ -98,14 +95,13 @@ int	ft_parse(char *str, t_list **lst)
 	i = 0;
 	while (ft_isspace(str[i]))
 		i++;
-	if (str[0] == ' ' || str[ft_strlen(str) - 1] == ' ')
+	if (str[0] == '\0')
 		return (-1);
 	while (str[i])
 	{
-		if (str[i] == ' ' && str[i + 1] == ' ')
-			return (-1);
 		if (!ft_isdigit(str[i]) && !ft_isspace(str[i])
-			&& str[i] != '+' && str[i] != '-')
+			&& !((str[i] != '+' || str[i] != '-') && ft_isdigit(str[i + 1])
+				&& !ft_isdigit(str[i - 1])))
 			return (-1);
 		i++;
 	}

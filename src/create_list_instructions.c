@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:47:12 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/06 16:13:08 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/07 16:45:23 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ t_instruction	*ft_create_list_instruction(void)
 		ft_lstadd_back_instruction(&lst_instruction, tmp);
 		if (!ft_check_instruction(tmp))
 		{
-			ft_putstr("Error\n");
+			ft_putstr_fd("Error\n", 2);
 			ft_lstclear_instruction(&lst_instruction);
 			return (NULL);
 		}

@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 09:46:18 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/06 10:44:36 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/07 16:47:42 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ void	ft_push_swap(t_list **lst_a)
 	list_pack.instructions = &lst_instruction;
 	ft_init_index(lst_a);
 	ft_get_order(list_pack);
-	while (!ft_is_ascending(*lst_a) || lst_b)
+	while (lst_b || !ft_is_ascending(*lst_a))
+	{
 		ft_calcul_move(list_pack);
+	}
 	tmp_a = *lst_a;
 	while (tmp_a->index != 0)
 		tmp_a = tmp_a->next;
@@ -46,16 +48,16 @@ int	main(int argc, char **argv)
 	lst_a = NULL;
 	if (argc == 1)
 	{
-		ft_putstr("Too few arguments.\n");
-		ft_putstr("Please use push_swap with this format :\n");
-		ft_putstr("./push_swap \"0 1 2\" or ./push_swap 0 1 2\n");
+		ft_putstr_fd("Too few arguments.\n", 1);
+		ft_putstr_fd("Please use push_swap with this format :\n", 1);
+		ft_putstr_fd("./push_swap \"0 1 2\" or ./push_swap 0 1 2\n", 1);
 		return (1);
 	}
 	str = ft_str_merge(argv + 1, 1, argc - 1);
 	if (ft_parse(str, &lst_a) == -1)
 	{
 		ft_lstclear(&lst_a);
-		ft_putstr("Error\n");
+		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
 	ft_push_swap(&lst_a);

@@ -141,6 +141,18 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 1 15 0 3 10 6 13 4 8 9 5 12 2 7 11 14
 ```
 - [x] Working
+```
+20 8 11 19 18 9 17 4 10 5 7 16 15 1 6 3 2 14 12 13
+```
+- [x] Working
+```
+8 2 12 19 17 16 18 13 14 9 15 20 7 3 11 5 6 10 4 1
+```
+- [x] Working
+```
+17 12 16 5 7 4 20 1 19 10 14 8 3 11 18 6 15 9 13 2
+```
+- [x] Working
 ### Test Error, Get all sort in A but with error
 #### INFINITY LOOP :
 ```
@@ -164,14 +176,13 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 8 12 13 3 15 4 7 2 1 6 9 11 10 5 14 0
 ```
 - [x] Working
-
 # RESTART !
 |Restart		|Description	|Current Status		|
 |---------------|---------------|-----------|
 |Index			| Using a tab and sort_int_tab	| <ul><li>- [x] Done</li><li>- [x] Norminette</li></ul>	|
 |Find ascending	| Find biggest sequence, push all the top expect min of start, push all bottom expect max of end	| <ul><li>- [x] Done</li><li>- [ ] Norminette</li></ul>	|
 |Calcul move	| For the X first, and apply the smaller, till the end	| <ul><li>- [x] Done</li><li>- [ ] Norminette</li></ul>	|
-|Others Ideas	| See Ideas	| <ul><li>- [ ] Done</li><li>- [ ] Norminette</li></ul>	|
+|Others Ideas	| See Ideas	| <ul><li>- [x] Done</li><li>- [ ] Norminette</li></ul>	|
 
 ## Find Ascending
 - [x] Check the list to find the biggest ascendant sequence's coordonate
@@ -207,13 +218,11 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 
 ## Have to :
 - [x] Find the best X for "Test mouvement for the X first element of B and take the fastest one"
-- [ ] Get the right parsing with all the subtleties
+- [x] Get the right parsing with all the subtleties
 - [ ] Manage malloc and their protections
-- [ ] Free all without leaks (maybe with a function to free and exit)
+- [x] Free all without leaks (maybe with a function to free and exit)
 - [x] Check instruction list to find mouvements that can be combinated (ex : ra, rb => rr)
 - [ ] Find optimizations
 
 # Currents Problems
 - [ ] Do not use sb at all -> bad ?
-- [ ] Do not free list instruction of calcul_move (fastest_instruction)
-**BIG PROBLEMS WITH FREE AND MALLOC VALGRIND ./PUSH_SWAP AND CHECKER TO SEE IT**

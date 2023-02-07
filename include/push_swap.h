@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/06 16:19:53 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/07 16:57:46 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,6 @@ typedef struct s_push_swap
 	t_list			**pile_b;
 	t_instruction	**instructions;
 }	t_push_swap;
-
-
-void			ft_3_elements(t_push_swap list_pack);
 
 // |====================|
 // |======= MOVE =======|
@@ -128,6 +125,12 @@ void			ft_move_to_top_pile_a(t_push_swap list_pack, t_list *element);
 void			ft_move_to_top_pile_b(t_push_swap list_pack, t_list *element,
 					t_instruction **lst_instruction);
 
+// |===========================|
+// |======= PRESET_MOVE =======|
+// |===========================|
+
+void			ft_3_elements(t_push_swap list_pack);
+
 // |============================|
 // |======= CALCUL_MOVE ========|
 // |============================|
@@ -144,9 +147,9 @@ void			ft_calcul_move(t_push_swap list_pack);
 t_list			*ft_find_element_min(t_list *lst);
 t_list			*ft_find_element_max(t_list *lst);
 
-t_instruction	*ft_push_before_min(t_push_swap list_pack,
+void			ft_push_before_min(t_push_swap list_pack,
 					t_instruction **tmp_instruction);
-t_instruction	*ft_push_after_max(t_push_swap list_pack,
+void			ft_push_after_max(t_push_swap list_pack,
 					t_instruction **tmp_instruction);
 
 // |==============================|
@@ -161,7 +164,7 @@ void			ft_get_order(t_push_swap list_pack);
 
 void			ft_putnbr(int nb);
 void			ft_putchar(char c);
-void			ft_putstr(char	*s);
+void			ft_putstr_fd(char *s, int fd);
 void			ft_print_instruction(t_instruction *lst);
 
 size_t			ft_strlen(const char *s);
@@ -171,6 +174,16 @@ size_t			ft_strlen(const char *s);
 // |=================================|
 
 void			ft_find_combination_move(t_instruction **lst);
+
+// |=================================|
+// |======= PRESET_MOVE_UTILS =======|
+// |=================================|
+
+void			ft_preset_1_3_2(t_push_swap list_pack, char pile);
+void			ft_preset_2_3_1(t_push_swap list_pack, char pile);
+void			ft_preset_2_1_3(t_push_swap list_pack, char pile);
+void			ft_preset_3_2_1(t_push_swap list_pack, char pile);
+void			ft_preset_3_1_2(t_push_swap list_pack, char pile);
 
 // |=======================================|
 // |======= LIST_INSTRUCTIONS_UTILS =======|

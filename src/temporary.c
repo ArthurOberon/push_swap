@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:43:31 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/04 11:38:37 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/07 16:46:42 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_print_list_instruction_one_line(t_instruction **lst)
 		
 	if ((*lst) == NULL)
 		return ;
-	ft_putstr("=====PRINT_LIST_INSTRUCTION ON ONE LINE=====\n");
+	ft_putstr_fd("=====PRINT_LIST_INSTRUCTION ON ONE LINE=====\n", 1);
 	tmp = *lst;
 	printf("[instruction] (opposed instruction) -->\n");
 	printf("first :");
@@ -68,7 +68,7 @@ void	ft_print_list_instruction_one_line(t_instruction **lst)
 		tmp = tmp->next;
 	}
 	printf(": last\n");
-	ft_putstr("======= END =======\n");
+	ft_putstr_fd("======= END =======\n", 1);
 }
 
 void	ft_print_list_instruction(t_instruction **lst)
@@ -80,19 +80,19 @@ void	ft_print_list_instruction(t_instruction **lst)
 	if ((*lst) == NULL)
 		return ;
 	tmp = (*lst);
-	ft_putstr("=====PRINT_LIST_INSTRUCTION=====\n");
-	ft_putstr("==START==\n");
-	ft_putstr("\n====================\n");
+	ft_putstr_fd("=====PRINT_LIST_INSTRUCTION=====\n", 1);
+	ft_putstr_fd("==START==\n", 1);
+	ft_putstr_fd("\n====================\n", 1);
 	while (tmp != NULL)
 	{
-		ft_putstr("\nNext : \n");
+		ft_putstr_fd("\nNext : \n", 1);
 		printf("operation = [%s] (%d)eme element | inverted = [%s]\n", tmp->operation,
 			i, tmp->invert_operation);
-		ft_putstr("\n====================\n");
+		ft_putstr_fd("\n====================\n", 1);
 		tmp = tmp->next;
 		i++;
 	}
-	ft_putstr("==END==\n");
+	ft_putstr_fd("==END==\n", 1);
 }
 
 //####################################################################
@@ -139,25 +139,25 @@ void	ft_print_list(t_list **lst)
 	if ((*lst) == NULL)
 		return ;
 	first = (*lst);
-	ft_putstr("=====PRINT_LIST=====\n");
-	ft_putstr("==START==\n");
+	ft_putstr_fd("=====PRINT_LIST=====\n", 1);
+	ft_putstr_fd("==START==\n", 1);
 	printf("[prev]<-[tmp]->[next]\n");
 	printf("[%d]<---[%d]--->[%d]\n", first->prev->value, first->value,
 		first->next->value);
 
-	ft_putstr("\n====================\n");
+	ft_putstr_fd("\n====================\n", 1);
 	tmp = first->next;
 	while (tmp != first)
 	{
-		ft_putstr("\nNext : \n");
+		ft_putstr_fd("\nNext : \n", 1);
 		// printf("------ FIRST = [%d]\n ------", first->value);
 		printf("[prev]<-[tmp]->[next]\n");
 		printf("[%d]<---[%d]--->[%d]\n", tmp->prev->value, tmp->value, 
 			tmp->next->value);
-		ft_putstr("\n====================\n");
+		ft_putstr_fd("\n====================\n", 1);
 		tmp = tmp->next;
 	}
-	ft_putstr("==END==\n");
+	ft_putstr_fd("==END==\n", 1);
 }
 
 void	ft_print_piles(char *str, t_push_swap p)

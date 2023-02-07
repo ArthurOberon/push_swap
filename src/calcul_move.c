@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:12:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/06 17:14:52 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/07 15:43:20 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_find_optimize_rotation(t_list **lst, t_list *lst_destination)
 	return (OPTIMIZE_RR);
 }
 
-static t_instruction	*ft_optimize_rotation(t_push_swap list_pack,
+static void	ft_optimize_rotation(t_push_swap list_pack,
 	t_instruction **tmp_instruction)
 {
 	t_list			**tmp_a;
@@ -51,54 +51,48 @@ static t_instruction	*ft_optimize_rotation(t_push_swap list_pack,
 	{
 		tmp = tmp->next;
 	}
-	if (ft_find_optimize_rotation(list_pack.pile_a, tmp) == OPTIMIZE_R)
+	if (ft_find_optimize_rotation(tmp_a, tmp) == OPTIMIZE_R)
 	{
 		while ((*tmp_a) != tmp)
 			ft_move_temporary("ra", list_pack, tmp_instruction);
-		ft_move_temporary("pa", list_pack, tmp_instruction);
-		return (*tmp_instruction);
 	}
-	while ((*tmp_a) != tmp)
-		ft_move_temporary("rra", list_pack, tmp_instruction);
+	else
+	{
+		while ((*tmp_a) != tmp)
+			ft_move_temporary("rra", list_pack, tmp_instruction);
+	}
 	ft_move_temporary("pa", list_pack, tmp_instruction);
-	return (*tmp_instruction);
 }
 
-static t_instruction	*ft_optimize_move(t_push_swap list_pack,
-	t_list *element_to_go)
+static void	ft_optimize_move(t_push_swap list_pack,
+	t_list *element_to_go, t_instruction **tmp_instruction)
 {
 	t_list			*pile_a;
 	t_list			*pile_b;
-	t_instruction	*tmp_instruction;
 
 	pile_a = *list_pack.pile_a;
 	pile_b = *list_pack.pile_b;
-	tmp_instruction = malloc(sizeof(t_instruction));
-	if (!tmp_instruction)
-		printf("Panic ! Do a function to exit and free\n");
-	tmp_instruction = NULL;
-	ft_move_to_top_pile_b(list_pack, element_to_go, &tmp_instruction);
+	ft_move_to_top_pile_b(list_pack, element_to_go, tmp_instruction);
 	pile_b = *list_pack.pile_b;
 	if (pile_b->index < ft_find_element_min(pile_a)->index)
-		return (ft_push_after_max(list_pack, &tmp_instruction));
+		ft_push_after_max(list_pack, tmp_instruction);
 	else if (pile_b->index > ft_find_element_max(pile_a)->index)
-		return (ft_push_before_min(list_pack, &tmp_instruction));
+		ft_push_before_min(list_pack, tmp_instruction);
 	else if (pile_a->index < pile_b->index
 		&& pile_b->index < pile_a->next->index)
 	{
-		ft_move_temporary("pa", list_pack, &tmp_instruction);
-		ft_move_temporary("sa", list_pack, &tmp_instruction);
-		return (tmp_instruction);
+		ft_move_temporary("pa", list_pack, tmp_instruction);
+		ft_move_temporary("sa", list_pack, tmp_instruction);
 	}
 	else if (pile_b->index > pile_a->prev->index
 		&& pile_a->index > pile_b->index)
 	{
-		ft_move_temporary("pa", list_pack, &tmp_instruction);
-		// ft_move_temporary("ra", list_pack, &tmp_instruction);
+		ft_move_temporary("pa", list_pack, tmp_instruction);
+		// ft_move_temporary("ra", list_pack, tmp_instruction);
 			//seems to add useless moves
-		return (tmp_instruction);
 	}
-	return (ft_optimize_rotation(list_pack, &tmp_instruction));
+	else
+		ft_optimize_rotation(list_pack, tmp_instruction);
 }
 
 static void	ft_go_back_to(t_push_swap list_pack, t_instruction *lst_instruction,
@@ -138,9 +132,17 @@ void	ft_calcul_move(t_push_swap list_pack)
 	fastest_instruction = NULL;
 	while (i < ft_lstsize(*list_pack.pile_b))
 	{
-		tmp_instruction = ft_optimize_move(list_pack,
-				ft_get_the_n_element_pile(*list_pack.pile_b, i));
+		tmp_instruction = NULL;
+		ft_optimize_move(list_pack,
+			ft_get_the_n_element_pile(*list_pack.pile_b, i), &tmp_instruction);
 		tmp_size = ft_lstsize_instruction(tmp_instruction);
+		if (tmp_size == 1)
+		{
+			ft_lstclear_instruction(&fastest_instruction);
+			fastest_instruction = tmp_instruction;
+			ft_go_back_to(list_pack, tmp_instruction, tmp_size, i);
+			break ;
+		}
 		if (fastest_size > tmp_size || fastest_size == 0)
 		{
 			ft_lstclear_instruction(&fastest_instruction);
@@ -155,12 +157,12 @@ void	ft_calcul_move(t_push_swap list_pack)
 		}
 		i++;
 	}
+	tmp_instruction = NULL;
 	ft_lstadd_back_instruction(list_pack.instructions, fastest_instruction);
 	while (fastest_instruction != NULL)
 	{
 		ft_do_operation(fastest_instruction->operation, list_pack.pile_a,
 			list_pack.pile_b);
 		fastest_instruction = fastest_instruction->next;
-	// ft_lstclear_instruction(&tmp_instruction);
 	}
 }
