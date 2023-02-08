@@ -219,7 +219,7 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 ## Have to :
 - [x] Find the best X for "Test mouvement for the X first element of B and take the fastest one"
 - [x] Get the right parsing with all the subtleties
-- [ ] Manage malloc and their protections, search "panic"
+- [x] Manage malloc and their protections, search "panic"
 - [x] Free all without leaks (maybe with a function to free and exit)
 - [x] Check instruction list to find mouvements that can be combinated (ex : ra, rb => rr)
 - [ ] Find optimizations
@@ -229,8 +229,9 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 - [x] ft_tab_from_list
 - [x] ft_lstnew_instruction
 - [x] ft_malloc_zero
-- [x] ft_lst_add ----> Write Error in the terminal but only with this error
+- [x] ft_lst_add
 - [x] ft_get_ascending_sequence
+- [x] ft_strdup
 
 # Currents Problems
 - [ ] Do not use sb at all -> bad ?

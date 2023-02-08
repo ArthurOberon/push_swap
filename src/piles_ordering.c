@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 11:48:12 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/08 17:56:20 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/08 18:08:51 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ void	ft_get_order(t_push_swap list_pack)
 		ft_lstclear(list_pack.pile_a);
 		ft_lstclear(list_pack.pile_b);
 		ft_lstclear_instruction(list_pack.instructions);
+		ft_putstr_fd("Error with a malloc\n", 2);
 		exit(EXIT_FAILURE);
 	}
 	ft_push_top(list_pack, &coordonate[0]);

@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:37:41 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/07 17:10:03 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/08 18:18:45 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ char	*ft_strdup(const char *s)
 
 	length = ft_strlen(s);
 	result = malloc(sizeof(char) * (length + 1));
-	if (result == NULL)
-		printf("PANIC !!!");
+	if (!result)
+		return (NULL);
 	length = 0;
 	while (s[length])
 	{

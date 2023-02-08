@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:12:24 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/07 15:41:13 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/08 18:21:42 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_find_min_value(int a, int b)
 	return (a);
 }
 
-static void	ft_combinate_move(t_instruction *tmp, int n, char *combinated_move)
+static int	ft_combinate_move(t_instruction *tmp, int n, char *combinated_move)
 {
 	t_instruction	*new_tmp;
 	int				i;
@@ -36,6 +36,8 @@ static void	ft_combinate_move(t_instruction *tmp, int n, char *combinated_move)
 			{
 				free(tmp->operation);
 				tmp->operation = ft_strdup("rrr");
+				if (!tmp->operation)
+					return (-1);
 				tmp->invert_operation = ft_invert_operation(combinated_move);
 				i++;
 			}
@@ -61,6 +63,8 @@ static void	ft_combinate_move(t_instruction *tmp, int n, char *combinated_move)
 			{
 				free(tmp->operation);
 				tmp->operation = ft_strdup("rr");
+				if (!tmp->operation)
+					return (-1);
 				tmp->invert_operation = ft_invert_operation(combinated_move);
 				i++;
 			}
@@ -77,9 +81,10 @@ static void	ft_combinate_move(t_instruction *tmp, int n, char *combinated_move)
 			tmp = new_tmp;
 		}
 	}
+	return (0);
 }
 
-void	ft_find_combination_move(t_instruction **lst)
+int	ft_find_combination_move(t_instruction **lst)
 {
 	t_instruction	*tmp;
 	t_instruction	*tmp_p;
@@ -114,12 +119,18 @@ void	ft_find_combination_move(t_instruction **lst)
 					rrb_number++;
 				tmp = tmp->next;
 			}
-			ft_combinate_move(tmp_p, ft_find_min_value(ra_number, rb_number),
-				"rr");
-			ft_combinate_move(tmp_p, ft_find_min_value(rra_number, rrb_number),
-				"rrr");
+			if ((ft_combinate_move(tmp_p,
+						ft_find_min_value(ra_number, rb_number), "rr") == -1)
+				|| (ft_combinate_move(tmp_p,
+						ft_find_min_value(rra_number, rrb_number),
+						"rrr") == -1))
+			{
+				ft_putstr_fd("Error with a malloc\n", 2);
+				return (-1);
+			}
 		}
 		else
 			tmp = tmp->next;
 	}
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/08 17:55:52 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/08 18:18:20 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,12 +170,6 @@ void			ft_print_instruction(t_instruction *lst);
 size_t			ft_strlen(const char *s);
 
 // |=================================|
-// |======= LIST_INSTRUCTIONS =======|
-// |=================================|
-
-void			ft_find_combination_move(t_instruction **lst);
-
-// |=================================|
 // |======= PRESET_MOVE_UTILS =======|
 // |=================================|
 
@@ -195,7 +189,6 @@ void			ft_lstadd_back_instruction(t_instruction **lst,
 int				ft_add_instruction(char *operation,
 					t_instruction **lst_instruction);
 
-
 char			*ft_invert_operation(char *operation);
 
 t_instruction	*ft_lstnew_instruction(char *operation);
@@ -205,6 +198,12 @@ t_instruction	*ft_lstnew_instruction(char *operation);
 // |========================================|
 
 t_instruction	*ft_create_list_instruction(void);
+
+// |=============================================|
+// |======= LIST_INSTRUCTIONS_COMBINATION =======|
+// |=============================================|
+
+int				ft_find_combination_move(t_instruction **lst);
 
 //==========================================
 

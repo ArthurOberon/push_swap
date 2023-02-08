@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 10:45:36 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/04 11:55:42 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/08 18:10:14 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ void	ft_init_index(t_list **lst)
 	if (!tab)
 	{
 		ft_lstclear(lst);
+		ft_putstr_fd("Error with a malloc\n", 2);
 		exit(EXIT_FAILURE);
 	}
 	ft_sort_int_tab(tab, size);

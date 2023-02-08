@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 11:02:50 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/08 17:45:19 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/08 18:10:14 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ static char	*ft_malloc_zero(size_t size)
 	i = 0;
 	ptr = malloc(sizeof(char) * size);
 	if (!ptr)
-		return (0);
+	{
+		ft_putstr_fd("Error with a malloc\n", 2);
+		exit (EXIT_FAILURE);
+	}
 	while (ptr && i < size)
 		ptr[i++] = 0;
 	return (ptr);
@@ -55,8 +58,6 @@ char	*ft_str_merge(char **str, int space, int size)
 		length += ft_strlen(str[i++]) + space;
 	length -= space;
 	result = ft_malloc_zero(length + 1);
-	if (!result)
-		exit (EXIT_FAILURE);
 	i = 0;
 	j = 0;
 	while (i < size)

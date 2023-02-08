@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 10:45:19 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/08 17:43:29 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/08 18:10:14 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ft_move(char *operation, t_push_swap list_pack)
 		ft_lstclear(list_pack.pile_a);
 		ft_lstclear(list_pack.pile_b);
 		ft_lstclear_instruction(list_pack.instructions);
+		ft_putstr_fd("Error with a malloc\n", 2);
 		exit (EXIT_FAILURE);
 	}
 }
@@ -34,6 +35,7 @@ void	ft_move_temporary(char *operation, t_push_swap list_pack,
 		ft_lstclear(list_pack.pile_b);
 		ft_lstclear_instruction(list_pack.instructions);
 		ft_lstclear_instruction(lst_instruction);
+		ft_putstr_fd("Error with a malloc\n", 2);
 		exit (EXIT_FAILURE);
 	}
 }

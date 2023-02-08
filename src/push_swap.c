@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 09:46:18 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/08 17:55:37 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/08 18:16:38 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	ft_push_swap(t_list **lst_a)
 	while (tmp_a->index != 0)
 		tmp_a = tmp_a->next;
 	ft_move_to_top_pile_a(list_pack, tmp_a);
-	ft_find_combination_move(&lst_instruction);
-	ft_print_instruction(lst_instruction);
+	if (ft_find_combination_move(&lst_instruction) == 1)
+		ft_print_instruction(lst_instruction);
 	ft_lstclear(lst_a);
 	ft_lstclear_instruction(&lst_instruction);
 }
@@ -57,7 +57,7 @@ int	main(int argc, char **argv)
 	if (ft_parse(str, &lst_a) == -1)
 	{
 		ft_lstclear(&lst_a);
-		ft_putstr_fd("Error\n", 2);
+		ft_putstr_fd("Error with the parsing\n", 2);
 		return (1);
 	}
 	ft_push_swap(&lst_a);
