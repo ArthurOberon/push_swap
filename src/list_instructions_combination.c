@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:12:24 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/08 18:21:42 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/08 18:44:55 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	ft_find_combination_move(t_instruction **lst)
 	int				rrb_number;
 
 	if (!lst || !*lst)
-		return ;
+		return (-1);
 	tmp = *lst;
 	while (tmp->next)
 	{

@@ -65,7 +65,7 @@ make bonus
 
 *!!!! IF THERE, CHECK THE BOLD FIRST !!!!*
 
-Do summary of all malloc variable to do a function to exit and free all in case of error ?
+**Delete pile_ordering and Restart it with a struct t_coordonate**
 
 ### Problematics/Reference Numbers :
 ```

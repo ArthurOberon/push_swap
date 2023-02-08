@@ -1,7 +1,7 @@
 PUSH_SWAP = push_swap
 CHECKER = checker
 
-CC = cc
+CC = gcc
 CFLAGS = -g
 SRC_DIR = src/
 OBJ_DIR = obj/
@@ -29,6 +29,7 @@ PS_SRC =	index.c \
 			piles_min_max.c \
 			piles_ordering.c \
 			preset_move_utils.c \
+			pile_ordering_utils.c \
 			list_instructions_combination.c \
 
 CHECKER_SRC =	checker.c \

@@ -6,11 +6,26 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 11:48:12 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/08 18:08:51 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/08 19:43:21 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// static int	ft_init_get_ascending_sequence(t_list (*(*coordonate)[2]),
+									// t_list ***coordonate_tmp, t_list **lst)
+// {
+	// int	size;
+// 
+	// size = ft_lstsize(*lst);
+	// (*coordonate[0]) = *lst;
+	// (*coordonate[1]) = *lst;
+	// coordonate_tmp[0] = lst;
+	// coordonate_tmp[1] = lst;
+	// return (size);
+// }
+	// size = ft_init_get_ascending_sequence(&(coordonate), &coordonate_tmp, lst);
+	// strdup_list(coordonate, coordonate_tmp);
 
 static t_list	**ft_get_ascending_sequence(t_list **lst)
 {
@@ -91,17 +106,6 @@ static void	ft_push_bottom(t_push_swap list_pack, t_list **coordonate)
 			// coordonate[0]->index);
 			// ft_print_piles("", list_pack);
 		// }
-
-void	ft_check_obvious(t_push_swap list_pack)
-{
-	t_list	*tmp;
-
-	if (ft_lstsize(*list_pack.pile_a) == 3)
-		ft_3_elements(list_pack);
-	tmp = *(list_pack.pile_a);
-	if (tmp->index > tmp->next->index)
-		ft_move("sa", list_pack);
-}
 
 void	ft_get_order(t_push_swap list_pack)
 {

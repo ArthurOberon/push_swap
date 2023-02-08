@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/08 18:18:20 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/08 19:44:04 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,6 +178,12 @@ void			ft_preset_2_3_1(t_push_swap list_pack, char pile);
 void			ft_preset_2_1_3(t_push_swap list_pack, char pile);
 void			ft_preset_3_2_1(t_push_swap list_pack, char pile);
 void			ft_preset_3_1_2(t_push_swap list_pack, char pile);
+
+// |===================================|
+// |======= PILES_ORDERIN_UTILS =======|
+// |===================================|
+
+void			ft_check_obvious(t_push_swap list_pack);
 
 // |=======================================|
 // |======= LIST_INSTRUCTIONS_UTILS =======|
