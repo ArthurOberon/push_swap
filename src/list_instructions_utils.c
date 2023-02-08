@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:17:10 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/07 17:06:48 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/08 17:40:53 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,12 +94,13 @@ void	ft_lstadd_back_instruction(t_instruction **lst, t_instruction *new)
 	new->prev = tmp;
 }
 
-void	ft_add_instruction(char *operation, t_instruction **lst_instruction)
+int	ft_add_instruction(char *operation, t_instruction **lst_instruction)
 {
 	t_instruction	*new;
 
 	new = ft_lstnew_instruction(operation);
 	if (!new)
-		printf("PANIC\n");
+		return (-1);
 	ft_lstadd_back_instruction(lst_instruction, new);
+	return (0);
 }

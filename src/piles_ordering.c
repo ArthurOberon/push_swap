@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 11:48:12 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/07 17:09:58 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/08 17:56:20 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static t_list	**ft_get_ascending_sequence(t_list **lst)
 	coordonate[1] = *lst;
 	coordonate_tmp = malloc(sizeof(t_list *) * 2);
 	if (!coordonate_tmp)
-		return (printf("PANIC AFTER THIS RETURN"), NULL);
+		return (NULL);
 	coordonate_tmp[0] = *lst;
 	coordonate_tmp[1] = *lst;
 	while (++i < size)
@@ -110,7 +110,12 @@ void	ft_get_order(t_push_swap list_pack)
 	ft_check_obvious(list_pack);
 	coordonate = ft_get_ascending_sequence(list_pack.pile_a);
 	if (!coordonate)
-		printf("PANIC ! Do a function to exit and free\n");
+	{
+		ft_lstclear(list_pack.pile_a);
+		ft_lstclear(list_pack.pile_b);
+		ft_lstclear_instruction(list_pack.instructions);
+		exit(EXIT_FAILURE);
+	}
 	ft_push_top(list_pack, &coordonate[0]);
 	if ((coordonate[1])->next != coordonate[0])
 	{

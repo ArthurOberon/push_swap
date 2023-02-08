@@ -224,5 +224,13 @@ Do summary of all malloc variable to do a function to exit and free all in case 
 - [x] Check instruction list to find mouvements that can be combinated (ex : ra, rb => rr)
 - [ ] Find optimizations
 
+## Malloc Protections :
+- [x] get_next_line
+- [x] ft_tab_from_list
+- [x] ft_lstnew_instruction
+- [x] ft_malloc_zero
+- [x] ft_lst_add ----> Write Error in the terminal but only with this error
+- [x] ft_get_ascending_sequence
+
 # Currents Problems
 - [ ] Do not use sb at all -> bad ?

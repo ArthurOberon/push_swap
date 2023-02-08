@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/07 16:57:46 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/08 17:55:52 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,8 +192,9 @@ void			ft_preset_3_1_2(t_push_swap list_pack, char pile);
 void			ft_lstclear_instruction(t_instruction **lst);
 void			ft_lstadd_back_instruction(t_instruction **lst,
 					t_instruction *new);
-void			ft_add_instruction(char *operation,
+int				ft_add_instruction(char *operation,
 					t_instruction **lst_instruction);
+
 
 char			*ft_invert_operation(char *operation);
 
