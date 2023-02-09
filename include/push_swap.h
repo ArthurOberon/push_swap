@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/09 14:02:03 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/09 15:25:20 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,11 @@ typedef struct s_instruction
 	char					*invert_operation;
 }	t_instruction;
 
-// typedef struct s_coordonate
-// {
-// 	t_list	*next;
-// 	t_list	*prev;
-// 	int		value;
-// 	int		index;
-// }	t_coordonate;
+typedef struct s_coordonate
+{
+	t_list	*start;
+	t_list	*end;
+}	t_coordonate;
 
 typedef struct s_push_swap
 {
@@ -82,9 +80,10 @@ void			ft_init_index(t_list **lst);
 // |=====================|
 
 int				ft_is_ascending(t_list *lst);
-int				ft_calcul_gap(t_list **coordonate_a, t_list **coordonate_b);
-// int				ft_calcul_gap(t_list *start_a, t_list *end_a,
-					// t_list *start_b, t_list *end_b);
+int				ft_calcul_gap(t_coordonate coordonate_a,
+					t_coordonate coordonate_b);
+
+// int				ft_calcul_gap(t_list **coordonate_a, t_list **coordonate_b);
 void			ft_go_to_element_pile(t_list **start, t_list *dst);
 
 t_list			*ft_get_the_n_element_pile(t_list *start, int n);
@@ -203,14 +202,13 @@ void			ft_do_fastest_instruction(t_push_swap p, t_instruction *fastest,
 void			ft_calcul_move_helper_2(t_push_swap p, t_instruction *tmp,
 					int tmp_size, int i);
 
-// |===================================|
-// |======= PILES_ORDERIN_UTILS =======|
-// |===================================|
+// |====================================|
+// |======= PILES_ORDERING_UTILS =======|
+// |====================================|
 
 void			ft_check_obvious(t_push_swap list_pack);
-void			ft_listcpy(t_list **dst, t_list **src);
 
-t_list			**ft_listdup(t_list *src, int malloc_size);
+t_coordonate	ft_coordonate_from_list(t_list *src);
 
 // |=======================================|
 // |======= LIST_INSTRUCTIONS_UTILS =======|

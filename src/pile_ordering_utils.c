@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:01:48 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/09 11:24:37 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/09 15:23:46 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,30 +23,11 @@ void	ft_check_obvious(t_push_swap list_pack)
 		ft_move("sa", list_pack);
 }
 
-t_list	**ft_listdup(t_list *src, int malloc_size)
+t_coordonate	ft_coordonate_from_list(t_list *src)
 {
-	t_list	**dst;
-	int		i;
+	t_coordonate	dst;
 
-	i = 0;
-	dst = malloc(sizeof(t_list *) * malloc_size);
-	if (!dst)
-		return (NULL);
-	dst[0] = src;
-	dst[1] = src;
+	dst.start = src;
+	dst.end = src;
 	return (dst);
-}
-	// while (i < malloc_size)
-	// {
-	// 	dst[i]->next = src->next;
-	// 	dst[i]->prev = src->prev;
-	// 	dst[i]->value = src->value;
-	// 	dst[i]->index = src->index;
-	// 	i++;
-	// }
-
-void	ft_listcpy(t_list **dst, t_list **src)
-{
-	dst[0] = src[0];
-	dst[1] = src[1];
 }

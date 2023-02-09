@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 11:12:51 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/09 12:04:18 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/09 15:27:52 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_list	*ft_get_the_n_element_pile(t_list *start, int n)
 	return (start);
 }
 
-int	ft_calcul_gap(t_list **coordonate_a, t_list **coordonate_b)
+int	ft_calcul_gap(t_coordonate coordonate_a, t_coordonate coordonate_b)
 {
 	int		a;
 	int		b;
@@ -44,14 +44,14 @@ int	ft_calcul_gap(t_list **coordonate_a, t_list **coordonate_b)
 
 	a = 0;
 	b = 0;
-	tmp_a = coordonate_a[0];
-	tmp_b = coordonate_b[0];
-	while (tmp_a != coordonate_a[1])
+	tmp_a = coordonate_a.start;
+	tmp_b = coordonate_b.start;
+	while (tmp_a != coordonate_a.end)
 	{
 		tmp_a = tmp_a->next;
 		a++;
 	}
-	while (tmp_b != coordonate_b[1])
+	while (tmp_b != coordonate_b.end)
 	{
 		tmp_b = tmp_b->next;
 		b++;
