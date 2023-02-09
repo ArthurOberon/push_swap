@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 11:48:12 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/09 15:35:58 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/09 16:33:24 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ static void	ft_push_bottom(t_push_swap list_pack, t_coordonate *coordonate)
 	stop = coordonate->start;
 	while (*tmp != stop)
 	{
-		if (((*tmp)->index > coordonate->end->index))
+		if ((*tmp)->index > coordonate->end->index
+			&& (*tmp)->index < coordonate->start->index)
 		{
 			coordonate->end = *tmp;
 			ft_move("ra", list_pack);
