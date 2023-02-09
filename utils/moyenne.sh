@@ -23,7 +23,8 @@ echo "Calcul en cours..."
 
 for i in $(seq 1 $ITER); do
 	# VAL=$(valgrind ./push_swap $(./randomizer.sh $MIN $MAX)| wc -l)
-	VAL=$(./push_swap $(./randomizer.sh $MIN $MAX)| wc -l)
+	# VAL=$(./push_swap $(./randomizer.sh $MIN $MAX)| wc -l)
+	VAL=$(./push_swap $(./utils/randomizer.sh $MIN $MAX)| wc -l)
 	# echo "  Val($i) = $VAL"
 	MOY=`expr $MOY + $VAL`
 	if [ $VAL -gt $LIM ];

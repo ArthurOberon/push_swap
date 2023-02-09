@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 11:12:51 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/09 10:31:47 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/09 12:04:18 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int	ft_calcul_gap(t_list **coordonate_a, t_list **coordonate_b)
 		tmp_b = tmp_b->next;
 		b++;
 	}
-	printf("%d %d", a, b);
 	return (a < b);
 }
 

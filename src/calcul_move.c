@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:12:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/09 10:32:13 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/09 14:17:09 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,6 @@ void	ft_optimize_move(t_push_swap list_pack,
 	else
 		ft_optimize_rotation(list_pack, tmp_instruction);
 }
-		// ft_move_temporary("ra", list_pack, tmp_instruction);
-			// -----> after pa seems to add useless moves
 
 void	ft_go_back_to(t_push_swap list_pack, t_instruction *lst_instruction,
 	int move_number, int n)
@@ -121,25 +119,29 @@ void	ft_go_back_to(t_push_swap list_pack, t_instruction *lst_instruction,
 
 void	ft_calcul_move(t_push_swap list_pack)
 {
+	int				fastest_size;
+	int				tmp_size;
 	int				i;
-	t_instruction	*tmp_instruction;
 	t_instruction	*fastest_instruction;
+	t_instruction	*tmp_instruction;
 
-	i = 0;
+	i = -1;
+	fastest_size = 0;
 	fastest_instruction = NULL;
-	while (i < ft_lstsize(*list_pack.pile_b))
+	while (++i < ft_lstsize(*list_pack.pile_b))
 	{
-		tmp_instruction = NULL;
-		ft_calcul_move_helper(list_pack, fastest_instruction, tmp_instruction,
-			i);
-		i++;
+		tmp_size = ft_calcul_move_helper_1(list_pack, &tmp_instruction, i);
+		if (fastest_size > tmp_size || fastest_size == 0 || tmp_size == 1)
+		{
+			ft_lstclear_instruction(&fastest_instruction);
+			fastest_instruction = tmp_instruction;
+			ft_go_back_to(list_pack, tmp_instruction, tmp_size, i);
+			if (tmp_size == 1)
+				break ;
+			fastest_size = tmp_size;
+		}
+		else
+			ft_calcul_move_helper_2(list_pack, tmp_instruction, tmp_size, i);
 	}
-	tmp_instruction = NULL;
-	ft_lstadd_back_instruction(list_pack.instructions, fastest_instruction);
-	while (fastest_instruction != NULL)
-	{
-		ft_do_operation(fastest_instruction->operation, list_pack.pile_a,
-			list_pack.pile_b);
-		fastest_instruction = fastest_instruction->next;
-	}
+	ft_do_fastest_instruction(list_pack, fastest_instruction, &tmp_instruction);
 }

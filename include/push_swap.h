@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/09 10:31:34 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/09 14:02:03 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ void			ft_init_index(t_list **lst);
 
 int				ft_is_ascending(t_list *lst);
 int				ft_calcul_gap(t_list **coordonate_a, t_list **coordonate_b);
+// int				ft_calcul_gap(t_list *start_a, t_list *end_a,
+					// t_list *start_b, t_list *end_b);
 void			ft_go_to_element_pile(t_list **start, t_list *dst);
 
 t_list			*ft_get_the_n_element_pile(t_list *start, int n);
@@ -193,8 +195,13 @@ void			ft_preset_3_1_2(t_push_swap list_pack, char pile);
 // |======= CALCUL_MOVE_UTILS ========|
 // |==================================|
 
-t_instruction	*ft_calcul_move_helper(t_push_swap p, t_instruction *fastest,
-					t_instruction *tmp, int i);
+int				ft_calcul_move_helper_1(t_push_swap p, t_instruction **tmp,
+					int i);
+
+void			ft_do_fastest_instruction(t_push_swap p, t_instruction *fastest,
+					t_instruction **tmp);
+void			ft_calcul_move_helper_2(t_push_swap p, t_instruction *tmp,
+					int tmp_size, int i);
 
 // |===================================|
 // |======= PILES_ORDERIN_UTILS =======|

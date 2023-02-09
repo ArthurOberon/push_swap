@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:01:48 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/09 08:31:06 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/09 11:24:37 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,16 @@ t_list	**ft_listdup(t_list *src, int malloc_size)
 		return (NULL);
 	dst[0] = src;
 	dst[1] = src;
-	while (i < malloc_size)
-	{
-		dst[i]->next = src->next;
-		dst[i]->prev = src->prev;
-		dst[i]->value = src->value;
-		dst[i]->index = src->index;
-		i++;
-	}
 	return (dst);
 }
+	// while (i < malloc_size)
+	// {
+	// 	dst[i]->next = src->next;
+	// 	dst[i]->prev = src->prev;
+	// 	dst[i]->value = src->value;
+	// 	dst[i]->index = src->index;
+	// 	i++;
+	// }
 
 void	ft_listcpy(t_list **dst, t_list **src)
 {
