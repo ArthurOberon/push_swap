@@ -179,8 +179,8 @@ make bonus
 |---------------|---------------|-----------|
 |Index			| Using a tab and sort_int_tab	| <ul><li>- [x] Done</li><li>- [x] Norminette</li></ul>	|
 |Find ascending	| Find biggest sequence, push all the top expect min of start, push all bottom expect max of end	| <ul><li>- [x] Done</li><li>- [x] Norminette</li></ul>	|
-|Calcul move	| For the X first, and apply the smaller, till the end	| <ul><li>- [x] Done</li><li>- [ ] Norminette</li></ul>	|
-|Others Ideas	| See Ideas	| <ul><li>- [x] Done</li><li>- [ ] Norminette</li></ul>	|
+|Calcul move	| For the X first, and apply the smaller, till the end	| <ul><li>- [x] Done</li><li>- [x] Norminette</li></ul>	|
+|Others Ideas	| See Ideas	| <ul><li>- [x] Done</li><li>- [x] Norminette</li></ul>	|
 
 ## Find Ascending
 - [x] Check the list to find the biggest ascendant sequence's coordonate
@@ -205,13 +205,13 @@ make bonus
 - [x] If smaller write in tmp_smaller list_instruction
 - [x] Else delete list
 - [x] Restart while i != X
-- [ ] Norminette
+- [x] Norminette
 
 ## FT_NO_LO_SE
 - [x] If index between first and second => pa sa
 - [x] If index bigger than last => pa
 - [x] Else find if rra or ra to rotate the list
-- [ ] Norminette
+- [x] Norminette
 
 ## Ideas :
 - [x] Create ft_check -> check if 3 or less element, or others checkable things
@@ -237,4 +237,4 @@ make bonus
 
 # Currents Problems
 - [ ] Do not use sb at all -> bad ?
-- [ ] ft_strdup -> error of uninitialised value when dst[0]->next = src->next
+- [ ] ft_listdup -> error of uninitialised value when dst[0]->next = src->next
