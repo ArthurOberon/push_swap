@@ -65,8 +65,6 @@ make bonus
 
 *!!!! IF THERE, CHECK THE BOLD FIRST !!!!*
 
-**Delete pile_ordering and Restart it with a struct t_coordonate**
-
 ### Problematics/Reference Numbers :
 ```
 19 94 65 0 93 71 18 64 33 50 10 85 30 26 97 55 52 42 35 72 96 70 78 36 86 88 21 5 59 67 84 68 20 57 43 34 54 73 29 99 48 95 40 51 9 98 81 25 22 56 80 100 66 12 63 4 60 92 91 15 13 3 44 69 89 16 77 58 17 14 87 46 83 6 75 74 32 49 7 1 38 37 28 90 62 31 76 79 8 82 27 24 39 45 47 23 41 61 11 53 2
@@ -180,7 +178,7 @@ make bonus
 |Restart		|Description	|Current Status		|
 |---------------|---------------|-----------|
 |Index			| Using a tab and sort_int_tab	| <ul><li>- [x] Done</li><li>- [x] Norminette</li></ul>	|
-|Find ascending	| Find biggest sequence, push all the top expect min of start, push all bottom expect max of end	| <ul><li>- [x] Done</li><li>- [ ] Norminette</li></ul>	|
+|Find ascending	| Find biggest sequence, push all the top expect min of start, push all bottom expect max of end	| <ul><li>- [x] Done</li><li>- [x] Norminette</li></ul>	|
 |Calcul move	| For the X first, and apply the smaller, till the end	| <ul><li>- [x] Done</li><li>- [ ] Norminette</li></ul>	|
 |Others Ideas	| See Ideas	| <ul><li>- [x] Done</li><li>- [ ] Norminette</li></ul>	|
 
@@ -189,11 +187,15 @@ make bonus
 - [x] Push all the top part but keep the min
 - [x] Move to the bottom part
 - [x] Push all the bottom part but keep the max
-- [ ] Norminette
- 
+- [x] Norminette
+
  ## Find Ascending Not Effecient Enough
  Try to :
  - Calcul the biggest ascending sequence's with numbers in between, using the index : if < push else keep
+
+## NEW Find Ascending
+- [ ] ...
+- [ ] Norminette
 
 ## Calcul Move
 - [x] Create a variable in list_instruction which the opposite of his operation
@@ -235,3 +237,4 @@ make bonus
 
 # Currents Problems
 - [ ] Do not use sb at all -> bad ?
+- [ ] ft_strdup -> error of uninitialised value when dst[0]->next = src->next

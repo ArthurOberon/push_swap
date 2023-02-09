@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 19:12:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/07 15:43:20 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/09 10:32:13 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void	ft_optimize_rotation(t_push_swap list_pack,
 	ft_move_temporary("pa", list_pack, tmp_instruction);
 }
 
-static void	ft_optimize_move(t_push_swap list_pack,
+void	ft_optimize_move(t_push_swap list_pack,
 	t_list *element_to_go, t_instruction **tmp_instruction)
 {
 	t_list			*pile_a;
@@ -88,14 +88,14 @@ static void	ft_optimize_move(t_push_swap list_pack,
 		&& pile_a->index > pile_b->index)
 	{
 		ft_move_temporary("pa", list_pack, tmp_instruction);
-		// ft_move_temporary("ra", list_pack, tmp_instruction);
-			//seems to add useless moves
 	}
 	else
 		ft_optimize_rotation(list_pack, tmp_instruction);
 }
+		// ft_move_temporary("ra", list_pack, tmp_instruction);
+			// -----> after pa seems to add useless moves
 
-static void	ft_go_back_to(t_push_swap list_pack, t_instruction *lst_instruction,
+void	ft_go_back_to(t_push_swap list_pack, t_instruction *lst_instruction,
 	int move_number, int n)
 {
 	int				i;
@@ -121,40 +121,17 @@ static void	ft_go_back_to(t_push_swap list_pack, t_instruction *lst_instruction,
 
 void	ft_calcul_move(t_push_swap list_pack)
 {
-	int				fastest_size;
-	int				tmp_size;
 	int				i;
-	t_instruction	*fastest_instruction;
 	t_instruction	*tmp_instruction;
+	t_instruction	*fastest_instruction;
 
 	i = 0;
-	fastest_size = 0;
 	fastest_instruction = NULL;
 	while (i < ft_lstsize(*list_pack.pile_b))
 	{
 		tmp_instruction = NULL;
-		ft_optimize_move(list_pack,
-			ft_get_the_n_element_pile(*list_pack.pile_b, i), &tmp_instruction);
-		tmp_size = ft_lstsize_instruction(tmp_instruction);
-		if (tmp_size == 1)
-		{
-			ft_lstclear_instruction(&fastest_instruction);
-			fastest_instruction = tmp_instruction;
-			ft_go_back_to(list_pack, tmp_instruction, tmp_size, i);
-			break ;
-		}
-		if (fastest_size > tmp_size || fastest_size == 0)
-		{
-			ft_lstclear_instruction(&fastest_instruction);
-			fastest_instruction = tmp_instruction;
-			fastest_size = tmp_size;
-			ft_go_back_to(list_pack, tmp_instruction, tmp_size, i);
-		}
-		else
-		{
-			ft_go_back_to(list_pack, tmp_instruction, tmp_size, i);
-			ft_lstclear_instruction(&tmp_instruction);
-		}
+		ft_calcul_move_helper(list_pack, fastest_instruction, tmp_instruction,
+			i);
 		i++;
 	}
 	tmp_instruction = NULL;

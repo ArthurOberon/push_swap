@@ -6,58 +6,37 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 11:48:12 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/08 19:43:21 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/09 08:24:18 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// static int	ft_init_get_ascending_sequence(t_list (*(*coordonate)[2]),
-									// t_list ***coordonate_tmp, t_list **lst)
-// {
-	// int	size;
-// 
-	// size = ft_lstsize(*lst);
-	// (*coordonate[0]) = *lst;
-	// (*coordonate[1]) = *lst;
-	// coordonate_tmp[0] = lst;
-	// coordonate_tmp[1] = lst;
-	// return (size);
-// }
-	// size = ft_init_get_ascending_sequence(&(coordonate), &coordonate_tmp, lst);
-	// strdup_list(coordonate, coordonate_tmp);
-
 static t_list	**ft_get_ascending_sequence(t_list **lst)
 {
-	t_list	*coordonate[2];
+	t_list	**coordonate;
 	t_list	**coordonate_tmp;
 	int		i;
 	int		size;
 
 	i = -1;
 	size = ft_lstsize(*lst);
-	coordonate[0] = *lst;
-	coordonate[1] = *lst;
-	coordonate_tmp = malloc(sizeof(t_list *) * 2);
-	if (!coordonate_tmp)
+	coordonate = ft_listdup(*lst, 2);
+	coordonate_tmp = ft_listdup(*lst, 2);
+	if (!coordonate || !coordonate_tmp)
 		return (NULL);
-	coordonate_tmp[0] = *lst;
-	coordonate_tmp[1] = *lst;
 	while (++i < size)
 	{
-		if (coordonate[1]->value > coordonate[1]->next->value)
+		if (coordonate_tmp[1]->value > coordonate_tmp[1]->next->value)
 		{
-			if (ft_calcul_gap(coordonate[0], coordonate[1],
-					coordonate_tmp[0], coordonate_tmp[1]))
-			{
-				coordonate_tmp[0] = coordonate[0];
-				coordonate_tmp[1] = coordonate[1];
-			}
-			ft_go_to_element_pile(&coordonate[0], coordonate[1]->next);
+			if (ft_calcul_gap(coordonate, coordonate_tmp))
+				ft_listcpy(coordonate, coordonate_tmp);
+			ft_go_to_element_pile(&coordonate_tmp[0], coordonate_tmp[1]->next);
 		}
-		coordonate[1] = coordonate[1]->next;
+		coordonate_tmp[1] = coordonate_tmp[1]->next;
 	}
-	return (coordonate_tmp);
+	free(coordonate_tmp);
+	return (coordonate);
 }
 
 static void	ft_push_top(t_push_swap list_pack, t_list **coordonate)

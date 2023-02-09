@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/08 19:44:04 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/09 10:31:34 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,14 @@ typedef struct s_instruction
 	char					*operation;
 	char					*invert_operation;
 }	t_instruction;
+
+// typedef struct s_coordonate
+// {
+// 	t_list	*next;
+// 	t_list	*prev;
+// 	int		value;
+// 	int		index;
+// }	t_coordonate;
 
 typedef struct s_push_swap
 {
@@ -74,9 +82,7 @@ void			ft_init_index(t_list **lst);
 // |=====================|
 
 int				ft_is_ascending(t_list *lst);
-int				ft_calcul_gap(t_list *start_a, t_list *end_a,
-					t_list *start_b, t_list *end_b);
-
+int				ft_calcul_gap(t_list **coordonate_a, t_list **coordonate_b);
 void			ft_go_to_element_pile(t_list **start, t_list *dst);
 
 t_list			*ft_get_the_n_element_pile(t_list *start, int n);
@@ -139,6 +145,10 @@ int				ft_find_optimize_rotation(t_list **lst,
 					t_list *lst_destination);
 
 void			ft_calcul_move(t_push_swap list_pack);
+void			ft_optimize_move(t_push_swap list_pack,
+					t_list *element_to_go, t_instruction **tmp_instruction);
+void			ft_go_back_to(t_push_swap list_pack,
+					t_instruction *lst_instruction, int move_number, int n);
 
 // |=============================|
 // |======= PILES_MIN_MAX =======|
@@ -179,11 +189,21 @@ void			ft_preset_2_1_3(t_push_swap list_pack, char pile);
 void			ft_preset_3_2_1(t_push_swap list_pack, char pile);
 void			ft_preset_3_1_2(t_push_swap list_pack, char pile);
 
+// |==================================|
+// |======= CALCUL_MOVE_UTILS ========|
+// |==================================|
+
+t_instruction	*ft_calcul_move_helper(t_push_swap p, t_instruction *fastest,
+					t_instruction *tmp, int i);
+
 // |===================================|
 // |======= PILES_ORDERIN_UTILS =======|
 // |===================================|
 
 void			ft_check_obvious(t_push_swap list_pack);
+void			ft_listcpy(t_list **dst, t_list **src);
+
+t_list			**ft_listdup(t_list *src, int malloc_size);
 
 // |=======================================|
 // |======= LIST_INSTRUCTIONS_UTILS =======|
@@ -210,6 +230,20 @@ t_instruction	*ft_create_list_instruction(void);
 // |=============================================|
 
 int				ft_find_combination_move(t_instruction **lst);
+int				ft_combinate_move(t_instruction *tmp, int n,
+					char *combinated_move);
+
+// |===================================================|
+// |======= LIST_INSTRUCTIONS_COMBINATION_UTILS =======|
+// |===================================================|
+
+int				ft_find_min_value(int a, int b);
+int				ft_find_combination_move_helper(t_instruction **tmp,
+					int *combinate_number);
+
+void			ft_init_int_tab(int *tab, int size);
+void			ft_delete_one_element(t_instruction **tmp,
+					t_instruction *new_tmp);
 
 //==========================================
 

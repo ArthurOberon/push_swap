@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   piles_utils.c                                      :+:      :+:    :+:   */
+/*   piles.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 11:12:51 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/04 11:14:35 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/09 10:31:47 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ t_list	*ft_get_the_n_element_pile(t_list *start, int n)
 	return (start);
 }
 
-int	ft_calcul_gap(t_list *start_a, t_list *end_a,
-	t_list *start_b, t_list *end_b)
+int	ft_calcul_gap(t_list **coordonate_a, t_list **coordonate_b)
 {
 	int		a;
 	int		b;
@@ -45,19 +44,20 @@ int	ft_calcul_gap(t_list *start_a, t_list *end_a,
 
 	a = 0;
 	b = 0;
-	tmp_a = start_a;
-	tmp_b = start_b;
-	while (tmp_a != end_a)
+	tmp_a = coordonate_a[0];
+	tmp_b = coordonate_b[0];
+	while (tmp_a != coordonate_a[1])
 	{
 		tmp_a = tmp_a->next;
 		a++;
 	}
-	while (tmp_b != end_b)
+	while (tmp_b != coordonate_b[1])
 	{
 		tmp_b = tmp_b->next;
 		b++;
 	}
-	return (a > b);
+	printf("%d %d", a, b);
+	return (a < b);
 }
 
 int	ft_is_ascending(t_list *lst)
