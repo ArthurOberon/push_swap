@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:56:32 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/09 15:25:20 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/10 15:03:47 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ int				ft_is_ascending(t_list *lst);
 int				ft_calcul_gap(t_coordonate coordonate_a,
 					t_coordonate coordonate_b);
 
-// int				ft_calcul_gap(t_list **coordonate_a, t_list **coordonate_b);
 void			ft_go_to_element_pile(t_list **start, t_list *dst);
 
 t_list			*ft_get_the_n_element_pile(t_list *start, int n);
@@ -168,6 +167,12 @@ void			ft_push_after_max(t_push_swap list_pack,
 // |==============================|
 
 void			ft_get_order(t_push_swap list_pack);
+
+// |===============================|
+// |======= PILES_ASCENDING =======|
+// |===============================|
+
+void			ft_get_pile_ascending(t_push_swap list_pack);
 
 // |===============================|
 // |======= PRINT_FUNCTIONS =======|

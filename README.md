@@ -197,7 +197,10 @@ make bonus
  - Calcul the biggest ascending sequence's with numbers in between, using the index : if < push else keep
 
 ## NEW Find Ascending
-- [ ] ...
+- [ ] Find index 0 -> rotate to the end of the stack
+- [ ] Find the smaller index in the X next element of index 0 (Find the best number compared to the size of the stack)
+- [ ] Push or swap every element between 0 and the smaller index found (swap --> if smaller == 0->next->next else --> push)
+- [ ] Do it again but with this smaller index found instead of the index 0
 - [ ] Norminette
 
 ## Calcul Move
@@ -240,4 +243,3 @@ make bonus
 
 # Currents Problems
 - [ ] Do not use sb at all -> bad ?
-- [ ] ft_listdup -> error of uninitialised value when dst[0]->next = src->next
