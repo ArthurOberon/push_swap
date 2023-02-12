@@ -11,7 +11,6 @@ ITER=$3
 LIM=$4
 
 
-
 MOY=0
 NB_SUP_LIM=0
 VAL_MAX=0
@@ -20,6 +19,11 @@ VAL_MIN=1000000000
 echo -e "Limit = $LIM\n"
 
 echo "Calcul en cours..."
+
+# for i in $(seq 1 $ITER); do
+# 	./push_swap $(./utils/randomizer.sh $MIN $MAX)
+# done
+
 
 for i in $(seq 1 $ITER); do
 	# VAL=$(valgrind ./push_swap $(./randomizer.sh $MIN $MAX)| wc -l)
