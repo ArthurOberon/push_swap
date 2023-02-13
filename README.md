@@ -67,7 +67,29 @@ make bonus
 
 # RESTART
 
+|Restart		|Description	|Current Status		|
+|---------------|---------------|-----------|
+|Index			| get index in the pile a	| <ul><li>- [x] Done</li><li>- [x] Norminette</li></ul>	|
+|Part 1			| Find a way to separate pile a in two	| <ul><li>- [ ] Done</li><li>- [ ] Norminette</li></ul>	|
+|Part 2			| Find a way to calcul the smaller move with position in the pile and not by doing the move and go back	| <ul><li>- [ ] Done</li><li>- [ ] Norminette</li></ul>	|
+|Optimize		| Find Optimizations	| <ul><li>- [ ] Done</li><li>- [ ] Norminette</li></ul>	|
 
+## Part 1
+- [ ] ...
+
+## Part 2
+- [ ] Find his position in the pile
+- [ ] If x > pile_length / 2 => ra/b
+- [ ] Else => rra/b
+- [ ] Find a way to also use sa/sb
+- [ ] Do that for each element and find the smaller
+- [ ] Do the smaller move
+- [ ] Do it again till the end
+
+## Optimize
+- [ ] ...
+
+# Currents Problems
 
 # ERROR/DEPRECATED :
 

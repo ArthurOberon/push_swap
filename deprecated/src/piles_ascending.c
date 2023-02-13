@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 14:28:06 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/12 12:17:33 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/13 13:47:22 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,8 @@ static void	ft_push_all_between(t_push_swap p, t_list *lst)
 	}
 	else
 	{
-		while (tmp != lst)
+		while (tmp != lst && tmp->index != 0)
 		{
-			// printf("%d != %d\n", tmp->index, lst->index);
 			ft_move("pb", p);
 			tmp = *p.pile_a;
 		}
@@ -113,6 +112,7 @@ void	ft_get_pile_ascending(t_push_swap list_pack)
 		// printf("tmp_zero = %d\n", tmp_zero->index);
 		ft_push_all_between(list_pack, tmp);
 	}
+	tmp = *list_pack.pile_a;
 	if (tmp && tmp->index != 0)
 	{
 		if (tmp->index > 0 && tmp->index < tmp->next->next->index)

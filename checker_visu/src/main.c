@@ -6,10 +6,11 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:28:57 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/13 16:08:58 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/13 16:54:00 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 #include "visu.h"
 
 void	img_pix_put(t_img *img, int x, int y, int color)
@@ -41,44 +42,46 @@ static t_data	data_init(void)
 	return (data);
 }
 
-static void	list_init(t_list **lst)
-{
-	int		i;
-	t_list	*tmp;
-	t_list	*tmp_print;
+// static void	list_init(t_list **lst)
+// {
+// 	int		i;
+// 	t_list	*tmp;
+// 	t_list	*tmp_print;
 
-	i = 0;
-	*lst = NULL;
-	while (i < 5)
-	{
-		tmp = ft_lstnew(i);
-		ft_lstadd_back(lst, tmp);
-		i++;
-	}
-	tmp_print = *lst;
-	while (tmp_print != (*lst)->prev)
-		tmp_print = tmp_print->next;
-}
+// 	i = 0;
+// 	*lst = NULL;
+// 	while (i < 5)
+// 	{
+// 		tmp = ft_lstnew(i);
+// 		ft_lstadd_back(lst, tmp);
+// 		i++;
+// 	}
+// 	tmp_print = *lst;
+// 	while (tmp_print != (*lst)->prev)
+// 		tmp_print = tmp_print->next;
+// }
 
-void	visu(void)
+int	visu(t_list **pile_a, t_list **pile_b, t_instruction **lst_instruction)
 {
 	t_data	data;
-	t_list	*lst;
 
 	data = data_init();
-	list_init(&lst);
-	data.lst = lst;
-	data.value_max = ft_find_value_max(lst, &data.size_lst);
+	data.lst = *pile_a;
+	data.value_max = ft_find_value_max(*pile_a, &data.size_lst);
 	mlx_loop_hook(data.mlx_ptr, &render, &data);
 	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &data);
 	mlx_loop(data.mlx_ptr);
 	mlx_destroy_image(data.mlx_ptr, data.img.mlx_img);
 	mlx_destroy_display(data.mlx_ptr);
 	free(data.mlx_ptr);
-	ft_lstclear(&lst);
-}
-
-int	main(void)
-{
-	return (0);
+	ft_lstclear_instruction(lst_instruction);
+	if (!ft_check_is_sort(pile_a))
+	{
+		ft_lstclear(pile_a);
+		ft_putstr_fd("KO\n", 1);
+		return (0);
+	}
+	ft_lstclear(pile_a);
+	ft_putstr_fd("OK\n", 1);
+	return (1);
 }

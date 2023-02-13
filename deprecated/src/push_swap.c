@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 09:46:18 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/12 12:17:28 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/13 16:12:43 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	ft_push_swap(t_list **lst_a)
 	list_pack.pile_b = &lst_b;
 	list_pack.instructions = &lst_instruction;
 	ft_init_index(lst_a);
-	ft_get_pile_ascending(list_pack);
-	// ft_print_piles("FIRST", list_pack);
-	// ft_get_order(list_pack);
+	// ft_get_pile_ascending(list_pack);
+	ft_get_order(list_pack);
+	ft_print_piles("FIRST", list_pack);
 	while (lst_b || !ft_is_ascending(*lst_a))
 	{
 		ft_calcul_move(list_pack);

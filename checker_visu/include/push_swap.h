@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:11:19 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/13 16:15:03 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/13 16:53:25 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,15 @@ void			ft_init_index(t_list **lst);
 // |======= OTHERS =======|
 // |======================|
 
+int				ft_check_is_sort(t_list **lst);
+
 char			*get_next_line(int fd);
 
 // |======================|
 // |======= PARSE ========|
 // |======================|
 
-int				ft_parse(char *str, t_list **lst);
+int				ft_parse(char *str, t_list **lst, int *visualize);
 
 // |=========================|
 // |======= MERGE_STR =======|

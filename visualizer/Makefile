@@ -13,7 +13,7 @@ SRC =	main.c \
 		utils.c \
 		render.c \
 		handler.c \
-		render_list.c \
+		render_utils.c \
 
 VISU_SRCS = ${SRC}
 

@@ -6,10 +6,11 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:32:05 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/13 15:50:13 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/13 16:36:00 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 #include "visu.h"
 
 static void	create_rect_from_list(t_rect *rect, t_list *lst,
