@@ -26,9 +26,10 @@ CHECKER_SRC =	checker.c \
 GNL_SRC =		get_next_line.c \
 				get_next_line_utils.c \
 
-VISU_SRC =		main.c \
+VISU_SRC =		visu.c \
 				render.c \
 				handler.c \
+				autoplay.c \
 				visu_utils.c \
 				render_utils.c \
 

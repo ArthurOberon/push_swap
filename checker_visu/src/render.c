@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:32:05 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/13 16:36:00 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/14 15:47:56 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static void	create_rect_from_list(t_rect *rect, t_list *lst,
 	int max_value, int size_lst)
 {
-	rect->width = ft_size_width(lst->value, max_value);
+	rect->width = ft_size_width(lst->value, max_value) - 10;
 	rect->height = (WINDOW_HEIGHT / size_lst) - (size_lst * 2);
 	rect->y -= rect->height;
 	rect->color = 0xFF00;
@@ -26,6 +26,8 @@ void	display_pile(t_data *data, t_list *lst, t_rect *rect)
 {
 	t_list	*tmp;
 
+	if (!lst)
+		return ;
 	tmp = lst->prev;
 	while (tmp != lst)
 	{
@@ -50,10 +52,10 @@ int	render(t_data *data)
 	render_background(&data->img, 0xFFFFFFF);
 	rect.x = 0;
 	rect.y = WINDOW_HEIGHT;
-	display_pile(data, data->lst, &rect);
+	display_pile(data, *(data->p.pile_a), &rect);
+	rect.x += WINDOW_WIDTH / 2;
 	rect.y = WINDOW_HEIGHT;
-	rect.x = WINDOW_WIDTH / 2;
-	display_pile(data, data->lst, &rect);
+	display_pile(data, *(data->p.pile_b), &rect);
 	return (0);
 }
 

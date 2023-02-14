@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:43:31 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/07 16:46:42 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/14 14:18:57 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ft_print_list_instruction_one_line(t_instruction **lst)
 	while (tmp)
 	{
 		// printf("------ FIRST = [%d]\n ------", first->operation);
-		printf("[%s] (%s)-->", tmp->operation, tmp->invert_operation);
+		// printf("[%s] (%s)-->", tmp->operation, tmp->invert_operation);
 		tmp = tmp->next;
 	}
 	printf(": last\n");
@@ -86,8 +86,9 @@ void	ft_print_list_instruction(t_instruction **lst)
 	while (tmp != NULL)
 	{
 		ft_putstr_fd("\nNext : \n", 1);
-		printf("operation = [%s] (%d)eme element | inverted = [%s]\n", tmp->operation,
-			i, tmp->invert_operation);
+		// printf("operation = [%s] (%d)eme element | inverted = [%s]\n",
+			// tmp->operation,
+		// 	i, tmp->invert_operation);
 		ft_putstr_fd("\n====================\n", 1);
 		tmp = tmp->next;
 		i++;

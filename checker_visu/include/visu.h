@@ -6,18 +6,20 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:17:52 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/13 16:52:51 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/14 15:33:18 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VISU_H
 # define VISU_H
 
-# include <stdio.h>
+# include <unistd.h>
 # include <stdlib.h>
 # include <mlx.h>
 # include <X11/keysym.h>
 # include <X11/X.h>
+
+# include <stdio.h>
 
 # define WINDOW_WIDTH 600
 # define WINDOW_HEIGHT 300
@@ -51,12 +53,16 @@ typedef struct s_rect
 
 typedef struct s_data
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	t_img	img;
-	t_list	*lst;
-	int		value_max;
-	int		size_lst;
+	void		*mlx_ptr;
+	void		*win_ptr;
+	t_img		img;
+	t_push_swap	p;
+	int			event;
+	int			direction;
+	int			autoplay;
+	int			delay;
+	int			value_max;
+	int			size_lst;
 }	t_data;
 
 // // |================|
@@ -82,6 +88,12 @@ int		render(t_data *data);
 // |===================|
 
 int		handle_keypress(int keysym, t_data *data);
+
+// |====================|
+// |===== AUTOPLAY =====|
+// |====================|
+
+int		ft_autoplay(t_data *data);
 
 // |======================|
 // |===== VISU_UTILS =====|

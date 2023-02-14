@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:47:12 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/08 18:11:57 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/14 14:34:30 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,29 +30,29 @@ static int	ft_is_equal(char *str_checking, char *str_checker)
 	return (1);
 }
 
-static int	ft_check_instruction(t_instruction *lst)
+static int	ft_check_instruction(char *operation)
 {
-	if (ft_is_equal(lst->operation, "sa"))
+	if (ft_is_equal(operation, "sa"))
 		return (1);
-	else if (ft_is_equal(lst->operation, "sb"))
+	else if (ft_is_equal(operation, "sb"))
 		return (1);
-	else if (ft_is_equal(lst->operation, "ss"))
+	else if (ft_is_equal(operation, "ss"))
 		return (1);
-	else if (ft_is_equal(lst->operation, "pa"))
+	else if (ft_is_equal(operation, "pa"))
 		return (1);
-	else if (ft_is_equal(lst->operation, "pb"))
+	else if (ft_is_equal(operation, "pb"))
 		return (1);
-	else if (ft_is_equal(lst->operation, "ra"))
+	else if (ft_is_equal(operation, "ra"))
 		return (1);
-	else if (ft_is_equal(lst->operation, "rb"))
+	else if (ft_is_equal(operation, "rb"))
 		return (1);
-	else if (ft_is_equal(lst->operation, "rr"))
+	else if (ft_is_equal(operation, "rr"))
 		return (1);
-	else if (ft_is_equal(lst->operation, "rra"))
+	else if (ft_is_equal(operation, "rra"))
 		return (1);
-	else if (ft_is_equal(lst->operation, "rrb"))
+	else if (ft_is_equal(operation, "rrb"))
 		return (1);
-	else if (ft_is_equal(lst->operation, "rrr"))
+	else if (ft_is_equal(operation, "rrr"))
 		return (1);
 	return (0);
 }
@@ -60,16 +60,19 @@ static int	ft_check_instruction(t_instruction *lst)
 t_instruction	*ft_create_list_instruction(void)
 {
 	t_instruction	*lst_instruction;
-	t_instruction	*tmp;
 	char			*line;
 
 	lst_instruction = NULL;
 	line = get_next_line(0);
 	while (line)
 	{
-		tmp = ft_lstnew_instruction(line);
-		ft_lstadd_back_instruction(&lst_instruction, tmp);
-		if (!ft_check_instruction(tmp))
+		if (ft_add_instruction(line, &lst_instruction) == -1)
+		{
+			ft_lstclear_instruction(&lst_instruction);
+			ft_putstr_fd("Error with a malloc\n", 2);
+			return (NULL);
+		}
+		if (!ft_check_instruction(line))
 		{
 			ft_putstr_fd("Error\n", 2);
 			ft_lstclear_instruction(&lst_instruction);
@@ -79,5 +82,11 @@ t_instruction	*ft_create_list_instruction(void)
 		line = get_next_line(0);
 	}
 	free(line);
+	if (ft_add_instruction("NULL", &lst_instruction) == -1)
+	{
+		ft_lstclear_instruction(&lst_instruction);
+		ft_putstr_fd("Error with a malloc\n", 2);
+		return (NULL);
+	}
 	return (lst_instruction);
 }

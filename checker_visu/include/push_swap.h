@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:11:19 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/13 16:53:25 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/14 13:02:49 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_instruction
 	struct s_instruction	*next;
 	struct s_instruction	*prev;
 	char					*operation;
-	char					*invert_operation;
+	// char					*invert_operation;
 }	t_instruction;
 
 typedef struct s_push_swap
