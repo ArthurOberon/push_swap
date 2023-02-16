@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:55:15 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/16 08:50:31 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/16 19:54:08 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
+	ft_init_index(&lst_a);
 	lst_instruction = ft_create_list_instruction();
 	if (!lst_instruction)
 	{

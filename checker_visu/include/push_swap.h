@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:11:19 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/14 13:02:49 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/16 19:53:22 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,44 +44,44 @@ typedef struct s_push_swap
 	t_instruction	**instructions;
 }	t_push_swap;
 
-// |=====================|
-// |======= UTILS =======|
-// |=====================|
+// |----------------------------|
+// |			UTILS			|
+// |----------------------------|
 
 int				ft_isdigit(int c);
 int				ft_isspace(char c);
 
 char			*ft_strdup(const char *s);
 
-// |=====================|
-// |======= INDEX =======|
-// |=====================|
+// |----------------------------|
+// |			INDEX			|
+// |----------------------------|
 
 void			ft_init_index(t_list **lst);
 
-// |======================|
-// |======= OTHERS =======|
-// |======================|
+// |----------------------------|
+// |			OTHERS			|
+// |----------------------------|
 
 int				ft_check_is_sort(t_list **lst);
 
 char			*get_next_line(int fd);
 
-// |======================|
-// |======= PARSE ========|
-// |======================|
+// |----------------------------|
+// |			PARSE 			|
+// |----------------------------|
 
 int				ft_parse(char *str, t_list **lst, int *visualize);
 
-// |=========================|
-// |======= MERGE_STR =======|
-// |=========================|
+// |--------------------------------|
+// |			MERGE_STR			|
+// |--------------------------------|
 
 char			*ft_str_merge(char **str, int space, int size);
 
-// |===========================|
-// |======= PILES_UTILS =======|
-// |===========================|
+// |--------------------------------|
+// |			PILES_UTILS			|
+// |--------------------------------|
 
 int				ft_lstsize(t_list *lst);
 int				ft_lstsize_instruction(t_instruction *lst);
@@ -91,15 +91,15 @@ void			ft_lstadd_back(t_list **lst, t_list *new);
 
 t_list			*ft_lstmoveout(t_list **lst);
 
-// |==========================|
-// |======= OPERATIONS =======|
-// |==========================|
+// |--------------------------------|
+// |			OPERATIONS			|
+// |--------------------------------|
 
 void			ft_do_operation(char *str, t_list **lst_a, t_list **lst_b);
 
-// |===============================|
-// |======= PRINT_FUNCTIONS =======|
-// |===============================|
+// |------------------------------------|
+// |			PRINT_FUNCTIONS			|
+// |------------------------------------|
 
 void			ft_putnbr(int nb);
 void			ft_putchar(char c);
@@ -108,9 +108,9 @@ void			ft_print_instruction(t_instruction *lst);
 
 size_t			ft_strlen(const char *s);
 
-// |=======================================|
-// |======= LIST_INSTRUCTIONS_UTILS =======|
-// |=======================================|
+// |--------------------------------------------|
+// |			LIST_INSTRUCTIONS_UTILS			|
+// |--------------------------------------------|
 
 void			ft_lstclear_instruction(t_instruction **lst);
 void			ft_lstadd_back_instruction(t_instruction **lst,
@@ -122,23 +122,23 @@ char			*ft_invert_operation(char *operation);
 
 t_instruction	*ft_lstnew_instruction(char *operation);
 
-// |========================================|
-// |======= CREATE_LIST_INSTRUCTIONS =======|
-// |========================================|
+// |------------------------------------------------|
+// |			CREATE_LIST_INSTRUCTIONS			|
+// |------------------------------------------------|
 
 t_instruction	*ft_create_list_instruction(void);
 
-// |=============================================|
-// |======= LIST_INSTRUCTIONS_COMBINATION =======|
-// |=============================================|
+// |----------------------------------------------------|
+// |			LIST_INSTRUCTIONS_COMBINATION			|
+// |----------------------------------------------------|
 
 int				ft_find_combination_move(t_instruction **lst);
 int				ft_combinate_move(t_instruction *tmp, int n,
 					char *combinated_move);
 
-// |===================================================|
-// |======= LIST_INSTRUCTIONS_COMBINATION_UTILS =======|
-// |===================================================|
+// |--------------------------------------------------------|
+// |			LIST_INSTRUCTIONS_COMBINATION_UTILS			|
+// |--------------------------------------------------------|
 
 int				ft_find_min_value(int a, int b);
 int				ft_find_combination_move_helper(t_instruction **tmp,
@@ -148,11 +148,11 @@ void			ft_init_int_tab(int *tab, int size);
 void			ft_delete_one_element(t_instruction **tmp,
 					t_instruction *new_tmp);
 
-//==========================================
+//------------------------------------------
 
-// |=========================|
-// |======= TEMPORARY =======|
-// |=========================|
+// |--------------------------------|
+// |			TEMPORARY			|
+// |--------------------------------|
 
 void			ft_print_tab(char **tab);
 void			ft_print_list(t_list **lst);
