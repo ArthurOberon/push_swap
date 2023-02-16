@@ -225,11 +225,11 @@ make bonus
  - Calcul the biggest ascending sequence's with numbers in between, using the index : if < push else keep
 
 ## NEW Find Ascending
-- [ ] Find index 0 -> rotate to the end of the stack
-- [ ] Find the smaller index in the X next element of index 0 (Find the best number compared to the size of the stack)
-- [ ] Push or swap every element between 0 and the smaller index found (swap --> if smaller == 0->next->next else --> push)
-- [ ] Do it again but with this smaller index found instead of the index 0
-- [ ] Norminette
+- [x] Find index 0 -> rotate to the end of the stack
+- [x] Find the smaller index in the X next element of index 0 (Find the best number compared to the size of the stack)
+- [x] Push or swap every element between 0 and the smaller index found (swap --> if smaller == 0->next->next else --> push)
+- [x] Do it again but with this smaller index found instead of the index 0
+- [x] Norminette
 
 ## Calcul Move
 - [x] Create a variable in list_instruction which the opposite of his operation
