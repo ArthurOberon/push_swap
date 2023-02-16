@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 09:45:52 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/09 10:30:15 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/16 10:39:27 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_init_int_tab(int *tab, int size)
 	}
 }
 
-void	ft_delete_one_element(t_instruction **tmp, t_instruction *new_tmp)
+void	ft_delete_one_element(t_instruction **tmp)
 {
 	(*tmp)->prev->next = (*tmp)->next;
 	(*tmp)->next->prev = (*tmp)->prev;

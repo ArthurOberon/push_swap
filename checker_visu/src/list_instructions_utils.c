@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:17:10 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/14 14:45:41 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/16 08:49:20 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ t_instruction	*ft_lstnew_instruction(char *operation)
 	{
 		if (operation[ft_strlen(operation) - 1] == '\n')
 			operation[ft_strlen(operation) - 1] = '\0';
+		newlist->operation = operation;
 		newlist->operation = ft_strdup(operation);
 		if (!newlist->operation)
 			return (NULL);

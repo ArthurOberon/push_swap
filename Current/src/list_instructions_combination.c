@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:12:24 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/09 10:32:21 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/16 10:40:09 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,15 @@ static int	ft_combinate_move_helper(t_instruction *tmp, int n,
 			tmp->operation = ft_strdup(combinated_move);
 			if (!tmp->operation)
 				return (-1);
-			tmp->invert_operation = ft_invert_operation(combinated_move);
+			// tmp->invert_operation = ft_invert_operation(combinated_move);
 			i++;
 		}
 		else if (tmp->operation[k] == 'r' && tmp->operation[k + 1] == 'b'
 			&& j++ < n)
-			ft_delete_one_element(&tmp, new_tmp);
+			ft_delete_one_element(&tmp);
 		tmp = new_tmp;
 	}
+	return (0);
 }
 
 int	ft_combinate_move(t_instruction *tmp, int n, char *combinated_move)
@@ -59,7 +60,7 @@ int	ft_combinate_move(t_instruction *tmp, int n, char *combinated_move)
 int	ft_find_combination_move(t_instruction **lst)
 {
 	t_instruction	*tmp;
-	t_instruction	*tmp_p;
+	// t_instruction	*tmp_p;
 	int				combinate_number[4];
 
 	if (!lst || !*lst)
@@ -70,7 +71,7 @@ int	ft_find_combination_move(t_instruction **lst)
 		if (tmp->operation[0] == 'p')
 		{
 			ft_init_int_tab(combinate_number, 4);
-			tmp_p = tmp;
+			// tmp_p = tmp;
 			tmp = tmp->next;
 			if (ft_find_combination_move_helper(&tmp, combinate_number) == -1)
 			{

@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:47:12 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/08 18:11:57 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/16 15:02:11 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,12 @@ t_instruction	*ft_create_list_instruction(void)
 	line = get_next_line(0);
 	while (line)
 	{
-		tmp = ft_lstnew_instruction(line);
-		ft_lstadd_back_instruction(&lst_instruction, tmp);
+		if (ft_add_instruction(line, &lst_instruction) == -1)
+		{
+			ft_lstclear_instruction(&lst_instruction);
+			ft_putstr_fd("Error with a malloc\n", 2);
+			return (NULL);
+		}
 		if (!ft_check_instruction(tmp))
 		{
 			ft_putstr_fd("Error\n", 2);

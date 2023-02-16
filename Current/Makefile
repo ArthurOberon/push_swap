@@ -20,8 +20,18 @@ COMMON_SRC = 	utils.c \
 
 ## BECAREFUL -> TEMPORARY.C
 
-PS_SRC =	index.c \
+PS_SRC =	algo.c \
+			move.c \
+			index.c \
+			piles.c \
 			push_swap.c \
+			algo_utils.c \
+			piles_min_max.c \
+			piles_ascending.c \
+			optimize_rotation.c \
+			do_best_move_utils.c \
+			do_best_move_utils_2.c \
+			piles_ascending_utils.c \
 			list_instructions_combination.c \
 			list_instructions_combination_utils.c \
 

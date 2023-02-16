@@ -6,10 +6,11 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 16:28:57 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/12 18:00:32 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/16 08:50:10 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 #include"visu.h"
 
 t_list	*ft_lstlast(t_list *lst)

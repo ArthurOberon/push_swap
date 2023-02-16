@@ -6,11 +6,18 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:37:41 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/08 18:18:45 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/16 08:56:35 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
+
+int	ft_abs(int a)
+{
+	if (a < 0)
+		return (-a);
+	return (a);
+}
 
 int	ft_isspace(char c)
 {

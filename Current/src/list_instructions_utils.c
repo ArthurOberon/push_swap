@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:17:10 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/08 18:13:14 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/16 08:46:42 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ t_instruction	*ft_lstnew_instruction(char *operation)
 		newlist->operation = ft_strdup(operation);
 		if (!newlist->operation)
 			return (NULL);
-		newlist->invert_operation = ft_invert_operation(operation);
 		newlist->next = NULL;
 		newlist->prev = NULL;
 	}
