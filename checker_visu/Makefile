@@ -2,10 +2,17 @@ CHECKER = checker
 
 CC = gcc
 # CFLAGS = -g -Wall -Wextra -Werror
+INCLUDE = include/
 CFLAGS = -g -Wall -Wextra
 MLX_FLAGS = -L./ -lmlx -lX11 -lXext
 SRC_DIR = src/
 OBJ_DIR = obj/
+
+
+INCLUDE_SRC =	mlx.h \
+				visu.h \
+				push_swap.h \
+				get_next_line.h \
 
 
 COMMON_SRC = 	utils.c \
@@ -36,18 +43,19 @@ VISU_SRC =		visu.c \
 
 # list.c
 
+INCLUDE_SRCS = $(addprefix($(INCLUDE_SRC), $(INCLUDE)))
+
 CHECKER_SRCS = ${COMMON_SRC} ${CHECKER_SRC} ${GNL_SRC} ${VISU_SRC}
 
 CHECKER_OBJ = ${CHECKER_SRCS:.c=.o}
 OBJ = ${SRCS:.c=.o}
 
 
-
 all: $(CHECKER)
 
-$(addprefix $(OBJ_DIR), %.o): $(SRC_DIR)%.c
+$(addprefix $(OBJ_DIR), %.o): $(SRC_DIR)%.c $(INCLUDE_SRCS)
 	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(CFLAGS) -I include/ -c -o $@ $^
+	@$(CC) $(CFLAGS) -I$(INCLUDE) -c -o $@ $^
 
 $(CHECKER): $(addprefix $(OBJ_DIR), $(CHECKER_OBJ))
 	@echo "\e[36mMaking checker...\e[0m"

@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 17:27:11 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/14 13:27:04 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/17 12:38:59 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ int	ft_find_value_max(t_list *lst, int *size)
 		lst = lst->next;
 		(*size)++;
 	}
-	return (max->value);
+	return (max->index);
 }

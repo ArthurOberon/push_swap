@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:17:52 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/16 19:49:50 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/17 12:47:42 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 
 # include <stdio.h>
 
-# define WINDOW_WIDTH 600
-# define WINDOW_HEIGHT 300
+# define WINDOW_WIDTH 1200
+# define WINDOW_HEIGHT 600
 
 typedef struct s_img
 {
@@ -57,9 +57,9 @@ typedef struct s_data
 	void		*win_ptr;
 	t_img		img;
 	t_push_swap	p;
-	int			event;
 	int			direction;
 	int			autoplay;
+	int			stop_autoplay;
 	int			delay;
 	int			value_max;
 	int			size_lst;
