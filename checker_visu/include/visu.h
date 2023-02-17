@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:17:52 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/17 12:47:42 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/17 16:19:33 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 
 # include <stdio.h>
 
-# define WINDOW_WIDTH 1200
-# define WINDOW_HEIGHT 600
+# define WINDOW_WIDTH 1600
+# define WINDOW_HEIGHT 800
 
 typedef struct s_img
 {

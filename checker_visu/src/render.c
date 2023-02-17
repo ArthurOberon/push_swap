@@ -6,15 +6,12 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:32:05 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/17 13:00:54 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/17 17:50:55 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "visu.h"
-
-	// printf("	Ratio = %f\n	Normalized = %d\n	Region = %d\n	X = %d\n",
-		// ratio, normalized, region, x);
 
 static int	create_gradient_color(float ratio)
 {
@@ -60,7 +57,7 @@ static int	create_gradient_color(float ratio)
 static void	create_rect_from_list(t_rect *rect, t_list *lst,
 	int max_value, int size_lst)
 {
-	rect->width = ft_size_width(lst->index, max_value) - 10;
+	rect->width = ft_size_width(lst->index, max_value) - 2;
 	rect->height = (WINDOW_HEIGHT / size_lst);
 	rect->y -= rect->height;
 	rect->color = create_gradient_color((float)lst->index / (float)size_lst);
@@ -92,8 +89,8 @@ int	render(t_data *data)
 	t_rect	rect;
 
 	if (!data->win_ptr)
-		return (1);
-	render_background(&data->img, 0xFFFFFFF);
+		return (-1);
+	render_background(&data->img, 0xE0E0E0);
 	rect.x = 0;
 	rect.y = WINDOW_HEIGHT;
 	display_pile(data, *(data->p.pile_a), &rect);
@@ -102,6 +99,3 @@ int	render(t_data *data)
 	display_pile(data, *(data->p.pile_b), &rect);
 	return (0);
 }
-
-	// printf("x = %d | y = %d | w = %d | h = %d\n", rect.x,
-		// rect.y, rect.width, rect.height);

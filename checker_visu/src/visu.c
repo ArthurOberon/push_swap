@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:28:57 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/17 13:01:25 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/17 16:51:08 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	img_pix_put(t_img *img, int x, int y, int color)
 {
 	char	*pixel;
 
-	pixel = img->addr + (y * img->line_len + x * (img->bpp / 8));
+	pixel = img->addr + (y * img->line_len + x * 4);
 	*(unsigned int *)pixel = color;
 }
 
@@ -59,9 +59,7 @@ int	visu(t_list **pile_a, t_list **pile_b, t_instruction **lst_instruction)
 	render(&data);
 	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &data);
 	mlx_loop_hook(data.mlx_ptr, &ft_autoplay, &data);
-	// mlx_loop_hook(data.mlx_ptr, &render, &data);
 	mlx_loop(data.mlx_ptr);
-	printf("END\n");
 	mlx_destroy_image(data.mlx_ptr, data.img.mlx_img);
 	mlx_destroy_display(data.mlx_ptr);
 	free(data.mlx_ptr);

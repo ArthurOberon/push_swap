@@ -6,49 +6,61 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 15:44:33 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/17 13:01:06 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/17 17:40:26 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "visu.h"
 
+void	ft_memset_int(void *addr, int x, int color)
+{
+	int	i;
+
+	i = 0;
+	while (i < x)
+	{
+		*(unsigned int *)(addr + i) = color;
+		++i;
+	}
+}
+
 void	render_background(t_img *img, int color)
 {
 	int	i;
 	int	j;
 
-	i = 0;
-	while (i < WINDOW_HEIGHT)
-	{
-		j = 0;
-		while (j < WINDOW_WIDTH)
-			img_pix_put(img, j++, i, color);
-		++i;
-	}
+	ft_memset_int(img->addr, WINDOW_HEIGHT * WINDOW_WIDTH * 4, color);
 }
+	// i = 0;
+	// while (i < WINDOW_HEIGHT)
+	// {
+	// 	j = 0;
+	// 	while (j < WINDOW_WIDTH)
+	// 		img_pix_put(img, j++, i, color);
+	// 	++i;
+	// }
 
 int	render_rect(t_img *img, t_rect rect)
 {
 	int	i;
 	int	j;
 
+
 	i = rect.y;
 	while (i < rect.y + rect.height)
 	{
-		j = rect.x;
-		while (j < rect.x + rect.width)
-			img_pix_put(img, j++, i, rect.color);
+		i = rect.y;
+		while (i < rect.y + rect.height)
+		{
+			j = rect.x;
+			while (j < rect.x + rect.width)
+				img_pix_put(img, j++, i, rect.color);
+			++i;
+		}
 		++i;
 	}
 	return (0);
-}
-
-static int	ft_abs(int n)
-{
-	if (n < 0)
-		return (-n);
-	return (n);
 }
 
 int	ft_size_width(int n, int max)

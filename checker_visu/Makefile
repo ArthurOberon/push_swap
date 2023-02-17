@@ -3,7 +3,7 @@ CHECKER = checker
 CC = gcc
 # CFLAGS = -g -Wall -Wextra -Werror
 INCLUDE = include/
-CFLAGS = -g -Wall -Wextra
+CFLAGS = -g -pg -Wall -Wextra
 MLX_FLAGS = -L./ -lmlx -lX11 -lXext
 SRC_DIR = src/
 OBJ_DIR = obj/
@@ -59,7 +59,7 @@ $(addprefix $(OBJ_DIR), %.o): $(SRC_DIR)%.c $(INCLUDE_SRCS)
 
 $(CHECKER): $(addprefix $(OBJ_DIR), $(CHECKER_OBJ))
 	@echo "\e[36mMaking checker...\e[0m"
-	@$(CC) $(addprefix $(OBJ_DIR), $(CHECKER_OBJ)) $(MLX_FLAGS) -o $(CHECKER)
+	@$(CC) $(addprefix $(OBJ_DIR), $(CHECKER_OBJ)) $(CFLAGS) $(MLX_FLAGS) -o $(CHECKER)
 	@echo "\e[32mDone !\e[0m"
 
 bonus: $(CHECKER)
