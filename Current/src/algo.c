@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 08:53:38 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/16 19:30:35 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/17 17:59:29 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ t_best_move	ft_calcul_move_simple(t_push_swap p, t_list *tmp_b, int i)
 	{
 		// printf("PUSH BEFORE MIN\n");
 		// printf("%d > %d\n", tmp_b->index, ft_find_element_max(tmp)->index);
-		// printf("SALOPE = %d\n", result.rota_dir_b);
 		return (ft_calcul_push_before_min(p, &result));
 	}
 	else if (tmp->index < tmp_b->index && tmp_b->index < tmp->next->index)
@@ -61,14 +60,6 @@ t_best_move	ft_calcul_move(t_push_swap p, int i)
 
 	tmp_b = ft_get_the_n_element_pile((*p.pile_b), i);
 	result = ft_calcul_move_simple(p, tmp_b, i);
-	// if (result.size != 0)
-		// return (result);
-	// if (result.rota_dir_a == 1 && result.rota_dir_b == 1)
-	// {
-	// 	result.sa = 1;
-	// 	result.sb = 1;
-	// 	result.size = 3;
-	// }
 	return (result);
 }
 
@@ -107,10 +98,6 @@ void	ft_find_best_move(t_push_swap p)
 	while (i < ft_lstsize((*p.pile_b)))
 	{
 		tmp = ft_calcul_move(p, i);
-		// printf("\n\nTMP\n\n");
-		// printf("ra = %d\nrb = %d\nsa = %d\nsb = %d\nsize = %d\n", tmp.rota_dir_a,
-			// tmp.rota_dir_b, tmp.sa, tmp.sb, tmp.size);
-		// printf("\n\n\n");
 		if (fastest.size > tmp.size || fastest.size == 0 || tmp.size == 1)
 		{
 			fastest = tmp;
@@ -119,7 +106,5 @@ void	ft_find_best_move(t_push_swap p)
 		}
 		i++;
 	}
-	// printf("ra = %d\nrb = %d\nsa = %d\nsb = %d\nsize = %d\n", fastest.rota_dir_a,
-		// fastest.rota_dir_b, fastest.sa, fastest.sb, fastest.size);
 	ft_do_best_move(p, fastest);
 }

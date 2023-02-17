@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:11:19 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/16 19:58:35 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/17 18:44:19 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,12 @@ void			ft_lstadd_back(t_list **lst, t_list *new);
 t_list			*ft_lstmoveout(t_list **lst);
 
 // |--------------------------------|
+// |			PRESET_MOVE			|
+// |--------------------------------|
+
+void			ft_3_elements(t_push_swap list_pack);
+
+// |--------------------------------|
 // |			ALGO_UTILS			|
 // |--------------------------------|
 
@@ -159,6 +165,16 @@ t_list			*ft_find_element_max(t_list *lst);
 // |------------------------------------|
 
 void			ft_get_pile_ascending(t_push_swap list_pack);
+
+// |----------------------------------------|
+// |			PRESET_MOVE_UTILS			|
+// |----------------------------------------|
+
+void			ft_preset_1_3_2(t_push_swap list_pack, char pile);
+void			ft_preset_2_3_1(t_push_swap list_pack, char pile);
+void			ft_preset_2_1_3(t_push_swap list_pack, char pile);
+void			ft_preset_3_2_1(t_push_swap list_pack, char pile);
+void			ft_preset_3_1_2(t_push_swap list_pack, char pile);
 
 // |----------------------------------------|
 // |			OPTIMIZE_ROTATION			|

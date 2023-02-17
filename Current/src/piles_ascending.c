@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 14:28:06 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/16 18:02:46 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/17 18:41:45 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,19 @@ static t_list	*ft_find_smaller_index(t_list *lst, int current_index, int n)
 	lst_return = NULL;
 	while (i < n)
 	{
-		// printf("? %d == 0 ?\n", lst->index);
 		if (lst->index == 0)
 		{
-			// printf("YES\n");
 			return (lst_return);
 		}
-		// printf("? %d > %d ?\n", lst->index, current_index);
 		if (lst->index > current_index
 			&& (lst->index < tmp_index || tmp_index == 0))
 		{
-			// printf("YES\n");
 			tmp_index = lst->index;
 			lst_return = lst;
 		}
 		lst = lst->next;
 		i++;
 	}
-	// if (lst_return)
-		// printf("RETURN ! %d [%d]\n", lst_return->value, lst_return->index);
 	return (lst_return);
 }
 
@@ -50,7 +44,6 @@ static void	ft_push_all_between(t_push_swap p, t_list *lst)
 	t_list	*tmp;
 
 	tmp = *p.pile_a;
-	// ft_print_piles("Before", p);
 	if (lst == tmp->next && tmp->next->index != 0)
 	{
 		ft_move("sa", p);
@@ -66,7 +59,21 @@ static void	ft_push_all_between(t_push_swap p, t_list *lst)
 		if (tmp->index != 0)
 			ft_move("ra", p);
 	}
-	// ft_print_piles("After", p);
+}
+
+static int	ft_check_obvious(t_push_swap list_pack)
+{
+	t_list	*tmp;
+
+	if (ft_lstsize(*list_pack.pile_a) == 3)
+	{
+		ft_3_elements(list_pack);
+		return (1);
+	}
+	tmp = *(list_pack.pile_a);
+	if (tmp->index > tmp->next->index)
+		ft_move("sa", list_pack);
+	return (0);
 }
 
 void	ft_get_pile_ascending(t_push_swap list_pack)
@@ -76,6 +83,8 @@ void	ft_get_pile_ascending(t_push_swap list_pack)
 	t_list	*tmp;
 	t_list	*tmp_zero;
 
+	if (ft_check_obvious(list_pack) == 1)
+		return ;
 	n = ft_get_while_number(*list_pack.pile_a);
 	current_index = 0;
 	tmp = *list_pack.pile_a;
@@ -83,7 +92,6 @@ void	ft_get_pile_ascending(t_push_swap list_pack)
 		tmp = tmp->next;
 	ft_move_to_top_pile_a(list_pack, tmp->next);
 	tmp_zero = tmp;
-	// printf("tmp_zero = %d\n", tmp->index);
 	while (tmp->next->index != 0)
 	{
 		tmp = *list_pack.pile_a;
@@ -91,12 +99,9 @@ void	ft_get_pile_ascending(t_push_swap list_pack)
 		if (!tmp)
 		{
 			ft_push_all_between(list_pack, tmp_zero);
-			// printf("break\n");
 			break ;
 		}
 		current_index = tmp->index;
-		// printf("tmp = %d\n", tmp->index);
-		// printf("tmp_zero = %d\n", tmp_zero->index);
 		ft_push_all_between(list_pack, tmp);
 	}
 	tmp = *list_pack.pile_a;
