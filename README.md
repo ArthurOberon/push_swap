@@ -90,6 +90,7 @@ make bonus
 - [ ] ...
 
 # Currents Problems
+ft_move_from_simulation not redo sa did by ft_get_pile_ascending_simulation -> have to fix without add more move than the previous version of ft_get_pile_ascending
 
 # ERROR/DEPRECATED :
 

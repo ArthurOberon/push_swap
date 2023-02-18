@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 14:28:06 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/17 18:41:45 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/18 10:29:40 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,14 @@ static t_list	*ft_find_smaller_index(t_list *lst, int current_index, int n)
 	return (lst_return);
 }
 
+	// if (lst == tmp->next && tmp->next->index != 0)
+
 static void	ft_push_all_between(t_push_swap p, t_list *lst)
 {
 	t_list	*tmp;
 
 	tmp = *p.pile_a;
-	if (lst == tmp->next && tmp->next->index != 0)
+	if (lst == tmp->next)
 	{
 		ft_move("sa", p);
 		ft_move("ra", p);

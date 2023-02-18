@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:10:29 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/17 18:45:11 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/18 10:50:55 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_push_swap(t_list **lst_a)
 	t_list			*lst_b;
 	t_instruction	*lst_instruction;
 	t_push_swap		list_pack;
+	t_list			*tmp_a;
 
 	lst_b = NULL;
 	lst_instruction = NULL;
@@ -26,14 +27,17 @@ void	ft_push_swap(t_list **lst_a)
 	list_pack.instructions = &lst_instruction;
 	ft_init_index(lst_a);
 	ft_get_pile_ascending(list_pack);
-	// ft_print_piles("", list_pack);
+	ft_print_piles("", list_pack);
+	return ;
 	// printf("number of operations : [%d]\n",
 		// ft_lstsize_instruction(lst_instruction));
 	while (lst_b || !ft_is_ascending(*lst_a))
-	{
 		ft_find_best_move(list_pack);
-	}
-	ft_print_instruction(lst_instruction);
+	tmp_a = *lst_a;
+	while (tmp_a->index != 0)
+		tmp_a = tmp_a->next;
+	ft_move_to_top_pile_a(list_pack, tmp_a);
+	ft_print_instruction((*list_pack.instructions));
 	// printf("number of operations : [%d]\n",
 		// ft_lstsize_instruction(lst_instruction));
 	ft_lstclear(lst_a);

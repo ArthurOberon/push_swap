@@ -28,7 +28,7 @@ PS_SRC =	algo.c \
 			algo_utils.c \
 			preset_move.c \
 			piles_min_max.c \
-			piles_ascending.c \
+			piles_ascending_2.c \
 			preset_move_utils.c \
 			optimize_rotation.c \
 			do_best_move_utils.c \
