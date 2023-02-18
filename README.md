@@ -71,11 +71,12 @@ make bonus
 |---------------|---------------|-----------|
 |Index			| get index in the pile a	| <ul><li>- [x] Done</li><li>- [x] Norminette</li></ul>	|
 |Part 1			| Find a way to separate pile a in two	| <ul><li>- [ ] Done</li><li>- [ ] Norminette</li></ul>	|
-|Part 2			| Find a way to calcul the smaller move with position in the pile and not by doing the move and go back	| <ul><li>- [x] Done</li><li>- [x] Norminette</li></ul>	|
+|Part 2			| Find a way to calcul the smaller move with position in the pile and not by doing the move and go back	| <ul><li>- [x] Done</li><li>- [ ] Norminette</li></ul>	|
 |Optimize		| Find Optimizations	| <ul><li>- [ ] Done</li><li>- [ ] Norminette</li></ul>	|
 
 ## Part 1
 - [ ] ...
+- [ ] Norminette
 
 ## Part 2
 - [x] Find his position in the pile
@@ -85,9 +86,11 @@ make bonus
 - [x] Do that for each element and find the smaller
 - [x] Do the smaller move
 - [x] Do it again till the end
+- [ ] Norminette
 
 ## Optimize
 - [ ] ...
+- [ ] Norminette
 
 # Currents Problems
 ft_move_from_simulation not redo sa did by ft_get_pile_ascending_simulation -> have to fix without add more move than the previous version of ft_get_pile_ascending
