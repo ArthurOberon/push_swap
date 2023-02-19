@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 16:24:45 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/17 17:59:40 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/19 15:04:38 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_do_best_move_rr(t_push_swap p, t_best_move fastest)
 	int	i;
 
 	i = 0;
-	if (fastest.rota_dir_a >= 2 && fastest.rota_dir_b >= 2)
+	if (fastest.rota_dir_a >= 1 && fastest.rota_dir_b >= 1)
 	{
 		if (fastest.rota_dir_a >= fastest.rota_dir_b)
 		{

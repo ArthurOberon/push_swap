@@ -93,7 +93,7 @@ make bonus
 - [ ] Norminette
 
 # Currents Problems
-ft_move_from_simulation not redo sa did by ft_get_pile_ascending_simulation -> have to fix without add more move than the previous version of ft_get_pile_ascending
+Too many move with 500 and change N (look the fastest move in N first element) can add or remove 100 or 200 operations
 
 # ERROR/DEPRECATED :
 

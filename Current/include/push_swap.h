@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:11:19 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/18 10:51:08 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/19 15:46:11 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,10 @@ void			ft_find_best_move(t_push_swap p);
 int				ft_abs(int a);
 int				ft_isdigit(int c);
 int				ft_isspace(char c);
+int				ft_check_obvious(t_push_swap list_pack);
 
 char			*ft_strdup(const char *s);
+
 
 // |----------------------------|
 // |			INDEX			|

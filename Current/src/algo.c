@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 08:53:38 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/17 17:59:29 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/19 15:48:30 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,32 +24,18 @@ t_best_move	ft_calcul_move_simple(t_push_swap p, t_list *tmp_b, int i)
 	tmp = (*p.pile_a);
 	ft_optimize_rotation_pile_b(p, &result, i);
 	if (tmp_b->index < ft_find_element_min(tmp)->index)
-	{
-		// printf("PUSH AFTER MAX\n");
 		return (ft_calcul_push_after_max(p, &result));
-	}
 	else if (tmp_b->index > ft_find_element_max(tmp)->index)
-	{
-		// printf("PUSH BEFORE MIN\n");
-		// printf("%d > %d\n", tmp_b->index, ft_find_element_max(tmp)->index);
 		return (ft_calcul_push_before_min(p, &result));
-	}
 	else if (tmp->index < tmp_b->index && tmp_b->index < tmp->next->index)
 	{
-		// printf("PA SA\n");
 		result.sa = 1;
 		result.size = ft_add_move_size(result);
 	}
 	else if (tmp_b->index > tmp->prev->index && tmp->index > tmp_b->index)
-	{
-		// printf("JUST TO PUSH\n");
 		result.size = ft_add_move_size(result);
-	}
 	else
-	{
-		// printf("JUST ROTATE\n");
 		ft_optimize_rotation_pile_a(p, &result, tmp_b);
-	}
 	return (result);
 }
 

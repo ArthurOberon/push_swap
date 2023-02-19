@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   piles_ascending_2.c                                :+:      :+:    :+:   */
+/*   piles_ascending_simulation_error.c                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 14:28:06 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/18 12:08:54 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/19 13:29:19 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,12 +116,16 @@ static int	ft_check_obvious(t_push_swap list_pack)
 		return (1);
 	}
 	tmp = *(list_pack.pile_a);
+	// if (tmp->next == ft_find_element_max(tmp))
+	// 	ft_move("sa", list_pack);
+	// if (tmp->index > tmp->next->index && tmp != ft_find_element_max(tmp))
+	// 	ft_move("sa", list_pack);
 	if (tmp->index > tmp->next->index)
 		ft_move("sa", list_pack);
 	return (0);
 }
 
-t_list	*ft_get_pile_ascending_simulation(t_push_swap list_pack)
+t_list	*ft_get_pile_ascending_create_simulation(t_push_swap list_pack)
 {
 	int		n;
 	int		current_index;
@@ -186,34 +190,79 @@ int	ft_lstchr(t_list *simulation, t_list *tmp)
 void	ft_move_from_simulation(t_push_swap p, t_list *simulation)
 {
 	t_list	*tmp;
-	t_list	*last;
+	t_list	*zero;
+	int		n;
 
+	n = 0;
 	tmp = *p.pile_a;
-	last = (*p.pile_a)->prev;
-	while (tmp != last)
+	zero = tmp;
+	while (zero->index != 0 && ++n != -1)
+		zero = zero->next;
+	if (n <= (ft_lstsize(*p.pile_a) / 2) || n == 0)
 	{
-		printf("tmp = %d && %d\n", tmp->index,(*p.pile_a)->prev->index);
-		if (ft_lstchr(simulation, tmp) == 1)
-			ft_move("ra", p);
-		else
-			ft_move("pb", p);
-		tmp = *p.pile_a;
-		// tmp = tmp->next;
+		// printf("RA\n");
+		while (tmp->index != 0)
+		{
+			if (tmp->index == 0)
+				ft_move("ra", p);
+			else if (ft_lstchr(simulation, tmp) == 1)
+			{
+				if (tmp->prev->index > tmp->index && tmp->next->index == 0)
+					ft_move("sa", p);
+				else if (tmp->prev->index > tmp->index
+					&& tmp->next->index > tmp->index
+					&& ft_lstchr(simulation, tmp->prev) == 1
+					&& ft_lstchr(simulation, tmp->next) == 1)
+					ft_move("sa", p);
+				ft_move("ra", p);
+			}
+			else
+				ft_move("pb", p);
+			tmp = *p.pile_a;
+		}
 	}
+	else
+	{
+		// printf("RRA\n");
+		while (tmp->index != 0)
+		{
+			if (tmp->index == 0)
+				ft_move("rra", p);
+			else if (ft_lstchr(simulation, tmp) == 1)
+			{
+				if (tmp->prev->index > tmp->index && tmp->next->index == 0)
+					ft_move("sa", p);
+				else if (tmp->prev->index > tmp->index
+					&& tmp->next->index > tmp->index
+					&& ft_lstchr(simulation, tmp->prev) == 1
+					&& ft_lstchr(simulation, tmp->next) == 1)
+					ft_move("sa", p);
+				ft_move("rra", p);
+			}
+			else
+				ft_move("pb", p);
+			tmp = *p.pile_a;
+		}
+	}
+	// ft_print_piles("TEST", p);
+	if (tmp->next == ft_find_element_max(*p.pile_a))
+		ft_move("sa", p);
+	ft_move("ra", p);
 }
 
-void	ft_get_pile_ascending(t_push_swap list_pack)
+void	ft_get_pile_ascending_simulation(t_push_swap list_pack)
 {
 	t_list		*simulation_tmp;
-	t_push_swap	h;
 
-	h = list_pack;
 	if (ft_check_obvious(list_pack) == 1)
 		return ;
-	ft_print_piles("0", list_pack);
-	simulation_tmp = ft_get_pile_ascending_simulation(list_pack);
-	h.pile_a = &simulation_tmp;
-	ft_print_piles("1", h);
+	simulation_tmp = ft_get_pile_ascending_create_simulation(list_pack);
 	ft_move_from_simulation(list_pack, simulation_tmp);
-	ft_print_piles("2", list_pack);
+	// ft_print_piles("", list_pack);
+	ft_check_obvious(list_pack);
+	if (ft_is_ascending(*list_pack.pile_a) && !(*list_pack.pile_b))
+		return ;
+	// printf("PATATE\n");
+	// ft_print_piles("", list_pack);
+	ft_get_pile_ascending(list_pack);
 }

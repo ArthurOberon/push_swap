@@ -28,14 +28,12 @@ PS_SRC =	algo.c \
 			algo_utils.c \
 			preset_move.c \
 			piles_min_max.c \
-			piles_ascending_2.c \
+			piles_ascending.c \
 			preset_move_utils.c \
 			optimize_rotation.c \
 			do_best_move_utils.c \
 			do_best_move_utils_2.c \
 			piles_ascending_utils.c \
-			list_instructions_combination.c \
-			list_instructions_combination_utils.c \
 
 CHECKER_SRC =	checker.c \
 				create_list_instructions.c \
