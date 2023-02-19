@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:11:19 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/19 15:46:11 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/19 19:14:14 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,6 +165,8 @@ t_list			*ft_find_element_max(t_list *lst);
 // |------------------------------------|
 // |			PILES_ASCENDING			|
 // |------------------------------------|
+
+void			ft_piles_multiples_ascending(t_push_swap p);
 
 void			ft_get_pile_ascending(t_push_swap list_pack);
 
