@@ -35,6 +35,7 @@ PS_SRC =	algo.c \
 			do_best_move_utils_2.c \
 			piles_ascending_utils.c \
 			piles_multiples_ascending.c \
+			piles_multiples_ascending_reverse.c \
 
 CHECKER_SRC =	checker.c \
 				create_list_instructions.c \

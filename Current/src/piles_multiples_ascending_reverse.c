@@ -1,41 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   piles_multiples_ascending.c                        :+:      :+:    :+:   */
+/*   piles_multiples_ascending_reverse.c                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 18:55:52 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/20 17:09:13 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/20 17:33:56 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_count_ascending_from_n(t_list *tmp_a, int n)
+static int	ft_count_ascending_reverse_from_n(t_list *tmp_a, int n)
 {
-	t_list	*last;
+	t_list	*first;
 	int		i;
 	int		count;
 	int		current_index;
 
 	i = -1;
 	count = 1;
-	last = tmp_a->prev;
+	first = tmp_a;
 	while (++i < n)
 		tmp_a = tmp_a->next;
+	printf("TMP[%d] = %d\n", i, tmp_a->index);
 	current_index = tmp_a->index;
-	tmp_a = tmp_a->next;
-	while (tmp_a != last)
+	tmp_a = tmp_a->prev;
+	while (tmp_a != first)
 	{
-		if (current_index < tmp_a->index)
+		if (current_index > tmp_a->index)
 		{
 			current_index = tmp_a->index;
 			count++;
 		}
-		tmp_a = tmp_a->next;
+		tmp_a = tmp_a->prev;
 	}
-	if (current_index < tmp_a->index)
+	if (current_index > tmp_a->index)
 	{
 		current_index = tmp_a->index;
 		count++;
@@ -43,7 +44,7 @@ static int	ft_count_ascending_from_n(t_list *tmp_a, int n)
 	return (count);
 }
 
-static void	ft_get_ascending_from_n(t_push_swap p, int n)
+void	ft_get_ascending_reverse_from_n(t_push_swap p, int n)
 {
 	int		i;
 	t_list	*pile_a;
@@ -56,31 +57,29 @@ static void	ft_get_ascending_from_n(t_push_swap p, int n)
 	starter = *p.pile_a;
 	while (i++ < n)
 		starter = starter->next;
-	ender = starter->prev;
+	ender = starter;
 	while (pile_a != starter)
 	{
 		printf("\ncurrent = %d & starter = %d\n", pile_a->index, starter->index);
-		ft_print_piles("GET ASCENDING", p);
-		if (pile_a->index < starter->index)
+		ft_print_piles("REVERSE GET ASCENDING", p);
+		if (pile_a->index > starter->index)
 		{
 			ender = pile_a;
 			ft_move("ra", p);
 		}
 		else
-		{
-			ender = ender->prev;
 			ft_move("pb", p);
-		}
 		pile_a = *p.pile_a;
+		printf("ENDER = %d\n", ender->index);
 	}
 	current = pile_a;
 	ft_move("ra", p);
 	pile_a = *p.pile_a;
-	printf("ENDER = %d\n", ender->index);
-	while (pile_a != ender->next && pile_a != starter)
+	while (pile_a != ender)
 	{
-		printf("\npile_a = %d & current_index = %d\n", pile_a->index, current->index);
-		ft_print_piles("GET ASCENDING", p);
+		printf("STARTER =  %d\n", starter->index);
+		printf("\n pile_a = %d & current = %d\n", pile_a->index, current->index);
+		ft_print_piles("REVERSE GET ASCENDING", p);
 		if (pile_a->index > current->index)
 		{
 			current = pile_a;
@@ -92,7 +91,8 @@ static void	ft_get_ascending_from_n(t_push_swap p, int n)
 	}
 }
 
-int	ft_piles_multiples_ascending(t_push_swap p, int *pos)
+
+int	ft_piles_multiples_ascending_reverse(t_push_swap p, int *pos)
 {
 	int	i;
 	int	n;
@@ -100,39 +100,23 @@ int	ft_piles_multiples_ascending(t_push_swap p, int *pos)
 	int	current;
 	int	biggest;
 
-	i = 0;
-	biggest = 0;
 	size = ft_lstsize(*p.pile_a);
+	i = size - 1;
+	biggest = 0;
 	ft_print_piles("", p);
-	while (i < size - 1)
+	while (i >= 0)
 	{
 		printf("I = %d\n", i);
-		current = ft_count_ascending_from_n(*p.pile_a, i);
-		printf("CURRENT = %d && BIG = %d\n", current, biggest);
+		current = ft_count_ascending_reverse_from_n(*p.pile_a, i);
+		printf("REVERSE ==> CURRENT = %d && BIG = %d\n", current, biggest);
 		if (current > biggest || biggest == 0)
 		{
 			biggest = current;
 			n = i;
 		}
-		i++;
+		i--;
 	}
-	printf("BIGGEST = %d && N = %d\n", biggest, n);
+	printf("REVERSE ==> BIGGEST = %d && N = %d\n", biggest, n);
 	*pos = n;
 	return (biggest);
-}
-
-void	ft_piles_ascending(t_push_swap p)
-{
-	int	ascending;
-	int	pos_ascending;
-	int	reverse_ascending;
-	int	pos_reverse_ascending;
-
-	ascending = ft_piles_multiples_ascending(p, &pos_ascending);
-	reverse_ascending = ft_piles_multiples_ascending_reverse(p,
-			&pos_reverse_ascending);
-	if (ascending > reverse_ascending)
-		ft_get_ascending_from_n(p, pos_ascending);
-	else
-		ft_get_ascending_reverse_from_n(p, pos_reverse_ascending);
 }

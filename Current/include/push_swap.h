@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:11:19 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/19 19:14:14 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/20 16:40:41 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ int				ft_isspace(char c);
 int				ft_check_obvious(t_push_swap list_pack);
 
 char			*ft_strdup(const char *s);
-
 
 // |----------------------------|
 // |			INDEX			|
@@ -166,9 +165,12 @@ t_list			*ft_find_element_max(t_list *lst);
 // |			PILES_ASCENDING			|
 // |------------------------------------|
 
-void			ft_piles_multiples_ascending(t_push_swap p);
+int				ft_piles_multiples_ascending(t_push_swap p, int *pos);
+int				ft_piles_multiples_ascending_reverse(t_push_swap p, int *pos);
 
+void			ft_piles_ascending(t_push_swap p);
 void			ft_get_pile_ascending(t_push_swap list_pack);
+void			ft_get_ascending_reverse_from_n(t_push_swap p, int n);
 
 // |----------------------------------------|
 // |			PRESET_MOVE_UTILS			|

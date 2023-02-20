@@ -71,7 +71,7 @@ make bonus
 |---------------|---------------|-----------|
 |Index			| get index in the pile a	| <ul><li>- [x] Done</li><li>- [x] Norminette</li></ul>	|
 |Part 1			| Find a way to separate pile a in two	| <ul><li>- [ ] Done</li><li>- [ ] Norminette</li></ul>	|
-|Part 2			| Find a way to calcul the smaller move with position in the pile and not by doing the move and go back	| <ul><li>- [x] Done</li><li>- [ ] Norminette</li></ul>	|
+|Part 2			| Find a way to calcul the smaller move with position in the pile and not by doing the move and go back	| <ul><li>- [x] Done</li><li>- [x] Norminette</li></ul>	|
 |Optimize		| Find Optimizations	| <ul><li>- [ ] Done</li><li>- [ ] Norminette</li></ul>	|
 
 ## Part 1
@@ -86,14 +86,15 @@ make bonus
 - [x] Do that for each element and find the smaller
 - [x] Do the smaller move
 - [x] Do it again till the end
-- [ ] Norminette
+- [x] Norminette
 
 ## Optimize
 - [ ] ...
 - [ ] Norminette
 
 # Currents Problems
-Too many move with 500 and change N (look the fastest move in N first element) can add or remove 100 or 200 operations
+ft_get_ascending_reverse_from_n -> if do rra => create to many move when push (pa -> rra)
+ft_get_ascending_reverse_from_n ->if do ra => before to get the starter on the top -> don't know what to push and what to rotate
 
 # ERROR/DEPRECATED :
 
