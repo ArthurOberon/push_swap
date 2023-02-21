@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:37:41 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/19 15:45:58 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/21 14:47:30 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	ft_check_obvious(t_push_swap list_pack)
 		return (1);
 	}
 	tmp = *(list_pack.pile_a);
-	if (tmp->index > tmp->next->index)
+	if (tmp->index == tmp->next->index - 1)
 		ft_move("sa", list_pack);
 	return (0);
 }

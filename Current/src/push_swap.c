@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:10:29 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/20 17:07:56 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/21 21:00:29 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,14 @@ void	ft_push_swap(t_list **lst_a)
 	list_pack.pile_b = &lst_b;
 	list_pack.instructions = &lst_instruction;
 	ft_init_index(lst_a);
-	// ft_check_obvious(list_pack);
 	// while ((*lst_a)->next != *lst_a)
 		// ft_move("pb", list_pack);
-	// if (ft_check_obvious(list_pack) != 1)
+	if (ft_check_obvious(list_pack) != 1)
 		ft_piles_ascending(list_pack);
-	// return ;
-		// ft_get_pile_ascending(list_pack);
-	ft_print_instruction((*list_pack.instructions));
-	printf("number of operations to separate : [%d]\n",
-		ft_lstsize_instruction(lst_instruction));
-	ft_print_piles("", list_pack);
-	// return ;
+	// ft_print_instruction((*list_pack.instructions));
+	// printf("number of operations to separate : [%d]\n",
+		// ft_lstsize_instruction(lst_instruction));
+	// ft_print_piles("", list_pack);
 	while (lst_b || !ft_is_ascending(*lst_a))
 		ft_find_best_move(list_pack);
 	tmp_a = *lst_a;

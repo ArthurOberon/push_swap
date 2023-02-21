@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:11:19 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/20 16:40:41 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/21 17:00:39 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,15 @@ typedef struct s_best_move
 	int		sa;
 	int		sb;
 }	t_best_move;
+
+typedef struct s_sequence_data
+{
+	int	pos;
+	int	first;
+	int	last;
+	int	count;
+	int	*tab;
+}	t_sequence_data;
 
 // |----------------------------|
 // |			MOVE			|
@@ -165,12 +174,20 @@ t_list			*ft_find_element_max(t_list *lst);
 // |			PILES_ASCENDING			|
 // |------------------------------------|
 
-int				ft_piles_multiples_ascending(t_push_swap p, int *pos);
-int				ft_piles_multiples_ascending_reverse(t_push_swap p, int *pos);
+// int			ft_piles_multiples_ascending(t_push_swap p, int *pos);
+// int			ft_piles_multiples_descending(t_push_swap p, int *pos);
+// void			ft_get_ascending_from_n(t_push_swap p, int n);
+// void			ft_get_descending_from_n(t_push_swap p, int n);
 
 void			ft_piles_ascending(t_push_swap p);
 void			ft_get_pile_ascending(t_push_swap list_pack);
-void			ft_get_ascending_reverse_from_n(t_push_swap p, int n);
+void			ft_get_descending_from_n(t_push_swap p,
+					t_sequence_data sequence);
+void			ft_get_ascending_from_n(t_push_swap p,
+					t_sequence_data sequence);
+
+t_sequence_data	ft_piles_multiples_ascending(t_push_swap p);
+t_sequence_data	ft_piles_multiples_descending(t_push_swap p);
 
 // |----------------------------------------|
 // |			PRESET_MOVE_UTILS			|
