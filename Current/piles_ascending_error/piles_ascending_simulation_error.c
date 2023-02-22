@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 14:28:06 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/21 14:43:06 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/22 16:02:29 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,26 +106,26 @@ static void	ft_push_all_between(t_list **simulation, t_list *lst)
 	}
 }
 
-static int	ft_check_obvious(t_push_swap list_pack)
+static int	ft_check_obvious(t_push_swap p)
 {
 	t_list	*tmp;
 
-	if (ft_lstsize(*list_pack.pile_a) == 3)
+	if (ft_lstsize(*p.pile_a) == 3)
 	{
-		ft_3_elements(list_pack);
+		ft_3_elements(p);
 		return (1);
 	}
-	tmp = *(list_pack.pile_a);
+	tmp = *(p.pile_a);
 	// if (tmp->next == ft_find_element_max(tmp))
-	// 	ft_move("sa", list_pack);
+	// 	ft_move("sa", p);
 	// if (tmp->index > tmp->next->index && tmp != ft_find_element_max(tmp))
-	// 	ft_move("sa", list_pack);
+	// 	ft_move("sa", p);
 	if (tmp->index == tmp->next->index - 1)
-		ft_move("sa", list_pack);
+		ft_move("sa", p);
 	return (0);
 }
 
-t_list	*ft_get_pile_ascending_create_simulation(t_push_swap list_pack)
+t_list	*ft_get_pile_ascending_create_simulation(t_push_swap p)
 {
 	int		n;
 	int		current_index;
@@ -133,8 +133,8 @@ t_list	*ft_get_pile_ascending_create_simulation(t_push_swap list_pack)
 	t_list	*tmp;
 	t_list	*tmp_zero;
 
-	n = ft_get_while_number(*list_pack.pile_a);
-	simulation_tmp = ft_lstdup(*list_pack.pile_a);
+	n = ft_get_while_number(*p.pile_a);
+	simulation_tmp = ft_lstdup(*p.pile_a);
 	current_index = 0;
 	while (simulation_tmp->prev->index != 0)
 		ft_operation_simulation('r', &simulation_tmp);
@@ -250,19 +250,19 @@ void	ft_move_from_simulation(t_push_swap p, t_list *simulation)
 	ft_move("ra", p);
 }
 
-void	ft_get_pile_ascending_simulation(t_push_swap list_pack)
+void	ft_get_pile_ascending_simulation(t_push_swap p)
 {
 	t_list		*simulation_tmp;
 
-	if (ft_check_obvious(list_pack) == 1)
+	if (ft_check_obvious(p) == 1)
 		return ;
-	simulation_tmp = ft_get_pile_ascending_create_simulation(list_pack);
-	ft_move_from_simulation(list_pack, simulation_tmp);
-	// ft_print_piles("", list_pack);
-	ft_check_obvious(list_pack);
-	if (ft_is_ascending(*list_pack.pile_a) && !(*list_pack.pile_b))
+	simulation_tmp = ft_get_pile_ascending_create_simulation(p);
+	ft_move_from_simulation(p, simulation_tmp);
+	// ft_print_piles("", p);
+	ft_check_obvious(p);
+	if (ft_is_ascending(*p.pile_a) && !(*p.pile_b))
 		return ;
 	// printf("PATATE\n");
-	// ft_print_piles("", list_pack);
-	ft_get_pile_ascending(list_pack);
+	// ft_print_piles("", p);
+	ft_get_pile_ascending(p);
 }

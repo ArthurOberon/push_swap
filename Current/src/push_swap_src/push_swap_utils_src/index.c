@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 10:45:36 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/19 12:39:15 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/22 15:31:46 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,21 +76,6 @@ static void	ft_index_from_tab(t_list *lst, int	*tab, int size)
 		i++;
 	}
 }
-
-// static void	ft_get_index_max(t_list *lst)
-// {
-// 	t_list	*last;
-// 	t_list	*max;
-
-// 	last = lst->prev;
-// 	max = last;
-// 	while (lst != last)
-// 	{
-// 		if (lst->index > max->index)
-// 			max = lst;
-// 		lst = lst->next;
-// 	}
-// }
 
 void	ft_init_index(t_list **lst)
 {

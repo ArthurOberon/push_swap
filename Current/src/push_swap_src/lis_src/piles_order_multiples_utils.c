@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   piles_ascending_utils.c                            :+:      :+:    :+:   */
+/*   piles_order_multiples_utils.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 17:24:50 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/19 15:50:08 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/22 16:02:29 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,21 +85,21 @@ static int	ft_find_optimize_rotation(t_list **lst, t_list *lst_destination)
 	return (OPTIMIZE_RR);
 }
 
-void	ft_move_to_top_pile_a(t_push_swap list_pack, t_list *element)
+void	ft_move_to_top_pile_a(t_push_swap p, t_list *element)
 {
 	t_list	**tmp;
 
-	tmp = list_pack.pile_a;
-	if (ft_find_optimize_rotation(list_pack.pile_a, element) == OPTIMIZE_R)
+	tmp = p.pile_a;
+	if (ft_find_optimize_rotation(p.pile_a, element) == OPTIMIZE_R)
 	{
 		while (*tmp != element)
-			ft_move("ra", list_pack);
+			ft_move("ra", p);
 	}
 	else
 	{
 		while (*tmp != element)
 		{
-			ft_move("rra", list_pack);
+			ft_move("rra", p);
 		}
 	}
 }

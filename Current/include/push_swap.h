@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:11:19 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/22 13:28:31 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/22 16:02:29 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,19 @@ typedef struct s_sequence_data
 	int	*tab;
 }	t_sequence_data;
 
+// |------------------------|
+// |			LIS			|
+// |------------------------|
+
+void			ft_lis(t_push_swap p);
+
 // |----------------------------|
 // |			MOVE			|
 // |----------------------------|
 
-int				ft_check_obvious(t_push_swap list_pack);
+int				ft_check_obvious(t_push_swap p);
 
-void			ft_move(char *operation, t_push_swap list_pack);
+void			ft_move(char *operation, t_push_swap p);
 
 // |----------------------------|
 // |			ALGO			|
@@ -133,7 +139,7 @@ t_list			*ft_lstmoveout(t_list **lst);
 // |			PRESET_MOVE			|
 // |--------------------------------|
 
-void			ft_3_elements(t_push_swap list_pack);
+void			ft_3_elements(t_push_swap p);
 
 // |--------------------------------|
 // |			ALGO_UTILS			|
@@ -171,34 +177,15 @@ size_t			ft_strlen(const char *s);
 t_list			*ft_find_element_min(t_list *lst);
 t_list			*ft_find_element_max(t_list *lst);
 
-// |------------------------------------|
-// |			PILES_ASCENDING			|
-// |------------------------------------|
-
-// int			ft_piles_multiples_ascending(t_push_swap p, int *pos);
-// int			ft_piles_multiples_descending(t_push_swap p, int *pos);
-// void			ft_get_ascending_from_n(t_push_swap p, int n);
-// void			ft_get_descending_from_n(t_push_swap p, int n);
-
-void			ft_piles_ascending_multiples(t_push_swap p);
-void			ft_get_pile_ascending(t_push_swap list_pack);
-void			ft_get_descending_from_n(t_push_swap p,
-					t_sequence_data sequence);
-void			ft_get_ascending_from_n(t_push_swap p,
-					t_sequence_data sequence);
-
-t_sequence_data	ft_piles_multiples_ascending(t_push_swap p);
-t_sequence_data	ft_piles_multiples_descending(t_push_swap p);
-
 // |----------------------------------------|
 // |			PRESET_MOVE_UTILS			|
 // |----------------------------------------|
 
-void			ft_preset_1_3_2(t_push_swap list_pack, char pile);
-void			ft_preset_2_3_1(t_push_swap list_pack, char pile);
-void			ft_preset_2_1_3(t_push_swap list_pack, char pile);
-void			ft_preset_3_2_1(t_push_swap list_pack, char pile);
-void			ft_preset_3_1_2(t_push_swap list_pack, char pile);
+void			ft_preset_1_3_2(t_push_swap p, char pile);
+void			ft_preset_2_3_1(t_push_swap p, char pile);
+void			ft_preset_2_1_3(t_push_swap p, char pile);
+void			ft_preset_3_2_1(t_push_swap p, char pile);
+void			ft_preset_3_1_2(t_push_swap p, char pile);
 
 // |----------------------------------------|
 // |			OPTIMIZE_ROTATION			|
@@ -230,11 +217,30 @@ int				ft_do_best_move_rrr(t_push_swap p, t_best_move fastest);
 int				ft_do_best_move_sr(t_push_swap p, t_best_move fastest);
 
 // |--------------------------------------------|
-// |			PILES_ASCENDING_UTILS			|
+// |			PILES_ORDER_MULTIPLES			|
 // |--------------------------------------------|
 
+void			ft_piles_order_multiples(t_push_swap p);
+
+// |------------------------------------------------|
+// |			PILES_MULTIPLES_ASCENDING			|
+// |------------------------------------------------|
+
+t_sequence_data	ft_piles_multiples_ascending(t_push_swap p);
+
+// |------------------------------------------------|
+// |			PILES_MULTIPLES_DESCENDING			|
+// |------------------------------------------------|
+
+t_sequence_data	ft_piles_multiples_descending(t_push_swap p);
+
+// |------------------------------------------------|
+// |			PILES_ORDER_MULTIPLES_UTILS			|
+// |------------------------------------------------|
+
 int				ft_get_while_number(t_list *lst);
-void			ft_move_to_top_pile_a(t_push_swap list_pack, t_list *element);
+
+void			ft_move_to_top_pile_a(t_push_swap p, t_list *element);
 
 // |--------------------------------------------|
 // |			LIST_INSTRUCTIONS_UTILS			|

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   piles_ascending.c                                  :+:      :+:    :+:   */
+/*   piles_ascending_old.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 14:28:06 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/19 15:45:16 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/22 16:02:29 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,47 +61,47 @@ static void	ft_push_all_between(t_push_swap p, t_list *lst)
 	}
 }
 
-static void	ft_get_pile_ascending_helper(t_push_swap list_pack)
+static void	ft_get_pile_ascending_helper(t_push_swap p)
 {
 	t_list	*tmp;
 
-	tmp = *list_pack.pile_a;
+	tmp = *p.pile_a;
 	if (tmp && tmp->index != 0)
 	{
 		if (tmp->index > 0 && tmp->index < tmp->next->next->index)
-			ft_move("sa", list_pack);
+			ft_move("sa", p);
 		else if (tmp->index > tmp->prev->index)
-			ft_move("ra", list_pack);
+			ft_move("ra", p);
 		else
-			ft_move("pb", list_pack);
+			ft_move("pb", p);
 	}
 }
 
-void	ft_get_pile_ascending(t_push_swap list_pack)
+void	ft_get_pile_ascending(t_push_swap p)
 {
 	int		n;
 	int		current_index;
 	t_list	*tmp;
 	t_list	*tmp_zero;
 
-	n = ft_get_while_number(*list_pack.pile_a);
+	n = ft_get_while_number(*p.pile_a);
 	current_index = 0;
-	tmp = *list_pack.pile_a;
+	tmp = *p.pile_a;
 	while (tmp->index != 0)
 		tmp = tmp->next;
-	ft_move_to_top_pile_a(list_pack, tmp->next);
+	ft_move_to_top_pile_a(p, tmp->next);
 	tmp_zero = tmp;
 	while (tmp->next->index != 0)
 	{
-		tmp = *list_pack.pile_a;
+		tmp = *p.pile_a;
 		tmp = ft_find_smaller_index(tmp, current_index, n);
 		if (!tmp)
 		{
-			ft_push_all_between(list_pack, tmp_zero);
+			ft_push_all_between(p, tmp_zero);
 			break ;
 		}
 		current_index = tmp->index;
-		ft_push_all_between(list_pack, tmp);
+		ft_push_all_between(p, tmp);
 	}
-	ft_get_pile_ascending_helper(list_pack);
+	ft_get_pile_ascending_helper(p);
 }

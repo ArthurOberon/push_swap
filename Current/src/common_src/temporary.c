@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:43:31 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/21 19:33:43 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/22 16:11:29 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	ft_print_tab_int(int *tab, int size)
 		printf("tab[%d] = [%d]\n", i, tab[i]);
 	printf("=====PRINT TAB INT FINISHED=====\n");
 }
+
 void	ft_print_tab(char **tab)
 {
 	int	i;

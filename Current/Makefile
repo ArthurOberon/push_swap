@@ -11,6 +11,7 @@ INCLUDES_H = -I./$(INCLUDES_DIR)
 DEPS =
 # DEPS = $(INCLUDES_DIR)push_swap.h Makefile
 
+# SOURCES USE BY PUSH_SWAP AND CHEKER
 COMMON_SRC = 	$(addprefix common_src/, \
 				utils.c \
 				parse.c \
@@ -24,13 +25,16 @@ COMMON_SRC = 	$(addprefix common_src/, \
 				)
 # BECAREFUL -> TEMPORARY.C
 
+# SOURCES USE FOR THE SECOND ALGO TO DO THE FASTEST MOVE (MOVE WITH THE LESS OPERATIONS) (USED BY PUSH_SWAP)
 ALGO_SRC =		$(addprefix algo_src/, \
 				algo.c \
 				algo_utils.c \
+				piles_min_max.c \
 				do_best_move_utils.c \
 				do_best_move_utils_2.c \
 				)
 
+# SOURCES USE TO DO THE OPERATION (SA, RA, PA, ...) ON THE PILES (USED BY PUSH_SWAP)
 MOVE_SRC =		$(addprefix move_src/, \
 				move.c \
 				preset_move.c \
@@ -38,43 +42,54 @@ MOVE_SRC =		$(addprefix move_src/, \
 				optimize_rotation.c \
 				)
 
-PILES_SRC =		$(addprefix piles_src/, \
-				piles.c \
-				piles_min_max.c \
-				piles_ascending_utils.c \
-				piles_ascending_multiples.c \
+# SOURCES UTILS FOR PUSH_SWAP (USED BY PUSH_SWAP)
+PS_UTILS_SRC =	$(addprefix push_swap_utils_src/, \
+				index.c \
+				push_swap_utils.c \
+				)
+
+# SOURCES USE FOR LIS (Longest Increase Subsequence) (USED BY PUSH_SWAP)
+LIS_SRC =		$(addprefix lis_src/, \
+				lis.c \
+				\
+				piles_order_multiples_utils.c \
+				piles_order_multiples.c \
 				piles_multiples_ascending.c \
 				piles_multiples_descending.c \
 				)
 
+# SOURCES ONLY FOR PUSH_SWAP
 PS_SRC =		$(addprefix push_swap_src/, \
-				index.c \
 				push_swap.c \
+				$(LIS_SRC) \
 				$(ALGO_SRC) \
 				$(MOVE_SRC)	\
-				$(PILES_SRC) \
+				$(PS_UTILS_SRC) \
 				)
 
-
-CHECKER_SRC =	$(addprefix checker_src/, \
-				checker.c \
-				create_list_instructions.c \
-				)
-
+# SOURCES USE FOR GET_NEXT_LINE (USED BY CHECKER)
 GNL_SRC =		$(addprefix gnl_src/, \
 				get_next_line.c \
 				get_next_line_utils.c \
 				)
 
+# SOURCES FOR ONLY CHECKER
+CHECKER_SRC =	$(addprefix checker_src/, \
+				checker.c \
+				create_list_instructions.c \
+				$(GNL_SRC) \
+				)
+
+# ALL SOURCES FOR PUSH_SWAP
 PS_SRCS =	$(addprefix $(SRC_DIR), \
 			$(COMMON_SRC) \
 			$(PS_SRC) \
 			)
 
+# ALL SOURCES FOR CHECKER
 CHECKER_SRCS = $(addprefix $(SRC_DIR), \
 				${COMMON_SRC} \
 				${CHECKER_SRC} \
-				${GNL_SRC} \
 				)
 
 PS_OBJ = $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o, $(PS_SRCS))
