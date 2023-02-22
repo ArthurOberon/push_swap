@@ -1,10 +1,5 @@
 #!/bin/bash
 
-echo "5 1 4 3 2" ;
-./push_swap 5 1 4 3 2 ;
-echo "5 1 2 4 3" ;
-./push_swap 5 1 2 4 3 ;
-echo "5 2 4 3 1" ;
-./push_swap 5 2 4 3 1 ;
-echo "5 2 1 4 3" ;
-./push_swap 5 2 1 4 3 ;
+bash ../utils/moyenne.sh 1 100 1000 701 ;
+bash ../utils/moyenne.sh 1 5 1000 13 ;
+bash ../utils/moyenne.sh 1 500 100 5501 ;

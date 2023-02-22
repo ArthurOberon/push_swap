@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:11:19 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/22 16:02:29 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/22 22:14:37 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ char			*ft_strdup(const char *s);
 // |			INDEX			|
 // |----------------------------|
 
+int				*ft_tab_from_list(t_list **lst, int size);
+void			ft_sort_int_tab(int *tab, int size);
 void			ft_init_index(t_list **lst);
 
 // |----------------------------|

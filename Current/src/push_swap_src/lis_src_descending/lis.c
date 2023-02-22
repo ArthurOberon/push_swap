@@ -6,37 +6,13 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 15:46:13 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/22 17:24:31 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/23 00:33:49 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_print_tab_int_lis_finale(int *lis_tab, int size)
-{
-	int	i;
-
-	i = -1;
-	while (++i < size)
-		printf("[%d]	", lis_tab[i]);
-	printf("\n\n");
-}
-
-static void	ft_print_tab_int_lis(int **lis_tab, int size)
-{
-	int	i;
-
-	i = -1;
-	while (++i < size)
-		printf("[%d]	", lis_tab[0][i]);
-	printf("\n");
-	i = -1;
-	while (++i < size)
-		printf("[%d]	", lis_tab[1][i]);
-	printf("\n\n");
-}
-
-static int	**ft_init_lis_tab(t_list *pile_a, int size)
+static int	**ft_init_lis_tab(t_list *pile_a, int pile_size)
 {
 	t_list	*last;
 	int		i;
@@ -44,8 +20,8 @@ static int	**ft_init_lis_tab(t_list *pile_a, int size)
 
 	i = 0;
 	lis_tab = malloc(sizeof(int *) * 2);
-	lis_tab[0] = malloc(sizeof(int) * size);
-	lis_tab[1] = malloc(sizeof(int) * size);
+	lis_tab[0] = malloc(sizeof(int) * pile_size);
+	lis_tab[1] = malloc(sizeof(int) * pile_size);
 	last = pile_a->prev;
 	while (pile_a != last)
 	{
@@ -64,63 +40,57 @@ static int	**ft_set_lis(int **lis_tab, int size)
 	int	j;
 	int	i;
 
-	i = 1;
-	while (i < size)
+	i = size - 1;
+	while (i >= 0)
 	{
-		j = 0;
-		while (j < i)
+		j = i + 1;
+		while (j < size)
 		{
-			if (lis_tab[0][i] > lis_tab[0][j])
+			if (lis_tab[0][i] < lis_tab[0][j])
 			{
 				if (lis_tab[1][i] < lis_tab[1][j] + 1)
 					lis_tab[1][i] = lis_tab[1][j] + 1;
 			}
 			j++;
 		}
-		printf("i = %d\n", i);
-		ft_print_tab_int_lis(lis_tab, size);
-		i++;
+		i--;
 	}	
 	return (lis_tab);
 }
 
-static int	*ft_create_lis(int**lis_tab, int lis_size, int lis_pos)
+static int	*ft_create_lis(int**lis_tab, int pile_size, int lis_size,
+	int lis_pos)
 {
-	int	i;
 	int	j;
 	int	k;
 	int	*lis_tab_index;
 
-	lis_tab[1][lis_pos] = 1;
-	i = -1;
-	j = 0;
+	j = lis_pos + 1;
 	k = -1;
 	lis_tab_index = malloc(sizeof(int) * lis_size);
-	while (++i < lis_pos)
+	lis_tab_index[++k] = lis_tab[0][lis_pos];
+	while (j < pile_size)
 	{
-		if (lis_tab[0][i] < lis_tab[0][lis_pos])
+		if (lis_tab[0][lis_pos] < lis_tab[0][j])
 		{
-			if (lis_tab[1][i] + 1 > lis_tab[1][lis_pos])
+			if (lis_tab[1][j] == lis_tab[1][lis_pos] - (k + 1))
 			{
-				lis_tab[1][lis_pos]++;
 				lis_tab_index[++k] = lis_tab[0][j];
 			}
 		}
 		j++;
 	}
-	lis_tab_index[++k] = lis_tab[0][j];
-	ft_print_tab_int_lis_finale(lis_tab_index, lis_size);
 	return (lis_tab_index);
 }
 
-static int	*ft_get_lis(int	**lis_tab, int size, int *lis_size)
+static int	*ft_get_lis(int	**lis_tab, int pile_size, int *lis_size)
 {
 	int	i;
 	int	lis_pos;
 
 	i = -1;
 	*lis_size = 0;
-	while (++i < size)
+	while (++i < pile_size)
 	{
 		if (lis_tab[1][i] > *lis_size)
 		{
@@ -129,10 +99,8 @@ static int	*ft_get_lis(int	**lis_tab, int size, int *lis_size)
 		}
 	}
 	i = -1;
-	printf("LIS = %d & LIS_POS = %d\n", *lis_size, lis_pos);
-	return (ft_create_lis(lis_tab, *lis_size, lis_pos));
+	return (ft_create_lis(lis_tab, pile_size, *lis_size, lis_pos));
 }
-
 
 static int	ft_int_tabchr(int *tab, int size, t_list *tmp)
 {
@@ -147,25 +115,45 @@ static int	ft_int_tabchr(int *tab, int size, t_list *tmp)
 	return (0);
 }
 
-static void	ft_apply_lis(t_push_swap p, int	*lis_tab_index, int size)
+static int	find_median(t_list *pile)
+{
+	int		size;
+	int		*tab;
+
+	size = ft_lstsize(pile);
+	tab = ft_tab_from_list(&pile, size);
+	ft_sort_int_tab(tab, size);
+	return (tab[size / 2]);
+}
+
+static void	ft_apply_lis(t_push_swap p, int	*lis_tab_index, int lis_size)
 {
 	t_list	*pile_a;
 	t_list	*last;
+	int		median;
 
 	pile_a = *p.pile_a;
 	last = pile_a->prev;
+	median = find_median(*p.pile_a);
 	while (pile_a != last)
 	{
-		if (ft_int_tabchr(lis_tab_index, size, pile_a) == 1)
+		if (ft_int_tabchr(lis_tab_index, lis_size, pile_a) == 1)
 			ft_move("ra", p);
 		else
+		{
 			ft_move("pb", p);
+			if ((*p.pile_b)->index > median)
+				ft_move("rb", p);
+		}
 		pile_a = *p.pile_a;
 	}
-	if (ft_int_tabchr(lis_tab_index, size, pile_a) == 0)
+	if (ft_int_tabchr(lis_tab_index, lis_size, pile_a) == 0)
+	{
 		ft_move("pb", p);
+		if ((*p.pile_b)->index > median)
+			ft_move("rb", p);
+	}
 }
-
 
 void	ft_lis(t_push_swap p)
 {
@@ -174,14 +162,9 @@ void	ft_lis(t_push_swap p)
 	int	**lis_tab;
 	int	*lis_tab_index;
 
-	ft_print_piles("START", p);
 	pile_size = ft_lstsize(*p.pile_a);
-	printf("		CREATE LIS\n\n");
 	lis_tab = ft_init_lis_tab(*p.pile_a, pile_size);
-	ft_print_tab_int_lis(lis_tab, pile_size);
-	printf("		FIND LIS\n\n");
 	lis_tab = ft_set_lis(lis_tab, pile_size);
 	lis_tab_index = ft_get_lis(lis_tab, pile_size, &lis_size);
 	ft_apply_lis(p, lis_tab_index, lis_size);
-	ft_print_piles("END", p);
 }

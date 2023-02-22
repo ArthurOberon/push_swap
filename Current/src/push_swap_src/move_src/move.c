@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 10:45:19 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/22 16:02:29 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/22 20:59:28 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,19 @@ int	ft_check_obvious(t_push_swap p)
 {
 	t_list	*tmp;
 
+	if (ft_is_ascending(*p.pile_a) == 1)
+	{
+		ft_lstclear(p.pile_a);
+		ft_lstclear_instruction(p.instructions);
+		exit (EXIT_SUCCESS);
+	}
 	if (ft_lstsize(*p.pile_a) == 3)
 	{
 		ft_3_elements(p);
 		return (1);
 	}
 	tmp = *(p.pile_a);
-	if (tmp->index == tmp->next->index - 1)
+	if (tmp->index == tmp->next->index)
 		ft_move("sa", p);
 	return (0);
 }

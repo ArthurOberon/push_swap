@@ -6,13 +6,13 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 10:45:36 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/22 15:31:46 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/22 22:20:13 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	*ft_tab_from_list(t_list **lst, int size)
+int	*ft_tab_from_list(t_list **lst, int size)
 {
 	int		i;
 	int		*tab;
@@ -35,7 +35,7 @@ static int	*ft_tab_from_list(t_list **lst, int size)
 	return (tab);
 }
 
-static void	ft_sort_int_tab(int *tab, int size)
+void	ft_sort_int_tab(int *tab, int size)
 {
 	int	i;
 	int	j;

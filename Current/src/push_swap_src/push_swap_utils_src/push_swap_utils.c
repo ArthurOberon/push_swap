@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 16:54:31 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/22 15:32:24 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/22 23:57:20 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_is_ascending(t_list *lst)
 
 	min = ft_find_element_min(lst);
 	if (min->index != 0)
-		return (0);
+		return (2);
 	last = min->prev;
 	while (min != last)
 	{

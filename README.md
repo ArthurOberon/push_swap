@@ -104,3 +104,5 @@ make bonus
 - [ ] ft_create_descending_tab
 
 # Currents Problems
+- [ ] 5 4 3 2 1	-> 14 moves
+- [ ] 5 1 4 3 2	-> 14 moves

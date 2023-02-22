@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:10:29 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/22 16:02:46 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/22 23:54:58 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,25 +26,25 @@ void	ft_push_swap(t_list **lst_a)
 	p.pile_b = &lst_b;
 	p.instructions = &lst_instruction;
 	ft_init_index(lst_a);
-	ft_lis(p);
-	return ;
 	// while ((*lst_a)->next != *lst_a)
 		// ft_move("pb", p);
-	// if (ft_check_obvious(p) != 1)
 		// ft_piles_ascending_multiples(p);
+	if (ft_check_obvious(p) != 1)
+		ft_lis(p);
 	// ft_print_instruction((*p.instructions));
+	// ft_print_piles("", p);
 	// printf("number of operations to separate : [%d]\n",
 		// ft_lstsize_instruction(lst_instruction));
-	// ft_print_piles("", p);
-	while (lst_b || !ft_is_ascending(*lst_a))
+	// return ;
+	while (lst_b || ft_is_ascending(*lst_a) != 1)
 		ft_find_best_move(p);
 	tmp_a = *lst_a;
 	while (tmp_a->index != 0)
 		tmp_a = tmp_a->next;
 	ft_move_to_top_pile_a(p, tmp_a);
 	ft_print_instruction((*p.instructions));
-	printf("number of operations : [%d]\n",
-		ft_lstsize_instruction(lst_instruction));
+	// printf("number of operations : [%d]\n",
+		// ft_lstsize_instruction(lst_instruction));
 	ft_lstclear(lst_a);
 	ft_lstclear_instruction(&lst_instruction);
 }
