@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:11:19 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/21 17:00:39 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/22 13:28:31 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ typedef struct s_sequence_data
 // |			MOVE			|
 // |----------------------------|
 
+int				ft_check_obvious(t_push_swap list_pack);
+
 void			ft_move(char *operation, t_push_swap list_pack);
 
 // |----------------------------|
@@ -82,7 +84,6 @@ void			ft_find_best_move(t_push_swap p);
 int				ft_abs(int a);
 int				ft_isdigit(int c);
 int				ft_isspace(char c);
-int				ft_check_obvious(t_push_swap list_pack);
 
 char			*ft_strdup(const char *s);
 
@@ -179,7 +180,7 @@ t_list			*ft_find_element_max(t_list *lst);
 // void			ft_get_ascending_from_n(t_push_swap p, int n);
 // void			ft_get_descending_from_n(t_push_swap p, int n);
 
-void			ft_piles_ascending(t_push_swap p);
+void			ft_piles_ascending_multiples(t_push_swap p);
 void			ft_get_pile_ascending(t_push_swap list_pack);
 void			ft_get_descending_from_n(t_push_swap p,
 					t_sequence_data sequence);

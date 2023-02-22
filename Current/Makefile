@@ -4,11 +4,15 @@ CHECKER = checker
 CC = gcc
 # CFLAGS = -g -Wall -Wextra -Werror
 CFLAGS = -g -Wall -Wextra
+INCLUDES_DIR = include/
 SRC_DIR = src/
 OBJ_DIR = obj/
+INCLUDES_H = -I./$(INCLUDES_DIR)
+DEPS =
+# DEPS = $(INCLUDES_DIR)push_swap.h Makefile
 
-
-COMMON_SRC = 	utils.c \
+COMMON_SRC = 	$(addprefix common_src/, \
+				utils.c \
 				parse.c \
 				merge_str.c \
 				operations.c \
@@ -17,55 +21,80 @@ COMMON_SRC = 	utils.c \
 				list_instructions_utils.c \
 				\
 				temporary.c \
+				)
+# BECAREFUL -> TEMPORARY.C
 
-## BECAREFUL -> TEMPORARY.C
+ALGO_SRC =		$(addprefix algo_src/, \
+				algo.c \
+				algo_utils.c \
+				do_best_move_utils.c \
+				do_best_move_utils_2.c \
+				)
 
-PS_SRC =	algo.c \
-			move.c \
-			index.c \
-			piles.c \
-			push_swap.c \
-			algo_utils.c \
-			preset_move.c \
-			piles_min_max.c \
-			piles_ascending.c \
-			preset_move_utils.c \
-			optimize_rotation.c \
-			do_best_move_utils.c \
-			do_best_move_utils_2.c \
-			piles_ascending_utils.c \
-			piles_multiples_ascending.c \
-			piles_multiples_descending.c \
+MOVE_SRC =		$(addprefix move_src/, \
+				move.c \
+				preset_move.c \
+				preset_move_utils.c \
+				optimize_rotation.c \
+				)
 
-CHECKER_SRC =	checker.c \
+PILES_SRC =		$(addprefix piles_src/, \
+				piles.c \
+				piles_min_max.c \
+				piles_ascending_utils.c \
+				piles_ascending_multiples.c \
+				piles_multiples_ascending.c \
+				piles_multiples_descending.c \
+				)
+
+PS_SRC =		$(addprefix push_swap_src/, \
+				index.c \
+				push_swap.c \
+				$(ALGO_SRC) \
+				$(MOVE_SRC)	\
+				$(PILES_SRC) \
+				)
+
+
+CHECKER_SRC =	$(addprefix checker_src/, \
+				checker.c \
 				create_list_instructions.c \
+				)
 
-GNL_SRC =		get_next_line.c \
+GNL_SRC =		$(addprefix gnl_src/, \
+				get_next_line.c \
 				get_next_line_utils.c \
+				)
 
-PS_SRCS = ${COMMON_SRC} ${PS_SRC}
-CHECKER_SRCS = ${COMMON_SRC} ${CHECKER_SRC} ${GNL_SRC}
+PS_SRCS =	$(addprefix $(SRC_DIR), \
+			$(COMMON_SRC) \
+			$(PS_SRC) \
+			)
 
-PS_OBJ = ${PS_SRCS:.c=.o}
-CHECKER_OBJ = ${CHECKER_SRCS:.c=.o}
-OBJ = ${SRCS:.c=.o}
+CHECKER_SRCS = $(addprefix $(SRC_DIR), \
+				${COMMON_SRC} \
+				${CHECKER_SRC} \
+				${GNL_SRC} \
+				)
 
-
+PS_OBJ = $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o, $(PS_SRCS))
+CHECKER_OBJ = $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o, $(CHECKER_SRCS))
 
 all: $(PUSH_SWAP)
 
-$(addprefix $(OBJ_DIR), %.o): $(SRC_DIR)%.c
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(DEPS)
 	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(CFLAGS) -I include/ -c -o $@ $^
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) $(INCLUDES_H) -c -o $@ $^
 
-$(PUSH_SWAP): $(addprefix $(OBJ_DIR), $(PS_OBJ))
+$(PUSH_SWAP): $(PS_OBJ) $(DEPS)
 	@echo "\e[36mMaking push_swap...\e[0m"
-	@$(CC) $(addprefix $(OBJ_DIR), $(PS_OBJ)) -I include/ -o $(PUSH_SWAP)
+	@$(CC) $(INCLUDES_H) $(PS_OBJ) -o $(PUSH_SWAP)
 	@echo "\e[32mDone !\e[0m"
 
-$(CHECKER): $(addprefix $(OBJ_DIR), $(CHECKER_OBJ))
+$(CHECKER): $(CHECKER_OBJ) $(DEPS)
 	@echo "\e[36mMaking checker...\e[0m"
-	@$(CC) $(addprefix $(OBJ_DIR), $(CHECKER_OBJ)) -I include/ -o $(CHECKER)
+	@$(CC) $(INCLUDES_H) $(CHECKER_OBJ) -o $(CHECKER)
 	@echo "\e[32mDone !\e[0m"
 
 bonus: $(CHECKER)

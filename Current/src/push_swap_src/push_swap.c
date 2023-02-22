@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:10:29 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/21 21:00:29 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/22 13:21:16 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_push_swap(t_list **lst_a)
 	// while ((*lst_a)->next != *lst_a)
 		// ft_move("pb", list_pack);
 	if (ft_check_obvious(list_pack) != 1)
-		ft_piles_ascending(list_pack);
+		ft_piles_ascending_multiples(list_pack);
 	// ft_print_instruction((*list_pack.instructions));
 	// printf("number of operations to separate : [%d]\n",
 		// ft_lstsize_instruction(lst_instruction));

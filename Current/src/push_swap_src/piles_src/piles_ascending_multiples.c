@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   piles_ascending.c                                  :+:      :+:    :+:   */
+/*   piles_ascending_multiples.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:27:55 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/21 20:40:07 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/22 12:29:09 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	ft_get_ascending_descending(t_push_swap p, t_sequence_data sequence)
 		ft_move("pb", p);
 }
 
-void	ft_piles_ascending(t_push_swap p)
+void	ft_piles_ascending_multiples(t_push_swap p)
 {
 	t_sequence_data	ascending;
 	t_sequence_data	descending;
