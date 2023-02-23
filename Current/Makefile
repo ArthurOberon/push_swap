@@ -49,14 +49,15 @@ PS_UTILS_SRC =	$(addprefix push_swap_utils_src/, \
 				)
 
 # SOURCES USE FOR LIS (Longest Increase Subsequence) (USED BY PUSH_SWAP)
-LIS_SRC =		$(addprefix lis_src_descending/, \
+LIS_SRC =		$(addprefix lis_src/, \
 				lis.c \
+				lis_utils.c \
 				\
-				piles_order_multiples_utils.c \
-				piles_order_multiples.c \
-				piles_multiples_ascending.c \
-				piles_multiples_descending.c \
 				)
+# piles_order_multiples_utils.c \
+# piles_order_multiples.c \
+# piles_multiples_ascending.c \
+# piles_multiples_descending.c \
 
 # SOURCES ONLY FOR PUSH_SWAP
 PS_SRC =		$(addprefix push_swap_src/, \

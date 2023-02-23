@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:11:19 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/22 22:14:37 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/23 14:41:37 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,9 @@ char			*ft_strdup(const char *s);
 // |----------------------------|
 
 int				*ft_tab_from_list(t_list **lst, int size);
-void			ft_sort_int_tab(int *tab, int size);
+
 void			ft_init_index(t_list **lst);
+void			ft_sort_int_tab(int *tab, int size);
 
 // |----------------------------|
 // |			OTHERS			|
@@ -113,17 +114,23 @@ char			*get_next_line(int fd);
 
 int				ft_parse(char *str, t_list **lst);
 
-// |----------------------------|
-// |			PILES			|
-// |----------------------------|
-
-int				ft_is_ascending(t_list *lst);
-
 // |--------------------------------|
 // |			MERGE_STR			|
 // |--------------------------------|
 
 char			*ft_str_merge(char **str, int space, int size);
+
+// |--------------------------------|
+// |			OPERATIONS			|
+// |--------------------------------|
+
+void			ft_do_operation(char *str, t_list **lst_a, t_list **lst_b);
+
+// |--------------------------------|
+// |			PRESET_MOVE			|
+// |--------------------------------|
+
+void			ft_3_elements(t_push_swap p);
 
 // |--------------------------------|
 // |			PILES_UTILS			|
@@ -138,10 +145,13 @@ void			ft_lstadd_back(t_list **lst, t_list *new);
 t_list			*ft_lstmoveout(t_list **lst);
 
 // |--------------------------------|
-// |			PRESET_MOVE			|
+// |			LIS_UTILS			|
 // |--------------------------------|
 
-void			ft_3_elements(t_push_swap p);
+int				ft_int_tabchr(int *tab, int size, t_list *tmp);
+int				find_median(t_list *pile);
+
+int				**ft_init_lis_tab(t_list *pile_a, int pile_size);
 
 // |--------------------------------|
 // |			ALGO_UTILS			|
@@ -154,12 +164,6 @@ t_list			*ft_get_the_n_element_pile(t_list *start, int n);
 t_best_move		ft_init_best_move(void);
 t_best_move		ft_calcul_push_after_max(t_push_swap p, t_best_move *result);
 t_best_move		ft_calcul_push_before_min(t_push_swap p, t_best_move *result);
-
-// |--------------------------------|
-// |			OPERATIONS			|
-// |--------------------------------|
-
-void			ft_do_operation(char *str, t_list **lst_a, t_list **lst_b);
 
 // |------------------------------------|
 // |			PRINT_FUNCTIONS			|
@@ -178,6 +182,14 @@ size_t			ft_strlen(const char *s);
 
 t_list			*ft_find_element_min(t_list *lst);
 t_list			*ft_find_element_max(t_list *lst);
+
+// |------------------------------------|
+// |			PUSH_SWAP_UTILS			|
+// |------------------------------------|
+
+int				ft_is_ascending(t_list *lst);
+
+void			ft_move_to_top_pile_a(t_push_swap p, t_list *element);
 
 // |----------------------------------------|
 // |			PRESET_MOVE_UTILS			|
@@ -219,32 +231,6 @@ int				ft_do_best_move_rrr(t_push_swap p, t_best_move fastest);
 int				ft_do_best_move_sr(t_push_swap p, t_best_move fastest);
 
 // |--------------------------------------------|
-// |			PILES_ORDER_MULTIPLES			|
-// |--------------------------------------------|
-
-void			ft_piles_order_multiples(t_push_swap p);
-
-// |------------------------------------------------|
-// |			PILES_MULTIPLES_ASCENDING			|
-// |------------------------------------------------|
-
-t_sequence_data	ft_piles_multiples_ascending(t_push_swap p);
-
-// |------------------------------------------------|
-// |			PILES_MULTIPLES_DESCENDING			|
-// |------------------------------------------------|
-
-t_sequence_data	ft_piles_multiples_descending(t_push_swap p);
-
-// |------------------------------------------------|
-// |			PILES_ORDER_MULTIPLES_UTILS			|
-// |------------------------------------------------|
-
-int				ft_get_while_number(t_list *lst);
-
-void			ft_move_to_top_pile_a(t_push_swap p, t_list *element);
-
-// |--------------------------------------------|
 // |			LIST_INSTRUCTIONS_UTILS			|
 // |--------------------------------------------|
 
@@ -264,25 +250,6 @@ t_instruction	*ft_lstnew_instruction(char *operation);
 // |------------------------------------------------|
 
 t_instruction	*ft_create_list_instruction(void);
-
-// |----------------------------------------------------|
-// |			LIST_INSTRUCTIONS_COMBINATION			|
-// |----------------------------------------------------|
-
-int				ft_find_combination_move(t_instruction **lst);
-int				ft_combinate_move(t_instruction *tmp, int n,
-					char *combinated_move);
-
-// |--------------------------------------------------------|
-// |			LIST_INSTRUCTIONS_COMBINATION_UTILS			|
-// |--------------------------------------------------------|
-
-int				ft_find_min_value(int a, int b);
-int				ft_find_combination_move_helper(t_instruction **tmp,
-					int *combinate_number);
-
-void			ft_init_int_tab(int *tab, int size);
-void			ft_delete_one_element(t_instruction **tmp);
 
 //------------------------------------------
 

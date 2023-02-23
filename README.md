@@ -98,11 +98,36 @@ make bonus
 - [x] ft_lstnew_instruction
 - [x] ft_malloc_zero
 - [x] ft_lst_add
-- [x] ft_get_ascending_sequence
 - [x] ft_strdup
-- [ ] ft_create_ascending_tab
-- [ ] ft_create_descending_tab
+- [x] ft_tab_from_list (index)
+- [ ] ft_tab_from_list (lis_utils)
+- [ ] ft_init_lis_tab
+- [ ] ft_create_lis
 
 # Currents Problems
-- [ ] 5 4 3 2 1	-> 14 moves
-- [ ] 5 1 4 3 2	-> 14 moves
+1 5 4 3 2
+4 3 2 1 5
+4 3 2 5 1
+4 3 5 2 1
+5 1 4 3 2
+5 2 4 3 1
+ect...
+
+# Result
+Complexite moyenne: 566
+Complexite max : 649
+Complexite min : 488
+
+NB d'elem dont la complexite est sup a la lim : 0 / 1000
+
+Complexite moyenne: 9
+Complexite max : 13
+Complexite min : 0
+
+NB d'elem dont la complexite est sup a la lim : 0 / 1000
+
+Complexite moyenne: 4699
+Complexite max : 5016
+Complexite min : 4444
+
+NB d'elem dont la complexite est sup a la lim : 0 / 100
