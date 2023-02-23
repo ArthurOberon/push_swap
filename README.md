@@ -59,7 +59,7 @@ make bonus
 
 ---
 
-# How My Push_Swap work ?
+# How My Push_Swap Work ?
 
 |STEP		|Description	|
 |---------------|---------------|
