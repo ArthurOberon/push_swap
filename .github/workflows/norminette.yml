@@ -10,5 +10,5 @@ jobs:
       - uses: hanshazairi/42-norminette-action@v1.1.0
         # optional #
         with:
-          exclude-dir: './<directory-to-exclude>'
+          exclude-dir: './checker_visu'
         # optional #
