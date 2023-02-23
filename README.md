@@ -57,54 +57,18 @@ To compile the checker :
 make bonus
 ```
 
-
-## Author
-* **[Arthur Obéron](https://github.com/ArthurOberon)**
-* **Thanks to Johanne Vigny for the big help**
 ---
 
-*!!!! IF THERE, CHECK THE BOLD FIRST !!!!*
+# How My Push_Swap work ?
 
-# RESTART
+|STEP		|Description	|
+|---------------|---------------|
+|LIS			| Length Increase Subsequence	|
+|Find The Best Move| Calcul the number of move for each element of pile_b and do the best	|
 
-|Restart		|Description	|Current Status		|
-|---------------|---------------|-----------|
-|Index			| get index in the pile a	| <ul><li>- [x] Done</li><li>- [x] Norminette</li></ul>	|
-|Part 1			| Find a way to separate pile a in two	| <ul><li>- [ ] Done</li><li>- [ ] Norminette</li></ul>	|
-|Part 2			| Find a way to calcul the smaller move with position in the pile and not by doing the move and go back	| <ul><li>- [x] Done</li><li>- [x] Norminette</li></ul>	|
-|Optimize		| Find Optimizations	| <ul><li>- [ ] Done</li><li>- [ ] Norminette</li></ul>	|
+## LIS
 
-## Part 1
-- [ ] ...
-- [ ] Norminette
-
-## Part 2
-- [x] Find his position in the pile
-- [x] If x > pile_length / 2 => ra/b
-- [x] Else => rra/b
-- [x] Find a way to also use sa/sb
-- [x] Do that for each element and find the smaller
-- [x] Do the smaller move
-- [x] Do it again till the end
-- [x] Norminette
-
-## Optimize
-- [ ] ...
-- [ ] Norminette
-
-## Malloc Protections :
-- [x] get_next_line
-- [x] ft_tab_from_list
-- [x] ft_lstnew_instruction
-- [x] ft_malloc_zero
-- [x] ft_lst_add
-- [x] ft_strdup
-- [x] ft_tab_from_list (index)
-- [ ] ft_tab_from_list (lis_utils)
-- [x] ft_init_lis_tab
-- [x] ft_create_lis
-
-# Currents Problems
+## Find The Best Move
 
 # Result
 Complexite moyenne: 566
@@ -124,3 +88,19 @@ Complexite max : 5016
 Complexite min : 4444
 
 NB d'elem dont la complexite est sup a la lim : 0 / 100
+
+## Malloc Protections :
+- [x] get_next_line
+- [x] ft_tab_from_list
+- [x] ft_lstnew_instruction
+- [x] ft_malloc_zero
+- [x] ft_lst_add
+- [x] ft_strdup
+- [x] ft_tab_from_list (index)
+- [x] ft_tab_from_list (lis_utils)
+- [x] ft_init_lis_tab
+- [x] ft_create_lis
+
+## Author
+* **[Arthur Obéron](https://github.com/ArthurOberon)**
+* **Thanks to Johanne Vigny & ULYSSE LEVALLOIS & ALEX CARDONA & QUANTIN THIERRY & ELIA KHALED for the big help**
