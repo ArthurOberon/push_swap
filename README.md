@@ -101,17 +101,10 @@ make bonus
 - [x] ft_strdup
 - [x] ft_tab_from_list (index)
 - [ ] ft_tab_from_list (lis_utils)
-- [ ] ft_init_lis_tab
-- [ ] ft_create_lis
+- [x] ft_init_lis_tab
+- [x] ft_create_lis
 
 # Currents Problems
-1 5 4 3 2
-4 3 2 1 5
-4 3 2 5 1
-4 3 5 2 1
-5 1 4 3 2
-5 2 4 3 1
-ect...
 
 # Result
 Complexite moyenne: 566

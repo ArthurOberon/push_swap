@@ -1,65 +1,72 @@
-CHECKER = checker
+CHECKER 		=	checker
 
-CC = gcc
+CC				=	gcc
 # CFLAGS = -g -Wall -Wextra -Werror
-INCLUDE = include/
-CFLAGS = -g -pg -Wall -Wextra
-MLX_FLAGS = -L./ -lmlx -lX11 -lXext
-SRC_DIR = src/
-OBJ_DIR = obj/
+CFLAGS 			=	-g -Wall -Wextra
+MLX_FLAGS 		=	-L./ -lmlx -lX11 -lXext
+INCLUDE_DIR 	=	include/
+SRC_DIR 		=	src/
+OBJ_DIR 		=	obj/
+INCLUDES_H 		=	-I./$(INCLUDE_DIR)
+DEPS =
 
+INCLUDE_SRC 	=	mlx.h \
+					visu.h \
+					push_swap.h \
+					get_next_line.h \
 
-INCLUDE_SRC =	mlx.h \
-				visu.h \
-				push_swap.h \
-				get_next_line.h \
-
-
-COMMON_SRC = 	utils.c \
-				index.c \
-				parse.c \
-				merge_str.c \
-				operations.c \
-				piles_utils.c \
-				print_functions.c \
-				list_instructions_utils.c \
-				\
-				temporary.c \
-
+COMMON_SRC 		=	$(addprefix common_src/, \
+					index.c \
+					utils.c \
+					parse.c \
+					merge_str.c \
+					operations.c \
+					piles_utils.c \
+					print_functions.c \
+					list_instructions_utils.c \
+					\
+					temporary.c \
+					)
 ## BECAREFUL -> TEMPORARY.C
 
-CHECKER_SRC =	checker.c \
-				create_list_instructions.c \
+CHECKER_SRC 	=	$(addprefix checker_src/, \
+					checker.c \
+					create_list_instructions.c \
+					)
 
-GNL_SRC =		get_next_line.c \
-				get_next_line_utils.c \
+GNL_SRC 		=	$(addprefix gnl_src/, \
+					get_next_line.c \
+					get_next_line_utils.c \
+					)
 
-VISU_SRC =		visu.c \
-				render.c \
-				handler.c \
-				autoplay.c \
-				visu_utils.c \
-				render_utils.c \
+VISU_SRC 		=	$(addprefix visu_src/, \
+					visu.c \
+					render.c \
+					handler.c \
+					autoplay.c \
+					visu_utils.c \
+					render_utils.c \
+					)
 
-# list.c
+CHECKER_SRCS 	=	$(addprefix $(SRC_DIR), \
+					${GNL_SRC} \
+					${VISU_SRC} \
+					${COMMON_SRC} \
+					${CHECKER_SRC} \
+					)
 
-INCLUDE_SRCS = $(addprefix($(INCLUDE_SRC), $(INCLUDE)))
-
-CHECKER_SRCS = ${COMMON_SRC} ${CHECKER_SRC} ${GNL_SRC} ${VISU_SRC}
-
-CHECKER_OBJ = ${CHECKER_SRCS:.c=.o}
-OBJ = ${SRCS:.c=.o}
-
+CHECKER_OBJ		=	$(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o, $(CHECKER_SRCS))
 
 all: $(CHECKER)
 
-$(addprefix $(OBJ_DIR), %.o): $(SRC_DIR)%.c $(INCLUDE_SRCS)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(DEPS)
 	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(CFLAGS) -I$(INCLUDE) -c -o $@ $^
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) $(INCLUDES_H) -c -o $@ $^
 
-$(CHECKER): $(addprefix $(OBJ_DIR), $(CHECKER_OBJ))
+$(CHECKER): $(CHECKER_OBJ) $(DEPS)
 	@echo "\e[36mMaking checker...\e[0m"
-	@$(CC) $(addprefix $(OBJ_DIR), $(CHECKER_OBJ)) $(CFLAGS) $(MLX_FLAGS) -o $(CHECKER)
+	@$(CC) $(CFLAGS) $(INCLUDES_H) $(CHECKER_OBJ) $(MLX_FLAGS) -o $(CHECKER)
 	@echo "\e[32mDone !\e[0m"
 
 bonus: $(CHECKER)
