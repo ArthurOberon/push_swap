@@ -3,11 +3,11 @@ CHECKER 		=	checker
 CC				=	gcc
 CFLAGS 			=	-Wall -Wextra -Werror
 MLX_FLAGS 		=	-L./ -lmlx -lX11 -lXext
-INCLUDE_DIR 	=	include/
+INCLUDES_DIR 	=	include/
 SRC_DIR 		=	src/
 OBJ_DIR 		=	obj/
-INCLUDES_H 		=	-I./$(INCLUDE_DIR)
-DEPS =
+INCLUDES_H 		=	-I./$(INCLUDES_DIR)
+DEPS 			=	$(INCLUDES_DIR)visu.h $(INCLUDES_DIR)push_swap.h
 
 INCLUDE_SRC 	=	mlx.h \
 					visu.h \
@@ -58,10 +58,10 @@ all: $(CHECKER)
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(DEPS)
 	@mkdir -p $(OBJ_DIR)
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) $(INCLUDES_H) -c -o $@ $^
+	@$(CC) $(CFLAGS) $(INCLUDES_H) -c -o $@ $<
 
-$(CHECKER): $(CHECKER_OBJ) $(DEPS)
-	@echo "\e[36mMaking checker...\e[0m"
+$(CHECKER): $(CHECKER_OBJ)
+	@echo "\e[36mMaking $(CHECKER)...\e[0m"
 	@$(CC) $(CFLAGS) $(INCLUDES_H) $(CHECKER_OBJ) $(MLX_FLAGS) -o $(CHECKER)
 	@echo "\e[32mDone !\e[0m"
 
