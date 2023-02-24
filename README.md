@@ -196,11 +196,11 @@ typedef struct s_best_move
 }	t_best_move;
 ```
 
-* For each element of the stack B, it found the best movement with respect to its position in the stack. And saved the t_best_move with the smallest size
-* When he has finished calculating the movements for each of the elements, it makes the movements that have been saved (by using each variable of the struct to know if we do a sa, rra, rb, rr, etc...)
-* Repeat, until the Stack is empty
+* For each element of the stack B, it find the best movement compared with it position in the stack. And save the t_best_move with the smallest size.
+* When he has finished calculating the movements for each of the elements, it makes the movements that have been saved (by using each variable of the struct, to know if it do a sa, rra, rb, rr, etc...).
+* Repeat, until the Stack is empty.
 
-* And TADA, it sorted !
+* And VOILA ! It's sorted !
 ---
 
 ## Stats
