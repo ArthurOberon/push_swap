@@ -68,16 +68,18 @@ make bonus
 
 ## LIS
 
-Length Increasing Subsequence
+Length Increasing Subsequence is used to find the length of the longest subsequence of a given sequence such that all elements of the subsequence are sorted in increasing order.
 
-At the start the lis_tab look like this :
+### For example :
+
+At the start it will look like this :
 
 | POS   | 0 | 1 | 2 | 3 | 4 |
 |-------|---|---|---|---|---|
 |INDEX	| 2 | 1 | 3 | 4 | 5 |
 |LIS	| 1 | 1 | 1 | 1 | 1 |
 
-LIS of all index is egal to 1 there are all at least a lis of length 1
+LIS of all index is egal to 1 because there are all at least a lis of length 1
 
 Initialization of variable :
 ```
@@ -96,9 +98,8 @@ if (index[i] < index[j] && lis[i] < lis[j] + 1)
 |LIS	| 1 | 1 | 1 | 2 | 1 |
 |I & J 	|   |   |   | I | J |
 
-```
-I--
-```
+
+`I--`
 ```
 J = I - 1
 ```
@@ -200,7 +201,11 @@ At the end the lis_tab look like this :
 |INDEX 	| 1 | 0 | 2 | 3 | 4 |
 |LIS	| 1 | 4 | 3 | 2 | 1 |
 
-So the best Subsequence of Index is : 
+So the length of LIS is 
+```
+4
+```
+And the LIS is : 
 ```
 [0, 2, 3, 4]
 ```
@@ -210,16 +215,15 @@ To find the best move, I create a structure :
 ```
 typedef struct s_best_move
 {
-	int		sa;				// Number of sa
-	int		sb;				// Number of sb
+	int		sa;			// Number of sa
+	int		sb;			// Number of sb
 	int		rota_dir_a;		// Number of rotation on a (negatif is for rra)
 	int		rota_dir_b;		// Number of rotation on b (negatif is for rrb)
 	int		size;			// Sum of all previous variables + 1 (+ 1 is for pa)
 }	t_best_move;
 ```
 
-* For each element of the stack B, it computes the best movement with respect to its position in the stack
-* Saved the t_best_move with the smallest size
+* For each element of the stack B, it found the best movement with respect to its position in the stack. And saved the t_best_move with the smallest size
 * When he has finished calculating the movements for each of the elements, it makes the movements that have been saved (by using each variable of the struct to know if we do a sa, rra, rb, rr, etc...)
 * Repeat, until the Stack is empty
 
@@ -227,16 +231,8 @@ typedef struct s_best_move
 ---
 
 ## Stats
-
-Limit = 700
-Number of tests = 100000
-
-Average : 566
-Max : 669
-Min : 461
-
-Number of tests above the limit : 0 / 100000
-
+For 1 to 5 :
+```
 Limit = 12
 Number of tests = 100000
 
@@ -245,7 +241,22 @@ Max : 12
 Min : 0
 
 Number of tests above the limit : 0 / 100000
+```
 
+For 1 to 100 :
+```
+Limit = 700
+Number of tests = 100000
+
+Average : 566
+Max : 669
+Min : 461
+
+Number of tests above the limit : 0 / 100000
+```
+
+For 1 to 500 :
+```
 Limit = 5500
 Number of tests = 500
 
@@ -254,6 +265,7 @@ Max : 5093
 Min : 4349
 
 Number of tests above the limit : 0 / 500
+```
 
 ## Malloc Protections :
 - [x] get_next_line
