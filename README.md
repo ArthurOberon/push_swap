@@ -268,9 +268,10 @@ set ARG (ruby -e "puts (-50..50).to_a.shuffle.join(' ')") ; ./push_swap $ARG | .
 make -C checker_visu/
 ```
 
-## Author
+### Author
 * **[Arthur Obéron](https://github.com/ArthurOberon)**
-**Thanks to :**
+
+### Thanks to :
 * **[Youva Gaudé](https://github.com/Eviber)**
 * **Alex Cardona**
 * **Johanne Vigny**
