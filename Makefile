@@ -2,8 +2,7 @@ PUSH_SWAP 		=	push_swap
 CHECKER 		=	checker
 
 CC 				=	gcc
-# CFLAGS = -g -Wall -Wextra -Werror
-CFLAGS 			=	-g -Wall -Wextra
+CFLAGS 			=	-Wall -Wextra -Werror
 INCLUDES_DIR 	=	include/
 SRC_DIR 		=	src/
 OBJ_DIR 		=	obj/

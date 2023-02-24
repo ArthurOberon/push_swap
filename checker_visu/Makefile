@@ -1,8 +1,7 @@
 CHECKER 		=	checker
 
 CC				=	gcc
-# CFLAGS = -g -Wall -Wextra -Werror
-CFLAGS 			=	-g -Wall -Wextra
+CFLAGS 			=	-Wall -Wextra -Werror
 MLX_FLAGS 		=	-L./ -lmlx -lX11 -lXext
 INCLUDE_DIR 	=	include/
 SRC_DIR 		=	src/
