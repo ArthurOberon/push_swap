@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:10:29 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/23 15:23:37 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/24 13:05:54 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	ft_push_swap(t_list **lst_a)
 		tmp_a = tmp_a->next;
 	ft_move_to_top_pile_a(p, tmp_a);
 	ft_print_instruction((*p.instructions));
-	printf("number of operations : [%d]\n",
-		ft_lstsize_instruction(lst_instruction));
+	// printf("number of operations : [%d]\n",
+	// 	ft_lstsize_instruction(lst_instruction));
 	ft_lstclear(lst_a);
 	ft_lstclear_instruction(&lst_instruction);
 }

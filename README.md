@@ -68,26 +68,98 @@ make bonus
 
 ## LIS
 
+
+Length Increasing Subsequence
+
+At the start the lis_tab look like this :
+|INDEX | 2 | 1 | 3 | 4 | 5 |
+|LIS | 1 | 1 | 1 | 1 | 1 |
+
+LIS of all index is egal to 1 there are all at least a lis of length 1
+
+I starting at size - 1
+J starting at i + 1
+if (index[i] < index[j] && lis[i] < lis[j] + 1)
+	lis[i] = lis[j] + 1
+
+|INDEX 	| 1 | 0 | 2 | 3 | 4 |
+|LIS	| 1 | 1 | 1 | 2 | 1 |
+|I & J 	|   |   |   | I | J |
+
+|INDEX 	| 1 | 0 | 2 | 3 | 4 |
+|LIS 	| 1 | 1 | 3 | 2 | 1 |
+|I & J 	|   |   | I | J |   |
+
+|INDEX 	| 1 | 0 | 2 | 3 | 4 |
+|LIS 	| 1 | 1 | 3 | 2 | 1 |
+|I & J 	|   |   | I |   | J |
+
+|INDEX 	| 1 | 0 | 2 | 3 | 4 |
+|LIS	| 1 | 4 | 3 | 2 | 1 |
+|I & J	|   | I | J |   |   |
+
+|INDEX 	| 1 | 0 | 2 | 3 | 4 |
+|LIS	| 1 | 4 | 3 | 2 | 1 |
+|I & J	|   | I |   | J |   |
+
+|INDEX 	| 1 | 0 | 2 | 3 | 4 |
+|LIS	| 1 | 4 | 3 | 2 | 1 |
+|I & J	|   | I |   |   | J |
+
+|INDEX 	| 1 | 0 | 2 | 3 | 4 |
+|LIS	| 1 | 4 | 3 | 2 | 1 |
+|I & J	| I | J |   |   |   |
+
+|INDEX 	| 1 | 0 | 2 | 3 | 4 |
+|LIS	| 1 | 4 | 3 | 2 | 1 |
+|I & J	| I |   | J |   |   |
+
+|INDEX 	| 1 | 0 | 2 | 3 | 4 |
+|LIS	| 1 | 4 | 3 | 2 | 1 |
+|I & J	| I |   |   | J |   |
+
+|INDEX 	| 1 | 0 | 2 | 3 | 4 |
+|LIS	| 1 | 4 | 3 | 2 | 1 |
+|I & J	| I |   |   |   | J |
+
+At the end the lis_tab look like this :
+|INDEX 	| 1 | 0 | 2 | 3 | 4 |
+|LIS	| 1 | 4 | 3 | 2 | 1 |
+
+So the best LIS is [0, 2, 3, 4]
+
 ## Find The Best Move
 
-# Result
-Complexite moyenne: 566
-Complexite max : 649
-Complexite min : 488
+---
 
-NB d'elem dont la complexite est sup a la lim : 0 / 1000
+## Stats
 
-Complexite moyenne: 9
-Complexite max : 13
-Complexite min : 0
+Limit = 700
+Number of tests = 100000
 
-NB d'elem dont la complexite est sup a la lim : 0 / 1000
+Average : 566
+Max : 669
+Min : 461
 
-Complexite moyenne: 4699
-Complexite max : 5016
-Complexite min : 4444
+Number of tests above the limit : 0 / 100000
 
-NB d'elem dont la complexite est sup a la lim : 0 / 100
+Limit = 12
+Number of tests = 100000
+
+Average : 8
+Max : 12
+Min : 0
+
+Number of tests above the limit : 0 / 100000
+
+Limit = 5500
+Number of tests = 500
+
+Average : 4684
+Max : 5093
+Min : 4349
+
+Number of tests above the limit : 0 / 500
 
 ## Malloc Protections :
 - [x] get_next_line
@@ -103,4 +175,4 @@ NB d'elem dont la complexite est sup a la lim : 0 / 100
 
 ## Author
 * **[Arthur Obéron](https://github.com/ArthurOberon)**
-* **Thanks to Johanne Vigny & ULYSSE LEVALLOIS & ALEX CARDONA & QUANTIN THIERRY & ELIA KHALED for the big help**
+* **Thanks to Youva Gaudé & Johanne Vigny & ULYSSE LEVALLOIS & ALEX CARDONA & QUANTIN THIERRY & ELIA KHALED for the big help**
