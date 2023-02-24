@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:28:57 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/17 16:51:08 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/24 15:42:51 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static t_data	data_init(t_list **pile_a, t_list **pile_b,
 	if (!data.mlx_ptr)
 		exit(EXIT_FAILURE);
 	data.win_ptr = mlx_new_window(data.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT,
-			"PATATE");
+			"PUSH_SWAP VISUALIZER");
 	if (!data.win_ptr)
 	{
 		free(data.win_ptr);
@@ -51,6 +51,20 @@ static t_data	data_init(t_list **pile_a, t_list **pile_b,
 	return (data);
 }
 
+static void	ft_finished_instruction(t_data *data)
+{
+	t_instruction	*tmp;
+
+	tmp = *data->p.instructions;
+	while (tmp->operation[0] != 'N')
+	{
+		ft_do_operation(tmp->operation, data->p.pile_a,
+			data->p.pile_b);
+		tmp = tmp->next;
+	}
+	ft_lstclear_instruction(data->p.instructions);
+}
+
 int	visu(t_list **pile_a, t_list **pile_b, t_instruction **lst_instruction)
 {
 	t_data		data;
@@ -63,8 +77,8 @@ int	visu(t_list **pile_a, t_list **pile_b, t_instruction **lst_instruction)
 	mlx_destroy_image(data.mlx_ptr, data.img.mlx_img);
 	mlx_destroy_display(data.mlx_ptr);
 	free(data.mlx_ptr);
-	ft_lstclear_instruction(lst_instruction);
-	if (!ft_check_is_sort(pile_a) || pile_b)
+	ft_finished_instruction(&data);
+	if (!ft_check_is_sort(pile_a) || *pile_b)
 	{
 		ft_lstclear(pile_a);
 		ft_lstclear(pile_b);

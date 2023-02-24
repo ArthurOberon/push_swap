@@ -39,7 +39,7 @@ ruby -e "puts (-50..50).to_a.shuffle.join(' ')"`
 ```
 ### Example :
 ```
-ARG=`ruby -e "puts (-50..50).to_a.shuffle.join(' ')"` ; ./push_swap $ARG | ./checker -v $ARG
+ARG=`ruby -e "puts (-50..50).to_a.shuffle.join(' ')"` ; ./push_swap $ARG | ./checker $ARG
 ```
 On fish :
 ```
@@ -238,6 +238,34 @@ Max : 5093
 Min : 4349
 
 Number of tests above the limit : 0 / 500
+```
+
+# VISUALIZER
+
+## Usage
+
+To check if the set of instructions sort correctly :
+```
+./checker_visu/checker 1 2 3
+```
+To check if the set of instructions sort correctly with the visualizer add `-v` :
+```
+./checker_visu/checker -v 1 2 3
+```
+
+### Example with visualizer:
+```
+ARG=`ruby -e "puts (-50..50).to_a.shuffle.join(' ')"` ; ./push_swap $ARG | ./checker_visu/checker -v $ARG
+```
+On fish :
+```
+set ARG (ruby -e "puts (-50..50).to_a.shuffle.join(' ')") ; ./push_swap $ARG | ./checker_visu/checker -v $ARG
+```
+
+### Compiling
+
+```
+make -C checker_visu/
 ```
 
 ## Malloc Protections :

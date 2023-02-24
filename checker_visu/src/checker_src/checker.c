@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:55:15 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/16 19:54:08 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/24 15:24:45 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	ft_checker(t_list **lst_a, t_list **lst_b,
 		tmp_instruction = tmp_instruction->next;
 	}
 	ft_lstclear_instruction(lst_instruction);
-	if (!ft_check_is_sort(lst_a) || lst_b)
+	if (!ft_check_is_sort(lst_a) || *lst_b)
 	{
 		ft_lstclear(lst_a);
 		ft_lstclear(lst_b);
