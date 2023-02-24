@@ -270,4 +270,10 @@ make -C checker_visu/
 
 ## Author
 * **[Arthur Obéron](https://github.com/ArthurOberon)**
-* **Thanks to [Youva Gaudé](https://github.com/Eviber) & Alex Cardona & Johanne Vigny & Elia Khaled & Ulysse Levallois & [Quentin Thierry](https://github.com/QuentinThierry/)for the big help**
+* **Thanks to :**
+* **[Youva Gaudé](https://github.com/Eviber)**
+* **Alex Cardona**
+* **Johanne Vigny**
+* **Elia Khaled**
+* **Ulysse Levallois**
+* **[Quentin Thierry](https://github.com/QuentinThierry/)**
