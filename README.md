@@ -80,11 +80,16 @@ At the start the lis_tab look like this :
 
 LIS of all index is egal to 1 there are all at least a lis of length 1
 
-I starting at size - 1
-J starting at i + 1
+Initialization of variable :
+```
+I = size - 1
+J = I - 1
+```
+Condition to change LIS[I]
+```
 if (index[i] < index[j] && lis[i] < lis[j] + 1)
 	lis[i] = lis[j] + 1
-
+```
 
 | POS   | 0 | 1 | 2 | 3 | 4 |
 |-------|---|---|---|---|---|
@@ -92,11 +97,21 @@ if (index[i] < index[j] && lis[i] < lis[j] + 1)
 |LIS	| 1 | 1 | 1 | 2 | 1 |
 |I & J 	|   |   |   | I | J |
 
+```
+I--
+```
+```
+J = I - 1
+```
 | POS   | 0 | 1 | 2 | 3 | 4 |
 |-------|---|---|---|---|---|
 |INDEX 	| 1 | 0 | 2 | 3 | 4 |
 |LIS 	| 1 | 1 | 3 | 2 | 1 |
 |I & J 	|   |   | I | J |   |
+
+```
+J++
+```
 
 | POS   | 0 | 1 | 2 | 3 | 4 |
 |-------|---|---|---|---|---|
@@ -104,11 +119,22 @@ if (index[i] < index[j] && lis[i] < lis[j] + 1)
 |LIS 	| 1 | 1 | 3 | 2 | 1 |
 |I & J 	|   |   | I |   | J |
 
+```
+I--
+```
+```
+J = I - 1
+```
+
 | POS   | 0 | 1 | 2 | 3 | 4 |
 |-------|---|---|---|---|---|
 |INDEX 	| 1 | 0 | 2 | 3 | 4 |
 |LIS	| 1 | 4 | 3 | 2 | 1 |
 |I & J	|   | I | J |   |   |
+
+```
+J++
+```
 
 | POS   | 0 | 1 | 2 | 3 | 4 |
 |-------|---|---|---|---|---|
@@ -116,11 +142,22 @@ if (index[i] < index[j] && lis[i] < lis[j] + 1)
 |LIS	| 1 | 4 | 3 | 2 | 1 |
 |I & J	|   | I |   | J |   |
 
+```
+J++
+```
+
 | POS   | 0 | 1 | 2 | 3 | 4 |
 |-------|---|---|---|---|---|
 |INDEX 	| 1 | 0 | 2 | 3 | 4 |
 |LIS	| 1 | 4 | 3 | 2 | 1 |
 |I & J	|   | I |   |   | J |
+
+```
+I--
+```
+```
+J = I - 1
+```
 
 | POS   | 0 | 1 | 2 | 3 | 4 |
 |-------|---|---|---|---|---|
@@ -128,17 +165,29 @@ if (index[i] < index[j] && lis[i] < lis[j] + 1)
 |LIS	| 1 | 4 | 3 | 2 | 1 |
 |I & J	| I | J |   |   |   |
 
+```
+J++
+```
+
 | POS   | 0 | 1 | 2 | 3 | 4 |
 |-------|---|---|---|---|---|
 |INDEX 	| 1 | 0 | 2 | 3 | 4 |
 |LIS	| 1 | 4 | 3 | 2 | 1 |
 |I & J	| I |   | J |   |   |
 
+```
+J++
+```
+
 | POS   | 0 | 1 | 2 | 3 | 4 |
 |-------|---|---|---|---|---|
 |INDEX 	| 1 | 0 | 2 | 3 | 4 |
 |LIS	| 1 | 4 | 3 | 2 | 1 |
 |I & J	| I |   |   | J |   |
+
+```
+J++
+```
 
 | POS   | 0 | 1 | 2 | 3 | 4 |
 |-------|---|---|---|---|---|
@@ -152,8 +201,10 @@ At the end the lis_tab look like this :
 |INDEX 	| 1 | 0 | 2 | 3 | 4 |
 |LIS	| 1 | 4 | 3 | 2 | 1 |
 
-So the best LIS is [0, 2, 3, 4]
-
+So the best LIS is : 
+```
+[0, 2, 3, 4]
+```
 ## Find The Best Move
 
 ---
