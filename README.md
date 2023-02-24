@@ -73,8 +73,7 @@ Length Increasing Subsequence
 
 At the start the lis_tab look like this :
 
-| LIS   |---|---|---|---|---|
-|-------|---|---|---|---|---|
+| POS   | 0 | 1 | 2 | 3 | 4 |
 |INDEX | 2 | 1 | 3 | 4 | 5 |
 |LIS | 1 | 1 | 1 | 1 | 1 |
 
