@@ -7,7 +7,7 @@ INCLUDES_DIR 	=	include/
 SRC_DIR 		=	src/
 OBJ_DIR 		=	obj/
 INCLUDES_H		=	-I./$(INCLUDES_DIR)
-DEPS =
+DEPS 			=
 # DEPS = $(INCLUDES_DIR)push_swap.h Makefile
 
 # SOURCES USE BY PUSH_SWAP AND CHEKER
@@ -95,12 +95,12 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(DEPS)
 	@$(CC) $(CFLAGS) $(INCLUDES_H) -c -o $@ $^
 
 $(PUSH_SWAP): $(PS_OBJ) $(DEPS)
-	@echo "\e[36mMaking push_swap...\e[0m"
+	@echo "\e[36mMaking$(PUSH_SWAP)...\e[0m"
 	@$(CC) $(CFLAGS) $(INCLUDES_H) $(PS_OBJ) -o $(PUSH_SWAP)
 	@echo "\e[32mDone !\e[0m"
 
 $(CHECKER): $(CHECKER_OBJ) $(DEPS)
-	@echo "\e[36mMaking checker...\e[0m"
+	@echo "\e[36mMaking$(CHECKER)...\e[0m"
 	@$(CC) $(CFLAGS) $(INCLUDES_H) $(CHECKER_OBJ) -o $(CHECKER)
 	@echo "\e[32mDone !\e[0m"
 

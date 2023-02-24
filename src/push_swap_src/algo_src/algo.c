@@ -6,14 +6,11 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 08:53:38 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/19 15:48:30 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/24 16:47:00 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// printf("ra = %d\nrb = %d\nsa = %d\nsb = %d\nsize = %d\n", result.rota_dir_a,
-	// result.rota_dir_b, result.sa, result.sb, result.size);
 
 t_best_move	ft_calcul_move_simple(t_push_swap p, t_list *tmp_b, int i)
 {

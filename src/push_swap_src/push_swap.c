@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:10:29 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/24 14:38:24 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/24 16:46:54 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ void	ft_push_swap(t_list **lst_a)
 	ft_lstclear(lst_a);
 	ft_lstclear_instruction(&lst_instruction);
 }
-	// printf("number of operations : [%d]\n",
-	// 	ft_lstsize_instruction(lst_instruction));
 
 int	main(int argc, char **argv)
 {
