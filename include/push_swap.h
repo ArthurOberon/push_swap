@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:11:19 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/24 14:40:06 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/24 16:17:47 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-
-# include <stdio.h> // \/!\ CAUTION !!!!! /!\/
 
 typedef struct s_list
 {
@@ -53,6 +51,8 @@ typedef struct s_best_move
 	int		rota_dir_b;
 	int		size;
 }	t_best_move;
+
+//------------------------------------------
 
 // |------------------------|
 // |			LIS			|
@@ -247,19 +247,5 @@ t_instruction	*ft_lstnew_instruction(char *operation);
 t_instruction	*ft_create_list_instruction(void);
 
 //------------------------------------------
-
-// |--------------------------------|
-// |			TEMPORARY			|
-// |--------------------------------|
-
-void			ft_print_tab(char **tab);
-void			ft_print_list(t_list **lst);
-void			ft_print_new_element(t_list *tmp);
-void			ft_print_tab_int(int *tab, int size);
-void			ft_print_list_one_line(t_list **lst);
-void			ft_print_piles(char *str, t_push_swap p);
-void			ft_print_list_instruction(t_instruction **lst);
-void			ft_print_new_element_instruction(t_instruction *tmp);
-void			ft_print_list_instruction_one_line(t_instruction **lst);
 
 #endif

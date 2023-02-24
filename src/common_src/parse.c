@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:40:36 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/23 22:19:35 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/24 16:07:28 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,10 +109,7 @@ int	ft_parse(char *str, t_list **lst)
 		i++;
 	}
 	if (!ft_split_atoi(str, lst, 1))
-	{
-		free(str);
-		return (-1);
-	}
+		return (free(str), ft_lstclear(lst), -1);
 	free(str);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:11:19 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/16 19:53:22 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/24 16:17:37 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-
-# include <stdio.h> // \/!\ CAUTION !!!!! /!\/
 
 typedef struct s_list
 {
@@ -34,7 +32,6 @@ typedef struct s_instruction
 	struct s_instruction	*next;
 	struct s_instruction	*prev;
 	char					*operation;
-	// char					*invert_operation;
 }	t_instruction;
 
 typedef struct s_push_swap
@@ -43,6 +40,8 @@ typedef struct s_push_swap
 	t_list			**pile_b;
 	t_instruction	**instructions;
 }	t_push_swap;
+
+//------------------------------------------
 
 // |----------------------------|
 // |			UTILS			|
@@ -128,40 +127,6 @@ t_instruction	*ft_lstnew_instruction(char *operation);
 
 t_instruction	*ft_create_list_instruction(void);
 
-// |----------------------------------------------------|
-// |			LIST_INSTRUCTIONS_COMBINATION			|
-// |----------------------------------------------------|
-
-int				ft_find_combination_move(t_instruction **lst);
-int				ft_combinate_move(t_instruction *tmp, int n,
-					char *combinated_move);
-
-// |--------------------------------------------------------|
-// |			LIST_INSTRUCTIONS_COMBINATION_UTILS			|
-// |--------------------------------------------------------|
-
-int				ft_find_min_value(int a, int b);
-int				ft_find_combination_move_helper(t_instruction **tmp,
-					int *combinate_number);
-
-void			ft_init_int_tab(int *tab, int size);
-void			ft_delete_one_element(t_instruction **tmp,
-					t_instruction *new_tmp);
-
 //------------------------------------------
-
-// |--------------------------------|
-// |			TEMPORARY			|
-// |--------------------------------|
-
-void			ft_print_tab(char **tab);
-void			ft_print_list(t_list **lst);
-void			ft_print_new_element(t_list *tmp);
-void			ft_print_tab_int(int *tab, int size);
-void			ft_print_list_one_line(t_list **lst);
-void			ft_print_piles(char *str, t_push_swap p);
-void			ft_print_list_instruction(t_instruction **lst);
-void			ft_print_new_element_instruction(t_instruction *tmp);
-void			ft_print_list_instruction_one_line(t_instruction **lst);
 
 #endif

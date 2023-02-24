@@ -20,10 +20,7 @@ COMMON_SRC		= 	$(addprefix common_src/, \
 					piles_utils.c \
 					print_functions.c \
 					list_instructions_utils.c \
-					\
-					temporary.c \
 					)
-# BECAREFUL -> TEMPORARY.C
 
 # SOURCES USE FOR THE SECOND ALGO TO DO THE FASTEST MOVE (MOVE WITH THE LESS OPERATIONS) (USED BY PUSH_SWAP)
 ALGO_SRC 		=	$(addprefix algo_src/, \

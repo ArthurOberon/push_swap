@@ -268,18 +268,6 @@ set ARG (ruby -e "puts (-50..50).to_a.shuffle.join(' ')") ; ./push_swap $ARG | .
 make -C checker_visu/
 ```
 
-## Malloc Protections :
-- [x] get_next_line
-- [x] ft_tab_from_list
-- [x] ft_lstnew_instruction
-- [x] ft_malloc_zero
-- [x] ft_lst_add
-- [x] ft_strdup
-- [x] ft_tab_from_list (index)
-- [x] ft_tab_from_list (lis_utils)
-- [x] ft_init_lis_tab
-- [x] ft_create_lis
-
 ## Author
 * **[Arthur Obéron](https://github.com/ArthurOberon)**
-* **Thanks to Youva Gaudé & Johanne Vigny & ULYSSE LEVALLOIS & ALEX CARDONA & QUANTIN THIERRY & ELIA KHALED for the big help**
+* **Thanks to [Youva Gaudé](https://github.com/Eviber) & Alex Cardona & Johanne Vigny & Elia Khaled & Ulysse Levallois & [Quentin Thierry](https://github.com/QuentinThierry/)for the big help**

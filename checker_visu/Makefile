@@ -24,10 +24,7 @@ COMMON_SRC 		=	$(addprefix common_src/, \
 					piles_utils.c \
 					print_functions.c \
 					list_instructions_utils.c \
-					\
-					temporary.c \
 					)
-## BECAREFUL -> TEMPORARY.C
 
 CHECKER_SRC 	=	$(addprefix checker_src/, \
 					checker.c \
