@@ -30,6 +30,7 @@ ALGO_SRC 		=	$(addprefix algo_src/, \
 					algo.c \
 					algo_utils.c \
 					piles_min_max.c \
+					optimize_rotation.c \
 					do_best_move_utils.c \
 					do_best_move_utils_2.c \
 					)
@@ -39,7 +40,6 @@ MOVE_SRC 		=	$(addprefix move_src/, \
 					move.c \
 					preset_move.c \
 					preset_move_utils.c \
-					optimize_rotation.c \
 					)
 
 # SOURCES UTILS FOR PUSH_SWAP (USED BY PUSH_SWAP)

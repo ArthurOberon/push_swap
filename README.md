@@ -64,10 +64,9 @@ make bonus
 |STEP		|Description	|
 |---------------|---------------|
 |LIS			| Length Increase Subsequence	|
-|Find The Best Move| Calcul the number of move for each element of pile_b and do the best	|
+|Find The Best Move| Calcul the number of move for each element of Stack B and do the best	|
 
 ## LIS
-
 
 Length Increasing Subsequence
 
@@ -75,8 +74,8 @@ At the start the lis_tab look like this :
 
 | POS   | 0 | 1 | 2 | 3 | 4 |
 |-------|---|---|---|---|---|
-|INDEX | 2 | 1 | 3 | 4 | 5 |
-|LIS | 1 | 1 | 1 | 1 | 1 |
+|INDEX	| 2 | 1 | 3 | 4 | 5 |
+|LIS	| 1 | 1 | 1 | 1 | 1 |
 
 LIS of all index is egal to 1 there are all at least a lis of length 1
 
@@ -201,12 +200,30 @@ At the end the lis_tab look like this :
 |INDEX 	| 1 | 0 | 2 | 3 | 4 |
 |LIS	| 1 | 4 | 3 | 2 | 1 |
 
-So the best LIS is : 
+So the best Subsequence of Index is : 
 ```
 [0, 2, 3, 4]
 ```
 ## Find The Best Move
 
+To find the best move, I create a structure :
+```
+typedef struct s_best_move
+{
+	int		sa;				// Number of sa
+	int		sb;				// Number of sb
+	int		rota_dir_a;		// Number of rotation on a (negatif is for rra)
+	int		rota_dir_b;		// Number of rotation on b (negatif is for rrb)
+	int		size;			// Sum of all previous variables + 1 (+ 1 is for pa)
+}	t_best_move;
+```
+
+* For each element of the stack B, it computes the best movement with respect to its position in the stack
+* Saved the t_best_move with the smallest size
+* When he has finished calculating the movements for each of the elements, it makes the movements that have been saved (by using each variable of the struct to know if we do a sa, rra, rb, rr, etc...)
+* Repeat, until the Stack is empty
+
+* And TADA, it sorted !
 ---
 
 ## Stats

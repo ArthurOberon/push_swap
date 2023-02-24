@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:11:19 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/23 20:10:49 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/24 14:40:06 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,21 +47,12 @@ typedef struct s_push_swap
 
 typedef struct s_best_move
 {
-	int		size;
-	int		rota_dir_a;
-	int		rota_dir_b;
 	int		sa;
 	int		sb;
+	int		rota_dir_a;
+	int		rota_dir_b;
+	int		size;
 }	t_best_move;
-
-typedef struct s_sequence_data
-{
-	int	pos;
-	int	first;
-	int	last;
-	int	count;
-	int	*tab;
-}	t_sequence_data;
 
 // |------------------------|
 // |			LIS			|
