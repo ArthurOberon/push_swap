@@ -37,7 +37,9 @@ To create a set of random numbers :
 ```
 ruby -e "puts (-50..50).to_a.shuffle.join(' ')"`
 ```
-### Example :
+
+### Example
+
 ```
 ARG=`ruby -e "puts (-50..50).to_a.shuffle.join(' ')"` ; ./push_swap $ARG | ./checker $ARG
 ```
@@ -47,6 +49,7 @@ set ARG (ruby -e "puts (-50..50).to_a.shuffle.join(' ')") ; ./push_swap $ARG | .
 ```
 
 ### Compiling
+
 To compile push_swap :
 ```
 make all
@@ -70,7 +73,7 @@ make bonus
 
 Length Increasing Subsequence is used to find the length of the longest subsequence of a given sequence such that all elements of the subsequence are sorted in increasing order.
 
-### For example :
+### For example
 
 At the start it will look like this :
 
@@ -79,14 +82,14 @@ At the start it will look like this :
 |INDEX	| 2 | 1 | 3 | 4 | 5 |
 |LIS	| 1 | 1 | 1 | 1 | 1 |
 
-LIS of all index is egal to 1 because there are all at least a lis of length 1
+LIS of all index is egal to 1 because there are all at least a lis of length 1.
 
 Initialization of variable :
 ```
 I = size - 1;
 J = I - 1;
 ```
-Condition to change LIS[I]
+Condition to change LIS[I] :
 ```
 if (index[i] < index[j] && lis[i] < lis[j] + 1)
 	lis[i] = lis[j] + 1;
@@ -180,8 +183,9 @@ At the end the lis_tab look like this :
 |INDEX 	| 1 | 0 | 2 | 3 | 4 |
 |LIS	| 1 | 4 | 3 | 2 | 1 |
 
-So the length of LIS is : `4`
-And the LIS is : `[0, 2, 3, 4]`
+So the length of LIS is : `4`.
+And the LIS is : `[0, 2, 3, 4]`.
+
 ## Find The Best Move
 
 To find the best move, I create a structure :
@@ -203,7 +207,8 @@ typedef struct s_best_move
 * And VOILA ! It's sorted !
 ---
 
-## Stats
+## Statistics
+
 For 1 to 5 :
 ```
 Limit = 12
@@ -253,7 +258,8 @@ To check if the set of instructions sort correctly with the visualizer add `-v` 
 ./checker_visu/checker -v 1 2 3
 ```
 
-### Example with visualizer:
+### Example with visualizer
+
 ```
 ARG=`ruby -e "puts (-50..50).to_a.shuffle.join(' ')"` ; ./push_swap $ARG | ./checker_visu/checker -v $ARG
 ```
