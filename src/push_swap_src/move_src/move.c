@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 10:45:19 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/22 20:59:28 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/26 18:40:13 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,14 @@ int	ft_check_obvious(t_push_swap p)
 
 	if (ft_is_ascending(*p.pile_a) == 1)
 	{
+		tmp = *p.pile_a;
+		if (tmp->index != 0)
+		{
+			while (tmp->index != 0)
+				tmp = tmp->next;
+			ft_move_to_top_pile_a(p, tmp);
+			ft_print_instruction((*p.instructions));
+		}
 		ft_lstclear(p.pile_a);
 		ft_lstclear_instruction(p.instructions);
 		exit (EXIT_SUCCESS);
