@@ -64,14 +64,15 @@ make bonus
 
 # How My Push_Swap Work ?
 
-|STEP		|Description	|
-|---------------|---------------|
-|LIS			| Length Increase Subsequence	|
-|Find The Best Move| Calcul the number of move for each element of Stack B and do the best	|
+|Algo		|Description	|Purpose	|
+|---------------|---------------|---------------|
+|LIS			| Length Increase Subsequence	|Separated the stack A in two semi-sorted stacks	|
+|Find The Best Move| Calcul the number of move for each element of Stack B and do the best	| Push all stack B in stack A and sort them at the same time |
 
 ## LIS
 
 Length Increasing Subsequence is used to find the length of the longest subsequence of a given sequence such that all elements of the subsequence are sorted in increasing order.
+When the best LIS will be found, it gonna push all A in B except the best LIS.
 
 ### For example
 
