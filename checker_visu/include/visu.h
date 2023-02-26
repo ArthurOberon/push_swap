@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:17:52 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/24 16:17:51 by aoberon          ###   ########.fr       */
+/*   Updated: 2023/02/26 13:14:01 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <mlx.h>
-# include <X11/keysym.h>
 # include <X11/X.h>
+# include <X11/keysym.h>
 
 # define WINDOW_WIDTH 1600
 # define WINDOW_HEIGHT 800
