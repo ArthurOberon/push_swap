@@ -1,7 +1,7 @@
 PUSH_SWAP 		=	push_swap
 CHECKER 		=	checker
 
-CC 				=	gcc
+CC 				=	cc
 CFLAGS 			=	-Wall -Wextra -Werror
 INCLUDES_DIR 	=	include/
 SRC_DIR 		=	src/
