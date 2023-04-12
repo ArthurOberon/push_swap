@@ -80,7 +80,7 @@ At the start it will look like this :
 
 | POS   | 0 | 1 | 2 | 3 | 4 |
 |-------|---|---|---|---|---|
-|INDEX	| 2 | 1 | 3 | 4 | 5 |
+|INDEX 	| 1 | 0 | 2 | 3 | 4 |
 |LIS	| 1 | 1 | 1 | 1 | 1 |
 
 LIS of all index is egal to 1 because there are all at least a lis of length 1.
