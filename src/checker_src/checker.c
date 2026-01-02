@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:55:15 by aoberon           #+#    #+#             */
-/*   Updated: 2026/01/02 14:28:20 by aoberon          ###   ########.fr       */
+/*   Updated: 2026/01/02 14:36:09 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,7 @@ int	main(int argc, char **argv)
 	ft_init_index(&lst_a);
 	lst_instruction = ft_create_list_instruction();
 	if (!lst_instruction)
-	{
-		ft_lstclear(&lst_a);
-		return (1);
-	}
+		return (ft_lstclear(&lst_a), 1);
 	if (visualize)
 		return (visu(&lst_a, &lst_b, &lst_instruction));
 	return (ft_checker(&lst_a, &lst_b, &lst_instruction));

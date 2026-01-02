@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:40:36 by aoberon           #+#    #+#             */
-/*   Updated: 2026/01/02 14:29:05 by aoberon          ###   ########.fr       */
+/*   Updated: 2026/01/02 14:36:59 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ static int	ft_split_atoi(char *str, t_list **lst, int security)
 	i = 0;
 	while (security && str[i])
 	{
-		if ((ft_isdigit(str[i]) || str[i] == '-' || str[i] == '+') && str[i + 1] != 'v')
+		if ((ft_isdigit(str[i]) || str[i] == '-' || str[i] == '+')
+			&& str[i + 1] != 'v')
 		{
 			security = security & ft_protect_atoi(str + i, &nbr);
 			security = security & ft_lst_add(lst, nbr);
@@ -87,7 +88,6 @@ static int	ft_split_atoi(char *str, t_list **lst, int security)
 	}
 	return (security);
 }
-
 
 int	ft_parse(char *str, t_list **lst, int *visualize)
 {
