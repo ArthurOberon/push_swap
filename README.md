@@ -1,4 +1,4 @@
-![Norminette](https://github.com/ArthurOberon/Push_swap/actions/workflows/norminette.yml/badge.svg) ![Makefile](https://github.com/ArthurOberon/Push_swap/actions/workflows/makefile.yml/badge.svg)
+![Norminette](https://github.com/ArthurOberon/Push_swap/actions/workflows/norminette.yml/badge.svg)
 
 ---
 
@@ -250,11 +250,7 @@ Number of tests above the limit : 0 / 500
 
 ## Usage
 
-To check if the set of instructions sort correctly :
-```
-./checker_visu/checker 1 2 3
-```
-To check if the set of instructions sort correctly with the visualizer add `-v` :
+To use the visualizer, use the checker with the `-v` option :
 ```
 ./checker_visu/checker -v 1 2 3
 ```
@@ -262,28 +258,9 @@ To check if the set of instructions sort correctly with the visualizer add `-v` 
 ### Example with visualizer
 
 ```
-ARG=`ruby -e "puts (-50..50).to_a.shuffle.join(' ')"` ; ./push_swap $ARG | ./checker_visu/checker -v $ARG
+ARG=`ruby -e "puts (-5..5).to_a.shuffle.join(' ')"` ; ./push_swap $ARG | ./checker_visu/checker -v $ARG
 ```
 On fish :
 ```
-set ARG (ruby -e "puts (-50..50).to_a.shuffle.join(' ')") ; ./push_swap $ARG | ./checker_visu/checker -v $ARG
+set ARG (ruby -e "puts (-5..5).to_a.shuffle.join(' ')") ; ./push_swap $ARG | ./checker_visu/checker -v $ARG
 ```
-
-### Compiling
-
-```
-make -C checker_visu/
-```
-
----
-
-### Author
-* **[Arthur Obéron](https://github.com/ArthurOberon)**
-
-### Thanks to :
-* **[Youva Gaudé](https://github.com/Eviber)**
-* **Alex Cardona**
-* **Johanne Vigny**
-* **Elia Khaled**
-* **Ulysse Levallois**
-* **[Quentin Thierry](https://github.com/QuentinThierry/)**

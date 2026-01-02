@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:32:05 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/17 17:50:55 by aoberon          ###   ########.fr       */
+/*   Updated: 2026/01/02 14:28:58 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@
 static int	create_gradient_color(float ratio)
 {
 	int	color;
-	int	r;
-	int	g;
-	int	b;
+	int rgb[3];
 	int	normalized;
 	int	region;
 	int	x;
@@ -28,29 +26,29 @@ static int	create_gradient_color(float ratio)
 	x = normalized % 256;
 	if (region == 0)
 	{
-		r = 0;
-		g = x;
-		b = 255;
+		rgb[0] = 0;
+		rgb[1] = x;
+		rgb[2] = 255;
 	}
 	else if (region == 1)
 	{
-		r = 0;
-		g = 255;
-		b = 255 - x;
+		rgb[0] = 0;
+		rgb[1] = 255;
+		rgb[2] = 255 - x;
 	}
 	else if (region == 2)
 	{
-		r = x;
-		g = 255;
-		b = 0;
+		rgb[0] = x;
+		rgb[1] = 255;
+		rgb[2] = 0;
 	}
 	else if (region == 3)
 	{
-		r = 255;
-		g = 255 - x;
-		b = 0;
+		rgb[0] = 255;
+		rgb[1] = 255 - x;
+		rgb[2] = 0;
 	}
-	color = r << 16 | g << 8 | b;
+	color = rgb[0] << 16 | rgb[1] << 8 | rgb[2];
 	return (color);
 }
 

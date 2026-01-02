@@ -1,16 +1,19 @@
 PUSH_SWAP 		=	push_swap
 CHECKER 		=	checker
+VISU_CHECKER	=	visu_checker
 
 CC 				=	cc
 CFLAGS 			=	-Wall -Wextra -Werror
+MLX_FLAGS 		=	-L./ -lmlx -lX11 -lXext
 INCLUDES_DIR 	=	include/
 SRC_DIR 		=	src/
 OBJ_DIR 		=	obj/
 INCLUDES_H		=	-I./$(INCLUDES_DIR)
-DEPS 			=	$(INCLUDES_DIR)push_swap.h
+DEPS 			=	$(INCLUDES_DIR)visu.h $(INCLUDES_DIR)push_swap.h
 
 # SOURCES USE BY PUSH_SWAP AND CHEKER
 COMMON_SRC		= 	$(addprefix common_src/, \
+					index.c \
 					utils.c \
 					parse.c \
 					merge_str.c \
@@ -39,7 +42,6 @@ MOVE_SRC 		=	$(addprefix move_src/, \
 
 # SOURCES UTILS FOR PUSH_SWAP (USED BY PUSH_SWAP)
 PS_UTILS_SRC 	=	$(addprefix push_swap_utils_src/, \
-					index.c \
 					push_swap_utils.c \
 					)
 
@@ -64,11 +66,22 @@ GNL_SRC 		=	$(addprefix gnl_src/, \
 					get_next_line_utils.c \
 					)
 
+# SOURCES FOR ONLY VISU_CHECKER
+VISU_SRC 		=	$(addprefix visu_src/, \
+					visu.c \
+					render.c \
+					handler.c \
+					autoplay.c \
+					visu_utils.c \
+					render_utils.c \
+					)
+
 # SOURCES FOR ONLY CHECKER
 CHECKER_SRC 	=	$(addprefix checker_src/, \
 					checker.c \
 					create_list_instructions.c \
 					$(GNL_SRC) \
+					$(VISU_SRC) \
 					)
 
 # ALL SOURCES FOR PUSH_SWAP
@@ -100,7 +113,7 @@ $(PUSH_SWAP): $(PS_OBJ)
 
 $(CHECKER): $(CHECKER_OBJ)
 	@echo "\e[36mMaking $(CHECKER)...\e[0m"
-	@$(CC) $(CFLAGS) $(INCLUDES_H) $(CHECKER_OBJ) -o $(CHECKER)
+	@$(CC) $(CFLAGS) $(INCLUDES_H) $(CHECKER_OBJ) $(MLX_FLAGS) -o $(CHECKER)
 	@echo "\e[32mDone !\e[0m"
 
 bonus: $(CHECKER)

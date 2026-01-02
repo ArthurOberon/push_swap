@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:40:36 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/24 16:07:28 by aoberon          ###   ########.fr       */
+/*   Updated: 2026/01/02 14:29:05 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static int	ft_split_atoi(char *str, t_list **lst, int security)
 	i = 0;
 	while (security && str[i])
 	{
-		if (ft_isdigit(str[i]) || str[i] == '-' || str[i] == '+')
+		if ((ft_isdigit(str[i]) || str[i] == '-' || str[i] == '+') && str[i + 1] != 'v')
 		{
 			security = security & ft_protect_atoi(str + i, &nbr);
 			security = security & ft_lst_add(lst, nbr);
@@ -88,13 +88,20 @@ static int	ft_split_atoi(char *str, t_list **lst, int security)
 	return (security);
 }
 
-int	ft_parse(char *str, t_list **lst)
+
+int	ft_parse(char *str, t_list **lst, int *visualize)
 {
 	int	i;
 
 	i = 0;
 	while (ft_isspace(str[i]))
 		i++;
+	if (visualize)
+	{
+		*visualize = (str[i] == '-' && str[i + 1] == 'v'
+				&& !ft_isdigit(str[i + 2]));
+		i += *visualize * 2;
+	}
 	if (str[0] == '\0')
 		return (-1);
 	while (str[i])
@@ -102,14 +109,15 @@ int	ft_parse(char *str, t_list **lst)
 		if (!ft_isdigit(str[i]) && !ft_isspace(str[i])
 			&& !((str[i] != '+' || str[i] != '-') && ft_isdigit(str[i + 1])
 				&& !ft_isdigit(str[i - 1])))
-		{
-			free(str);
-			return (-1);
-		}
+			return (free(str), -1);
 		i++;
 	}
 	if (!ft_split_atoi(str, lst, 1))
-		return (free(str), ft_lstclear(lst), -1);
+	{
+		free(str);
+		ft_lstclear(lst);
+		return (-1);
+	}
 	free(str);
 	return (0);
 }

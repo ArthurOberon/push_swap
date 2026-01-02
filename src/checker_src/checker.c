@@ -6,13 +6,14 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:55:15 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/23 22:17:31 by aoberon          ###   ########.fr       */
+/*   Updated: 2026/01/02 14:28:20 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "visu.h"
 
-static int	ft_check_is_sort(t_list **lst)
+int	ft_check_is_sort(t_list **lst)
 {
 	t_list	*first;
 	t_list	*tmp;
@@ -60,23 +61,27 @@ int	main(int argc, char **argv)
 	t_list			*lst_b;
 	t_instruction	*lst_instruction;
 	char			*str;
+	int				visualize;
 
 	lst_a = NULL;
 	lst_b = NULL;
 	if (argc == 1)
 		return (ft_putstr_fd("Error\n", 2), 1);
 	str = ft_str_merge(argv + 1, 1, argc - 1);
-	if (ft_parse(str, &lst_a) == -1)
+	if (ft_parse(str, &lst_a, &visualize) == -1)
 	{
 		ft_lstclear(&lst_a);
 		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
+	ft_init_index(&lst_a);
 	lst_instruction = ft_create_list_instruction();
 	if (!lst_instruction)
 	{
 		ft_lstclear(&lst_a);
 		return (1);
 	}
+	if (visualize)
+		return (visu(&lst_a, &lst_b, &lst_instruction));
 	return (ft_checker(&lst_a, &lst_b, &lst_instruction));
 }

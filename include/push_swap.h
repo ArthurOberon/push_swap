@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:11:19 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/26 13:13:05 by aoberon          ###   ########.fr       */
+/*   Updated: 2026/01/02 13:32:03 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,13 +97,15 @@ void			ft_sort_int_tab(int *tab, int size);
 // |			OTHERS			|
 // |----------------------------|
 
+int				ft_check_is_sort(t_list **lst);
+
 char			*get_next_line(int fd);
 
 // |----------------------------|
 // |			PARSE			|
 // |----------------------------|
 
-int				ft_parse(char *str, t_list **lst);
+int				ft_parse(char *str, t_list **lst, int *visualize);
 
 // |--------------------------------|
 // |			MERGE_STR			|

@@ -6,7 +6,7 @@
 /*   By: aoberon <aoberon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:10:29 by aoberon           #+#    #+#             */
-/*   Updated: 2023/02/24 16:46:54 by aoberon          ###   ########.fr       */
+/*   Updated: 2026/01/02 13:34:56 by aoberon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	str = ft_str_merge(argv + 1, 1, argc - 1);
-	if (ft_parse(str, &lst_a) == -1)
+	if (ft_parse(str, &lst_a, NULL) == -1)
 	{
 		ft_lstclear(&lst_a);
 		ft_putstr_fd("Error with the parsing\n", 2);
